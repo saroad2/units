@@ -16,12 +16,14 @@ namespace length
 
 struct yards_tag
 {
+	static constexpr double scale = 0.9144;
 	static std::string singularName();
 	static std::string pluralName();
 };
 
 struct meters_tag
 {
+	static constexpr double scale = 1;
 	static std::string singularName();
 	static std::string pluralName();
 };

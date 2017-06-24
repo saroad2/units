@@ -33,7 +33,7 @@ public:
 	: _value{value}
 	{
 	}
-	explicit constexpr NumericValue(const _selfType& Other) = default;
+	constexpr NumericValue(const _selfType& Other) = default;
 	constexpr NumericValue(_selfType&& Other) = default;
 	constexpr _selfType& operator=(const _selfType& other) = default;
 
@@ -61,11 +61,23 @@ public:
 		stream << value() << " " << pluralName();
 	}
 
+
 private:
 	double _value;
+	static constexpr double scale() {return _scale::scale;}
 	static std::string singularName() {return _scale::singularName();}
 	static std::string pluralName() {return _scale::pluralName();}
+
+	template<class To, class... Tags>
+	friend To units_cast(const NumericValue<Tags...>& unit);
 };
+
+template<class To, class... Tags>
+To units_cast(const NumericValue<Tags...>& unit)
+{
+	using From = NumericValue<Tags...>;
+	return To{unit.value() * From::scale() / To::scale()};
+}
 
 template<class... Tags1, class... Tags2>
 constexpr bool operator==(const NumericValue<Tags1...>& first,

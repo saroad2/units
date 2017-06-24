@@ -14,8 +14,17 @@ namespace units {
 namespace length
 {
 
-struct yards_tag{};
-struct meters_tag{};
+struct yards_tag
+{
+	static std::string singularName();
+	static std::string pluralName();
+};
+
+struct meters_tag
+{
+	static std::string singularName();
+	static std::string pluralName();
+};
 
 using Yards = NumericValue<yards_tag>;
 using Meters = NumericValue<meters_tag>;

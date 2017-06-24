@@ -10,6 +10,7 @@
 
 #include <type_traits>
 #include <ostream>
+#include <string>
 
 namespace units
 {
@@ -55,8 +56,15 @@ public:
 		return *this;
 	}
 
+	void print(std::ostream& stream) const
+	{
+		stream << value() << " " << pluralName();
+	}
+
 private:
 	double _value;
+	static std::string singularName() {return _scale::singularName();}
+	static std::string pluralName() {return _scale::pluralName();}
 };
 
 template<class... Tags1, class... Tags2>
@@ -125,7 +133,7 @@ constexpr NumericValue<Tags1...> operator-(const NumericValue<Tags1...>& first,
 template<class ScaleTag>
 std::ostream& operator<<(std::ostream& stream, const NumericValue<ScaleTag>& unit)
 {
-	stream << unit.value();
+	unit.print(stream);
 	return stream;
 }
 

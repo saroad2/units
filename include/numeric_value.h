@@ -72,13 +72,6 @@ private:
 	friend To units_cast(const NumericValue<Tags...>& unit);
 };
 
-template<class To, class... Tags>
-To units_cast(const NumericValue<Tags...>& unit)
-{
-	using From = NumericValue<Tags...>;
-	return To{unit.value() * From::scale() / To::scale()};
-}
-
 template<class... Tags1, class... Tags2>
 constexpr bool operator==(const NumericValue<Tags1...>& first,
 						  const NumericValue<Tags2...>& second)

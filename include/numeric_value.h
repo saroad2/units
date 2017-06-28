@@ -17,15 +17,17 @@ namespace units
 
 #define VALIDATE_SAME_UNIT(Unit1, Unit2) \
 	static_assert(std::is_same<Unit1, Unit2>::value, \
-				  "Cannot use this operation on units from different types");
+				  "Cannot use this operation on different units");
 
-template<class ScaleTag>
+template<class ScaleTag, class TypeTag>
 class NumericValue
 {
 protected:
-	using _selfType = NumericValue<ScaleTag>;
+	using _selfType = NumericValue<ScaleTag, TypeTag>;
 public:
 	using _scale = ScaleTag;
+	using _type = TypeTag;
+
 	constexpr NumericValue() = default;
 	explicit constexpr NumericValue(double value)
 	: _value{value}
@@ -38,18 +40,20 @@ public:
 	constexpr double value() const {return _value;}
 	explicit constexpr operator double() const {return value();}
 
-	template<class OtherScaleTag>
-	constexpr _selfType& operator+=(const NumericValue<OtherScaleTag>& other)
+	template<class OtherScaleTag, class OtherTypeTag>
+	constexpr _selfType& operator+=(const NumericValue<OtherScaleTag, OtherTypeTag>& other)
 	{
-		VALIDATE_SAME_UNIT(_selfType, NumericValue<OtherScaleTag>);
+		using OtherNumericValue = NumericValue<OtherScaleTag, OtherTypeTag>;
+		VALIDATE_SAME_UNIT(_selfType, OtherNumericValue);
 		_value += (double)other;
 		return *this;
 	}
 
-	template<class OtherScaleTag>
-	constexpr _selfType& operator-=(const NumericValue<OtherScaleTag>& other)
+	template<class OtherScaleTag, class OtherTypeTag>
+	constexpr _selfType& operator-=(const NumericValue<OtherScaleTag, OtherTypeTag>& other)
 	{
-		VALIDATE_SAME_UNIT(_selfType, NumericValue<OtherScaleTag>);
+		using OtherNumericValue = NumericValue<OtherScaleTag, OtherTypeTag>;
+		VALIDATE_SAME_UNIT(_selfType, OtherNumericValue);
 		_value -= (double)other;
 		return *this;
 	}
@@ -132,8 +136,8 @@ constexpr NumericValue<Tags1...> operator-(const NumericValue<Tags1...>& first,
 	return copy;
 }
 
-template<class ScaleTag>
-std::ostream& operator<<(std::ostream& stream, const NumericValue<ScaleTag>& unit)
+template<class ScaleTag, class TypeTag>
+std::ostream& operator<<(std::ostream& stream, const NumericValue<ScaleTag, TypeTag>& unit)
 {
 	unit.print(stream);
 	return stream;

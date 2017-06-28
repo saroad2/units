@@ -15,6 +15,8 @@ namespace units {
 namespace length
 {
 
+struct length_tag{};
+
 struct inches_tag
 {
 	static constexpr double scale = 0.025399999961392000225;
@@ -43,10 +45,10 @@ struct meters_tag
 	static std::string pluralName();
 };
 
-using Inches = NumericValue<inches_tag>;
-using Feet = NumericValue<feet_tag>;
-using Yards = NumericValue<yards_tag>;
-using Meters = NumericValue<meters_tag>;
+using Inches = NumericValue<inches_tag, length_tag>;
+using Feet = NumericValue<feet_tag, length_tag>;
+using Yards = NumericValue<yards_tag, length_tag>;
+using Meters = NumericValue<meters_tag, length_tag>;
 
 using Micrometers = Micro<Meters>;
 using Millimeters = Milli<Meters>;

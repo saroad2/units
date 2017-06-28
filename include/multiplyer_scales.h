@@ -30,13 +30,13 @@ public: \
 }
 #define DEFINE_MULTIPLYER_CLASS(Name, name) \
 template<class Unit> \
-class Name : public NumericValue<name##_scale_tag<typename Unit::_scale>> \
+class Name : public NumericValue<name##_scale_tag<typename Unit::_scale>, typename Unit::_type> \
 { \
 public: \
-	constexpr Name() : NumericValue<name##_scale_tag<typename Unit::_scale>>{} {} \
-	explicit constexpr Name(double value) : NumericValue<name##_scale_tag<typename Unit::_scale>>{value} {} \
-	constexpr Name(const Name& other) : NumericValue<name##_scale_tag<typename Unit::_scale>>{other} {} \
-	constexpr Name(Name&& other) : NumericValue<name##_scale_tag<typename Unit::_scale>>{other} {} \
+	constexpr Name() : NumericValue<name##_scale_tag<typename Unit::_scale>, typename Unit::_type>{} {} \
+	explicit constexpr Name(double value) : NumericValue<name##_scale_tag<typename Unit::_scale>, typename Unit::_type>{value} {} \
+	constexpr Name(const Name& other) : NumericValue<name##_scale_tag<typename Unit::_scale>, typename Unit::_type>{other} {} \
+	constexpr Name(Name&& other) : NumericValue<name##_scale_tag<typename Unit::_scale>, typename Unit::_type>{other} {} \
 	constexpr Name& operator=(const Name& other) = default; \
 };
 

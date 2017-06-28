@@ -6,7 +6,7 @@
  */
 
 #include "units/include/length_units.h"
-#include "units/include/units_cast.h"
+#include "units/main/helpers.h"
 
 #include <gtest/gtest.h>
 
@@ -18,26 +18,8 @@ using units::units_cast;
 using std::cout;
 using std::endl;
 
-class TestLengthUnitsConversions : public Test
+class TestLengthUnitsConversions : public TestUnitsConversions
 {
-protected:
-	template<class Unit1, class Unit2>
-	void check_conversions(double unit1InUnit2, double unit2InUnit1)
-	{
-		check_conversion<Unit1, Unit2>(unit1InUnit2);
-		check_conversion<Unit2, Unit1>(unit2InUnit1);
-	}
-
-	double maxError;
-
-private:
-	template<class Unit1, class Unit2>
-	void check_conversion(double unit1InUnit2)
-	{
-		auto expected = Unit2{unit1InUnit2};
-		auto actual = units_cast<Unit2>(Unit1{1});
-		EXPECT_NEAR(expected.value(), actual.value(), maxError);
-	}
 };
 
 TEST_F(TestLengthUnitsConversions, inches_to_meters)
@@ -207,4 +189,50 @@ TEST_F(TestLengthUnitsConversions, kilometer_to_centimeter)
 {
 	maxError = 1e-10;
 	check_conversions<Kilometers, Centimeters>(1e+5, 1e-5);
+}
+
+// ============================================================
+
+class TestLengthUnitsPrintings : public TestUnitsPrintings
+{
+};
+
+TEST_F(TestLengthUnitsPrintings, print_inches)
+{
+	check_print<Inches>("inches");
+}
+
+TEST_F(TestLengthUnitsPrintings, print_feet)
+{
+	check_print<Feet>("feet");
+}
+
+TEST_F(TestLengthUnitsPrintings, print_yards)
+{
+	check_print<Yards>("yards");
+}
+
+TEST_F(TestLengthUnitsPrintings, print_meters)
+{
+	check_print<Meters>("meters");
+}
+
+TEST_F(TestLengthUnitsPrintings, print_micrometers)
+{
+	check_print<Micrometers>("micrometers");
+}
+
+TEST_F(TestLengthUnitsPrintings, print_millimeters)
+{
+	check_print<Millimeters>("millimeters");
+}
+
+TEST_F(TestLengthUnitsPrintings, print_centimeters)
+{
+	check_print<Centimeters>("centimeters");
+}
+
+TEST_F(TestLengthUnitsPrintings, print_kilometers)
+{
+	check_print<Kilometers>("kilometers");
 }

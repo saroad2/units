@@ -1,17 +1,15 @@
-#include "units/include/length_units.h"
+#include "units/main/helpers.h"
+
 #include <gtest/gtest.h>
-#include <units/main/helpers.h>
 
 using namespace testing;
-using namespace units;
 
 template<class UnitType>
 class TestBasicUsage : public Test
 {
 };
 
-using MyTypes = Types<
-		LENGTH_UNITS()>;
+using MyTypes = Types<ALL_UNITS()>;
 TYPED_TEST_CASE(TestBasicUsage, MyTypes);
 
 TYPED_TEST(TestBasicUsage, test_double_constructor)

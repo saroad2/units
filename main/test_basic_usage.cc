@@ -129,3 +129,114 @@ TYPED_TEST(TestBasicUsage, test_less_than_not_pass_because_of_equality)
 	TypeParam unit2{value1};
 	EXPECT_FALSE(unit1 < unit2);
 }
+
+TYPED_TEST(TestBasicUsage, test_less_than_not_pass_because_of_too_big_value)
+{
+	double value1 = 5.123;
+	double value2 = 5.122;
+	TypeParam unit1{value1};
+	TypeParam unit2{value2};
+	EXPECT_FALSE(unit1 < unit2);
+}
+
+TYPED_TEST(TestBasicUsage, test_less_than_equal_pass_because_of_small_enough_value)
+{
+	double value1 = 5.122;
+	double value2 = 5.123;
+	TypeParam unit1{value1};
+	TypeParam unit2{value2};
+	EXPECT_TRUE(unit1 <= unit2);
+}
+
+TYPED_TEST(TestBasicUsage, test_less_than_equal_not_pass_because_of_equality)
+{
+	double value1 = 5.122;
+	TypeParam unit1{value1};
+	TypeParam unit2{value1};
+	EXPECT_TRUE(unit1 <= unit2);
+}
+
+TYPED_TEST(TestBasicUsage, test_less_than_equal_not_pass_because_of_too_big_value)
+{
+	double value1 = 5.123;
+	double value2 = 5.122;
+	TypeParam unit1{value1};
+	TypeParam unit2{value2};
+	EXPECT_FALSE(unit1 <= unit2);
+}
+
+TYPED_TEST(TestBasicUsage, test_bigger_than_pass)
+{
+	double value1 = 5.123;
+	double value2 = 5.122;
+	TypeParam unit1{value1};
+	TypeParam unit2{value2};
+	EXPECT_TRUE(unit1 > unit2);
+}
+
+TYPED_TEST(TestBasicUsage, test_bigger_than_pass_because_of_equality)
+{
+	double value1 = 5.122;
+	TypeParam unit1{value1};
+	TypeParam unit2{value1};
+	EXPECT_FALSE(unit1 > unit2);
+}
+
+TYPED_TEST(TestBasicUsage, test_bigger_than_not_pass_because_of_too_small_value)
+{
+	double value1 = 5.122;
+	double value2 = 5.123;
+	TypeParam unit1{value1};
+	TypeParam unit2{value2};
+	EXPECT_FALSE(unit1 > unit2);
+}
+
+TYPED_TEST(TestBasicUsage, test_bigger_than_equal_pass_because_of_big_enough_value)
+{
+	double value1 = 5.123;
+	double value2 = 5.122;
+	TypeParam unit1{value1};
+	TypeParam unit2{value2};
+	EXPECT_TRUE(unit1 >= unit2);
+}
+
+TYPED_TEST(TestBasicUsage, test_bigger_than_equal_pass_because_of_equality)
+{
+	double value1 = 5.122;
+	TypeParam unit1{value1};
+	TypeParam unit2{value1};
+	EXPECT_TRUE(unit1 >= unit2);
+}
+
+TYPED_TEST(TestBasicUsage, test_bigger_than_equal_not_pass_because_of_too_small_value)
+{
+	double value1 = 5.122;
+	double value2 = 5.123;
+	TypeParam unit1{value1};
+	TypeParam unit2{value2};
+	EXPECT_FALSE(unit1 >= unit2);
+}
+
+TYPED_TEST(TestBasicUsage, test_operator_plus)
+{
+	double value1 = 5.123;
+	double value2 = 3.956;
+	TypeParam unit1{value1};
+	TypeParam unit2{value2};
+	auto unit3 = unit1 + unit2;
+	EXPECT_EQ(unit1.value(), value1);
+	EXPECT_EQ(unit2.value(), value2);
+	EXPECT_EQ(unit3.value(), value1 + value2);
+}
+
+TYPED_TEST(TestBasicUsage, test_operator_minus)
+{
+	double value1 = 5.123;
+	double value2 = 3.956;
+	TypeParam unit1{value1};
+	TypeParam unit2{value2};
+	auto unit3 = unit1 - unit2;
+	EXPECT_EQ(unit1.value(), value1);
+	EXPECT_EQ(unit2.value(), value2);
+	EXPECT_EQ(unit3.value(), value1 - value2);
+}

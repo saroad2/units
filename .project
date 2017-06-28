@@ -3,6 +3,7 @@
 	<name>units</name>
 	<comment></comment>
 	<projects>
+		<project>gtest</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

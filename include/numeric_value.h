@@ -89,7 +89,7 @@ constexpr bool operator!=(const NumericValue<Tags1...>& first,
 
 template<class... Tags1, class... Tags2>
 constexpr bool operator<(const NumericValue<Tags1...>& first,
-						  const NumericValue<Tags2...>& second)
+						 const NumericValue<Tags2...>& second)
 {
 	VALIDATE_SAME_UNIT(NumericValue<Tags1...>, NumericValue<Tags2...>);
 	return first.value() < second.value();

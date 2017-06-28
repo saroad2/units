@@ -22,12 +22,10 @@ namespace units
 template<class ScaleTag>
 class NumericValue
 {
-private:
-
+protected:
 	using _selfType = NumericValue<ScaleTag>;
-	using _scale = ScaleTag;
-
 public:
+	using _scale = ScaleTag;
 	constexpr NumericValue() = default;
 	explicit constexpr NumericValue(double value)
 	: _value{value}
@@ -60,7 +58,6 @@ public:
 	{
 		stream << value() << " " << pluralName();
 	}
-
 
 private:
 	double _value;

@@ -1,6 +1,6 @@
 #include "units/include/length_units.h"
-
 #include <gtest/gtest.h>
+#include <units/main/helpers.h>
 
 using namespace testing;
 using namespace units;
@@ -10,7 +10,8 @@ class TestBasicUsage : public Test
 {
 };
 
-typedef ::testing::Types<length::Meters, length::Yards> MyTypes;
+using MyTypes = Types<
+		LENGTH_UNITS()>;
 TYPED_TEST_CASE(TestBasicUsage, MyTypes);
 
 TYPED_TEST(TestBasicUsage, test_double_constructor)

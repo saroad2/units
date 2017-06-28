@@ -15,11 +15,17 @@ namespace units
 {
 
 template<class To, class... Tags>
-To units_cast(const NumericValue<Tags...>& unit)
+constexpr To units_cast(const NumericValue<Tags...>& unit)
 {
 	using From = NumericValue<Tags...>;
 	VALIDATE_SAME_UNIT_TYPE(From, To);
 	return To{unit.value() * From::scale() / To::scale()};
+}
+
+template<class To>
+constexpr To units_cast(const To& unit)
+{
+	return unit;
 }
 
 }

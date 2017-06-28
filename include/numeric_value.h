@@ -70,7 +70,7 @@ private:
 	static std::string pluralName() {return _scale::pluralName();}
 
 	template<class To, class... Tags>
-	friend To units_cast(const NumericValue<Tags...>& unit);
+	friend constexpr To units_cast(const NumericValue<Tags...>& unit);
 };
 
 template<class... Tags1, class... Tags2>

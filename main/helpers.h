@@ -10,6 +10,7 @@
 
 #include "units/include/length_units.h"
 #include "units/include/angle_units.h"
+#include "units/include/duration_units.h"
 
 #include "units/include/units_cast.h"
 
@@ -32,9 +33,19 @@
 		units::angle::Degrees, \
 		units::angle::Radians
 
+#define DURATION_UNITS() \
+		units::duration::Microseconds, \
+		units::duration::Milliseconds, \
+		units::duration::Seconds, \
+		units::duration::Minutes, \
+		units::duration::Hours, \
+		units::duration::Days, \
+		units::duration::Years \
+
 #define ALL_UNITS() \
 		LENGTH_UNITS(), \
-		ANGLE_UNITS()
+		ANGLE_UNITS(), \
+		DURATION_UNITS()
 
 class TestUnitsConversions : public ::testing::Test
 {

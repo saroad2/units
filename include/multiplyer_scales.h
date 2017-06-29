@@ -15,7 +15,7 @@ namespace units
 
 #define DEFINE_MULTIPLYER_SCALE(name, value) \
 template<class ScaleTag> \
-class name##_scale_tag \
+class name \
 { \
 public: \
 	static constexpr double scale = value * ScaleTag::scale; \
@@ -30,15 +30,7 @@ public: \
 }
 #define DEFINE_MULTIPLYER_CLASS(Name, name) \
 template<class Unit> \
-class Name : public NumericValue<name##_scale_tag<typename Unit::_scale>, typename Unit::_type> \
-{ \
-public: \
-	constexpr Name() : NumericValue<name##_scale_tag<typename Unit::_scale>, typename Unit::_type>{} {} \
-	explicit constexpr Name(double value) : NumericValue<name##_scale_tag<typename Unit::_scale>, typename Unit::_type>{value} {} \
-	constexpr Name(const Name& other) : NumericValue<name##_scale_tag<typename Unit::_scale>, typename Unit::_type>{other} {} \
-	constexpr Name(Name&& other) : NumericValue<name##_scale_tag<typename Unit::_scale>, typename Unit::_type>{other} {} \
-	constexpr Name& operator=(const Name& other) = default; \
-};
+using Name = NumericValue<name<typename Unit::_scale>, typename Unit::_type>
 
 #define DEFINE_MULTIPLYER(Name, name, value) \
 		DEFINE_MULTIPLYER_SCALE(name, value); \

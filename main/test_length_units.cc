@@ -5,18 +5,13 @@
  *      Author: sagis
  */
 
+#include "units/main/cases.h"
 #include "units/include/length_units.h"
-#include "units/main/helpers.h"
 
 #include <gtest/gtest.h>
 
 using namespace testing;
 using namespace units::length;
-using units::units_cast;
-
-#include <iostream>
-using std::cout;
-using std::endl;
 
 class TestLengthUnitsConversions : public TestUnitsConversions
 {
@@ -25,7 +20,7 @@ class TestLengthUnitsConversions : public TestUnitsConversions
 TEST_F(TestLengthUnitsConversions, inches_to_meters)
 {
 	maxError = 1e-10;
-	check_conversions<Inches, Meters>(0.025399999922784, 39.3700788);
+	check_conversions<Inches, Meters>(0.02539999983236, 39.370079);
 }
 
 TEST_F(TestLengthUnitsConversions, feet_to_meters)
@@ -66,39 +61,39 @@ TEST_F(TestLengthUnitsConversions, kilometer_to_meters)
 
 TEST_F(TestLengthUnitsConversions, feet_to_inches)
 {
-	maxError = 1e-10;
+	maxError = 1e-7;
 	check_conversions<Feet, Inches>(12, 1.0 / 12);
 }
 
 TEST_F(TestLengthUnitsConversions, yards_to_inches)
 {
-	maxError = 1e-10;
+	maxError = 1e-6;
 	check_conversions<Yards, Inches>(36, 1.0 /36);
 }
 
 
 TEST_F(TestLengthUnitsConversions, micrometer_to_inches)
 {
-	maxError = 1e-4;
-	check_conversions<Micrometers, Inches>(3.93700788e-05, 25399.999922784);
+	maxError = 1e-10;
+	check_conversions<Micrometers, Inches>(3.93700788e-05, 25399.99983236);
 }
 
 TEST_F(TestLengthUnitsConversions, millimeter_to_inches)
 {
-	maxError = 1e-7;
-	check_conversions<Millimeters, Inches>(0.0393700788, 25.399999922784);
+	maxError = 1e-10;
+	check_conversions<Millimeters, Inches>(0.039370079, 25.39999983236);
 }
 
 TEST_F(TestLengthUnitsConversions, centimeter_to_inches)
 {
-	maxError = 1e-8;
-	check_conversions<Centimeters, Inches>(0.393700788, 2.5399999922784);
+	maxError = 1e-10;
+	check_conversions<Centimeters, Inches>(0.39370079, 2.539999983236);
 }
 
 TEST_F(TestLengthUnitsConversions, kilometer_to_inches)
 {
 	maxError = 1e-10;
-	check_conversions<Kilometers, Inches>(39370.0788, 2.5399999922784e-5);
+	check_conversions<Kilometers, Inches>(39370.079, 2.539999983236e-5);
 }
 
 TEST_F(TestLengthUnitsConversions, yards_to_feet)

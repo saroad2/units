@@ -5,10 +5,10 @@
  *      Author: sagis
  */
 
+#include "units/main/all_units.h"
 #include "units/include/trigo.h"
 #include "units/include/angle_units.h"
 #include "units/include/length_units.h"
-#include "units/main/helpers.h"
 
 #include <gtest/gtest.h>
 #include <boost/fusion/adapted/boost_tuple.hpp>

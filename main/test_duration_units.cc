@@ -5,8 +5,8 @@
  *      Author: sagis
  */
 
+#include "units/main/cases.h"
 #include "units/include/duration_units.h"
-#include "units/main/helpers.h"
 
 #include <gtest/gtest.h>
 

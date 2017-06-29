@@ -17,7 +17,7 @@ namespace units {
 namespace duration
 {
 
-struct duration_tag{};
+struct duration_tag { static constexpr int code = 5;};
 
 template<class ChronoClass, class... Tags>
 class Duration : public NumericValue<Tags...>

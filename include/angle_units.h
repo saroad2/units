@@ -16,7 +16,7 @@ namespace units {
 namespace angle
 {
 
-struct angle_type{};
+struct angle_type {	static constexpr int code = 3; };
 
 struct mil_tag
 {

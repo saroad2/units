@@ -15,18 +15,18 @@ namespace units {
 namespace length
 {
 
-struct length_tag{};
+struct length_tag { static constexpr int code = 2;};
 
 struct inches_tag
 {
-	static constexpr double scale = 0.025399999961392000225;
+	static constexpr double scale = 0.02539999983236;
 	static std::string singularName();
 	static std::string pluralName();
 };
 
 struct feet_tag
 {
-	static constexpr double scale = 0.3047999995367040027;
+	static constexpr double scale = 0.304799999536704;
 	static std::string singularName();
 	static std::string pluralName();
 };

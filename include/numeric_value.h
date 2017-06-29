@@ -22,7 +22,7 @@ namespace units
 template<class ScaleTag, class TypeTag>
 class NumericValue
 {
-protected:
+private:
 	using _selfType = NumericValue<ScaleTag, TypeTag>;
 public:
 	using _scale = ScaleTag;
@@ -63,14 +63,12 @@ public:
 		stream << value() << " " << pluralName();
 	}
 
-private:
-	double _value;
 	static constexpr double scale() {return _scale::scale;}
+	static constexpr double typeCode() {return _type::code;}
 	static std::string singularName() {return _scale::singularName();}
 	static std::string pluralName() {return _scale::pluralName();}
-
-	template<class To, class... Tags>
-	friend constexpr To units_cast(const NumericValue<Tags...>& unit);
+private:
+	double _value;
 };
 
 template<class... Tags1, class... Tags2>

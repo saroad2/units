@@ -13,6 +13,7 @@
 #include "units/include/duration_units.h"
 #include "units/include/area_units.h"
 #include "units/include/volume_units.h"
+#include "units/include/speed_units.h"
 
 #define LENGTH_UNITS() \
 		units::length::Inches, \
@@ -45,7 +46,6 @@
 		units::area::SquareKilometers, \
 		units::area::Dunams
 
-
 #define VOLUME_UNITS() \
 		units::volume::CubicFeet, \
 		units::volume::CubicYards, \
@@ -54,11 +54,19 @@
 		units::volume::Liters, \
 		units::volume::Milliliters
 
+#define SPEED_UNITS() \
+		units::speed::FeetPerSecond, \
+		units::speed::YardsPerSecond, \
+		units::speed::MetersPerSecond, \
+		units::speed::KilometersPerHour, \
+		units::speed::Knots
+
 #define ALL_UNITS() \
 		LENGTH_UNITS(), \
 		ANGLE_UNITS(), \
 		DURATION_UNITS(), \
 		AREA_UNITS(), \
-		VOLUME_UNITS()
+		VOLUME_UNITS(), \
+		SPEED_UNITS()
 
 #endif /* UNIT_TESTS_ALL_UNITS_H_ */

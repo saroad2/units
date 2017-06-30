@@ -7,7 +7,8 @@
 
 #include "units/include/internal/power_units.h"
 
-namespace units {
+namespace units
+{
 
 using std::string;
 

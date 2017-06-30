@@ -13,16 +13,17 @@ namespace length
 
 using std::string;
 
-string inches_tag::singularName() {return "inch";}
-string inches_tag::pluralName() {return "inches";}
+string inches_tag::singularName() { return "inch"; }
+string inches_tag::pluralName() { return "inches"; }
 
-string feet_tag::singularName() {return "foot";}
-string feet_tag::pluralName() {return "feet";}
+string feet_tag::singularName() { return "foot"; }
+string feet_tag::pluralName() { return "feet"; }
 
-string yards_tag::singularName() {return "yard";}
-string yards_tag::pluralName() {return "yards";}
+string yards_tag::singularName() { return "yard"; }
+string yards_tag::pluralName() { return "yards"; }
 
-string meters_tag::singularName() {return "meter";}
-string meters_tag::pluralName() {return "meters";}
+string meters_tag::singularName() { return "meter"; }
+string meters_tag::pluralName() { return "meters"; }
+
 }
 }

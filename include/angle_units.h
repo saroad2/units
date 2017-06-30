@@ -9,6 +9,7 @@
 #define INCLUDE_ANGLE_UNITS_H_
 
 #include "units/include/numeric_value.h"
+#include "units/include/utils.h"
 
 #include <math.h>
 
@@ -42,6 +43,10 @@ struct radians_tag
 using Mils = NumericValue<mil_tag, angle_type>;
 using Degrees = NumericValue<degrees_tag, angle_type>;
 using Radians = NumericValue<radians_tag, angle_type>;
+
+USER_DEFINED_LITERALS(Mils, mils);
+USER_DEFINED_LITERALS(Degrees, degrees);
+USER_DEFINED_LITERALS(Radians, radians);
 
 }
 }

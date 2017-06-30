@@ -58,3 +58,12 @@ TEST_F(TestAngleUnitsPrintings, print_radians)
 {
 	check_print<Radians>("radians");
 }
+
+// ============================================================
+
+#define TEST_ANGLE_USER_DEFINE_LITERALS(Name, name) \
+		TEST_USER_DEFINES_LITERALS(Angle, Name, name);
+
+TEST_ANGLE_USER_DEFINE_LITERALS(Mils, mils);
+TEST_ANGLE_USER_DEFINE_LITERALS(Degrees, degrees);
+TEST_ANGLE_USER_DEFINE_LITERALS(Radians, radians);

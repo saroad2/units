@@ -10,6 +10,7 @@
 
 #include "units/include/numeric_value.h"
 #include "units/include/multiplyer_scales.h"
+#include "units/include/utils.h"
 
 namespace units {
 namespace length
@@ -55,6 +56,14 @@ using Millimeters = Milli<Meters>;
 using Centimeters = Centi<Meters>;
 using Kilometers = Kilo<Meters>;
 
+USER_DEFINED_LITERALS(Inches, inches);
+USER_DEFINED_LITERALS(Feet, feet);
+USER_DEFINED_LITERALS(Yards, yards);
+USER_DEFINED_LITERALS(Meters, meters);
+USER_DEFINED_LITERALS(Micrometers, micrometers);
+USER_DEFINED_LITERALS(Millimeters, millimeters);
+USER_DEFINED_LITERALS(Centimeters, centimeters);
+USER_DEFINED_LITERALS(Kilometers, kilometers);
 }
 }
 

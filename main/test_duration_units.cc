@@ -223,3 +223,16 @@ TEST_F(TestDurationUnitsPrintings, print_years)
 {
 	check_print<Years>("years");
 }
+
+// ============================================================
+
+#define TEST_DURATION_USER_DEFINE_LITERALS(Name, name) \
+		TEST_USER_DEFINES_LITERALS(Duration, Name, name);
+
+TEST_DURATION_USER_DEFINE_LITERALS(Microseconds, microseconds);
+TEST_DURATION_USER_DEFINE_LITERALS(Milliseconds, milliseconds);
+TEST_DURATION_USER_DEFINE_LITERALS(Seconds, seconds);
+TEST_DURATION_USER_DEFINE_LITERALS(Minutes, minutes);
+TEST_DURATION_USER_DEFINE_LITERALS(Hours, hours);
+TEST_DURATION_USER_DEFINE_LITERALS(Days, days);
+TEST_DURATION_USER_DEFINE_LITERALS(Years, years);

@@ -231,3 +231,17 @@ TEST_F(TestLengthUnitsPrintings, print_kilometers)
 {
 	check_print<Kilometers>("kilometers");
 }
+
+// ============================================================
+
+#define TEST_LENGTH_USER_DEFINE_LITERALS(Name, name) \
+		TEST_USER_DEFINES_LITERALS(Length, Name, name);
+
+TEST_LENGTH_USER_DEFINE_LITERALS(Inches, inches);
+TEST_LENGTH_USER_DEFINE_LITERALS(Feet, feet);
+TEST_LENGTH_USER_DEFINE_LITERALS(Yards, yards);
+TEST_LENGTH_USER_DEFINE_LITERALS(Meters, meters);
+TEST_LENGTH_USER_DEFINE_LITERALS(Micrometers, micrometers);
+TEST_LENGTH_USER_DEFINE_LITERALS(Millimeters, millimeters);
+TEST_LENGTH_USER_DEFINE_LITERALS(Centimeters, centimeters);
+TEST_LENGTH_USER_DEFINE_LITERALS(Kilometers, kilometers);

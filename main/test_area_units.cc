@@ -104,3 +104,14 @@ TEST_F(TestAreaUnitsPrintings, print_dunams)
 {
 	check_print<Dunams>("dunams");
 }
+
+// ============================================================
+
+#define TEST_AREA_USER_DEFINE_LITERALS(Name, name) \
+		TEST_USER_DEFINES_LITERALS(Area, Name, name);
+
+TEST_AREA_USER_DEFINE_LITERALS(FeetSquared, feet_squared);
+TEST_AREA_USER_DEFINE_LITERALS(YardsSquared, yards_squared);
+TEST_AREA_USER_DEFINE_LITERALS(MetersSquared, meters_squared);
+TEST_AREA_USER_DEFINE_LITERALS(KilometersSquared, kilometers_squared);
+TEST_AREA_USER_DEFINE_LITERALS(Dunams, dunams);

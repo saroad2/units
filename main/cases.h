@@ -51,7 +51,12 @@ protected:
 	}
 };
 
-
+#define TEST_USER_DEFINES_LITERALS(type, Name, name) \
+		TEST(Test##type##UserDefinedLiterals, name) \
+		{ \
+			EXPECT_EQ(Name{5}, 5_##name); \
+			EXPECT_EQ(Name{5.123}, 5.123_##name); \
+		}
 
 
 #endif /* MAIN_CASES_H_ */

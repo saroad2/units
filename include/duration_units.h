@@ -10,6 +10,7 @@
 
 #include "units/include/numeric_value.h"
 #include "units/include/multiplyer_scales.h"
+#include "units/include/utils.h"
 
 #include <chrono>
 
@@ -86,6 +87,13 @@ using Hours = Duration<std::chrono::hours, hours_tag, duration_tag>;
 using Days = NumericValue<days_tag, duration_tag>;
 using Years = NumericValue<years_tag, duration_tag>;
 
+USER_DEFINED_LITERALS(Microseconds, microseconds);
+USER_DEFINED_LITERALS(Milliseconds, milliseconds);
+USER_DEFINED_LITERALS(Seconds, seconds);
+USER_DEFINED_LITERALS(Minutes, minutes);
+USER_DEFINED_LITERALS(Hours, hours);
+USER_DEFINED_LITERALS(Days, days);
+USER_DEFINED_LITERALS(Years, years);
 }
 }
 

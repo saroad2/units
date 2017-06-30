@@ -138,6 +138,18 @@ constexpr NumericValue<Tags1...> operator-(const NumericValue<Tags1...>& first,
 	return first + (-second);
 }
 
+template<class... Tags>
+constexpr NumericValue<Tags...> operator*(double scalar, const NumericValue<Tags...>& unit)
+{
+	return NumericValue<Tags...>{scalar * unit.value()};
+}
+
+template<class... Tags>
+constexpr NumericValue<Tags...> operator*(const NumericValue<Tags...>& unit, double scalar)
+{
+	return scalar * unit;
+}
+
 template<class ScaleTag, class TypeTag>
 std::ostream& operator<<(std::ostream& stream, const NumericValue<ScaleTag, TypeTag>& unit)
 {

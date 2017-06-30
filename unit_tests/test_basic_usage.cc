@@ -248,3 +248,23 @@ TYPED_TEST(TestBasicUsage, test_operator_minus)
 	EXPECT_EQ(unit2.value(), value2);
 	EXPECT_EQ(unit3.value(), value1 - value2);
 }
+
+TYPED_TEST(TestBasicUsage, test_multiply_by_scalar_from_the_left)
+{
+	double value = 5.123;
+	double scalar = 7.1;
+	TypeParam unit1{value};
+	auto unit2 = scalar * unit1;
+	EXPECT_EQ(unit1.value(), value);
+	EXPECT_EQ(unit2.value(), scalar * value);
+}
+
+TYPED_TEST(TestBasicUsage, test_multiply_by_scalar_from_the_right)
+{
+	double value = 5.123;
+	double scalar = 7.1;
+	TypeParam unit1{value};
+	auto unit2 = unit1 * scalar;
+	EXPECT_EQ(unit1.value(), value);
+	EXPECT_EQ(unit2.value(), scalar * value);
+}

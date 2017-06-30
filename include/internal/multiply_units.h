@@ -9,35 +9,26 @@
 #define INCLUDE_MULTIPLY_UNITS_H_
 
 #include "units/include/internal/numeric_value.h"
+#include "units/include/internal/none_type.h"
+
 #include <string>
+#include <ratio>
 
 namespace units
 {
 
 extern std::string multiplySymbol;
 
-struct none_type_tag { static constexpr int code = 1; };
-
-struct none_scale_tag
-{
-	static constexpr double scale =  1;
-	static std::string singularName();
-	static std::string pluralName();
-};
-
-using NoneType = NumericValue<none_scale_tag, none_type_tag>;
-
 template<class Unit1 = NoneType, class... Units>
-constexpr double multiplyCodeCalculator()
-{
-	return Unit1::typeCode() *
-		(sizeof...(Units) == 0 ? 1 : multiplyCodeCalculator<Units...>());
-}
-
-template<class Unit1, class... Units>
 struct multiply_type_tag
 {
-	static constexpr int code = multiplyCodeCalculator<Unit1, Units...>();
+	using code = std::ratio_multiply<typename Unit1::_typeCode, typename multiply_type_tag<Units...>::code>;
+};
+
+template<>
+struct multiply_type_tag<NoneType>
+{
+	using code = NoneType::_typeCode;
 };
 
 template<class Unit1 = NoneType, class... Units>

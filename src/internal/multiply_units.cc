@@ -13,7 +13,4 @@ using std::string;
 
 string multiplySymbol{"*"};
 
-string none_scale_tag::singularName() { return "";}
-string none_scale_tag::pluralName() { return "";}
-
 }

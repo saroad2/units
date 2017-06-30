@@ -12,14 +12,18 @@
 #include "units/include/internal/utils.h"
 #include "units/include/length_units.h"
 
+#include <ratio>
 namespace units {
 namespace volume
 {
 
 struct volume_type_tag
 {
-	static constexpr int code =
-		length::length_tag::code * length::length_tag::code * length::length_tag::code;
+	using code = std::ratio_multiply<
+		std::ratio_multiply<
+		typename length::length_tag::code,
+		typename length::length_tag::code>,
+		typename length::length_tag::code>;
 };
 
 using CubicFeet = Cubed<length::Feet>;

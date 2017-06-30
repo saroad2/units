@@ -12,11 +12,13 @@
 #include "units/include/internal/multiplyer_scales.h"
 #include "units/include/internal/utils.h"
 
+#include <ratio>
+
 namespace units {
 namespace length
 {
 
-struct length_tag { static constexpr int code = 2;};
+struct length_tag {	using code = std::ratio<2, 1>; };
 
 struct inches_tag
 {

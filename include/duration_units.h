@@ -13,12 +13,13 @@
 #include "units/include/internal/utils.h"
 
 #include <chrono>
+#include <ratio>
 
 namespace units {
 namespace duration
 {
 
-struct duration_tag { static constexpr int code = 5;};
+struct duration_tag {	using code = std::ratio<5, 1>; };
 
 template<class ChronoClass, class... Tags>
 class Duration : public NumericValue<Tags...>

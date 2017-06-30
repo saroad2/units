@@ -12,12 +12,13 @@
 #include "units/include/internal/utils.h"
 
 #include <math.h>
+#include <ratio>
 
 namespace units {
 namespace angle
 {
 
-struct angle_type {	static constexpr int code = 3; };
+struct angle_type {	using code = std::ratio<3, 1>; };
 
 struct mil_tag
 {

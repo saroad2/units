@@ -9,24 +9,28 @@
 #define INCLUDE_POWER_UNITS_H_
 
 #include "units/include/internal/numeric_value.h"
+#include "units/include/internal/none_type.h"
 
 #include <string>
+#include <ratio>
 
 namespace units
 {
 
 extern std::string powerSymbol;
 
-template<class Unit>
-constexpr double powerCodeCalculator(int power)
-{
-	return Unit::typeCode() * (power == 1 ? 1 : powerCodeCalculator<Unit>(power - 1));
-}
-
 template<class Unit, int power>
 struct power_type_tag
 {
-	static constexpr int code = powerCodeCalculator<Unit>(power);
+	using code = std::ratio_multiply<
+			typename Unit::_typeCode,
+			typename power_type_tag<Unit, power - 1>::code>;
+};
+
+template<class Unit>
+struct power_type_tag<Unit, 0>
+{
+	using code = NoneType::_typeCode;
 };
 
 template<class Unit>

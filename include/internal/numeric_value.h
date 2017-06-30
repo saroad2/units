@@ -27,6 +27,7 @@ private:
 public:
 	using _scale = ScaleTag;
 	using _type = TypeTag;
+	using _typeCode = typename TypeTag::code;
 
 	constexpr NumericValue() = default;
 	explicit constexpr NumericValue(double value)
@@ -64,7 +65,6 @@ public:
 	}
 
 	static constexpr double scale() {return _scale::scale;}
-	static constexpr double typeCode() {return _type::code;}
 	static std::string singularName() {return _scale::singularName();}
 	static std::string pluralName() {return _scale::pluralName();}
 private:

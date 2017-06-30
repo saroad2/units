@@ -10,17 +10,19 @@
 #include "units/include/internal/numeric_value.h"
 
 #include <gtest/gtest.h>
+#include <ratio>
 
 using units::is_from_the_same_type;
 using units::Multiply;
 using units::NumericValue;
+using std::ratio;
 using namespace testing;
 
-struct a_type_tag { static constexpr int code = 2; };
-struct b_type_tag { static constexpr int code = 3; };
-struct c_type_tag { static constexpr int code = 5; };
-struct d_type_tag { static constexpr int code = 7; };
-struct e_type_tag { static constexpr int code = 11; };
+struct a_type_tag { using code = std::ratio<2, 1>; };
+struct b_type_tag { using code = std::ratio<3, 1>; };
+struct c_type_tag { using code = std::ratio<5, 1>; };
+struct d_type_tag { using code = std::ratio<7, 1>; };
+struct e_type_tag { using code = std::ratio<11, 1>; };
 
 struct a_scale_tag {};
 struct b_scale_tag {};
@@ -56,14 +58,14 @@ private:
 	template<class A, class B>
 	void check_from_the_same_type_one_side()
 	{
-		auto result = is_from_the_same_type<A,B>::value();
+		auto result = is_from_the_same_type<A,B>::value;
 		EXPECT_TRUE(result);
 	}
 
 	template<class A, class B>
 	void check_not_from_the_same_type_one_side()
 	{
-		auto result = is_from_the_same_type<A,B>::value();
+		auto result = is_from_the_same_type<A,B>::value;
 		EXPECT_FALSE(result);
 	}
 };

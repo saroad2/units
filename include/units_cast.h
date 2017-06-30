@@ -8,8 +8,8 @@
 #ifndef INCLUDE_UNITS_CAST_H_
 #define INCLUDE_UNITS_CAST_H_
 
-#include "units/include/numeric_value.h"
-#include "units/include/same_type_validator.h"
+#include "units/include/internal/numeric_value.h"
+#include "units/include/internal/same_type_validator.h"
 
 namespace units
 {

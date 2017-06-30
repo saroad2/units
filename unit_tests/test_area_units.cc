@@ -5,7 +5,7 @@
  *      Author: sagis
  */
 
-#include "units/main/cases.h"
+#include "units/unit_tests/cases.h"
 #include "units/include/area_units.h"
 
 using namespace units::area;

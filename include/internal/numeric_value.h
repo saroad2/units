@@ -125,13 +125,17 @@ constexpr NumericValue<Tags1...> operator+(const NumericValue<Tags1...>& first,
 	return copy;
 }
 
+template<class... Tags>
+constexpr NumericValue<Tags...> operator-(const NumericValue<Tags...>& unit)
+{
+	return NumericValue<Tags...>{-unit.value()};
+}
+
 template<class... Tags1, class... Tags2>
 constexpr NumericValue<Tags1...> operator-(const NumericValue<Tags1...>& first,
 										   const NumericValue<Tags2...>& second)
 {
-	NumericValue<Tags1...> copy{first};
-	copy -= second;
-	return copy;
+	return first + (-second);
 }
 
 template<class ScaleTag, class TypeTag>

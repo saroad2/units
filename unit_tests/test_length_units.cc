@@ -5,7 +5,7 @@
  *      Author: sagis
  */
 
-#include "units/main/cases.h"
+#include "units/unit_tests/cases.h"
 #include "units/include/length_units.h"
 
 #include <gtest/gtest.h>

@@ -5,11 +5,12 @@
  *      Author: sagis
  */
 
-#include "units/include/multiply_units.h"
+#include "units/include/internal/multiply_units.h"
 
 namespace units {
 
 using std::string;
+
 string multiplySymbol{"*"};
 
 string none_scale_tag::singularName() { return "";}

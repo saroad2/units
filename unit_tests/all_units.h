@@ -5,8 +5,8 @@
  *      Author: sagis
  */
 
-#ifndef MAIN_ALL_UNITS_H_
-#define MAIN_ALL_UNITS_H_
+#ifndef UNIT_TESTS_ALL_UNITS_H_
+#define UNIT_TESTS_ALL_UNITS_H_
 
 #include "units/include/length_units.h"
 #include "units/include/angle_units.h"
@@ -61,4 +61,4 @@
 		AREA_UNITS(), \
 		VOLUME_UNITS()
 
-#endif /* MAIN_ALL_UNITS_H_ */
+#endif /* UNIT_TESTS_ALL_UNITS_H_ */

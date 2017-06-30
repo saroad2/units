@@ -5,8 +5,8 @@
  *      Author: sagis
  */
 
-#ifndef MAIN_CASES_H_
-#define MAIN_CASES_H_
+#ifndef UNIT_TESTS_CASES_H_
+#define UNIT_TESTS_CASES_H_
 
 #include "units/include/units_cast.h"
 
@@ -59,4 +59,4 @@ protected:
 		}
 
 
-#endif /* MAIN_CASES_H_ */
+#endif /* UNIT_TESTS_CASES_H_ */

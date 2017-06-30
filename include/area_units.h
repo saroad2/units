@@ -8,9 +8,9 @@
 #ifndef INCLUDE_AREA_UNITS_H_
 #define INCLUDE_AREA_UNITS_H_
 
+#include "units/include/internal/power_units.h"
+#include "units/include/internal/utils.h"
 #include "units/include/length_units.h"
-#include "units/include/power_units.h"
-#include "units/include/utils.h"
 
 namespace units {
 namespace area

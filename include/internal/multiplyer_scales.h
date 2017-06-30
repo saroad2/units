@@ -8,7 +8,7 @@
 #ifndef INCLUDE_MULTIPLYER_SCALES_H_
 #define INCLUDE_MULTIPLYER_SCALES_H_
 
-#include "units/include/numeric_value.h"
+#include "units/include/internal/numeric_value.h"
 
 namespace units
 {

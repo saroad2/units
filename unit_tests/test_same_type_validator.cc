@@ -5,9 +5,9 @@
  *      Author: sagis
  */
 
-#include "units/include/same_type_validator.h"
-#include "units/include/multiply_units.h"
-#include "units/include/numeric_value.h"
+#include "units/include/internal/same_type_validator.h"
+#include "units/include/internal/multiply_units.h"
+#include "units/include/internal/numeric_value.h"
 
 #include <gtest/gtest.h>
 

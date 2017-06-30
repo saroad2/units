@@ -8,8 +8,8 @@
 #ifndef INCLUDE_ANGLE_UNITS_H_
 #define INCLUDE_ANGLE_UNITS_H_
 
-#include "units/include/numeric_value.h"
-#include "units/include/utils.h"
+#include "units/include/internal/numeric_value.h"
+#include "units/include/internal/utils.h"
 
 #include <math.h>
 

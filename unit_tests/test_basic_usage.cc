@@ -1,4 +1,4 @@
-#include "units/main/all_units.h"
+#include "units/unit_tests/all_units.h"
 
 #include <gtest/gtest.h>
 
@@ -226,6 +226,15 @@ TYPED_TEST(TestBasicUsage, test_operator_plus)
 	EXPECT_EQ(unit1.value(), value1);
 	EXPECT_EQ(unit2.value(), value2);
 	EXPECT_EQ(unit3.value(), value1 + value2);
+}
+
+TYPED_TEST(TestBasicUsage, test_self_operator_minus)
+{
+	double value = 5.123;
+	TypeParam unit1{value};
+	auto unit2 = -unit1;
+	EXPECT_EQ(unit1.value(), value);
+	EXPECT_EQ(unit2.value(), -value);
 }
 
 TYPED_TEST(TestBasicUsage, test_operator_minus)

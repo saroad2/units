@@ -5,7 +5,7 @@
  *      Author: sagis
  */
 
-#include "units/main/cases.h"
+#include "units/unit_tests/cases.h"
 #include "units/include/volume_units.h"
 
 using namespace units::volume;
@@ -133,6 +133,7 @@ TEST_F(TestVolumeUnitsPrintings, print_milliliters)
 {
 	check_print<Milliliters>("milliliters");
 }
+
 // ============================================================
 
 #define TEST_VOLUME_USER_DEFINE_LITERALS(Name, name) \

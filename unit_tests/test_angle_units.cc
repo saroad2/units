@@ -5,17 +5,13 @@
  *      Author: sagis
  */
 
-#include "units/main/cases.h"
+#include "units/unit_tests/cases.h"
 #include "units/include/angle_units.h"
 
 #include <gtest/gtest.h>
 
 using namespace testing;
 using namespace units::angle;
-
-#include <iostream>
-using std::cout;
-using std::endl;
 
 class TestAngleUnitsConversions : public TestUnitsConversions
 {

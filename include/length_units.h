@@ -8,9 +8,9 @@
 #ifndef INCLUDE_LENGTH_UNITS_H_
 #define INCLUDE_LENGTH_UNITS_H_
 
-#include "units/include/numeric_value.h"
-#include "units/include/multiplyer_scales.h"
-#include "units/include/utils.h"
+#include "units/include/internal/numeric_value.h"
+#include "units/include/internal/multiplyer_scales.h"
+#include "units/include/internal/utils.h"
 
 namespace units {
 namespace length

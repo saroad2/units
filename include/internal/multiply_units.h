@@ -8,7 +8,7 @@
 #ifndef INCLUDE_MULTIPLY_UNITS_H_
 #define INCLUDE_MULTIPLY_UNITS_H_
 
-#include "units/include/numeric_value.h"
+#include "units/include/internal/numeric_value.h"
 #include <string>
 
 namespace units

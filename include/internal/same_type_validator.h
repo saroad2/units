@@ -8,7 +8,7 @@
 #ifndef INCLUDE_SAME_TYPE_VALIDATOR_H_
 #define INCLUDE_SAME_TYPE_VALIDATOR_H_
 
-#include "units/include/multiply_units.h"
+#include "units/include/internal/multiply_units.h"
 
 #include <type_traits>
 

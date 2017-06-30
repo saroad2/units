@@ -12,6 +12,7 @@
 #include "units/include/angle_units.h"
 #include "units/include/duration_units.h"
 #include "units/include/area_units.h"
+#include "units/include/volume_units.h"
 
 #define LENGTH_UNITS() \
 		units::length::Inches, \
@@ -38,16 +39,26 @@
 		units::duration::Years \
 
 #define AREA_UNITS() \
-		units::area::FeetSquared, \
-		units::area::YardsSquared, \
-		units::area::MetersSquared, \
-		units::area::KilometersSquared, \
+		units::area::SquareFeet, \
+		units::area::SquareYards, \
+		units::area::SquareMeters, \
+		units::area::SquareKilometers, \
 		units::area::Dunams
+
+
+#define VOLUME_UNITS() \
+		units::volume::CubicFeet, \
+		units::volume::CubicYards, \
+		units::volume::CubicMeters, \
+		units::volume::CubicKilometers, \
+		units::volume::Liters, \
+		units::volume::Milliliters
 
 #define ALL_UNITS() \
 		LENGTH_UNITS(), \
 		ANGLE_UNITS(), \
 		DURATION_UNITS(), \
-		AREA_UNITS()
+		AREA_UNITS(), \
+		VOLUME_UNITS()
 
 #endif /* MAIN_ALL_UNITS_H_ */

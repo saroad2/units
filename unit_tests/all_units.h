@@ -14,6 +14,7 @@
 #include "units/include/area_units.h"
 #include "units/include/volume_units.h"
 #include "units/include/speed_units.h"
+#include "units/include/angular_speed_units.h"
 
 #define LENGTH_UNITS() \
 		units::length::Inches, \
@@ -61,12 +62,17 @@
 		units::speed::KilometersPerHour, \
 		units::speed::Knots
 
+#define ANGULAR_SPEED_UNITS() \
+		units::angular_speed::DegreesPerSecond, \
+		units::angular_speed::RadiansPerSecond
+
 #define ALL_UNITS() \
 		LENGTH_UNITS(), \
 		ANGLE_UNITS(), \
 		DURATION_UNITS(), \
 		AREA_UNITS(), \
 		VOLUME_UNITS(), \
-		SPEED_UNITS()
+		SPEED_UNITS(), \
+		ANGULAR_SPEED_UNITS()
 
 #endif /* UNIT_TESTS_ALL_UNITS_H_ */

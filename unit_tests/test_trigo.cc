@@ -19,7 +19,6 @@
 using namespace units::angle;
 using namespace units::trigo;
 using namespace testing;
-using boost::tuples::tuple;
 using boost::tuples::get;
 using boost::fusion::for_each;
 using std::function;
@@ -28,8 +27,8 @@ using std::vector;
 class TestTrigo : public Test
 {
 protected:
-	using ValuesTupe = tuple<ANGLE_UNITS()>;
-	using ValuesAndResultPair = tuple<ValuesTupe, double>;
+	using ValuesTupe = boost::tuples::tuple<ANGLE_UNITS()>;
+	using ValuesAndResultPair = boost::tuples::tuple<ValuesTupe, double>;
 
 	void run(
 			vector<ValuesAndResultPair> valuesAndResultPairs,

@@ -8,7 +8,7 @@
 #ifndef INCLUDE_SPEED_UNITS_H_
 #define INCLUDE_SPEED_UNITS_H_
 
-#include "units/include/internal/ratio_units.h"
+#include "units/include/internal/units_ratio_type.h"
 #include "units/include/internal/utils.h"
 #include "units/include/length_units.h"
 #include "units/include/duration_units.h"

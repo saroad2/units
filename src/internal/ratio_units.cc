@@ -5,7 +5,7 @@
  *      Author: sagis
  */
 
-#include "units/include/internal/ratio_units.h"
+#include "units/include/internal/units_ratio_type.h"
 
 namespace units
 {

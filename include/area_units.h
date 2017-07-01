@@ -8,7 +8,7 @@
 #ifndef INCLUDE_AREA_UNITS_H_
 #define INCLUDE_AREA_UNITS_H_
 
-#include "units/include/internal/power_units.h"
+#include "units/include/internal/units_pow_type.h"
 #include "units/include/internal/utils.h"
 #include "units/include/length_units.h"
 
@@ -25,10 +25,10 @@ struct area_type_tag
 		typename length::length_tag::code>;
 };
 
-using SquareFeet = Squared<length::Feet>;
-using SquareYards = Squared<length::Yards>;
-using SquareMeters = Squared<length::Meters>;
-using SquareKilometers = Squared<length::Kilometers>;
+using SquareFeet = Square<length::Feet>;
+using SquareYards = Square<length::Yards>;
+using SquareMeters = Square<length::Meters>;
+using SquareKilometers = Square<length::Kilometers>;
 
 struct dunam_scale_tag
 {

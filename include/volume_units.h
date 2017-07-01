@@ -8,7 +8,7 @@
 #ifndef INCLUDE_VOLUME_UNITS_H_
 #define INCLUDE_VOLUME_UNITS_H_
 
-#include "units/include/internal/power_units.h"
+#include "units/include/internal/units_pow_type.h"
 #include "units/include/internal/utils.h"
 #include "units/include/length_units.h"
 
@@ -26,10 +26,10 @@ struct volume_type_tag
 		typename length::length_tag::code>;
 };
 
-using CubicFeet = Cubed<length::Feet>;
-using CubicYards = Cubed<length::Yards>;
-using CubicMeters = Cubed<length::Meters>;
-using CubicKilometers = Cubed<length::Kilometers>;
+using CubicFeet = Cubic<length::Feet>;
+using CubicYards = Cubic<length::Yards>;
+using CubicMeters = Cubic<length::Meters>;
+using CubicKilometers = Cubic<length::Kilometers>;
 
 struct liters_scale_tag
 {

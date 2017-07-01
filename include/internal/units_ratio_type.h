@@ -5,8 +5,8 @@
  *      Author: sagis
  */
 
-#ifndef INCLUDE_INTERNAL_RATIO_UNITS_H_
-#define INCLUDE_INTERNAL_RATIO_UNITS_H_
+#ifndef INCLUDE_INTERNAL_UNITS_RATIO_TYPE_H_
+#define INCLUDE_INTERNAL_UNITS_RATIO_TYPE_H_
 
 
 #include "units/include/internal/numeric_value.h"
@@ -44,4 +44,4 @@ using Ratio = NumericValue<ratio_scale_tag<Unit1, Unit2>, ratio_type_tag<Unit1, 
 
 }
 
-#endif /* INCLUDE_INTERNAL_RATIO_UNITS_H_ */
+#endif /* INCLUDE_INTERNAL_UNITS_RATIO_TYPE_H_ */

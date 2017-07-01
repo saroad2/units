@@ -20,15 +20,15 @@ namespace units
 extern std::string powerSymbol;
 
 template<class Unit, int power>
-struct power_type_tag
+struct pow_type_tag
 {
 	using code = std::ratio_multiply<
 			typename Unit::_typeCode,
-			typename power_type_tag<Unit, power - 1>::code>;
+			typename pow_type_tag<Unit, power - 1>::code>;
 };
 
 template<class Unit>
-struct power_type_tag<Unit, 0>
+struct pow_type_tag<Unit, 0>
 {
 	using code = NoneType::_typeCode;
 };
@@ -40,7 +40,7 @@ constexpr double powerScaleCalculator(int power)
 }
 
 template<class Unit, int power>
-struct power_scale_tag
+struct pow_scale_tag
 {
 	static constexpr double scale = powerScaleCalculator<Unit>(power);
 	static std::string singularName()
@@ -54,13 +54,13 @@ struct power_scale_tag
 };
 
 template<class Unit, int power>
-using Pow = NumericValue<power_scale_tag<Unit, power>, power_type_tag<Unit, power>>;
+using Pow = NumericValue<pow_scale_tag<Unit, power>, pow_type_tag<Unit, power>>;
 
 template<class Unit>
-using Squared = Pow<Unit, 2>;
+using Square = Pow<Unit, 2>;
 
 template<class Unit>
-using Cubed = Pow<Unit, 3>;
+using Cubic = Pow<Unit, 3>;
 
 }
 

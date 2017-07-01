@@ -5,7 +5,7 @@
  *      Author: sagis
  */
 
-#include "units/include/internal/power_units.h"
+#include "units/include/internal/units_pow_type.h"
 
 namespace units
 {

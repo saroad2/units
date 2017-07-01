@@ -6,10 +6,10 @@
  */
 
 #include "units/include/internal/same_type_validator.h"
-#include "units/include/internal/multiply_units.h"
-#include "units/include/internal/ratio_units.h"
 #include "units/include/internal/numeric_value.h"
 #include "units/include/internal/none_type.h"
+#include "units/include/internal/units_mutiply_type.h"
+#include "units/include/internal/units_ratio_type.h"
 
 #include <gtest/gtest.h>
 #include <ratio>

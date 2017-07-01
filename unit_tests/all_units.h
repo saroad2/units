@@ -15,6 +15,7 @@
 #include "units/include/volume_units.h"
 #include "units/include/speed_units.h"
 #include "units/include/angular_speed_units.h"
+#include "units/include/mass_units.h"
 
 #define LENGTH_UNITS() \
 		units::length::Inches, \
@@ -66,6 +67,13 @@
 		units::angular_speed::DegreesPerSecond, \
 		units::angular_speed::RadiansPerSecond
 
+#define MASS_UNITS() \
+		units::mass::Grams, \
+		units::mass::Pounds, \
+		units::mass::Milligrams, \
+		units::mass::Kilograms, \
+		units::mass::Tonnes
+
 #define ALL_UNITS() \
 		LENGTH_UNITS(), \
 		ANGLE_UNITS(), \
@@ -73,6 +81,7 @@
 		AREA_UNITS(), \
 		VOLUME_UNITS(), \
 		SPEED_UNITS(), \
-		ANGULAR_SPEED_UNITS()
+		ANGULAR_SPEED_UNITS(), \
+		MASS_UNITS()
 
 #endif /* UNIT_TESTS_ALL_UNITS_H_ */

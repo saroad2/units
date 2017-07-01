@@ -8,9 +8,6 @@
 #include "units/unit_tests/cases.h"
 #include "units/include/length_units.h"
 
-#include <gtest/gtest.h>
-
-using namespace testing;
 using namespace units::length;
 
 class TestLengthUnitsConversions : public TestUnitsConversions

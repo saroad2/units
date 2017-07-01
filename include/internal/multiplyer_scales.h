@@ -40,6 +40,7 @@ DEFINE_MULTIPLYER(Micro, micro, 1e-6);
 DEFINE_MULTIPLYER(Milli, milli, 1e-3);
 DEFINE_MULTIPLYER(Centi, centi, 1e-2);
 DEFINE_MULTIPLYER(Kilo, kilo, 1e+3);
+DEFINE_MULTIPLYER(Mega, mega, 1e+6);
 
 }
 

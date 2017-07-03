@@ -18,7 +18,7 @@ namespace units {
 namespace area
 {
 
-struct area_type_tag
+struct area_tag
 {
 	using code = std::ratio_multiply<
 		typename length::length_tag::code,
@@ -37,7 +37,7 @@ struct dunam_scale_tag
 	static std::string pluralName();
 };
 
-using Dunams = NumericValue<dunam_scale_tag, area_type_tag>;
+using Dunams = NumericValue<dunam_scale_tag, area_tag>;
 
 USER_DEFINED_LITERALS(SquareFeet, square_feet);
 USER_DEFINED_LITERALS(SquareYards, square_yards);

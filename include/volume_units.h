@@ -17,7 +17,7 @@ namespace units {
 namespace volume
 {
 
-struct volume_type_tag
+struct volume_tag
 {
 	using code = std::ratio_multiply<
 		std::ratio_multiply<
@@ -38,7 +38,7 @@ struct liters_scale_tag
 	static std::string pluralName();
 };
 
-using Liters = NumericValue<liters_scale_tag, volume_type_tag>;
+using Liters = NumericValue<liters_scale_tag, volume_tag>;
 using Milliliters = Milli<Liters>;
 
 USER_DEFINED_LITERALS(CubicFeet, cubic_feet);

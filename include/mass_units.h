@@ -19,7 +19,7 @@ namespace units {
 namespace mass
 {
 
-struct mass_type_tag { using code = std::ratio<7, 1>; };
+struct mass_tag { using code = std::ratio<7, 1>; };
 
 struct grams_tag
 {
@@ -35,8 +35,8 @@ struct pounds_tag
 	static std::string pluralName();
 };
 
-using Grams = NumericValue<grams_tag, mass_type_tag>;
-using Pounds = NumericValue<pounds_tag, mass_type_tag>;
+using Grams = NumericValue<grams_tag, mass_tag>;
+using Pounds = NumericValue<pounds_tag, mass_tag>;
 
 struct tonnes_tag
 {
@@ -47,7 +47,7 @@ struct tonnes_tag
 
 using Milligrams = Milli<Grams>;
 using Kilograms = Kilo<Grams>;
-using Tonnes = NumericValue<tonnes_tag, mass_type_tag>;
+using Tonnes = NumericValue<tonnes_tag, mass_tag>;
 
 
 USER_DEFINED_LITERALS(Grams, grams);

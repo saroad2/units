@@ -17,7 +17,7 @@ namespace units{
 namespace speed
 {
 
-struct speed_type_tag
+struct speed_tag
 {
 	using code = std::ratio_divide<
 			typename length::length_tag::code,
@@ -36,7 +36,7 @@ struct knots_tag
 	static std::string pluralName();
 };
 
-using Knots = NumericValue<knots_tag, speed_type_tag>;
+using Knots = NumericValue<knots_tag, speed_tag>;
 
 USER_DEFINED_LITERALS(FeetPerSecond, feet_per_second);
 USER_DEFINED_LITERALS(YardsPerSecond, yards_per_second);

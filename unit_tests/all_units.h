@@ -16,6 +16,7 @@
 #include "units/include/speed_units.h"
 #include "units/include/angular_speed_units.h"
 #include "units/include/mass_units.h"
+#include "units/include/force_units.h"
 
 #define LENGTH_UNITS() \
 		units::length::Inches, \
@@ -74,6 +75,10 @@
 		units::mass::Kilograms, \
 		units::mass::Tonnes
 
+#define FORCE_UNITS() \
+		units::force::Newtons, \
+		units::force::Dynes
+
 #define ALL_UNITS() \
 		LENGTH_UNITS(), \
 		ANGLE_UNITS(), \
@@ -82,6 +87,7 @@
 		VOLUME_UNITS(), \
 		SPEED_UNITS(), \
 		ANGULAR_SPEED_UNITS(), \
-		MASS_UNITS()
+		MASS_UNITS(), \
+		FORCE_UNITS()
 
 #endif /* UNIT_TESTS_ALL_UNITS_H_ */

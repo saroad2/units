@@ -5,8 +5,8 @@
  *      Author: sagis
  */
 
-#ifndef INCLUDE_POWER_UNITS_H_
-#define INCLUDE_POWER_UNITS_H_
+#ifndef INCLUDE_UNITS_POW_TYPE_H_
+#define INCLUDE_UNITS_POW_TYPE_H_
 
 #include "units/include/internal/numeric_value.h"
 #include "units/include/internal/none_type.h"
@@ -66,4 +66,4 @@ using Cubic = Pow<Unit, 3>;
 
 
 
-#endif /* INCLUDE_POWER_UNITS_H_ */
+#endif /* INCLUDE_UNITS_POW_TYPE_H_ */

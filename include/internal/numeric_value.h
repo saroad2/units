@@ -46,7 +46,7 @@ public:
 	{
 		using OtherNumericValue = NumericValue<OtherScaleTag, OtherTypeTag>;
 		VALIDATE_SAME_UNIT(_selfType, OtherNumericValue);
-		_value += (double)other;
+		_value += other.value();
 		return *this;
 	}
 
@@ -55,7 +55,13 @@ public:
 	{
 		using OtherNumericValue = NumericValue<OtherScaleTag, OtherTypeTag>;
 		VALIDATE_SAME_UNIT(_selfType, OtherNumericValue);
-		_value -= (double)other;
+		_value -= other.value();
+		return *this;
+	}
+
+	constexpr _selfType& operator*=(double scalar)
+	{
+		_value *= scalar;
 		return *this;
 	}
 
@@ -141,7 +147,9 @@ constexpr NumericValue<Tags1...> operator-(const NumericValue<Tags1...>& first,
 template<class... Tags>
 constexpr NumericValue<Tags...> operator*(double scalar, const NumericValue<Tags...>& unit)
 {
-	return NumericValue<Tags...>{scalar * unit.value()};
+	auto result = NumericValue<Tags...>{unit};
+	result *= scalar;
+	return result;
 }
 
 template<class... Tags>

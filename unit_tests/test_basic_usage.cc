@@ -78,6 +78,15 @@ TYPED_TEST(TestBasicUsage, test_operator_minus_equal)
 	EXPECT_EQ(unit2.value(), value2);
 }
 
+TYPED_TEST(TestBasicUsage, test_operator_multiply_equal)
+{
+	double value = 5.123;
+	double scalar = 3.956;
+	TypeParam unit{value};
+	unit *= scalar;
+	EXPECT_EQ(unit.value(), value * scalar);
+}
+
 TYPED_TEST(TestBasicUsage, test_equality_pass)
 {
 	double value1 = 5.123;

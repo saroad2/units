@@ -23,20 +23,20 @@ template<class Unit, int power>
 struct pow_type_tag
 {
 	using code = std::ratio_multiply<
-			typename Unit::_typeCode,
+			typename Unit::code,
 			typename pow_type_tag<Unit, power - 1>::code>;
 };
 
 template<class Unit>
 struct pow_type_tag<Unit, 0>
 {
-	using code = NoneType::_typeCode;
+	using code = NoneType::code;
 };
 
 template<class Unit>
 constexpr double powerScaleCalculator(int power)
 {
-	return Unit::scale() * (power == 1 ? 1 : powerScaleCalculator<Unit>(power - 1));
+	return Unit::scale * (power == 1 ? 1 : powerScaleCalculator<Unit>(power - 1));
 }
 
 template<class Unit, int power>

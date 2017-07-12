@@ -19,9 +19,7 @@ namespace speed
 
 struct speed_tag
 {
-	using code = std::ratio_divide<
-			typename length::length_tag::code,
-			typename duration::duration_tag::code>;
+	using code = ratio_type_tag<length::length_tag, duration::duration_tag>::code;
 };
 
 using FeetPerSecond = Ratio<length::Feet, duration::Seconds>;
@@ -31,7 +29,7 @@ using KilometersPerHour = Ratio<length::Kilometers, duration::Hours>;
 
 struct knots_tag
 {
-	static constexpr double scale = 0.514444773689 * MetersPerSecond::scale();
+	static constexpr double scale = 0.514444773689 * MetersPerSecond::scale;
 	static std::string singularName();
 	static std::string pluralName();
 };

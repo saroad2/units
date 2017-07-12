@@ -27,7 +27,11 @@ private:
 public:
 	using _scale = ScaleTag;
 	using _type = TypeTag;
-	using _typeCode = typename TypeTag::code;
+
+	using code = typename _type::code;
+	static constexpr double scale = _scale::scale;
+	static std::string singularName() {return _scale::singularName();}
+	static std::string pluralName() {return _scale::pluralName();}
 
 	constexpr NumericValue() = default;
 	explicit constexpr NumericValue(double value)
@@ -70,9 +74,6 @@ public:
 		stream << value() << " " << pluralName();
 	}
 
-	static constexpr double scale() {return _scale::scale;}
-	static std::string singularName() {return _scale::singularName();}
-	static std::string pluralName() {return _scale::pluralName();}
 private:
 	double _value;
 };

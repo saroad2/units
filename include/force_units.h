@@ -25,16 +25,15 @@ namespace force
 
 struct force_tag
 {
-	using code = std::ratio_divide<
-			std::ratio_multiply<typename mass::mass_tag::code, typename length::length_tag::code>,
-			std::ratio_multiply<typename duration::duration_tag::code, typename duration::duration_tag::code>>;
+	using code = ratio_type_tag<multiply_type_tag<mass::mass_tag, length::length_tag>,
+								pow_type_tag<duration::duration_tag, 2>>::code;
 };
 
 struct newtons_tag
 {
 	constexpr static double scale = Ratio<
 			Multiply<mass::Kilograms, length::Meters>,
-			Square<duration::Seconds>>::scale();
+			Square<duration::Seconds>>::scale;
 	static std::string singularName();
 	static std::string pluralName();
 };
@@ -43,7 +42,7 @@ using Newtons = NumericValue<newtons_tag, force_tag>;
 
 struct dynes_tag
 {
-	constexpr static double scale = Newtons::scale() * 1e-5;
+	constexpr static double scale = Newtons::scale * 1e-5;
 	static std::string singularName();
 	static std::string pluralName();
 };

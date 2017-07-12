@@ -22,22 +22,19 @@ extern std::string multiplySymbol;
 template<class Unit1 = NoneType, class... Units>
 struct multiply_type_tag
 {
-	using code = std::ratio_multiply<typename Unit1::_typeCode, typename multiply_type_tag<Units...>::code>;
+	using code = std::ratio_multiply<typename Unit1::code, typename multiply_type_tag<Units...>::code>;
 };
 
 template<>
 struct multiply_type_tag<NoneType>
 {
-	using code = NoneType::_typeCode;
+	using code = NoneType::code;
 };
 
 template<class Unit1 = NoneType, class... Units>
 constexpr double multiplyScaleCalculator()
 {
-	return Unit1::scale() *
-		(sizeof...(Units) == 0 ?
-		1 :
-		multiplyScaleCalculator<Units...>());
+	return Unit1::scale * (sizeof...(Units) == 0 ? 1 : multiplyScaleCalculator<Units...>());
 }
 
 template<class Unit1 = NoneType, class... Units>

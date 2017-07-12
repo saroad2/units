@@ -9,6 +9,7 @@
 #define INCLUDE_ENERGY_UNITS_H_
 
 #include "units/include/internal/numeric_value.h"
+#include "units/include/internal/units_ratio_type.h"
 #include "units/include/force_units.h"
 #include "units/include/length_units.h"
 #include "units/include/internal/utils.h"
@@ -21,14 +22,12 @@ namespace energy
 
 struct energy_tag
 {
-	using code = std::ratio_multiply<
-			typename force::force_tag::code,
-			typename length::length_tag::code>;
+	using code = ratio_type_tag<force::force_tag, length::length_tag>::code;
 };
 
 struct joules_tag
 {
-	static constexpr double scale = Multiply<force::Newtons, length::Meters>::scale();
+	static constexpr double scale = Multiply<force::Newtons, length::Meters>::scale;
 	static std::string singularName();
 	static std::string pluralName();
 };

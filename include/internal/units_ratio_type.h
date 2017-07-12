@@ -22,13 +22,13 @@ extern std::string ratioSymbol;
 template<class Unit1, class Unit2>
 struct ratio_type_tag
 {
-	using code = std::ratio_divide<typename Unit1::_typeCode, typename Unit2::_typeCode>;
+	using code = std::ratio_divide<typename Unit1::code, typename Unit2::code>;
 };
 
 template<class Unit1, class Unit2>
 struct ratio_scale_tag
 {
-	static constexpr double scale = Unit1::scale() / Unit2::scale();
+	static constexpr double scale = Unit1::scale / Unit2::scale;
 	static std::string singularName()
 	{
 		return Unit1::singularName() + ratioSymbol + Unit2::singularName();

@@ -19,11 +19,7 @@ namespace volume
 
 struct volume_tag
 {
-	using code = std::ratio_multiply<
-		std::ratio_multiply<
-		typename length::length_tag::code,
-		typename length::length_tag::code>,
-		typename length::length_tag::code>;
+	using code = pow_type_tag<length::length_tag, 3>::code;
 };
 
 using CubicFeet = Cubic<length::Feet>;
@@ -33,7 +29,7 @@ using CubicKilometers = Cubic<length::Kilometers>;
 
 struct liters_scale_tag
 {
-	static constexpr double scale = 1e-3 * CubicMeters::scale();
+	static constexpr double scale = 1e-3 * CubicMeters::scale;
 	static std::string singularName();
 	static std::string pluralName();
 };

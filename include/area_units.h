@@ -20,9 +20,7 @@ namespace area
 
 struct area_tag
 {
-	using code = std::ratio_multiply<
-		typename length::length_tag::code,
-		typename length::length_tag::code>;
+	using code = pow_type_tag<length::length_tag, 2>::code;
 };
 
 using SquareFeet = Square<length::Feet>;
@@ -32,7 +30,7 @@ using SquareKilometers = Square<length::Kilometers>;
 
 struct dunam_scale_tag
 {
-	static constexpr double scale = 1000 * SquareMeters::scale();
+	static constexpr double scale = 1000 * SquareMeters::scale;
 	static std::string singularName();
 	static std::string pluralName();
 };

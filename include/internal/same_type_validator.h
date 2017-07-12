@@ -17,7 +17,7 @@ namespace units
 
 template<class Unit1, class Unit2>
 class is_from_the_same_type :
-	public std::ratio_equal<typename Unit1::_typeCode, typename Unit2::_typeCode>
+	public std::ratio_equal<typename Unit1::code, typename Unit2::code>
 {
 };
 

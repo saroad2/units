@@ -40,7 +40,7 @@ using Pounds = NumericValue<pounds_tag, mass_tag>;
 
 struct tonnes_tag
 {
-	static constexpr double scale = Mega<Grams>::scale();
+	static constexpr double scale = Mega<Grams>::scale;
 	static std::string singularName();
 	static std::string pluralName();
 };

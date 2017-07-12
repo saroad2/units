@@ -115,3 +115,8 @@ Robot r;
 r.walkForward(Yards{3});
 ```
 Since the unit validation is done in **compiletime**.
+
+Usage Guides
+========
+
+- [Basic Usage](docs/basic_usage.md)

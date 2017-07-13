@@ -48,6 +48,41 @@ struct concatenate_tags<Tags<ActualTags1...>, Tags<ActualTags2...>>
 template<class TagsTuple1, class TagsTuple2>
 using ConcatenateTags = typename concatenate_tags<TagsTuple1, TagsTuple2>::type;
 
+/*============= untag_calculate =============*/
+
+template<typename Tags, class... RemovedTags>
+struct untag_calculate
+{
+};
+
+template<typename Tags, class RemovedTag1, class... RemovedTags>
+struct untag_calculate<Tags, RemovedTag1, RemovedTags...>
+{
+	using type = typename untag_calculate<
+			typename untag_calculate<Tags, RemovedTag1>::type,
+			RemovedTags...>::type;
+};
+
+template<typename ActualTag1, class... ActualTags, class RemovedTag>
+struct untag_calculate<Tags<ActualTag1, ActualTags...>, RemovedTag>
+{
+	using type = typename concatenate_tags<
+			Tags<ActualTag1>,
+			typename untag_calculate<Tags<ActualTags...>, RemovedTag>::type>::type;
+};
+
+template<typename... ActualTags, class RemovedTag>
+struct untag_calculate<Tags<RemovedTag, ActualTags...>, RemovedTag>
+{
+	using type = typename untag_calculate<Tags<ActualTags...>, RemovedTag>::type;
+};
+
+template<class RemovedTag>
+struct untag_calculate<Tags<>, RemovedTag>
+{
+	using type = Tags<>;
+};
+
 /*============= has_tag =============*/
 
 template<class Unit, class Tag>

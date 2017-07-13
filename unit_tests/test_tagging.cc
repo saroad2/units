@@ -18,6 +18,7 @@
 #include "units/include/area_units.h"
 
 #include <gtest/gtest.h>
+#include <type_traits>
 
 using namespace units;
 using namespace units::length;
@@ -243,4 +244,104 @@ TEST(TestTagging, test_units_pow_keeps_tags)
 	EXPECT_TRUE(units_pow<3>(tm).hasTag<tag1>());
 	EXPECT_FALSE(units_pow<3>(tm).hasTag<tag2>());
 	EXPECT_FALSE(units_pow<3>(tm).hasTag<tag3>());
+}
+
+// ============================================================
+
+using AllTaggedMeters = Tag<Meters, tag1, tag2, tag3>;
+
+TEST(TestUntagging, test_class_untagging_with_one_tag)
+{
+	using UntaggedMeters = Untag<AllTaggedMeters, tag1>;
+	bool hasTag1 = has_tag<UntaggedMeters, tag1>::value;
+	bool hasTag2 = has_tag<UntaggedMeters, tag2>::value;
+	bool hasTag3 = has_tag<UntaggedMeters, tag3>::value;
+	EXPECT_FALSE(hasTag1);
+	EXPECT_TRUE(hasTag2);
+	EXPECT_TRUE(hasTag3);
+}
+
+TEST(TestUntagging, test_class_untagging_with_two_tags)
+{
+	using UntaggedMeters = Untag<AllTaggedMeters, tag1, tag2>;
+	bool hasTag1 = has_tag<UntaggedMeters, tag1>::value;
+	bool hasTag2 = has_tag<UntaggedMeters, tag2>::value;
+	bool hasTag3 = has_tag<UntaggedMeters, tag3>::value;
+	EXPECT_FALSE(hasTag1);
+	EXPECT_FALSE(hasTag2);
+	EXPECT_TRUE(hasTag3);
+}
+
+TEST(TestUntagging, test_class_untagging_with_the_same_tag_twice)
+{
+	using UntaggedMeters = Untag<AllTaggedMeters, tag1, tag1>;
+	bool hasTag1 = has_tag<UntaggedMeters, tag1>::value;
+	bool hasTag2 = has_tag<UntaggedMeters, tag2>::value;
+	bool hasTag3 = has_tag<UntaggedMeters, tag3>::value;
+	EXPECT_FALSE(hasTag1);
+	EXPECT_TRUE(hasTag2);
+	EXPECT_TRUE(hasTag3);
+}
+
+TEST(TestUntagging, test_class_untagging_twice)
+{
+	using UntaggedMeters1 = Untag<AllTaggedMeters, tag1>;
+	using UntaggedMeters2 = Untag<UntaggedMeters1, tag2>;
+	bool hasTag1 = has_tag<UntaggedMeters2, tag1>::value;
+	bool hasTag2 = has_tag<UntaggedMeters2, tag2>::value;
+	bool hasTag3 = has_tag<UntaggedMeters2, tag3>::value;
+	EXPECT_FALSE(hasTag1);
+	EXPECT_FALSE(hasTag2);
+	EXPECT_TRUE(hasTag3);
+}
+
+TEST(TestUntagging, test_class_untag_all)
+{
+	using UntaggedMeters = UntagAll<AllTaggedMeters>;
+	auto equality = std::is_same<UntaggedMeters, Meters>::value;
+	EXPECT_TRUE(equality);
+}
+
+TEST(TestUntagging, test_object_untagging_with_one_tag)
+{
+	AllTaggedMeters m{3};
+	auto um = untag<tag1>(m);
+	EXPECT_FALSE(um.hasTag<tag1>());
+	EXPECT_TRUE(um.hasTag<tag2>());
+	EXPECT_TRUE(um.hasTag<tag3>());
+}
+
+TEST(TestUntagging, test_object_untagging_with_two_tags)
+{
+	AllTaggedMeters m{3};
+	auto um = untag<tag1, tag2>(m);
+	EXPECT_FALSE(um.hasTag<tag1>());
+	EXPECT_FALSE(um.hasTag<tag2>());
+	EXPECT_TRUE(um.hasTag<tag3>());
+}
+
+TEST(TestUntagging, test_object_untagging_with_the_same_tag_twice)
+{
+	AllTaggedMeters m{3};
+	auto um = untag<tag1, tag1>(m);
+	EXPECT_FALSE(um.hasTag<tag1>());
+	EXPECT_TRUE(um.hasTag<tag2>());
+	EXPECT_TRUE(um.hasTag<tag3>());
+}
+
+TEST(TestUntagging, test_object_untagging_twice)
+{
+	AllTaggedMeters m{3};
+	auto um1 = untag<tag1>(m);
+	auto um2 = untag<tag2>(um1);
+	EXPECT_FALSE(um2.hasTag<tag1>());
+	EXPECT_FALSE(um2.hasTag<tag2>());
+	EXPECT_TRUE(um2.hasTag<tag3>());
+}
+
+TEST(TestUntagging, test_object_untag_all)
+{
+	AllTaggedMeters m{3};
+	auto um = untagAll(m);
+	EXPECT_EQ(um, 3_meters);
 }

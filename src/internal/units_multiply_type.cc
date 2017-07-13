@@ -11,6 +11,6 @@ namespace units {
 
 using std::string;
 
-string multiplySymbol{"*"};
+const string multiplySymbol{"*"};
 
 }

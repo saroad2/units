@@ -17,7 +17,7 @@
 namespace units
 {
 
-extern std::string powerSymbol;
+extern const std::string powSymbol;
 
 template<class Unit, int power>
 struct pow_type_tag
@@ -45,11 +45,11 @@ struct pow_scale_tag
 	static constexpr double scale = powerScaleCalculator<Unit>(power);
 	static std::string singularName()
 	{
-		return Unit::singularName() + powerSymbol + std::to_string(power);
+		return Unit::singularName() + powSymbol + std::to_string(power);
 	}
 	static std::string pluralName()
 	{
-		return Unit::pluralName() + powerSymbol + std::to_string(power);
+		return Unit::pluralName() + powSymbol + std::to_string(power);
 	}
 };
 

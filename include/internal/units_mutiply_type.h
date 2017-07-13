@@ -17,7 +17,7 @@
 namespace units
 {
 
-extern std::string multiplySymbol;
+extern const std::string multiplySymbol;
 
 template<class Unit1 = NoneType, class... Units>
 struct multiply_type_tag

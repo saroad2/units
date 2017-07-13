@@ -17,7 +17,7 @@
 namespace units
 {
 
-extern std::string ratioSymbol;
+extern const std::string ratioSymbol;
 
 template<class Unit1, class Unit2>
 struct ratio_type_tag

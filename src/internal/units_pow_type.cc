@@ -12,6 +12,6 @@ namespace units
 
 using std::string;
 
-string powerSymbol{"^"};
+const string powSymbol{"^"};
 
 }

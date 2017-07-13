@@ -8,6 +8,7 @@
 #ifndef INCLUDE_NUMERIC_VALUE_H_
 #define INCLUDE_NUMERIC_VALUE_H_
 
+#include <units/include/internal/tags.h>
 #include <type_traits>
 #include <ostream>
 #include <string>
@@ -19,14 +20,15 @@ namespace units
 	static_assert(std::is_same<Unit1, Unit2>::value, \
 				  "Cannot use this operation on different units");
 
-template<class ScaleTag, class TypeTag>
+template<class ScaleTag, class TypeTag, class OtherTags = Tags<>>
 class NumericValue
 {
 private:
-	using _selfType = NumericValue<ScaleTag, TypeTag>;
+	using _selfType = NumericValue<ScaleTag, TypeTag, OtherTags>;
 public:
 	using _scale = ScaleTag;
 	using _type = TypeTag;
+	using _tags = OtherTags;
 
 	using code = typename _type::code;
 	static constexpr double scale = _scale::scale;
@@ -45,19 +47,25 @@ public:
 	constexpr double value() const {return _value;}
 	explicit constexpr operator double() const {return value();}
 
-	template<class OtherScaleTag, class OtherTypeTag>
-	constexpr _selfType& operator+=(const NumericValue<OtherScaleTag, OtherTypeTag>& other)
+	template<class Tag>
+	constexpr bool hasTag() const
 	{
-		using OtherNumericValue = NumericValue<OtherScaleTag, OtherTypeTag>;
+		return has_tag<_selfType, Tag>::value;
+	}
+
+	template<class... SomeOtherTags>
+	constexpr _selfType& operator+=(const NumericValue<SomeOtherTags...>& other)
+	{
+		using OtherNumericValue = NumericValue<SomeOtherTags...>;
 		VALIDATE_SAME_UNIT(_selfType, OtherNumericValue);
 		_value += other.value();
 		return *this;
 	}
 
-	template<class OtherScaleTag, class OtherTypeTag>
-	constexpr _selfType& operator-=(const NumericValue<OtherScaleTag, OtherTypeTag>& other)
+	template<class... SomeOtherTags>
+	constexpr _selfType& operator-=(const NumericValue<SomeOtherTags...>& other)
 	{
-		using OtherNumericValue = NumericValue<OtherScaleTag, OtherTypeTag>;
+		using OtherNumericValue = NumericValue<SomeOtherTags...>;
 		VALIDATE_SAME_UNIT(_selfType, OtherNumericValue);
 		_value -= other.value();
 		return *this;

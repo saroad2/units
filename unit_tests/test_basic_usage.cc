@@ -1,4 +1,5 @@
 #include "units/unit_tests/all_units.h"
+#include "units/include/tagging.h"
 
 #include <gtest/gtest.h>
 
@@ -9,7 +10,9 @@ class TestBasicUsage : public Test
 {
 };
 
-using MyTypes = Types<ALL_UNITS()>;
+struct tag1{};
+
+using MyTypes = Types<ALL_UNITS(), units::Tag<units::length::Meters, tag1>>;
 TYPED_TEST_CASE(TestBasicUsage, MyTypes);
 
 TYPED_TEST(TestBasicUsage, test_double_constructor)

@@ -54,7 +54,10 @@ struct pow_scale_tag
 };
 
 template<class Unit, int power>
-using Pow = NumericValue<pow_scale_tag<Unit, power>, pow_type_tag<Unit, power>>;
+using Pow = NumericValue<
+		pow_scale_tag<Unit, power>,
+		pow_type_tag<Unit, power>,
+		typename Unit::_tags>;
 
 template<class Unit>
 using Square = Pow<Unit, 2>;

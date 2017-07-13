@@ -34,46 +34,34 @@ struct tag3{};
 TEST(TestTagging, test_class_tagging_with_one_tag)
 {
 	using TaggedMeters = Tag<Meters, tag1>;
-	bool hasTag1 = has_tag<TaggedMeters, tag1>::value;
-	bool hasTag2 = has_tag<TaggedMeters, tag2>::value;
-	bool hasTag3 = has_tag<TaggedMeters, tag3>::value;
-	EXPECT_TRUE(hasTag1);
-	EXPECT_FALSE(hasTag2);
-	EXPECT_FALSE(hasTag3);
+	EXPECT_TRUE(TaggedMeters::hasTag<tag1>());
+	EXPECT_FALSE(TaggedMeters::hasTag<tag2>());
+	EXPECT_FALSE(TaggedMeters::hasTag<tag3>());
 }
 
 TEST(TestTagging, test_class_tagging_with_two_tags)
 {
 	using TaggedMeters = Tag<Meters, tag1, tag2>;
-	bool hasTag1 = has_tag<TaggedMeters, tag1>::value;
-	bool hasTag2 = has_tag<TaggedMeters, tag2>::value;
-	bool hasTag3 = has_tag<TaggedMeters, tag3>::value;
-	EXPECT_TRUE(hasTag1);
-	EXPECT_TRUE(hasTag2);
-	EXPECT_FALSE(hasTag3);
+	EXPECT_TRUE(TaggedMeters::hasTag<tag1>());
+	EXPECT_TRUE(TaggedMeters::hasTag<tag2>());
+	EXPECT_FALSE(TaggedMeters::hasTag<tag3>());
 }
 
 TEST(TestTagging, test_class_tagging_with_the_same_tag_twice)
 {
 	using TaggedMeters = Tag<Meters, tag1, tag1>;
-	bool hasTag1 = has_tag<TaggedMeters, tag1>::value;
-	bool hasTag2 = has_tag<TaggedMeters, tag2>::value;
-	bool hasTag3 = has_tag<TaggedMeters, tag3>::value;
-	EXPECT_TRUE(hasTag1);
-	EXPECT_FALSE(hasTag2);
-	EXPECT_FALSE(hasTag3);
+	EXPECT_TRUE(TaggedMeters::hasTag<tag1>());
+	EXPECT_FALSE(TaggedMeters::hasTag<tag2>());
+	EXPECT_FALSE(TaggedMeters::hasTag<tag3>());
 }
 
 TEST(TestTagging, test_class_tagging_twice)
 {
 	using TaggedMeters1 = Tag<Meters, tag1>;
 	using TaggedMeters2 = Tag<TaggedMeters1, tag2>;
-	bool hasTag1 = has_tag<TaggedMeters2, tag1>::value;
-	bool hasTag2 = has_tag<TaggedMeters2, tag2>::value;
-	bool hasTag3 = has_tag<TaggedMeters2, tag3>::value;
-	EXPECT_TRUE(hasTag1);
-	EXPECT_TRUE(hasTag2);
-	EXPECT_FALSE(hasTag3);
+	EXPECT_TRUE(TaggedMeters2::hasTag<tag1>());
+	EXPECT_TRUE(TaggedMeters2::hasTag<tag2>());
+	EXPECT_FALSE(TaggedMeters2::hasTag<tag3>());
 }
 
 TEST(TestTagging, test_object_tagging_with_one_tag)
@@ -253,46 +241,34 @@ using AllTaggedMeters = Tag<Meters, tag1, tag2, tag3>;
 TEST(TestUntagging, test_class_untagging_with_one_tag)
 {
 	using UntaggedMeters = Untag<AllTaggedMeters, tag1>;
-	bool hasTag1 = has_tag<UntaggedMeters, tag1>::value;
-	bool hasTag2 = has_tag<UntaggedMeters, tag2>::value;
-	bool hasTag3 = has_tag<UntaggedMeters, tag3>::value;
-	EXPECT_FALSE(hasTag1);
-	EXPECT_TRUE(hasTag2);
-	EXPECT_TRUE(hasTag3);
+	EXPECT_FALSE(UntaggedMeters::hasTag<tag1>());
+	EXPECT_TRUE(UntaggedMeters::hasTag<tag2>());
+	EXPECT_TRUE(UntaggedMeters::hasTag<tag3>());
 }
 
 TEST(TestUntagging, test_class_untagging_with_two_tags)
 {
 	using UntaggedMeters = Untag<AllTaggedMeters, tag1, tag2>;
-	bool hasTag1 = has_tag<UntaggedMeters, tag1>::value;
-	bool hasTag2 = has_tag<UntaggedMeters, tag2>::value;
-	bool hasTag3 = has_tag<UntaggedMeters, tag3>::value;
-	EXPECT_FALSE(hasTag1);
-	EXPECT_FALSE(hasTag2);
-	EXPECT_TRUE(hasTag3);
+	EXPECT_FALSE(UntaggedMeters::hasTag<tag1>());
+	EXPECT_FALSE(UntaggedMeters::hasTag<tag2>());
+	EXPECT_TRUE(UntaggedMeters::hasTag<tag3>());
 }
 
 TEST(TestUntagging, test_class_untagging_with_the_same_tag_twice)
 {
 	using UntaggedMeters = Untag<AllTaggedMeters, tag1, tag1>;
-	bool hasTag1 = has_tag<UntaggedMeters, tag1>::value;
-	bool hasTag2 = has_tag<UntaggedMeters, tag2>::value;
-	bool hasTag3 = has_tag<UntaggedMeters, tag3>::value;
-	EXPECT_FALSE(hasTag1);
-	EXPECT_TRUE(hasTag2);
-	EXPECT_TRUE(hasTag3);
+	EXPECT_FALSE(UntaggedMeters::hasTag<tag1>());
+	EXPECT_TRUE(UntaggedMeters::hasTag<tag2>());
+	EXPECT_TRUE(UntaggedMeters::hasTag<tag3>());
 }
 
 TEST(TestUntagging, test_class_untagging_twice)
 {
 	using UntaggedMeters1 = Untag<AllTaggedMeters, tag1>;
 	using UntaggedMeters2 = Untag<UntaggedMeters1, tag2>;
-	bool hasTag1 = has_tag<UntaggedMeters2, tag1>::value;
-	bool hasTag2 = has_tag<UntaggedMeters2, tag2>::value;
-	bool hasTag3 = has_tag<UntaggedMeters2, tag3>::value;
-	EXPECT_FALSE(hasTag1);
-	EXPECT_FALSE(hasTag2);
-	EXPECT_TRUE(hasTag3);
+	EXPECT_FALSE(UntaggedMeters2::hasTag<tag1>());
+	EXPECT_FALSE(UntaggedMeters2::hasTag<tag2>());
+	EXPECT_TRUE(UntaggedMeters2::hasTag<tag3>());
 }
 
 TEST(TestUntagging, test_class_untag_all)

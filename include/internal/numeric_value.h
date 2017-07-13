@@ -48,7 +48,7 @@ public:
 	explicit constexpr operator double() const {return value();}
 
 	template<class Tag>
-	constexpr bool hasTag() const
+	static constexpr bool hasTag()
 	{
 		return has_tag<_selfType, Tag>::value;
 	}

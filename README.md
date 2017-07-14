@@ -278,3 +278,14 @@ This main will print:
 0.000328528 dunams
 
 ```
+
+Software Requirements
+========
+
+library requirements:
+
+- [c++14](https://en.wikipedia.org/wiki/C%2B%2B14) compiler
+
+testing requirements:
+
+- [google tests](https://github.com/google/googletest) library

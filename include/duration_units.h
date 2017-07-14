@@ -48,28 +48,36 @@ struct seconds_tag
 
 struct minutes_tag
 {
-	static constexpr double scale = 60;
+	using seconds = std::chrono::seconds;
+	using minutes = std::chrono::minutes;
+	static constexpr double scale =
+			seconds_tag::scale
+			* std::chrono::duration_cast<seconds>(minutes{1}).count();
 	static std::string singularName();
 	static std::string pluralName();
 };
 
 struct hours_tag
 {
-	static constexpr double scale = 3600;
+	using minutes = std::chrono::minutes;
+	using hours = std::chrono::hours;
+	static constexpr double scale =
+			minutes_tag::scale
+			* std::chrono::duration_cast<minutes>(hours{1}).count();
 	static std::string singularName();
 	static std::string pluralName();
 };
 
 struct days_tag
 {
-	static constexpr double scale = 86400;
+	static constexpr double scale = hours_tag::scale * 24;
 	static std::string singularName();
 	static std::string pluralName();
 };
 
 struct years_tag
 {
-	static constexpr double scale = 31536000;
+	static constexpr double scale = days_tag::scale * 365;
 	static std::string singularName();
 	static std::string pluralName();
 };

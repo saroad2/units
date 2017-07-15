@@ -38,6 +38,11 @@ public:
 	constexpr _selfType& operator=(const _selfType& other) = default;
 };
 
+template<class ChronoClassFrom, class ChronoClassTo>
+constexpr auto chronoConversionScale()
+{
+	return std::chrono::duration_cast<ChronoClassTo>(ChronoClassFrom{1}).count();
+}
 
 struct seconds_tag
 {
@@ -51,8 +56,7 @@ struct minutes_tag
 	using seconds = std::chrono::seconds;
 	using minutes = std::chrono::minutes;
 	static constexpr double scale =
-			seconds_tag::scale
-			* std::chrono::duration_cast<seconds>(minutes{1}).count();
+			seconds_tag::scale * chronoConversionScale<minutes, seconds>();
 	static std::string singularName();
 	static std::string pluralName();
 };
@@ -62,8 +66,7 @@ struct hours_tag
 	using minutes = std::chrono::minutes;
 	using hours = std::chrono::hours;
 	static constexpr double scale =
-			minutes_tag::scale
-			* std::chrono::duration_cast<minutes>(hours{1}).count();
+			minutes_tag::scale * chronoConversionScale<hours, minutes>();
 	static std::string singularName();
 	static std::string pluralName();
 };

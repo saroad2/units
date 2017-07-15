@@ -1,0 +1,47 @@
+apply plugin: 'cpp'
+apply plugin: 'google-test'
+apply plugin: 'eclipse'
+
+model { 
+
+    repositories {
+        libs(PrebuiltLibraries) {
+            googleTest {
+                headers.srcDir "googleTest/include"
+                binaries.withType(StaticLibraryBinary) {
+                    staticLibraryFile = file("googleTest/lib/libgtest.a")
+                }
+            }
+        }
+    }
+    
+    components {
+        units(NativeLibrarySpec) { }
+    }
+
+    binaries {
+        withType(SharedLibraryBinarySpec) {
+            if (toolChain in VisualCpp) {
+                cppCompiler.define "DLL_EXPORT" 
+            }
+        }
+
+		withType(GoogleTestTestSuiteBinarySpec) {
+		    lib library: "googleTest", linkage: "static"
+			
+			if (toolChain in Gcc) {
+	                linker.args "-pthread"
+	        }
+	    }
+    }
+
+    toolChains {
+        gcc(Gcc) {
+            eachPlatform {
+                cppCompiler.withArguments { args ->
+                    args << "-std=c++1y"
+                }
+            }
+        }
+    }
+}

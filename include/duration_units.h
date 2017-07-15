@@ -28,7 +28,7 @@ private:
 	using _selfType = Duration<ChronoClass, Tags...>;
 public:
 	constexpr Duration() : NumericValue<Tags...>{} {};
-	constexpr Duration(double value) : NumericValue<Tags...>{value} {};
+	explicit constexpr Duration(double value) : NumericValue<Tags...>{value} {};
 	constexpr Duration(const ChronoClass& value)
 	: NumericValue<Tags...>{(double)value.count()}
 	{

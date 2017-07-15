@@ -90,6 +90,15 @@ TYPED_TEST(TestBasicUsage, test_operator_multiply_equal)
 	EXPECT_EQ(unit.value(), value * scalar);
 }
 
+TYPED_TEST(TestBasicUsage, test_operator_divide_equal)
+{
+	double value = 5.123;
+	double scalar = 3.956;
+	TypeParam unit{value};
+	unit /= scalar;
+	EXPECT_EQ(unit.value(), value / scalar);
+}
+
 TYPED_TEST(TestBasicUsage, test_equality_pass)
 {
 	double value1 = 5.123;
@@ -279,4 +288,14 @@ TYPED_TEST(TestBasicUsage, test_multiply_by_scalar_from_the_right)
 	auto unit2 = unit1 * scalar;
 	EXPECT_EQ(unit1.value(), value);
 	EXPECT_EQ(unit2.value(), scalar * value);
+}
+
+TYPED_TEST(TestBasicUsage, test_divide_by_scalar)
+{
+	double value = 5.123;
+	double scalar = 7.1;
+	TypeParam unit1{value};
+	auto unit2 = unit1 / scalar;
+	EXPECT_EQ(unit1.value(), value);
+	EXPECT_EQ(unit2.value(), value / scalar);
 }

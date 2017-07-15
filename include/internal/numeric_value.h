@@ -77,6 +77,12 @@ public:
 		return *this;
 	}
 
+	constexpr _selfType& operator/=(double scalar)
+	{
+		_value /= scalar;
+		return *this;
+	}
+
 	void print(std::ostream& stream) const
 	{
 		stream << value() << " " << pluralName();
@@ -165,6 +171,14 @@ template<class... Tags>
 constexpr NumericValue<Tags...> operator*(const NumericValue<Tags...>& unit, double scalar)
 {
 	return scalar * unit;
+}
+
+template<class... Tags>
+constexpr NumericValue<Tags...> operator/(const NumericValue<Tags...>& unit, double scalar)
+{
+	auto result = NumericValue<Tags...>{unit};
+	result /= scalar;
+	return result;
 }
 
 template<class ScaleTag, class TypeTag>

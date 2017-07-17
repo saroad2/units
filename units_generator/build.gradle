@@ -1,0 +1,41 @@
+apply plugin: 'java'
+apply plugin: 'application'
+apply plugin: 'jsonschema2pojo'
+
+buildscript {
+  repositories {
+    jcenter()
+  }
+
+  dependencies {
+    classpath 'org.jsonschema2pojo:jsonschema2pojo-gradle-plugin:latest.integration'
+  }
+}
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+    compile 'org.jsonschema2pojo:jsonschema2pojo-gradle-plugin:latest.integration'
+	compile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1'
+	compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.0.1'
+ 	compile "org.antlr:stringtemplate:3.2.1"
+ 	compile group: 'com.google.guava', name: 'guava', version: 'r05'
+}
+
+jsonSchema2Pojo {
+  targetPackage = 'units_schema'
+  includeJsr303Annotations = true
+  propertyWordDelimiters = ['_'] as char[]
+}
+
+File jsonFile = file('src/main/resources/data/units.json')
+File stringTemplateDirectory = file('src/main/resources/stringtemplate')
+File outputDirectory = file('generated')
+
+run {
+	args = [ jsonFile.absolutePath, stringTemplateDirectory.absolutePath, outputDirectory.absolutePath ]
+}
+
+mainClassName = 'units_generator.UnitsGenerator'

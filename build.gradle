@@ -1,0 +1,5 @@
+task copyGenerated(type: Copy, dependsOn: ':units_generator:run') {
+    from 'units_generator/generated/'
+    into 'units_cpp/src/units/'
+    exclude { details -> details.file.name.endsWith('.swp')}
+}

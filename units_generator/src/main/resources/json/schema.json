@@ -1,0 +1,27 @@
+{
+    "title": "Units",
+    "type": "object",
+    "properties": {
+        "unit_types": {
+            "type" : "array",
+            "items" : {
+            	"type" : "object",
+            	"properties" : {
+            		"type_name" : {"type" : "string"},
+            		"unit_scales" : {
+            			"type" : "array",
+            			"items": {
+            				"type" : "object",
+	            			"properties" : {
+	            				"scale" : { "type" : "number"},
+	            				"singular_name" : { "type" : "string"},
+	            				"plural_name" : { "type" : "string"}
+	            			}
+            			}
+            		}
+            	}
+            }
+        }
+    },
+    "required": ["firstName", "lastName"]
+}

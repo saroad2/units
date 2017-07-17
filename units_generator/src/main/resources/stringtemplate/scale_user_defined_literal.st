@@ -1,0 +1,1 @@
+USER_DEFINED_LITERALS($scale.className$, $scale.userDefinedLiteral$);$\n$

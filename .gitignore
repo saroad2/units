@@ -1,0 +1,8 @@
+.settings/
+.project
+.cproject
+.gradle/
+build/
+bin/
+*.swp
+generated/

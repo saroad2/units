@@ -1,0 +1,49 @@
+{
+	"unit_types" : [
+		{
+			"type_name" : "length",
+			"unit_scales" : [
+				{
+					"scale" : 0.02539999983236,
+					"singular_name" : "inch",
+					"plural_name" : "inches"
+				},
+				{
+					"scale" : 0.304799999536704,
+					"singular_name" : "foot",
+					"plural_name" : "feet"
+				},
+				{
+					"scale" : 0.914399998610112,
+					"singular_name" : "yard",
+					"plural_name" : "yards"
+				},
+				{
+					"scale" : 1,
+					"singular_name" : "meter",
+					"plural_name" : "meters"
+				},
+				{
+					"scale" : 1e-6,
+					"singular_name" : "micrometer",
+					"plural_name" : "micrometers"
+				},
+				{
+					"scale" : 1e-3,
+					"singular_name" : "millimeter",
+					"plural_name" : "millimeters"
+				},
+				{
+					"scale" : 1e-2,
+					"singular_name" : "centimeter",
+					"plural_name" : "centimeters"
+				},
+				{
+					"scale" : 1e+3,
+					"singular_name" : "kilometer",
+					"plural_name" : "kilometers"
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,1 @@
+using $scale.className$ = NumericValue<$scale.tagName$, $unitType.typeName$_tag>;$\n$

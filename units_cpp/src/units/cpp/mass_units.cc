@@ -1,8 +1,5 @@
-/*
- * mass_units.cc
- *
- *  Created on: Jul 1, 2017
- *      Author: sagis
+/* This file is auto generated.
+ * DO NOT EDIT IT MANUALY!
  */
 
 #include "mass_units.h"
@@ -22,6 +19,6 @@ string pounds_tag::pluralName() { return "pounds"; }
 string tonnes_tag::singularName() { return "tonne"; }
 string tonnes_tag::pluralName() { return "tonnes"; }
 
-}
-}
 
+} 
+}

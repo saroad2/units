@@ -45,6 +45,27 @@
 					"plural_name" : "radians"
 				}
 			]
+		},
+		{
+			"type_name" : "mass",
+			"unit_scales" : [
+				{
+					"scale" : 1,
+					"singular_name" : "gram",
+					"plural_name" : "grams",
+					"multiplyers" : ["milli", "kilo"]
+				},
+				{
+					"scale" : 453.592333346094,
+					"singular_name" : "pound",
+					"plural_name" : "pounds"
+				},
+				{
+					"scale" : 1e+6,
+					"singular_name" : "tonne",
+					"plural_name" : "tonnes"
+				}
+			]
 		}
 	]
 }

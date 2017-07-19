@@ -19,7 +19,7 @@ namespace units {
 namespace duration
 {
 
-struct duration_tag {	using code = std::ratio<5, 1>; };
+struct duration_tag {	using code = std::ratio<7, 1>; };
 
 template<class ChronoClass, class... Tags>
 class Duration : public NumericValue<Tags...>

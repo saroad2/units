@@ -1,6 +1,10 @@
 package units_generator.cpp_generator;
 
+import java.util.ArrayList;
+
+import units_generator.cpp_generator.CppMultiplyer;
 import units_schema.UnitScale;
+import units_schema.Multiplyer;
 
 public class CppUnitScale {
 	
@@ -10,6 +14,7 @@ public class CppUnitScale {
 	private String tagName;
 	private String className;
 	private String userDefinedLiteral;
+	private ArrayList<CppMultiplyer> multiplyers;
 
 	public double getScale() {
 		return scale;
@@ -35,6 +40,10 @@ public class CppUnitScale {
 		return userDefinedLiteral;
 	}
 	
+	public ArrayList<CppMultiplyer> getMultiplyers() {
+		return multiplyers;
+	}
+	
 	public CppUnitScale(UnitScale unitScale)
 	{
 		scale = unitScale.getScale();
@@ -43,6 +52,13 @@ public class CppUnitScale {
 		tagName = (pluralName + "_tag").replaceAll(" ", "_");
 		className = CppNamesFormatter.formatClassname(pluralName);
 		userDefinedLiteral = pluralName.replaceAll(" ", "_");
+		multiplyers = new ArrayList<CppMultiplyer>();
+		for (Multiplyer multiplyer : unitScale.getMultiplyers())
+			multiplyers.add(new CppMultiplyer(multiplyer));
+	}
+	
+	public boolean hasMultiplyers() {
+		return !multiplyers.isEmpty();
 	}
 	
 	public String toString() {

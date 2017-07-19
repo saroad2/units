@@ -8,6 +8,7 @@
 #include "internal/numeric_value.h"
 #include "internal/utils.h"
 #include <ratio>
+#include "internal/multiplyer_scales.h"
 
 
 namespace units {
@@ -40,46 +41,30 @@ struct meters_tag
 	static std::string singularName();
 	static std::string pluralName();
 };
-struct micrometers_tag
-{
-	static constexpr double scale = 1.0E-6;
-	static std::string singularName();
-	static std::string pluralName();
-};
-struct millimeters_tag
-{
-	static constexpr double scale = 0.001;
-	static std::string singularName();
-	static std::string pluralName();
-};
-struct centimeters_tag
-{
-	static constexpr double scale = 0.01;
-	static std::string singularName();
-	static std::string pluralName();
-};
-struct kilometers_tag
-{
-	static constexpr double scale = 1000.0;
-	static std::string singularName();
-	static std::string pluralName();
-};
 
 
 using Inches = NumericValue<inches_tag, length_tag>;
+
 using Feet = NumericValue<feet_tag, length_tag>;
+
 using Yards = NumericValue<yards_tag, length_tag>;
+
 using Meters = NumericValue<meters_tag, length_tag>;
-using Micrometers = NumericValue<micrometers_tag, length_tag>;
-using Millimeters = NumericValue<millimeters_tag, length_tag>;
-using Centimeters = NumericValue<centimeters_tag, length_tag>;
-using Kilometers = NumericValue<kilometers_tag, length_tag>;
+
+using Micrometers = Micro<Meters>;
+using Millimeters = Milli<Meters>;
+using Centimeters = Centi<Meters>;
+using Kilometers = Kilo<Meters>;
 
 
 USER_DEFINED_LITERALS(Inches, inches);
+
 USER_DEFINED_LITERALS(Feet, feet);
+
 USER_DEFINED_LITERALS(Yards, yards);
+
 USER_DEFINED_LITERALS(Meters, meters);
+
 USER_DEFINED_LITERALS(Micrometers, micrometers);
 USER_DEFINED_LITERALS(Millimeters, millimeters);
 USER_DEFINED_LITERALS(Centimeters, centimeters);

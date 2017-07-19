@@ -21,27 +21,8 @@
 				{
 					"scale" : 1,
 					"singular_name" : "meter",
-					"plural_name" : "meters"
-				},
-				{
-					"scale" : 1e-6,
-					"singular_name" : "micrometer",
-					"plural_name" : "micrometers"
-				},
-				{
-					"scale" : 1e-3,
-					"singular_name" : "millimeter",
-					"plural_name" : "millimeters"
-				},
-				{
-					"scale" : 1e-2,
-					"singular_name" : "centimeter",
-					"plural_name" : "centimeters"
-				},
-				{
-					"scale" : 1e+3,
-					"singular_name" : "kilometer",
-					"plural_name" : "kilometers"
+					"plural_name" : "meters",
+					"multiplyers" : ["micro", "milli", "centi", "kilo"]
 				}
 			]
 		}

@@ -15,7 +15,20 @@
 	            			"properties" : {
 	            				"scale" : { "type" : "number"},
 	            				"singular_name" : { "type" : "string"},
-	            				"plural_name" : { "type" : "string"}
+	            				"plural_name" : { "type" : "string"},
+	            				"multiplyers" : {
+	            					"type" : "array",
+	            					"items" : {
+	            						"type" : "string",
+	            						"enum" : [
+	            							"nano",
+	            							"micro",
+	            							"milli",
+	            							"centi",
+	            							"kilo",
+	            							"mega"]
+	            					}
+	            				}
 	            			}
             			}
             		}

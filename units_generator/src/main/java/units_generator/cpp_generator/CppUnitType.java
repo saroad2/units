@@ -18,6 +18,7 @@ public class CppUnitType {
 	private ArrayList<CppUnitScale> unitScales;
 	private String headerFileName;
 	private String sourceFileName;
+	private boolean hasMultiplyers;
 
 	public String getTypeName() {
 		return typeName;
@@ -52,10 +53,8 @@ public class CppUnitType {
 		code = codeGetter.getNextAndBump();
 		includeGurad = "INCLUDE_" + typeName.toUpperCase() + "_UNITS_H_";
 		unitScales = new ArrayList<CppUnitScale>();
-		for (UnitScale unitScale : unitType.getUnitScales()) {
-			unitScales.add(new CppUnitScale(unitScale));
-		}
 		initializeIncludes();
+		addScales(unitType);
 		headerFileName = typeName + "_units.h";
 		sourceFileName = typeName + "_units.cc";
 	}
@@ -66,6 +65,22 @@ public class CppUnitType {
 		includes.add("\"internal/numeric_value.h\"");
 		includes.add("\"internal/utils.h\"");
 		includes.add("<ratio>");
+	}
+
+	private void addScales(UnitType unitType) {
+		hasMultiplyers = false;
+		for (UnitScale unitScale : unitType.getUnitScales()) {
+			addScale(unitScale);
+		}
+	}
+
+	private void addScale(UnitScale unitScale) {
+		CppUnitScale scale = new CppUnitScale(unitScale); 
+		unitScales.add(scale);
+		if (scale.hasMultiplyers() && !hasMultiplyers) {
+			includes.add("\"internal/multiplyer_scales.h\"");
+			hasMultiplyers = true;
+		}
 	}
 	
 	public String toString() {

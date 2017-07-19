@@ -49,7 +49,7 @@ protected:
 			for_each(values, forEachReverseFunction);
 		}
 	}
-	static constexpr double maxError = 1e-10;
+	static constexpr double maxError = 1e-9;
 };
 
 TEST_F(TestTrigo, cos_and_acos)

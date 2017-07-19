@@ -31,7 +31,7 @@ TEST_F(TestAngleUnitsConversions, radians_to_degrees)
 
 TEST_F(TestAngleUnitsConversions, radians_to_mils)
 {
-	maxError = 1e-10;
+	maxError = 1e-9;
 	check_conversions<Radians, Mils>(3200 / M_PI, M_PI / 3200);
 }
 // ============================================================

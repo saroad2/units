@@ -25,6 +25,26 @@
 					"multiplyers" : ["micro", "milli", "centi", "kilo"]
 				}
 			]
+		},
+		{
+			"type_name" : "angle",
+			"unit_scales" : [
+				{
+					"scale" : 0.05625,
+					"singular_name" : "mil",
+					"plural_name" : "mils"
+				},
+				{
+					"scale" : 1,
+					"singular_name" : "degree",
+					"plural_name" : "degrees"
+				},
+				{
+					"scale" : 57.2957795131,
+					"singular_name" : "radian",
+					"plural_name" : "radians"
+				}
+			]
 		}
 	]
 }

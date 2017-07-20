@@ -1,44 +1,54 @@
 {
+
+	"definitions" : {
+	
+		"multiplyer" : {
+			"type" : "string",
+			"enum" : [
+				"nano",
+				"micro",
+				"milli",
+				"centi",
+				"kilo",
+				"mega"]
+		},
+	
+		"unit_scale" : {
+			"type" : "object",
+			"properties" : {
+				"scale" : { "type" : "number"},
+				"relative_to" : { "type" : "string"},
+				"singular_name" : { "type" : "string"},
+				"plural_name" : { "type" : "string"},
+				"multiplyers" : {
+					"type" : "array",
+					"items" : {"$ref" : "#/definitions/multiplyer"}
+				}
+			}
+		},
+		
+		"unit_type" : {
+        	"type" : "object",
+        	"properties" : {
+        		"type_name" : {"type" : "string"},
+				"tags_only" : {
+					"type" : "boolean",
+					"default" : "false"
+				},
+        		"unit_scales" : {
+        			"type" : "array",
+        			"items": {"$ref" : "#/definitions/unit_scale"}
+        		}
+        	}
+        }
+	},
+	
     "title": "Units",
     "type": "object",
     "properties": {
         "unit_types": {
             "type" : "array",
-            "items" : {
-            	"type" : "object",
-            	"properties" : {
-            		"type_name" : {"type" : "string"},
-    				"tags_only" : {
-    					"type" : "boolean",
-    					"default" : "false"
-    				},
-            		"unit_scales" : {
-            			"type" : "array",
-            			"items": {
-            				"type" : "object",
-	            			"properties" : {
-	            				"scale" : { "type" : "number"},
-	            				"relative_to" : { "type" : "string"},
-	            				"singular_name" : { "type" : "string"},
-	            				"plural_name" : { "type" : "string"},
-	            				"multiplyers" : {
-	            					"type" : "array",
-	            					"items" : {
-	            						"type" : "string",
-	            						"enum" : [
-	            							"nano",
-	            							"micro",
-	            							"milli",
-	            							"centi",
-	            							"kilo",
-	            							"mega"]
-	            					}
-	            				}
-	            			}
-            			}
-            		}
-            	}
-            }
+            "items" : {"$ref" : "#/definitions/unit_type"}
         }
     }
 }

@@ -19,7 +19,7 @@ namespace speed
 
 struct speed_tag
 {
-	using code = ratio_type_tag<length::tags::length_tag, duration::duration_tag>::code;
+	using code = ratio_type_tag<length::tags::length_tag, duration::tags::duration_tag>::code;
 };
 
 using FeetPerSecond = Ratio<length::Feet, duration::Seconds>;

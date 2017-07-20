@@ -26,7 +26,7 @@ namespace force
 struct force_tag
 {
 	using code = ratio_type_tag<multiply_type_tag<mass::tags::mass_tag, length::tags::length_tag>,
-								pow_type_tag<duration::duration_tag, 2>>::code;
+								pow_type_tag<duration::tags::duration_tag, 2>>::code;
 };
 
 struct newtons_tag

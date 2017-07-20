@@ -20,6 +20,8 @@ public class CppUnitType {
 	private String headerFileName;
 	private String tagsHeaderFileName;
 	private String tagsSourceFileName;
+	private boolean tagsOnly;
+
 	private boolean hasMultiplyers;
 
 	public String getTypeName() {
@@ -58,6 +60,10 @@ public class CppUnitType {
 		return tagsSourceFileName;
 	}
 	
+	public boolean isTagsOnly() {
+		return tagsOnly;
+	}
+	
 	public CppUnitType(UnitType unitType) {
 		typeName = unitType.getTypeName();
 		code = codeGetter.getNextAndBump();
@@ -69,6 +75,7 @@ public class CppUnitType {
 		headerFileName = typeName + "_units.h";
 		tagsHeaderFileName = typeName + "_tags.h";
 		tagsSourceFileName = typeName + "_tags.cc";
+		tagsOnly = unitType.getTagsOnly();
 	}
 	
 	public void initializeIncludes()

@@ -66,6 +66,41 @@
 					"plural_name" : "tonnes"
 				}
 			]
+		},
+		{
+			"type_name" : "duration",
+			"tags_only" : "true",
+			"unit_scales" : [
+				{
+					"scale" : 1,
+					"singular_name" : "second",
+					"plural_name" : "seconds"
+				},
+				{
+					"scale" : 60,
+					"relative_to" : "seconds",
+					"singular_name" : "minute",
+					"plural_name" : "minutes"
+				},
+				{
+					"scale" : 60,
+					"relative_to" : "minutes",
+					"singular_name" : "hour",
+					"plural_name" : "hours"
+				},
+				{
+					"scale" : 24,
+					"relative_to" : "hours",
+					"singular_name" : "day",
+					"plural_name" : "days"
+				},
+				{
+					"scale" : 365,
+					"relative_to" : "days",
+					"singular_name" : "year",
+					"plural_name" : "years"
+				}
+			]
 		}
 	]
 }

@@ -8,12 +8,17 @@
             	"type" : "object",
             	"properties" : {
             		"type_name" : {"type" : "string"},
+    				"tags_only" : {
+    					"type" : "boolean",
+    					"default" : "false"
+    				},
             		"unit_scales" : {
             			"type" : "array",
             			"items": {
             				"type" : "object",
 	            			"properties" : {
 	            				"scale" : { "type" : "number"},
+	            				"relative_to" : { "type" : "string"},
 	            				"singular_name" : { "type" : "string"},
 	            				"plural_name" : { "type" : "string"},
 	            				"multiplyers" : {
@@ -35,6 +40,5 @@
             	}
             }
         }
-    },
-    "required": ["firstName", "lastName"]
+    }
 }

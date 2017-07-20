@@ -9,6 +9,8 @@ import units_schema.Multiplyer;
 public class CppUnitScale {
 	
 	private double scale;
+	private String relativeTo;
+	private boolean relative;
 	private String singularName;
 	private String pluralName;
 	private String tagName;
@@ -18,6 +20,14 @@ public class CppUnitScale {
 
 	public double getScale() {
 		return scale;
+	}
+	
+	public String getRelativeTo() {
+		return relativeTo;
+	}
+
+	public boolean isRelative() {
+		return relative;
 	}
 
 	public String getSingularName() {
@@ -47,6 +57,8 @@ public class CppUnitScale {
 	public CppUnitScale(UnitScale unitScale)
 	{
 		scale = unitScale.getScale();
+		relativeTo = unitScale.getRelativeTo();
+		relative = relativeTo != "" && relativeTo != null;
 		singularName = unitScale.getSingularName();
 		pluralName = unitScale.getPluralName();
 		tagName = (pluralName + "_tag").replaceAll(" ", "_");

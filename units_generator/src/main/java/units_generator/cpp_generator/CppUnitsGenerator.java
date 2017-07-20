@@ -52,7 +52,9 @@ public class CppUnitsGenerator {
 		generateTagsHeaderFile(cppSchema, group, headersDirectory);
 		logger.info("Generating header files to " + headersDirectory.toString());
 		for (CppUnitType unitType : cppSchema.getUnitTypes()) {
-			generateUnitTypeHeaderFile(group, unitType, headersDirectory);
+			if (!unitType.isTagsOnly()) {
+				generateUnitTypeHeaderFile(group, unitType, headersDirectory);
+			}
 		}
 	}
 

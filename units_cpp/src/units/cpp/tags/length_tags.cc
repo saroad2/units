@@ -2,10 +2,11 @@
  * DO NOT EDIT IT MANUALY!
  */
 
-#include "length_units.h"
+#include "tags/length_tags.h"
 
 namespace units {
-namespace length
+namespace length {
+namespace tags
 {
 
 using std::string;
@@ -23,5 +24,7 @@ string meters_tag::singularName() { return "meter"; }
 string meters_tag::pluralName() { return "meters"; }
 
 
+
+}
 } 
 }

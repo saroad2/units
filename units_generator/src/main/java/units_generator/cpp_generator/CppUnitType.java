@@ -13,11 +13,13 @@ public class CppUnitType {
 	
 	private String typeName;
 	private int code;
-	private String includeGurad;
+	private String headerIncludeGurad;
+	private String tagsHeaderIncludeGurad;
 	private ArrayList<String> includes;
 	private ArrayList<CppUnitScale> unitScales;
 	private String headerFileName;
-	private String sourceFileName;
+	private String tagsHeaderFileName;
+	private String tagsSourceFileName;
 	private boolean hasMultiplyers;
 
 	public String getTypeName() {
@@ -28,8 +30,12 @@ public class CppUnitType {
 		return code;
 	}
 	
-	public String getIncludeGurad() {
-		return includeGurad;
+	public String getHeaderIncludeGurad() {
+		return headerIncludeGurad;
+	}
+	
+	public String getTagsHeaderIncludeGurad() {
+		return tagsHeaderIncludeGurad;
 	}
 	
 	public ArrayList<String> getIncludes() {
@@ -43,20 +49,26 @@ public class CppUnitType {
 	public String getHeaderFileName() {
 		return headerFileName;
 	}
+	
+	public String getTagsHeaderFileName() {
+		return tagsHeaderFileName;
+	}
 
-	public String getSourceFileName() {
-		return sourceFileName;
+	public String getTagsSourceFileName() {
+		return tagsSourceFileName;
 	}
 	
 	public CppUnitType(UnitType unitType) {
 		typeName = unitType.getTypeName();
 		code = codeGetter.getNextAndBump();
-		includeGurad = "INCLUDE_" + typeName.toUpperCase() + "_UNITS_H_";
+		headerIncludeGurad = "INCLUDE_" + typeName.toUpperCase() + "_UNITS_H_";
+		tagsHeaderIncludeGurad = "INCLUDE_" + typeName.toUpperCase() + "_TAGS_H_";
 		unitScales = new ArrayList<CppUnitScale>();
 		initializeIncludes();
 		addScales(unitType);
 		headerFileName = typeName + "_units.h";
-		sourceFileName = typeName + "_units.cc";
+		tagsHeaderFileName = typeName + "_tags.h";
+		tagsSourceFileName = typeName + "_tags.cc";
 	}
 	
 	public void initializeIncludes()
@@ -64,7 +76,6 @@ public class CppUnitType {
 		includes = new ArrayList<>();
 		includes.add("\"internal/numeric_value.h\"");
 		includes.add("\"internal/utils.h\"");
-		includes.add("<ratio>");
 	}
 
 	private void addScales(UnitType unitType) {

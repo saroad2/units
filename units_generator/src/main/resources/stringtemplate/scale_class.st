@@ -1,2 +1,2 @@
-using $scale.className$ = NumericValue<$scale.tagName$, $unitType.typeName$_tag>;$\n$
+using $scale.className$ = NumericValue<tags::$scale.tagName$, tags::$unitType.typeName$_tag>;$\n$
 $scale.multiplyers:{ multiplyer | $scale_multiplyer_class(multiplyer)$}$

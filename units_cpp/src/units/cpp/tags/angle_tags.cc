@@ -2,10 +2,11 @@
  * DO NOT EDIT IT MANUALY!
  */
 
-#include "angle_units.h"
+#include "tags/angle_tags.h"
 
 namespace units {
-namespace angle
+namespace angle {
+namespace tags
 {
 
 using std::string;
@@ -20,5 +21,7 @@ string radians_tag::singularName() { return "radian"; }
 string radians_tag::pluralName() { return "radians"; }
 
 
+
+}
 } 
 }

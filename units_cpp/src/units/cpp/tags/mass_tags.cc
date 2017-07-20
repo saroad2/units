@@ -2,10 +2,11 @@
  * DO NOT EDIT IT MANUALY!
  */
 
-#include "mass_units.h"
+#include "tags/mass_tags.h"
 
 namespace units {
-namespace mass
+namespace mass {
+namespace tags
 {
 
 using std::string;
@@ -20,5 +21,7 @@ string tonnes_tag::singularName() { return "tonne"; }
 string tonnes_tag::pluralName() { return "tonnes"; }
 
 
+
+}
 } 
 }

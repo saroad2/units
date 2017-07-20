@@ -20,7 +20,7 @@ namespace volume
 
 struct volume_tag
 {
-	using code = pow_type_tag<length::length_tag, 3>::code;
+	using code = pow_type_tag<length::tags::length_tag, 3>::code;
 };
 
 using CubicFeet = Cubic<length::Feet>;

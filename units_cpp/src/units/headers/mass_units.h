@@ -7,43 +7,21 @@
 
 #include "internal/numeric_value.h"
 #include "internal/utils.h"
-#include <ratio>
 #include "internal/multiplyer_scales.h"
 
+#include "tags/mass_tags.h"
 
 namespace units {
 namespace mass
 {
 
-struct mass_tag { using code = std::ratio<5, 1>; };
-
-struct grams_tag
-{
-	static constexpr double scale = 1.0;
-	static std::string singularName();
-	static std::string pluralName();
-};
-struct pounds_tag
-{
-	static constexpr double scale = 453.592333346094;
-	static std::string singularName();
-	static std::string pluralName();
-};
-struct tonnes_tag
-{
-	static constexpr double scale = 1000000.0;
-	static std::string singularName();
-	static std::string pluralName();
-};
-
-
-using Grams = NumericValue<grams_tag, mass_tag>;
+using Grams = NumericValue<tags::grams_tag, tags::mass_tag>;
 
 using Milligrams = Milli<Grams>;
 using Kilograms = Kilo<Grams>;
-using Pounds = NumericValue<pounds_tag, mass_tag>;
+using Pounds = NumericValue<tags::pounds_tag, tags::mass_tag>;
 
-using Tonnes = NumericValue<tonnes_tag, mass_tag>;
+using Tonnes = NumericValue<tags::tonnes_tag, tags::mass_tag>;
 
 
 

@@ -7,40 +7,18 @@
 
 #include "internal/numeric_value.h"
 #include "internal/utils.h"
-#include <ratio>
 
+#include "tags/angle_tags.h"
 
 namespace units {
 namespace angle
 {
 
-struct angle_tag { using code = std::ratio<3, 1>; };
+using Mils = NumericValue<tags::mils_tag, tags::angle_tag>;
 
-struct mils_tag
-{
-	static constexpr double scale = 0.05625;
-	static std::string singularName();
-	static std::string pluralName();
-};
-struct degrees_tag
-{
-	static constexpr double scale = 1.0;
-	static std::string singularName();
-	static std::string pluralName();
-};
-struct radians_tag
-{
-	static constexpr double scale = 57.2957795131;
-	static std::string singularName();
-	static std::string pluralName();
-};
+using Degrees = NumericValue<tags::degrees_tag, tags::angle_tag>;
 
-
-using Mils = NumericValue<mils_tag, angle_tag>;
-
-using Degrees = NumericValue<degrees_tag, angle_tag>;
-
-using Radians = NumericValue<radians_tag, angle_tag>;
+using Radians = NumericValue<tags::radians_tag, tags::angle_tag>;
 
 
 

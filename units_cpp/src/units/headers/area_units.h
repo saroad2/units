@@ -20,7 +20,7 @@ namespace area
 
 struct area_tag
 {
-	using code = pow_type_tag<length::length_tag, 2>::code;
+	using code = pow_type_tag<length::tags::length_tag, 2>::code;
 };
 
 using SquareFeet = Square<length::Feet>;

@@ -7,49 +7,21 @@
 
 #include "internal/numeric_value.h"
 #include "internal/utils.h"
-#include <ratio>
 #include "internal/multiplyer_scales.h"
 
+#include "tags/length_tags.h"
 
 namespace units {
 namespace length
 {
 
-struct length_tag { using code = std::ratio<2, 1>; };
+using Inches = NumericValue<tags::inches_tag, tags::length_tag>;
 
-struct inches_tag
-{
-	static constexpr double scale = 0.02539999983236;
-	static std::string singularName();
-	static std::string pluralName();
-};
-struct feet_tag
-{
-	static constexpr double scale = 0.304799999536704;
-	static std::string singularName();
-	static std::string pluralName();
-};
-struct yards_tag
-{
-	static constexpr double scale = 0.914399998610112;
-	static std::string singularName();
-	static std::string pluralName();
-};
-struct meters_tag
-{
-	static constexpr double scale = 1.0;
-	static std::string singularName();
-	static std::string pluralName();
-};
+using Feet = NumericValue<tags::feet_tag, tags::length_tag>;
 
+using Yards = NumericValue<tags::yards_tag, tags::length_tag>;
 
-using Inches = NumericValue<inches_tag, length_tag>;
-
-using Feet = NumericValue<feet_tag, length_tag>;
-
-using Yards = NumericValue<yards_tag, length_tag>;
-
-using Meters = NumericValue<meters_tag, length_tag>;
+using Meters = NumericValue<tags::meters_tag, tags::length_tag>;
 
 using Micrometers = Micro<Meters>;
 using Millimeters = Milli<Meters>;

@@ -22,7 +22,7 @@ namespace energy
 
 struct energy_tag
 {
-	using code = ratio_type_tag<force::force_tag, length::length_tag>::code;
+	using code = ratio_type_tag<force::force_tag, length::tags::length_tag>::code;
 };
 
 struct joules_tag

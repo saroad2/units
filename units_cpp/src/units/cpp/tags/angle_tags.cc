@@ -23,5 +23,5 @@ string radians_tag::pluralName() { return "radians"; }
 
 
 }
-} 
+}
 }

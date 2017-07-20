@@ -1,0 +1,110 @@
+group units;
+
+declaration() ::= <<
+/* This file is auto generated.
+ * DO NOT EDIT IT MANUALY!
+ */
+>>
+
+include(header) ::= <<
+#include <header><\n>
+>>
+
+scale_class(scale) ::= <<
+using <scale.className> = NumericValue\<tags::<scale.tagName>, tags::<unitType.tagName>\>;<\n>
+<scale.multiplyers:{ multiplyer | <scale_multiplyer_class(multiplyer)>}>
+>>
+
+scale_multiplyer_class(multiplyer) ::= <<
+using <multiplyer.className><scale.pluralName> = <multiplyer.className>\<<scale.className>\>;<\n>
+>>
+
+scale_user_defined_literal(scale) ::= <<
+USER_DEFINED_LITERALS(<scale.className>, <scale.userDefinedLiteral>);<\n>
+<scale.multiplyers:{ multiplyer | <scale_multiplyer_user_defined_literal(multiplyer)>}>
+>>
+
+scale_multiplyer_user_defined_literal(multiplyer) ::= <<
+USER_DEFINED_LITERALS(<multiplyer.className><scale.pluralName>, <multiplyer.name><scale.userDefinedLiteral>);<\n>
+>>
+
+scale_names_declerations(scale) ::= <<
+string <scale.tagName>::singularName() { return "<scale.singularName>"; }
+string <scale.tagName>::pluralName() { return "<scale.pluralName>"; }<\n><\n>
+>>
+
+scale_tag(scale) ::= <<
+struct <scale.tagName>
+{
+<\t>static constexpr double scale = <scale.scale><if(scale.relative)> * <scale.relativeTo>_tag::scale<endif>;
+<\t>static std::string singularName();
+<\t>static std::string pluralName();
+};<\n>
+>>
+
+tags_header(unitType) ::= <<
+<declaration()>
+
+#ifndef <unitType.tagsHeaderIncludeGurad>
+#define <unitType.tagsHeaderIncludeGurad>
+
+#include \<ratio\>
+#include \<string\>
+
+namespace units {
+namespace <unitType.typeName> {
+namespace tags
+{
+
+struct <unitType.tagName> { using code = std::ratio\<<unitType.code>, 1\>; };
+
+<unitType.unitScales:{scale | <scale_tag(scale)>}>
+
+}
+}
+}
+
+#endif /* <unitType.tagsHeaderIncludeGurad> */
+>>
+
+tags_src(unitType) ::= <<
+<declaration()>
+
+#include "tags/<unitType.tagsHeaderFileName>"
+
+namespace units {
+namespace <unitType.typeName> {
+namespace tags
+{
+
+using std::string;
+
+<unitType.unitScales:{scale | <scale_names_declerations(scale)>}>
+
+}
+}
+}
+>>
+
+unit_type_header(unitType) ::= <<
+<declaration()>
+
+#ifndef <unitType.headerIncludeGurad>
+#define <unitType.headerIncludeGurad>
+
+<unitType.includes:{header | <include(header)>}>
+#include "tags/<unitType.tagsHeaderFileName>"
+
+namespace units {
+namespace <unitType.typeName>
+{
+
+<unitType.unitScales:{scale | <scale_class(scale)>}>
+
+<unitType.unitScales:{scale | <scale_user_defined_literal(scale)>}>
+
+}
+}
+
+#endif /* <unitType.headerIncludeGurad> */
+>>

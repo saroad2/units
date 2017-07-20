@@ -40,7 +40,8 @@ public class CppUnitsGenerator {
 	
 	private StringTemplateGroup getStringTempateGroup(
 			String stringTemplateDirectory) throws FileNotFoundException {
-		return new StringTemplateGroup("units_generator", stringTemplateDirectory);
+		File groupFile = Paths.get(stringTemplateDirectory, "units_cpp.stg").toFile();
+		return new StringTemplateGroup(new FileReader(groupFile));
 	}
 
 	private void generateHeaders(

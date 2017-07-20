@@ -1,2 +1,2 @@
-string $scale.pluralName$_tag::singularName() { return "$scale.singularName$"; }
-string $scale.pluralName$_tag::pluralName() { return "$scale.pluralName$"; }$\n$$\n$
+string $scale.tagName$::singularName() { return "$scale.singularName$"; }
+string $scale.tagName$::pluralName() { return "$scale.pluralName$"; }$\n$$\n$

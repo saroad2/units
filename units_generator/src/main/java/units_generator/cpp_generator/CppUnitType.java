@@ -12,6 +12,7 @@ public class CppUnitType {
 	public static CodeGetter codeGetter = new CodeGetter();
 	
 	private String typeName;
+	private String tagName;
 	private int code;
 	private String headerIncludeGurad;
 	private String tagsHeaderIncludeGurad;
@@ -26,6 +27,10 @@ public class CppUnitType {
 
 	public String getTypeName() {
 		return typeName;
+	}
+
+	public String getTagName() {
+		return tagName;
 	}
 
 	public int getCode() {
@@ -66,6 +71,7 @@ public class CppUnitType {
 	
 	public CppUnitType(UnitType unitType) {
 		typeName = unitType.getTypeName();
+		tagName = typeName.replaceAll(" " , "_") + "_tag";
 		code = codeGetter.getNextAndBump();
 		headerIncludeGurad = "INCLUDE_" + typeName.toUpperCase() + "_UNITS_H_";
 		tagsHeaderIncludeGurad = "INCLUDE_" + typeName.toUpperCase() + "_TAGS_H_";

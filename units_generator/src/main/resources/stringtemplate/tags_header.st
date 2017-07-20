@@ -11,7 +11,7 @@ namespace $unitType.typeName$ {
 namespace tags
 {
 
-struct $unitType.typeName$_tag { using code = std::ratio<$unitType.code$, 1>; };
+struct $unitType.tagName$ { using code = std::ratio<$unitType.code$, 1>; };
 
 $unitType.unitScales:{scale | $scale_tag(scale)$}$
 

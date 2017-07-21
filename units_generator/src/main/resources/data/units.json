@@ -101,6 +101,44 @@
 					"plural_name" : "years"
 				}
 			]
+		},
+		{
+			"type_name" : "speed",
+			"ratio" : {
+				"numerator" : "length",
+				"denumerator" : "duration"
+			},
+			"unit_scales" : [
+				{
+					"ratio" : {
+						"numerator" : "feet",
+						"denumerator" : "seconds"
+					}
+				},
+				{
+					"ratio" : {
+						"numerator" : "yards",
+						"denumerator" : "seconds"
+					}
+				},
+				{
+					"ratio" : {
+						"numerator" : "meters",
+						"denumerator" : "seconds"
+					}
+				},
+				{
+					"ratio" : {
+						"numerator" : "kilometers",
+						"denumerator" : "hours"
+					}
+				},
+				{
+					"scale" : 0.514444773689,
+					"singular_name" : "knot",
+					"plural_name" : "knots"
+				}
+			]
 		}
 	]
 }

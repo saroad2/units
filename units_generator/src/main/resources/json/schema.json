@@ -2,6 +2,14 @@
 
 	"definitions" : {
 	
+		"ratio" : {
+			"type" : "object",
+			"properties" : {
+				"numerator" : { "type" : "string" },
+				"denumerator" : { "type" : "string" }
+			}
+		},
+		
 		"multiplyer" : {
 			"type" : "string",
 			"enum" : [
@@ -16,13 +24,14 @@
 		"unit_scale" : {
 			"type" : "object",
 			"properties" : {
-				"scale" : { "type" : "number"},
-				"relative_to" : { "type" : "string"},
-				"singular_name" : { "type" : "string"},
-				"plural_name" : { "type" : "string"},
+				"scale" : { "type" : "number" },
+				"relative_to" : { "type" : "string" },
+				"ratio" : {"$ref" : "#/definitions/ratio"},
+				"singular_name" : { "type" : "string" },
+				"plural_name" : { "type" : "string" },
 				"multiplyers" : {
 					"type" : "array",
-					"items" : {"$ref" : "#/definitions/multiplyer"}
+					"items" : { "$ref" : "#/definitions/multiplyer" }
 				}
 			}
 		},
@@ -30,14 +39,15 @@
 		"unit_type" : {
         	"type" : "object",
         	"properties" : {
-        		"type_name" : {"type" : "string"},
+        		"type_name" : { "type" : "string" },
+        		"ratio" : { "$ref" : "#/definitions/ratio" },
 				"tags_only" : {
 					"type" : "boolean",
 					"default" : "false"
 				},
         		"unit_scales" : {
         			"type" : "array",
-        			"items": {"$ref" : "#/definitions/unit_scale"}
+        			"items": { "$ref" : "#/definitions/unit_scale" }
         		}
         	}
         }
@@ -48,7 +58,7 @@
     "properties": {
         "unit_types": {
             "type" : "array",
-            "items" : {"$ref" : "#/definitions/unit_type"}
+            "items" : { "$ref" : "#/definitions/unit_type" }
         }
     }
 }

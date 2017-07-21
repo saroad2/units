@@ -1,6 +1,9 @@
 package units_generator.cpp_generator;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import units_schema.UnitScale;
 import units_schema.UnitType;
@@ -12,28 +15,55 @@ public class CppUnitType {
 	public static CodeGetter codeGetter = new CodeGetter();
 	
 	private String typeName;
+	private String namespace;
 	private String tagName;
-	private int code;
+	private List<String> tagIncludes;
+	private List<String> unitIncludes;
+	private CppUnitType numeratorType;
+	private CppUnitType denumeratorType;
+	private String code;
 	private String headerIncludeGurad;
 	private String tagsHeaderIncludeGurad;
-	private ArrayList<String> includes;
-	private ArrayList<CppUnitScale> unitScales;
+	private List<CppUnitScale> basicScales;
+	private List<CppUnitScale> unitScales;
+	private Map<String, CppUnitScale> nameToScale;
 	private String headerFileName;
 	private String tagsHeaderFileName;
 	private String tagsSourceFileName;
 	private boolean tagsOnly;
 
+	private boolean isRatio;
 	private boolean hasMultiplyers;
 
 	public String getTypeName() {
 		return typeName;
 	}
 
+	public String getNamespace() {
+		return namespace;
+	}
+
 	public String getTagName() {
 		return tagName;
 	}
+	
+	public List<String> getTagIncludes() {
+		return tagIncludes;
+	}
+	
+	public List<String> getUnitIncludes() {
+		return unitIncludes;
+	}
+	
+	public CppUnitType getNumeratorType() {
+		return numeratorType;
+	}
+	
+	public CppUnitType getDenumeratorType() {
+		return denumeratorType;
+	}
 
-	public int getCode() {
+	public String getCode() {
 		return code;
 	}
 	
@@ -44,13 +74,17 @@ public class CppUnitType {
 	public String getTagsHeaderIncludeGurad() {
 		return tagsHeaderIncludeGurad;
 	}
-	
-	public ArrayList<String> getIncludes() {
-		return includes;
+
+	public List<CppUnitScale> getBasicScales() {
+		return basicScales;
 	}
 
-	public ArrayList<CppUnitScale> getUnitScales() {
+	public List<CppUnitScale> getUnitScales() {
 		return unitScales;
+	}
+
+	public Map<String, CppUnitScale> getNameToScale() {
+		return nameToScale;
 	}
 	
 	public String getHeaderFileName() {
@@ -69,42 +103,112 @@ public class CppUnitType {
 		return tagsOnly;
 	}
 	
-	public CppUnitType(UnitType unitType) {
+	public CppUnitType(UnitType unitType, Map<String, CppUnitType> nameToUnitType) {
 		typeName = unitType.getTypeName();
-		tagName = typeName.replaceAll(" " , "_") + "_tag";
-		code = codeGetter.getNextAndBump();
+		namespace = typeName.replaceAll(" " , "_") ; 
+		tagName = namespace + "_tag";
+		initializeIncludes();
+		initializeRatio(unitType, nameToUnitType);
+		initializeCode();
 		headerIncludeGurad = "INCLUDE_" + typeName.toUpperCase() + "_UNITS_H_";
 		tagsHeaderIncludeGurad = "INCLUDE_" + typeName.toUpperCase() + "_TAGS_H_";
-		unitScales = new ArrayList<CppUnitScale>();
-		initializeIncludes();
-		addScales(unitType);
+		initializeScales(unitType);
 		headerFileName = typeName + "_units.h";
 		tagsHeaderFileName = typeName + "_tags.h";
 		tagsSourceFileName = typeName + "_tags.cc";
 		tagsOnly = unitType.getTagsOnly();
 	}
 	
-	public void initializeIncludes()
+	private void initializeIncludes()
 	{
-		includes = new ArrayList<>();
-		includes.add("\"internal/numeric_value.h\"");
-		includes.add("\"internal/utils.h\"");
+		initializeUnitIncludes();
+		initializeTagIncludes();
 	}
 
-	private void addScales(UnitType unitType) {
+	private void initializeUnitIncludes() {
+		unitIncludes = new ArrayList<>();
+		unitIncludes.add("\"internal/numeric_value.h\"");
+		unitIncludes.add("\"internal/utils.h\"");
+	}
+
+	private void initializeTagIncludes() {
+		tagIncludes = new ArrayList<>();
+		tagIncludes.add("<ratio>");
+		tagIncludes.add("<string>");
+	}
+	
+	private void initializeRatio(
+			UnitType unitType,
+			Map<String, CppUnitType> nameToUnitType) {
+		if (unitType.getRatio() == null) {
+			isRatio = false;
+		}
+		else {
+			isRatio = true;
+			numeratorType = nameToUnitType.get(unitType.getRatio().getNumerator());
+			denumeratorType = nameToUnitType.get(unitType.getRatio().getDenumerator());
+		}		
+	}
+	
+	private void initializeCode() {
+		if (isRatio) {
+			initialieRatioCode();
+		}
+		else {
+			initializeBasicCode();
+		}
+			
+	}
+
+	private void initializeBasicCode() {
+		code = "std::ratio<" + Integer.toString(codeGetter.getNextAndBump()) + ", 1>";
+	}
+
+	private void initialieRatioCode() {
+		code = "ratio_type_tag<" +
+				numeratorType.getNamespace() + "::tags::" + numeratorType.getTagName() + ", " +
+				denumeratorType.getNamespace() + "::tags::" + denumeratorType.getTagName()  + ">::code";
+		tagIncludes.add("\"internal/units_ratio_type.h\"");
+		tagIncludes.add("\"" + numeratorType.getTagsHeaderFileName() + "\"");
+		tagIncludes.add("\"" + denumeratorType.getTagsHeaderFileName() + "\"");
+		unitIncludes.add("\"" + numeratorType.getHeaderFileName() + "\"");
+		unitIncludes.add("\"" + denumeratorType.getHeaderFileName() + "\"");
+	}
+
+	private void initializeScales(UnitType unitType) {
+		basicScales = new ArrayList<CppUnitScale>();
+		unitScales = new ArrayList<CppUnitScale>();
 		hasMultiplyers = false;
+		nameToScale = new HashMap<String, CppUnitScale>();
 		for (UnitScale unitScale : unitType.getUnitScales()) {
 			addScale(unitScale);
 		}
 	}
 
 	private void addScale(UnitScale unitScale) {
-		CppUnitScale scale = new CppUnitScale(unitScale); 
-		unitScales.add(scale);
-		if (scale.hasMultiplyers() && !hasMultiplyers) {
-			includes.add("\"internal/multiplyer_scales.h\"");
+		CppUnitScale scale = new CppUnitScale(unitScale, this); 
+		if (!scale.isComplex()) {
+			basicScales.add(scale);
+		}
+		addToUnitScales(scale);
+		if (scale.hasMultiplyers()) {
+			addMultiplyers(scale);
+		}
+	}
+
+	private void addMultiplyers(CppUnitScale scale) {
+		if (!hasMultiplyers) {
+			unitIncludes.add("\"internal/multiplyer_scales.h\"");
 			hasMultiplyers = true;
 		}
+		for (CppUnitScale multiplyerScale : scale.getMultiplyers()) {
+			addToUnitScales(multiplyerScale);
+		}
+	}
+
+	private void addToUnitScales(CppUnitScale scale) {
+		unitScales.add(scale);
+		nameToScale.put(scale.getPluralName(), scale);
 	}
 	
 	public String toString() {

@@ -1,14 +1,12 @@
-/*
- * speed_units.cc
- *
- *  Created on: Jul 1, 2017
- *      Author: sagis
+/* This file is auto generated.
+ * DO NOT EDIT IT MANUALY!
  */
 
-#include "speed_units.h"
+#include "tags/speed_tags.h"
 
 namespace units {
-namespace speed
+namespace speed {
+namespace tags
 {
 
 using std::string;
@@ -16,5 +14,8 @@ using std::string;
 string knots_tag::singularName() { return "knot"; }
 string knots_tag::pluralName() { return "knots"; }
 
+
+
+}
 }
 }

@@ -45,7 +45,7 @@ struct kilometers_per_hour_tag
 };
 struct knots_tag
 {
-	static constexpr double scale = 0.514444773689;
+	static constexpr double scale = 0.514444773689 * meters_per_second_tag::scale;
 	static std::string singularName();
 	static std::string pluralName();
 };

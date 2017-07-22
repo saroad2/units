@@ -91,7 +91,7 @@ TEST_F(TestUnitsPow, sqr_yards_when_result_type_is_square_yards)
 
 TEST_F(TestUnitsPow, sqr_meters_when_result_type_is_square_yards)
 {
-	checkSqr(10.763910449432011_square_yards, 3_meters);
+	checkSqr(10.763910416709725_square_yards, 3_meters);
 }
 
 TEST_F(TestUnitsPow, cube_meters_when_result_type_is_cubic_meters)
@@ -106,5 +106,5 @@ TEST_F(TestUnitsPow, cube_yards_when_result_type_is_cubic_yards)
 
 TEST_F(TestUnitsPow, cube_meters_when_result_type_is_cubic_yards)
 {
-	checkCube(35.314666882523468_cubic_yards, 3_meters);
+	checkCube(35.314666721488607_cubic_yards, 3_meters);
 }

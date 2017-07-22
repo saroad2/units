@@ -17,19 +17,19 @@ class TestLengthUnitsConversions : public TestUnitsConversions
 TEST_F(TestLengthUnitsConversions, inches_to_meters)
 {
 	maxError = 1e-10;
-	check_conversions<Inches, Meters>(0.02539999983236, 39.370079);
+	check_conversions<Inches, Meters>(0.0254, 39.370078740157481);
 }
 
 TEST_F(TestLengthUnitsConversions, feet_to_meters)
 {
 	maxError = 1e-10;
-	check_conversions<Feet, Meters>(0.304799999536704, 3.2808399);
+	check_conversions<Feet, Meters>(0.3048, 3.2808398950131239);
 }
 
 TEST_F(TestLengthUnitsConversions, yards_to_meters)
 {
 	maxError = 1e-10;
-	check_conversions<Yards, Meters>(0.91439999861011201, 1.0936133);
+	check_conversions<Yards, Meters>(0.9144, 1.093613298337708);
 }
 
 TEST_F(TestLengthUnitsConversions, micrometer_to_meters)
@@ -72,25 +72,25 @@ TEST_F(TestLengthUnitsConversions, yards_to_inches)
 TEST_F(TestLengthUnitsConversions, micrometer_to_inches)
 {
 	maxError = 1e-10;
-	check_conversions<Micrometers, Inches>(3.93700788e-05, 25399.99983236);
+	check_conversions<Micrometers, Inches>(3.93700788e-05, 25400);
 }
 
 TEST_F(TestLengthUnitsConversions, millimeter_to_inches)
 {
 	maxError = 1e-10;
-	check_conversions<Millimeters, Inches>(0.039370079, 25.39999983236);
+	check_conversions<Millimeters, Inches>(0.03937007874015748, 25.4);
 }
 
 TEST_F(TestLengthUnitsConversions, centimeter_to_inches)
 {
 	maxError = 1e-10;
-	check_conversions<Centimeters, Inches>(0.39370079, 2.539999983236);
+	check_conversions<Centimeters, Inches>(0.3937007874015748, 2.54);
 }
 
 TEST_F(TestLengthUnitsConversions, kilometer_to_inches)
 {
 	maxError = 1e-10;
-	check_conversions<Kilometers, Inches>(39370.079, 2.539999983236e-5);
+	check_conversions<Kilometers, Inches>(39370.07874015748, 2.54e-5);
 }
 
 TEST_F(TestLengthUnitsConversions, yards_to_feet)
@@ -102,49 +102,49 @@ TEST_F(TestLengthUnitsConversions, yards_to_feet)
 TEST_F(TestLengthUnitsConversions, micrometer_to_feet)
 {
 	maxError = 1e-10;
-	check_conversions<Micrometers, Feet>(3.2808399e-6, 304799.999536704);
+	check_conversions<Micrometers, Feet>(3.28084e-6, 304800);
 }
 
 TEST_F(TestLengthUnitsConversions, millimeter_to_feet)
 {
 	maxError = 1e-10;
-	check_conversions<Millimeters, Feet>(3.2808399e-3, 304.799999536704);
+	check_conversions<Millimeters, Feet>(0.0032808398950131237, 304.8);
 }
 
 TEST_F(TestLengthUnitsConversions, centimeter_to_feet)
 {
 	maxError = 1e-10;
-	check_conversions<Centimeters, Feet>(3.2808399e-2, 30.4799999536704);
+	check_conversions<Centimeters, Feet>(0.032808398950131237, 30.48);
 }
 
 TEST_F(TestLengthUnitsConversions, kilometer_to_feet)
 {
 	maxError = 1e-10;
-	check_conversions<Kilometers, Feet>(3280.8399, 3.04799999536704e-4);
+	check_conversions<Kilometers, Feet>(3280.8398950131237, 3.048e-4);
 }
 
 TEST_F(TestLengthUnitsConversions, micrometer_to_yards)
 {
-	maxError = 1e-10;
-	check_conversions<Micrometers, Yards>(1.0936133e-6, 914399.99861011201);
+	maxError = 1e-9;
+	check_conversions<Micrometers, Yards>(1.0936133e-6, 914400);
 }
 
 TEST_F(TestLengthUnitsConversions, millimeter_to_yards)
 {
 	maxError = 1e-10;
-	check_conversions<Millimeters, Yards>(1.0936133e-3, 914.39999861011201);
+	check_conversions<Millimeters, Yards>(1.0936133e-3, 914.4);
 }
 
 TEST_F(TestLengthUnitsConversions, centimeter_to_yards)
 {
 	maxError = 1e-10;
-	check_conversions<Centimeters, Yards>(1.0936133e-2, 91.439999861011201);
+	check_conversions<Centimeters, Yards>(1.0936133e-2, 91.44);
 }
 
 TEST_F(TestLengthUnitsConversions, kilometer_to_yards)
 {
 	maxError = 1e-10;
-	check_conversions<Kilometers, Yards>(1093.6133, 9.1439999861011201e-4);
+	check_conversions<Kilometers, Yards>(1093.6132983377079, 9.144e-4);
 }
 
 TEST_F(TestLengthUnitsConversions, millimeter_to_micrometers)

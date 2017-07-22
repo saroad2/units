@@ -25,19 +25,19 @@ struct meters_tag
 };
 struct inches_tag
 {
-	static constexpr double scale = 0.02539999983236 * meters_tag::scale;
+	static constexpr double scale = 0.0254 * meters_tag::scale;
 	static std::string singularName();
 	static std::string pluralName();
 };
 struct feet_tag
 {
-	static constexpr double scale = 0.304799999536704 * meters_tag::scale;
+	static constexpr double scale = 12.0 * inches_tag::scale;
 	static std::string singularName();
 	static std::string pluralName();
 };
 struct yards_tag
 {
-	static constexpr double scale = 0.914399998610112 * meters_tag::scale;
+	static constexpr double scale = 3.0 * feet_tag::scale;
 	static std::string singularName();
 	static std::string pluralName();
 };

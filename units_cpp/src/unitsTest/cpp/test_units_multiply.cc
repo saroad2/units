@@ -53,12 +53,12 @@ TEST_F(TestUnitsMultiply, multiply_two_meters_values_when_result_type_is_square_
 
 TEST_F(TestUnitsMultiply, multiply_two_meters_values_when_result_type_is_square_yards)
 {
-	checkMultiplication(17.939850749053353_square_yards, 3_meters, 5_meters);
+	checkMultiplication(17.93985069451621_square_yards, 3_meters, 5_meters);
 }
 
 TEST_F(TestUnitsMultiply, multiply_meters_and_yards_values_when_result_type_is_square_meters)
 {
-	checkMultiplication(0.914399998610112_square_meters, 1_meters, 1_yards);
+	checkMultiplication(0.9144_square_meters, 1_meters, 1_yards);
 }
 
 TEST_F(TestUnitsMultiply, multiply_three_meters_values_when_result_type_is_cubic_meters)
@@ -68,7 +68,7 @@ TEST_F(TestUnitsMultiply, multiply_three_meters_values_when_result_type_is_cubic
 
 TEST_F(TestUnitsMultiply, multiply_meters_feet_and_yards_values_when_result_type_is_cubic_meters)
 {
-	checkMultiplication(3.3445094298326916_cubic_meters, 1_meters, 2_feet, 6_yards);
+	checkMultiplication(3.34450944_cubic_meters, 1_meters, 2_feet, 6_yards);
 }
 
 TEST_F(TestUnitsMultiply, multiply_three_meters_values_when_result_type_is_liters)
@@ -83,7 +83,7 @@ TEST_F(TestUnitsMultiply, multiply_meters_per_second_with_second_when_return_typ
 
 TEST_F(TestUnitsMultiply, multiply_knots_with_minutes_when_return_type_is_yards)
 {
-	checkMultiplication(3_yards, 5_minutes, 0.017774502636174101_knots);
+	checkMultiplication(168.78109372998691_yards, 5_minutes, 1_knots);
 }
 
 TEST_F(TestUnitsMultiply, multiply_degrees_per_second_with_second_when_return_type_is_degrees)

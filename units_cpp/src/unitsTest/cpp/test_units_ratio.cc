@@ -53,12 +53,12 @@ TEST_F(TestUnitsRatio, ratio_square_meters_from_meters_when_result_type_is_meter
 
 TEST_F(TestUnitsRatio, ratio_square_yards_from_meters_when_result_type_is_meters)
 {
-	checkRatio(3_meters, 17.939850749053353_square_yards, 5_meters);
+	checkRatio(2.50838208_meters, 15_square_yards, 5_meters);
 }
 
 TEST_F(TestUnitsRatio, ratio_square_meters_from_meters_when_result_type_is_yards)
 {
-	checkRatio(1_yards, 0.914399998610112_square_meters, 1_meters);
+	checkRatio(1_yards, 0.9144_square_meters, 1_meters);
 }
 
 TEST_F(TestUnitsRatio, ratio_cubic_meters_from_square_meters_when_result_type_is_meters)
@@ -73,7 +73,7 @@ TEST_F(TestUnitsRatio, ratio_cubic_meters_from_meters_when_result_type_is_square
 
 TEST_F(TestUnitsRatio, ratio_cubic_yards_from_square_meters_when_result_type_is_feet)
 {
-	checkRatio(19.619259379179709_feet, 15_cubic_meters, 3_square_yards);
+	checkRatio(19.619259289715892_feet, 15_cubic_meters, 3_square_yards);
 }
 
 TEST_F(TestUnitsRatio, ratio_meters_from_second_when_result_type_is_meters_per_second)

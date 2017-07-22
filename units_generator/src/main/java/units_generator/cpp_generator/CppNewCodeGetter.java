@@ -1,14 +1,20 @@
-package units_generator;
+package units_generator.cpp_generator;
 
-public class CodeGetter {
+public class CppNewCodeGetter {
+	static private CppNewCodeGetter _codeGetter = new CppNewCodeGetter();
+	
 	private int nextCode;
+	
+	public static CppNewCodeGetter getInstance() {
+		return _codeGetter;
+	}
+	
+	private CppNewCodeGetter() {
+		nextCode = 2;
+	}
 	
 	public int getNextCode() {
 		return nextCode;
-	}
-	
-	public CodeGetter() {
-		nextCode = 2;
 	}
 	
 	public int getNextAndBump()

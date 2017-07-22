@@ -6,19 +6,13 @@ import java.util.List;
 import units_schema.UnitScale;
 import units_schema.UnitType;
 
-import units_generator.CodeGetter;
-
 public class CppUnitType {
-	
-	public static CodeGetter codeGetter = new CodeGetter();
 	
 	private String typeName;
 	private String namespace;
 	private String tagName;
 	private List<String> tagIncludes;
 	private List<String> unitIncludes;
-	private CppUnitType numeratorType;
-	private CppUnitType denumeratorType;
 	private String code;
 	private String headerIncludeGurad;
 	private String tagsHeaderIncludeGurad;
@@ -29,7 +23,6 @@ public class CppUnitType {
 	private String tagsSourceFileName;
 	private boolean tagsOnly;
 
-	private boolean isRatio;
 	private boolean hasMultiplyers;
 
 	public String getTypeName() {
@@ -50,14 +43,6 @@ public class CppUnitType {
 	
 	public List<String> getUnitIncludes() {
 		return unitIncludes;
-	}
-	
-	public CppUnitType getNumeratorType() {
-		return numeratorType;
-	}
-	
-	public CppUnitType getDenumeratorType() {
-		return denumeratorType;
 	}
 
 	public String getCode() {
@@ -101,8 +86,7 @@ public class CppUnitType {
 		namespace = typeName.replaceAll(" " , "_") ; 
 		tagName = namespace + "_tag";
 		initializeIncludes();
-		initializeRatio(unitType);
-		initializeCode();
+		initializeCode(unitType);
 		headerIncludeGurad = "INCLUDE_" + typeName.toUpperCase() + "_UNITS_H_";
 		tagsHeaderIncludeGurad = "INCLUDE_" + typeName.toUpperCase() + "_TAGS_H_";
 		initializeScales(unitType);
@@ -130,41 +114,11 @@ public class CppUnitType {
 		tagIncludes.add("<string>");
 	}
 	
-	private void initializeRatio(
-			UnitType unitType) {
-		if (unitType.getRatio() == null) {
-			isRatio = false;
-		}
-		else {
-			isRatio = true;
-			numeratorType = UnitsRepository.getInstance().getType(unitType.getRatio().getNumerator());
-			denumeratorType = UnitsRepository.getInstance().getType(unitType.getRatio().getDenumerator());
-		}		
-	}
-	
-	private void initializeCode() {
-		if (isRatio) {
-			initialieRatioCode();
-		}
-		else {
-			initializeBasicCode();
-		}
-			
-	}
-
-	private void initializeBasicCode() {
-		code = "std::ratio<" + Integer.toString(codeGetter.getNextAndBump()) + ", 1>";
-	}
-
-	private void initialieRatioCode() {
-		code = "ratio_type_tag<" +
-				numeratorType.getNamespace() + "::tags::" + numeratorType.getTagName() + ", " +
-				denumeratorType.getNamespace() + "::tags::" + denumeratorType.getTagName()  + ">::code";
-		tagIncludes.add("\"internal/units_ratio_type.h\"");
-		tagIncludes.add("\"" + numeratorType.getTagsHeaderFileName() + "\"");
-		tagIncludes.add("\"" + denumeratorType.getTagsHeaderFileName() + "\"");
-		unitIncludes.add("\"" + numeratorType.getHeaderFileName() + "\"");
-		unitIncludes.add("\"" + denumeratorType.getHeaderFileName() + "\"");
+	private void initializeCode(UnitType unitType) {
+		CppTypeCodeCalculator.Result codeResult = CppTypeCodeCalculator.calculate(unitType);
+		code = codeResult.code;
+		tagIncludes.addAll(codeResult.tagIncludes);
+		unitIncludes.addAll(codeResult.unitIncludes);
 	}
 
 	private void initializeScales(UnitType unitType) {

@@ -30,13 +30,20 @@ using CubicKilometers = Cubic<length::Kilometers>;
 
 struct liters_scale_tag
 {
-	static constexpr double scale = 1e-3 * CubicMeters::scale;
+	static constexpr double scale = milli * CubicMeters::scale;
+	static std::string singularName();
+	static std::string pluralName();
+};
+
+struct milliliters_scale_tag
+{
+	static constexpr double scale = milli * liters_scale_tag::scale;
 	static std::string singularName();
 	static std::string pluralName();
 };
 
 using Liters = NumericValue<liters_scale_tag, volume_tag>;
-using Milliliters = Milli<Liters>;
+using Milliliters = NumericValue<milliliters_scale_tag, volume_tag>;
 
 USER_DEFINED_LITERALS(CubicFeet, cubic_feet);
 USER_DEFINED_LITERALS(CubicYards, cubic_yards);

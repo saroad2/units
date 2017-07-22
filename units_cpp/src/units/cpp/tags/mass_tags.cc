@@ -17,6 +17,12 @@ string grams_tag::pluralName() { return "grams"; }
 string pounds_tag::singularName() { return "pound"; }
 string pounds_tag::pluralName() { return "pounds"; }
 
+string milligrams_tag::singularName() { return "milligram"; }
+string milligrams_tag::pluralName() { return "milligrams"; }
+
+string kilograms_tag::singularName() { return "kilogram"; }
+string kilograms_tag::pluralName() { return "kilograms"; }
+
 string tonnes_tag::singularName() { return "tonne"; }
 string tonnes_tag::pluralName() { return "tonnes"; }
 

@@ -4,25 +4,52 @@
 			"type_name" : "length",
 			"unit_scales" : [
 				{
-					"scale" : 0.02539999983236,
+					"is_basic" : "true",
+					"singular_name" : "meter",
+					"plural_name" : "meters",
+					"multiplyers" : ["micro", "milli", "centi", "kilo"]
+				},
+				{
+					"multiplyer_number" : 0.02539999983236,
+					"relative_to" : "meters",
 					"singular_name" : "inch",
 					"plural_name" : "inches"
 				},
 				{
-					"scale" : 0.304799999536704,
+					"multiplyer_number" : 0.304799999536704,
+					"relative_to" : "meters",
 					"singular_name" : "foot",
 					"plural_name" : "feet"
 				},
 				{
-					"scale" : 0.914399998610112,
+					"multiplyer_number" : 0.914399998610112,
+					"relative_to" : "meters",
 					"singular_name" : "yard",
 					"plural_name" : "yards"
 				},
 				{
-					"scale" : 1,
-					"singular_name" : "meter",
-					"plural_name" : "meters",
-					"multiplyers" : ["micro", "milli", "centi", "kilo"]
+					"multiplyer_string" : "micro",
+					"relative_to" : "meters",
+					"singular_name" : "micrometer",
+					"plural_name" : "micrometers"
+				},
+				{
+					"multiplyer_string" : "milli",
+					"relative_to" : "meters",
+					"singular_name" : "millimeter",
+					"plural_name" : "millimeters"
+				},
+				{
+					"multiplyer_string" : "centi",
+					"relative_to" : "meters",
+					"singular_name" : "centimeter",
+					"plural_name" : "centimeters"
+				},
+				{
+					"multiplyer_string" : "kilo",
+					"relative_to" : "meters",
+					"singular_name" : "kilometer",
+					"plural_name" : "kilometers"
 				}
 			]
 		},
@@ -30,17 +57,19 @@
 			"type_name" : "angle",
 			"unit_scales" : [
 				{
-					"scale" : 0.05625,
-					"singular_name" : "mil",
-					"plural_name" : "mils"
-				},
-				{
-					"scale" : 1,
+					"is_basic" : "true",
 					"singular_name" : "degree",
 					"plural_name" : "degrees"
 				},
 				{
-					"scale" : 57.2957795131,
+					"multiplyer_number" : 0.05625,
+					"relative_to" : "degrees",
+					"singular_name" : "mil",
+					"plural_name" : "mils"
+				},
+				{
+					"multiplyer_number" : 57.2957795131,
+					"relative_to" : "degrees",
 					"singular_name" : "radian",
 					"plural_name" : "radians"
 				}
@@ -50,18 +79,32 @@
 			"type_name" : "mass",
 			"unit_scales" : [
 				{
-					"scale" : 1,
+					"is_basic" : "true",
 					"singular_name" : "gram",
 					"plural_name" : "grams",
 					"multiplyers" : ["milli", "kilo"]
 				},
 				{
-					"scale" : 453.592333346094,
+					"multiplyer_number" : 453.592333346094,
+					"relative_to" : "grams",
 					"singular_name" : "pound",
 					"plural_name" : "pounds"
 				},
 				{
-					"scale" : 1e+6,
+					"multiplyer_string" : "milli",
+					"relative_to" : "grams",
+					"singular_name" : "milligram",
+					"plural_name" : "milligrams"
+				},
+				{
+					"multiplyer_string" : "kilo",
+					"relative_to" : "grams",
+					"singular_name" : "kilogram",
+					"plural_name" : "kilograms"
+				},
+				{
+					"multiplyer_string" : "mega",
+					"relative_to" : "grams",
 					"singular_name" : "tonne",
 					"plural_name" : "tonnes"
 				}
@@ -72,33 +115,45 @@
 			"tags_only" : "true",
 			"unit_scales" : [
 				{
-					"scale" : 1,
+					"is_basic": "true",
 					"singular_name" : "second",
 					"plural_name" : "seconds"
 				},
 				{
-					"scale" : 60,
+					"multiplyer_number" : 60,
 					"relative_to" : "seconds",
 					"singular_name" : "minute",
 					"plural_name" : "minutes"
 				},
 				{
-					"scale" : 60,
+					"multiplyer_number" : 60,
 					"relative_to" : "minutes",
 					"singular_name" : "hour",
 					"plural_name" : "hours"
 				},
 				{
-					"scale" : 24,
+					"multiplyer_number" : 24,
 					"relative_to" : "hours",
 					"singular_name" : "day",
 					"plural_name" : "days"
 				},
 				{
-					"scale" : 365,
+					"multiplyer_number" : 365,
 					"relative_to" : "days",
 					"singular_name" : "year",
 					"plural_name" : "years"
+				},
+				{
+					"multiplyer_string" : "micro",
+					"relative_to" : "seconds",
+					"singular_name" : "microsecond",
+					"plural_name" : "microseconds"
+				},
+				{
+					"multiplyer_string" : "milli",
+					"relative_to" : "seconds",
+					"singular_name" : "millisecond",
+					"plural_name" : "milliseconds"
 				}
 			]
 		},
@@ -134,7 +189,7 @@
 					}
 				},
 				{
-					"scale" : 0.514444773689,
+					"multiplyer_number" : 0.514444773689,
 					"singular_name" : "knot",
 					"plural_name" : "knots"
 				}

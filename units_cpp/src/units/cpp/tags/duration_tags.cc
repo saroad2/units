@@ -26,6 +26,12 @@ string days_tag::pluralName() { return "days"; }
 string years_tag::singularName() { return "year"; }
 string years_tag::pluralName() { return "years"; }
 
+string microseconds_tag::singularName() { return "microsecond"; }
+string microseconds_tag::pluralName() { return "microseconds"; }
+
+string milliseconds_tag::singularName() { return "millisecond"; }
+string milliseconds_tag::pluralName() { return "milliseconds"; }
+
 
 
 }

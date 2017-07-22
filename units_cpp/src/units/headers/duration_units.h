@@ -20,14 +20,8 @@ namespace units {
 namespace duration
 {
 
-using Microseconds = Duration<
-		std::chrono::microseconds,
-		micro<tags::seconds_tag>,
-		tags::duration_tag>;
-using Milliseconds = Duration<
-		std::chrono::milliseconds,
-		milli<tags::seconds_tag>,
-		tags::duration_tag>;
+using Microseconds = Duration<std::chrono::microseconds, tags::microseconds_tag, tags::duration_tag>;
+using Milliseconds = Duration<std::chrono::milliseconds, tags::milliseconds_tag, tags::duration_tag>;
 using Seconds = Duration<std::chrono::seconds, tags::seconds_tag, tags::duration_tag>;
 using Minutes = Duration<std::chrono::minutes, tags::minutes_tag, tags::duration_tag>;
 using Hours = Duration<std::chrono::hours, tags::hours_tag, tags::duration_tag>;

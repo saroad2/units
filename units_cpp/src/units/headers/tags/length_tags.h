@@ -7,6 +7,7 @@
 
 #include <ratio>
 #include <string>
+#include "internal/multiplyer_scales.h"
 
 
 namespace units {
@@ -16,27 +17,51 @@ namespace tags
 
 struct length_tag { using code = std::ratio<2, 1>; };
 
+struct meters_tag
+{
+	static constexpr double scale = 1;
+	static std::string singularName();
+	static std::string pluralName();
+};
 struct inches_tag
 {
-	static constexpr double scale = 0.02539999983236;
+	static constexpr double scale = 0.02539999983236 * meters_tag::scale;
 	static std::string singularName();
 	static std::string pluralName();
 };
 struct feet_tag
 {
-	static constexpr double scale = 0.304799999536704;
+	static constexpr double scale = 0.304799999536704 * meters_tag::scale;
 	static std::string singularName();
 	static std::string pluralName();
 };
 struct yards_tag
 {
-	static constexpr double scale = 0.914399998610112;
+	static constexpr double scale = 0.914399998610112 * meters_tag::scale;
 	static std::string singularName();
 	static std::string pluralName();
 };
-struct meters_tag
+struct micrometers_tag
 {
-	static constexpr double scale = 1.0;
+	static constexpr double scale = micro * meters_tag::scale;
+	static std::string singularName();
+	static std::string pluralName();
+};
+struct millimeters_tag
+{
+	static constexpr double scale = milli * meters_tag::scale;
+	static std::string singularName();
+	static std::string pluralName();
+};
+struct centimeters_tag
+{
+	static constexpr double scale = centi * meters_tag::scale;
+	static std::string singularName();
+	static std::string pluralName();
+};
+struct kilometers_tag
+{
+	static constexpr double scale = kilo * meters_tag::scale;
 	static std::string singularName();
 	static std::string pluralName();
 };

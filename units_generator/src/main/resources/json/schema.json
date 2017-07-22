@@ -9,30 +9,20 @@
 				"denumerator" : { "type" : "string" }
 			}
 		},
-		
-		"multiplyer" : {
-			"type" : "string",
-			"enum" : [
-				"nano",
-				"micro",
-				"milli",
-				"centi",
-				"kilo",
-				"mega"]
-		},
 	
 		"unit_scale" : {
 			"type" : "object",
 			"properties" : {
-				"scale" : { "type" : "number" },
+				"is_basic" : {
+					"type" : "boolean",
+					"default" : "false"
+				},
+				"multiplyer_number" : { "type" : "number" },
+				"multiplyer_string" : { "type" : "string" },
 				"relative_to" : { "type" : "string" },
 				"ratio" : {"$ref" : "#/definitions/ratio"},
 				"singular_name" : { "type" : "string" },
-				"plural_name" : { "type" : "string" },
-				"multiplyers" : {
-					"type" : "array",
-					"items" : { "$ref" : "#/definitions/multiplyer" }
-				}
+				"plural_name" : { "type" : "string" }
 			}
 		},
 		

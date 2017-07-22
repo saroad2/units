@@ -7,6 +7,7 @@
 
 #include <ratio>
 #include <string>
+#include "internal/multiplyer_scales.h"
 
 
 namespace units {
@@ -18,19 +19,31 @@ struct mass_tag { using code = std::ratio<5, 1>; };
 
 struct grams_tag
 {
-	static constexpr double scale = 1.0;
+	static constexpr double scale = 1;
 	static std::string singularName();
 	static std::string pluralName();
 };
 struct pounds_tag
 {
-	static constexpr double scale = 453.592333346094;
+	static constexpr double scale = 453.592333346094 * grams_tag::scale;
+	static std::string singularName();
+	static std::string pluralName();
+};
+struct milligrams_tag
+{
+	static constexpr double scale = milli * grams_tag::scale;
+	static std::string singularName();
+	static std::string pluralName();
+};
+struct kilograms_tag
+{
+	static constexpr double scale = kilo * grams_tag::scale;
 	static std::string singularName();
 	static std::string pluralName();
 };
 struct tonnes_tag
 {
-	static constexpr double scale = 1000000.0;
+	static constexpr double scale = mega * grams_tag::scale;
 	static std::string singularName();
 	static std::string pluralName();
 };

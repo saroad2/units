@@ -10,6 +10,7 @@
 
 #include "internal/units_pow_type.h"
 #include "internal/utils.h"
+#include "internal/multiplyer_scales.h"
 #include "length_units.h"
 
 #include <ratio>
@@ -30,7 +31,7 @@ using SquareKilometers = Square<length::Kilometers>;
 
 struct dunam_scale_tag
 {
-	static constexpr double scale = 1000 * SquareMeters::scale;
+	static constexpr double scale = kilo * SquareMeters::scale;
 	static std::string singularName();
 	static std::string pluralName();
 };

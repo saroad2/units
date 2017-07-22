@@ -15,5 +15,8 @@ using std::string;
 string liters_scale_tag::singularName() { return "liter";}
 string liters_scale_tag::pluralName() { return "liters";}
 
+string milliliters_scale_tag::singularName() { return "milliliter";}
+string milliliters_scale_tag::pluralName() { return "milliliters";}
+
 }
 }

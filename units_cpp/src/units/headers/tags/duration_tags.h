@@ -7,6 +7,7 @@
 
 #include <ratio>
 #include <string>
+#include "internal/multiplyer_scales.h"
 
 
 namespace units {
@@ -18,7 +19,7 @@ struct duration_tag { using code = std::ratio<7, 1>; };
 
 struct seconds_tag
 {
-	static constexpr double scale = 1.0;
+	static constexpr double scale = 1;
 	static std::string singularName();
 	static std::string pluralName();
 };
@@ -43,6 +44,18 @@ struct days_tag
 struct years_tag
 {
 	static constexpr double scale = 365.0 * days_tag::scale;
+	static std::string singularName();
+	static std::string pluralName();
+};
+struct microseconds_tag
+{
+	static constexpr double scale = micro * seconds_tag::scale;
+	static std::string singularName();
+	static std::string pluralName();
+};
+struct milliseconds_tag
+{
+	static constexpr double scale = milli * seconds_tag::scale;
 	static std::string singularName();
 	static std::string pluralName();
 };

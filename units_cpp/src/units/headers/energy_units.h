@@ -32,9 +32,22 @@ struct joules_tag
 	static std::string pluralName();
 };
 
+struct kilojoules_tag
+{
+	static constexpr double scale = kilo * joules_tag::scale;
+	static std::string singularName();
+	static std::string pluralName();
+};
+
+struct megajoules_tag
+{
+	static constexpr double scale = mega * joules_tag::scale;
+	static std::string singularName();
+	static std::string pluralName();
+};
 using Joules = NumericValue<joules_tag, energy_tag>;
-using Kilojoules = Kilo<Joules>;
-using Megajoules = Mega<Joules>;
+using Kilojoules = NumericValue<kilojoules_tag, energy_tag>;
+using Megajoules = NumericValue<megajoules_tag, energy_tag>;
 
 USER_DEFINED_LITERALS(Joules, joules);
 USER_DEFINED_LITERALS(Kilojoules, kilojoules);

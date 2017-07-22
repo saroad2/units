@@ -7,7 +7,6 @@
 
 #include "internal/numeric_value.h"
 #include "internal/utils.h"
-#include "internal/multiplyer_scales.h"
 
 #include "tags/mass_tags.h"
 
@@ -16,16 +15,16 @@ namespace mass
 {
 
 using Grams = NumericValue<tags::grams_tag, tags::mass_tag>;
-using Milligrams = Milli<Grams>;
-using Kilograms = Kilo<Grams>;
 using Pounds = NumericValue<tags::pounds_tag, tags::mass_tag>;
+using Milligrams = NumericValue<tags::milligrams_tag, tags::mass_tag>;
+using Kilograms = NumericValue<tags::kilograms_tag, tags::mass_tag>;
 using Tonnes = NumericValue<tags::tonnes_tag, tags::mass_tag>;
 
 
 USER_DEFINED_LITERALS(Grams, grams);
+USER_DEFINED_LITERALS(Pounds, pounds);
 USER_DEFINED_LITERALS(Milligrams, milligrams);
 USER_DEFINED_LITERALS(Kilograms, kilograms);
-USER_DEFINED_LITERALS(Pounds, pounds);
 USER_DEFINED_LITERALS(Tonnes, tonnes);
 
 

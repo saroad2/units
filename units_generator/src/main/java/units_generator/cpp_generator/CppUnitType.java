@@ -181,20 +181,11 @@ public class CppUnitType {
 		if (!scale.isComplex()) {
 			basicScales.add(scale);
 		}
-		addToUnitScales(scale);
-		if (scale.hasMultiplyers()) {
-			addMultiplyers(scale);
-		}
-	}
-
-	private void addMultiplyers(CppUnitScale scale) {
-		if (!hasMultiplyers) {
-			unitIncludes.add("\"internal/multiplyer_scales.h\"");
+		if (scale.isStringMultiplyer() && !hasMultiplyers) {
+			tagIncludes.add("\"internal/multiplyer_scales.h\"");
 			hasMultiplyers = true;
 		}
-		for (CppUnitScale multiplyerScale : scale.getMultiplyers()) {
-			addToUnitScales(multiplyerScale);
-		}
+		addToUnitScales(scale);
 	}
 
 	private void addToUnitScales(CppUnitScale scale) {

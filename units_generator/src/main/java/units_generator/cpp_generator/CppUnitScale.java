@@ -103,10 +103,10 @@ public class CppUnitScale {
 			UnitScale unitScale) {
 		if(unitScale.getRatio() != null){
 			complex = true;
-			numeratorScale =
-				unitType.getNumeratorType().getNameToScale().get(unitScale.getRatio().getNumerator());
+			numeratorScale = 
+				UnitsRepository.getInstance().getScale(unitScale.getRatio().getNumerator());
 			denumeratorScale =
-				unitType.getDenumeratorType().getNameToScale().get(unitScale.getRatio().getDenumerator());
+				UnitsRepository.getInstance().getScale(unitScale.getRatio().getDenumerator());
 		}
 		else {
 			complex = false;

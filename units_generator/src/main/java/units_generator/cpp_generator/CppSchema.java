@@ -14,7 +14,6 @@ import units_generator.cpp_generator.CppUnitType;
 public class CppSchema {
 	
 	private List<CppUnitType> unitTypes;
-	private Map<String, CppUnitType> nameToUnitType;
 	
 	public List<CppUnitType> getUnitTypes() {
 		return unitTypes;
@@ -22,11 +21,10 @@ public class CppSchema {
 
 	public CppSchema (Schema schema) {
 		unitTypes = new ArrayList<CppUnitType>();
-		nameToUnitType = new HashMap<String, CppUnitType>();
 		for (UnitType unitType : schema.getUnitTypes()) {
-			CppUnitType cppUnitType = new CppUnitType(unitType, nameToUnitType); 
+			CppUnitType cppUnitType = new CppUnitType(unitType); 
 			unitTypes.add(cppUnitType);
-			nameToUnitType.put(cppUnitType.getTypeName(), cppUnitType);
+			UnitsRepository.getInstance().addType(cppUnitType);
 		}
 	}
 	

@@ -1,9 +1,7 @@
 package units_generator.cpp_generator;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import units_schema.UnitScale;
 import units_schema.UnitType;
@@ -26,7 +24,6 @@ public class CppUnitType {
 	private String tagsHeaderIncludeGurad;
 	private List<CppUnitScale> basicScales;
 	private List<CppUnitScale> unitScales;
-	private Map<String, CppUnitScale> nameToScale;
 	private String headerFileName;
 	private String tagsHeaderFileName;
 	private String tagsSourceFileName;
@@ -82,10 +79,6 @@ public class CppUnitType {
 	public List<CppUnitScale> getUnitScales() {
 		return unitScales;
 	}
-
-	public Map<String, CppUnitScale> getNameToScale() {
-		return nameToScale;
-	}
 	
 	public String getHeaderFileName() {
 		return headerFileName;
@@ -103,12 +96,12 @@ public class CppUnitType {
 		return tagsOnly;
 	}
 	
-	public CppUnitType(UnitType unitType, Map<String, CppUnitType> nameToUnitType) {
+	public CppUnitType(UnitType unitType) {
 		typeName = unitType.getTypeName();
 		namespace = typeName.replaceAll(" " , "_") ; 
 		tagName = namespace + "_tag";
 		initializeIncludes();
-		initializeRatio(unitType, nameToUnitType);
+		initializeRatio(unitType);
 		initializeCode();
 		headerIncludeGurad = "INCLUDE_" + typeName.toUpperCase() + "_UNITS_H_";
 		tagsHeaderIncludeGurad = "INCLUDE_" + typeName.toUpperCase() + "_TAGS_H_";
@@ -138,15 +131,14 @@ public class CppUnitType {
 	}
 	
 	private void initializeRatio(
-			UnitType unitType,
-			Map<String, CppUnitType> nameToUnitType) {
+			UnitType unitType) {
 		if (unitType.getRatio() == null) {
 			isRatio = false;
 		}
 		else {
 			isRatio = true;
-			numeratorType = nameToUnitType.get(unitType.getRatio().getNumerator());
-			denumeratorType = nameToUnitType.get(unitType.getRatio().getDenumerator());
+			numeratorType = UnitsRepository.getInstance().getType(unitType.getRatio().getNumerator());
+			denumeratorType = UnitsRepository.getInstance().getType(unitType.getRatio().getDenumerator());
 		}		
 	}
 	
@@ -179,7 +171,6 @@ public class CppUnitType {
 		basicScales = new ArrayList<CppUnitScale>();
 		unitScales = new ArrayList<CppUnitScale>();
 		hasMultiplyers = false;
-		nameToScale = new HashMap<String, CppUnitScale>();
 		for (UnitScale unitScale : unitType.getUnitScales()) {
 			addScale(unitScale);
 		}
@@ -208,7 +199,7 @@ public class CppUnitType {
 
 	private void addToUnitScales(CppUnitScale scale) {
 		unitScales.add(scale);
-		nameToScale.put(scale.getPluralName(), scale);
+		UnitsRepository.getInstance().addScale(scale);
 	}
 	
 	public String toString() {

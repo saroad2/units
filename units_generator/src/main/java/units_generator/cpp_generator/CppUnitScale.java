@@ -95,23 +95,9 @@ public class CppUnitScale {
 	}
 
 	private void initializeScale(UnitScale unitScale) {
-		stringMultiplyer = false;
-		if (unitScale.getIsBasic()) {
-			scale = "1";
-			return;
-		}
-		if (unitScale.getMultiplyerNumber() != null) {
-			scale = Double.toString(unitScale.getMultiplyerNumber());
-		}
-		if (unitScale.getMultiplyerString() != null) {
-			scale = unitScale.getMultiplyerString();
-			stringMultiplyer = true;
-		}
-		if (unitScale.getRelativeTo() != null) {
-			CppUnitScale relativeTo = UnitsRepository.getInstance().getScale(unitScale.getRelativeTo());
-			scale += " * " + relativeTo.getTagName() + "::scale";
-		}
-		
+		CppScaleValueCalculator.Result result = CppScaleValueCalculator.calculate(unitScale);
+		scale = result.scale;
+		stringMultiplyer = result.isStringMultiplyer;
 	}
 
 	private void initializeComplexScale(

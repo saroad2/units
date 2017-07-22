@@ -82,12 +82,12 @@ public class CppUnitType {
 		tagName = namespace + "_tag";
 		initializeIncludes();
 		initializeCode(unitType);
-		headerIncludeGurad = "INCLUDE_" + typeName.toUpperCase() + "_UNITS_H_";
-		tagsHeaderIncludeGurad = "INCLUDE_" + typeName.toUpperCase() + "_TAGS_H_";
+		headerIncludeGurad = "INCLUDE_" + namespace.toUpperCase() + "_UNITS_H_";
+		tagsHeaderIncludeGurad = "INCLUDE_" + namespace.toUpperCase() + "_TAGS_H_";
 		initializeScales(unitType);
-		headerFileName = typeName + "_units.h";
-		tagsHeaderFileName = typeName + "_tags.h";
-		tagsSourceFileName = typeName + "_tags.cc";
+		headerFileName = namespace + "_units.h";
+		tagsHeaderFileName = namespace + "_tags.h";
+		tagsSourceFileName = namespace + "_tags.cc";
 		tagsOnly = unitType.getTagsOnly();
 	}
 	

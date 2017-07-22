@@ -205,6 +205,42 @@
 					"relative_to" : "meters per second"
 				}
 			]
+		},
+		{
+			"type_name" : "angular speed",
+			"ratio" : {
+				"numerator" : "angle",
+				"denumerator" : "duration"
+			},
+			"unit_scales" : [
+				{
+					"name" : "degrees per second",
+					"singular_name" : "degree/second",
+					"plural_name" : "degrees/second",
+					"ratio" : {
+						"numerator" : "degrees",
+						"denumerator" : "seconds"
+					}
+				},
+				{
+					"name" : "radians per second",
+					"singular_name" : "radian/second",
+					"plural_name" : "radians/second",
+					"ratio" : {
+						"numerator" : "radians",
+						"denumerator" : "seconds"
+					}
+				},
+				{
+					"name" : "mils per second",
+					"singular_name" : "mil/second",
+					"plural_name" : "mils/second",
+					"ratio" : {
+						"numerator" : "mils",
+						"denumerator" : "seconds"
+					}
+				}
+			]
 		}
 	]
 }

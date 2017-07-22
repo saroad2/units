@@ -85,7 +85,7 @@ unit_type_header(unitType) ::= <<
 #include "tags/<unitType.tagsHeaderFileName>"
 
 namespace units {
-namespace <unitType.typeName>
+namespace <unitType.namespace>
 {
 
 <unitType.unitScales:{scale | <scale_class(scale)>}>

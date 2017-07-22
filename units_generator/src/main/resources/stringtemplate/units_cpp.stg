@@ -47,7 +47,7 @@ namespace tags
 
 struct <unitType.tagName> { using code = <unitType.code>; };
 
-<unitType.basicScales:{scale | <scale_tag(scale)>}>
+<unitType.unitScales:{scale | <scale_tag(scale)>}>
 
 }
 }
@@ -68,7 +68,7 @@ namespace tags
 
 using std::string;
 
-<unitType.basicScales:{scale | <scale_names_declarations(scale)>}>
+<unitType.unitScales:{scale | <scale_names_declarations(scale)>}>
 
 }
 }

@@ -8,21 +8,15 @@ import units_schema.Multiplyer;
 public class CppUnitScale {
 	
 	private CppUnitType unitType;
-	private CppUnitScale numeratorScale;
-	private CppUnitScale denumeratorScale;
-	private boolean complex;
 	private String scale;
 	private boolean stringMultiplyer;
+	private String name;
 	private String singularName;
 	private String pluralName;
 	private String tagName;
 	private String className;
 	private String classDeclaration;
 	private String userDefinedLiteral;
-	
-	public boolean isComplex() {
-		return complex;
-	}
 	
 	public String getScale() {
 		return scale;
@@ -32,6 +26,10 @@ public class CppUnitScale {
 		return singularName;
 	}
 
+	public String getName() {
+		return name;
+	}
+	
 	public String getPluralName() {
 		return pluralName;
 	}
@@ -56,59 +54,36 @@ public class CppUnitScale {
 		return stringMultiplyer;
 	}
 	
+	public String getNamespace() {
+		return unitType.getNamespace();
+	}
+	
 	public CppUnitScale(
 			UnitScale unitScale,
 			CppUnitType _unitType)
 	{
 		unitType = _unitType;
-		initiazlizeComplex(unitScale);
-		if (!complex) {
-			initializeBasicScale(unitScale);
-		}
-		else {
-			initializeComplexScale(unitScale);
-		}
-	}
-
-	private void initiazlizeComplex(
-			UnitScale unitScale) {
-		if(unitScale.getRatio() != null){
-			complex = true;
-			numeratorScale = 
-				UnitsRepository.getInstance().getScale(unitScale.getRatio().getNumerator());
-			denumeratorScale =
-				UnitsRepository.getInstance().getScale(unitScale.getRatio().getDenumerator());
-		}
-		else {
-			complex = false;
-		}
-	}
-
-	private void initializeBasicScale(UnitScale unitScale) {
 		initializeScale(unitScale);
+		initializeNames(unitScale);
+		tagName = (name + "_tag").replaceAll(" ", "_");
+		className = CppNamesFormatter.formatClassname(name.replaceAll(" ", "_"));
+		classDeclaration = "NumericValue<tags::" + tagName + ", tags::" + unitType.getTagName() + ">";
+		userDefinedLiteral = name.replaceAll(" ", "_");
+	}
+
+	private void initializeNames(UnitScale unitScale) {
 		singularName = unitScale.getSingularName();
 		pluralName = unitScale.getPluralName();
-		tagName = (pluralName + "_tag").replaceAll(" ", "_");
-		className = CppNamesFormatter.formatClassname(pluralName.replaceAll(" ", "_"));
-		classDeclaration = "NumericValue<tags::" + tagName + ", tags::" + unitType.getTagName() + ">";
-		userDefinedLiteral = pluralName.replaceAll(" ", "_");
+		if (unitScale.getName() == null)
+			name = pluralName;
+		else
+			name = unitScale.getName();
 	}
 
 	private void initializeScale(UnitScale unitScale) {
 		CppScaleValueCalculator.Result result = CppScaleValueCalculator.calculate(unitScale);
 		scale = result.scale;
 		stringMultiplyer = result.isStringMultiplyer;
-	}
-
-	private void initializeComplexScale(
-			UnitScale unitScale) {
-		singularName = numeratorScale.getSingularName() + " per " + denumeratorScale.getSingularName();
-		pluralName = numeratorScale.getPluralName() + " per " + denumeratorScale.getSingularName();
-		className = CppNamesFormatter.formatClassname(pluralName.replaceAll(" ", "_"));
-		classDeclaration = "Ratio<" +
-			numeratorScale.unitType.getNamespace() + "::" + numeratorScale.className + ", " +
-			denumeratorScale.unitType.getNamespace() + "::" + denumeratorScale.className + ">";
-		userDefinedLiteral = pluralName.replaceAll(" ", "_");
 	}
 	
 	public String toString() {

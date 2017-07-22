@@ -165,24 +165,36 @@
 			},
 			"unit_scales" : [
 				{
+					"name" : "feet per second",
+					"singular_name" : "foot/second",
+					"plural_name" : "feet/second",
 					"ratio" : {
 						"numerator" : "feet",
 						"denumerator" : "seconds"
 					}
 				},
 				{
+					"name" : "yards per second",
+					"singular_name" : "yard/second",
+					"plural_name" : "yards/second",
 					"ratio" : {
 						"numerator" : "yards",
 						"denumerator" : "seconds"
 					}
 				},
 				{
+					"name" : "meters per second",
+					"singular_name" : "meter/second",
+					"plural_name" : "meters/second",
 					"ratio" : {
 						"numerator" : "meters",
 						"denumerator" : "seconds"
 					}
 				},
 				{
+					"name" : "kilometers per hour",
+					"singular_name" : "kilometer/hour",
+					"plural_name" : "kilometers/hour",
 					"ratio" : {
 						"numerator" : "kilometers",
 						"denumerator" : "hours"

@@ -20,8 +20,11 @@ public class CppScaleValueCalculator {
 		if (unitScale.getIsBasic()) {
 			initializeBasicScale(result);
 		}
+		else if(unitScale.getRatio() != null) {
+			initializeRatioScale(result, unitScale);
+		}
 		else {
-			initializeNonBasicScale(result, unitScale);
+			initializeRelativeScale(result, unitScale);
 		}
 		return result;
 	}
@@ -29,8 +32,14 @@ public class CppScaleValueCalculator {
 	public static void initializeBasicScale(Result result) {
 		result.scale = "1";
 	}
-	
-	public static void initializeNonBasicScale(Result result, UnitScale unitScale) {
+	public static void initializeRatioScale(Result result, UnitScale unitScale) {
+		CppUnitScale numerator = UnitsRepository.getInstance().getScale(unitScale.getRatio().getNumerator());
+		CppUnitScale denumerator = UnitsRepository.getInstance().getScale(unitScale.getRatio().getDenumerator());
+		result.scale = "ratio_scale_tag<" +
+				numerator.getNamespace() + "::tags::" + numerator.getTagName() + ", " +
+				denumerator.getNamespace() + "::tags::" + denumerator.getTagName() + ">::scale";
+	}
+	public static void initializeRelativeScale(Result result, UnitScale unitScale) {
 		if (unitScale.getMultiplyerNumber() != null) {
 			result.scale = Double.toString(unitScale.getMultiplyerNumber());
 		}

@@ -16,7 +16,6 @@ public class CppUnitType {
 	private String code;
 	private String headerIncludeGurad;
 	private String tagsHeaderIncludeGurad;
-	private List<CppUnitScale> basicScales;
 	private List<CppUnitScale> unitScales;
 	private String headerFileName;
 	private String tagsHeaderFileName;
@@ -55,10 +54,6 @@ public class CppUnitType {
 	
 	public String getTagsHeaderIncludeGurad() {
 		return tagsHeaderIncludeGurad;
-	}
-
-	public List<CppUnitScale> getBasicScales() {
-		return basicScales;
 	}
 
 	public List<CppUnitScale> getUnitScales() {
@@ -122,7 +117,6 @@ public class CppUnitType {
 	}
 
 	private void initializeScales(UnitType unitType) {
-		basicScales = new ArrayList<CppUnitScale>();
 		unitScales = new ArrayList<CppUnitScale>();
 		hasMultiplyers = false;
 		for (UnitScale unitScale : unitType.getUnitScales()) {
@@ -131,10 +125,7 @@ public class CppUnitType {
 	}
 
 	private void addScale(UnitScale unitScale) {
-		CppUnitScale scale = new CppUnitScale(unitScale, this); 
-		if (!scale.isComplex()) {
-			basicScales.add(scale);
-		}
+		CppUnitScale scale = new CppUnitScale(unitScale, this);
 		if (scale.isStringMultiplyer() && !hasMultiplyers) {
 			tagIncludes.add("\"internal/multiplyer_scales.h\"");
 			hasMultiplyers = true;

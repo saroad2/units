@@ -27,7 +27,7 @@ public class UnitsRepository {
 	}
 	
 	public void addScale(CppUnitScale unitScale) {
-		scalesMap.put(unitScale.getPluralName(), unitScale);
+		scalesMap.put(unitScale.getName(), unitScale);
 	}
 	
 	public CppUnitScale getScale(String scaleName) {

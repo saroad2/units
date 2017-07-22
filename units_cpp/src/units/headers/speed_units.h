@@ -16,10 +16,10 @@ namespace units {
 namespace speed
 {
 
-using FeetPerSecond = Ratio<length::Feet, duration::Seconds>;
-using YardsPerSecond = Ratio<length::Yards, duration::Seconds>;
-using MetersPerSecond = Ratio<length::Meters, duration::Seconds>;
-using KilometersPerHour = Ratio<length::Kilometers, duration::Hours>;
+using FeetPerSecond = NumericValue<tags::feet_per_second_tag, tags::speed_tag>;
+using YardsPerSecond = NumericValue<tags::yards_per_second_tag, tags::speed_tag>;
+using MetersPerSecond = NumericValue<tags::meters_per_second_tag, tags::speed_tag>;
+using KilometersPerHour = NumericValue<tags::kilometers_per_hour_tag, tags::speed_tag>;
 using Knots = NumericValue<tags::knots_tag, tags::speed_tag>;
 
 

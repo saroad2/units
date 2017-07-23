@@ -3,6 +3,7 @@ package units_generator;
 import units_schema.Schema;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.commons.io.FileUtils;
 
 import units_generator.cpp_generator.CppSchema;
 import units_generator.cpp_generator.CppUnitType;
@@ -38,11 +39,11 @@ public class UnitsGenerator {
 		System.exit(1);
     }
 	
-	private void makeDirectories(String outputDirectory) {
+	private void makeDirectories(String outputDirectory) throws IOException{
 		File outputFile = new File(outputDirectory);
 		if (outputFile.exists()) {
 			logger.info("Output directory already exists. Deleting it.");
-			outputFile.delete();
+			FileUtils.deleteDirectory(outputFile);
 		}
 		logger.info("Making new output directory.");
 		outputFile.mkdir();

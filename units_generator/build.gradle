@@ -22,6 +22,7 @@ dependencies {
 	compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.0.1'
  	compile "org.antlr:stringtemplate:3.2.1"
  	compile group: 'com.google.guava', name: 'guava', version: 'r05'
+ 	compile group: 'commons-io', name: 'commons-io', version: '2.4'
 }
 
 jsonSchema2Pojo {

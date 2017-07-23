@@ -48,8 +48,8 @@ public class CppUnitsGenerator {
 			CppSchema cppSchema,
 			StringTemplateGroup group,
 			String outputDirectory) throws IOException {
-		File headersDirectory = Paths.get(outputDirectory, "headers").toFile();
-		headersDirectory.mkdir();
+		File headersDirectory = Paths.get(outputDirectory, "units", "headers").toFile();
+		headersDirectory.mkdirs();
 		generateTagsHeaderFile(cppSchema, group, headersDirectory);
 		logger.info("Generating header files to " + headersDirectory.toString());
 		for (CppUnitType unitType : cppSchema.getUnitTypes()) {
@@ -102,7 +102,7 @@ public class CppUnitsGenerator {
 			CppSchema cppSchema,
 			StringTemplateGroup group,
 			String outputDirectory) throws IOException {
-		File cppDirectory = Paths.get(outputDirectory, "cpp", "tags").toFile();
+		File cppDirectory = Paths.get(outputDirectory, "units", "cpp", "tags").toFile();
 		cppDirectory.mkdirs();
 		logger.info("Generating source files to " + cppDirectory.toString());
 		for (CppUnitType unitType : cppSchema.getUnitTypes()) {

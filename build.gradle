@@ -1,6 +1,6 @@
 task copyGenerated(type: Copy, dependsOn: ':units_generator:run') {
     from 'units_generator/generated/'
-    into 'units_cpp/src/units/'
+    into 'units_cpp/src/'
     include '**/*.h'
     include '**/*.cc'
     exclude { details -> details.file.name.endsWith('.swp')}

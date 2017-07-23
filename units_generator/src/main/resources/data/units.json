@@ -292,6 +292,63 @@
 					"relative_to" : "square meters"
 				}
 			]
+		},
+		{
+			"type_name" : "volume",
+			"ratio" : {
+				"numerators" : ["length", "length", "length"],
+				"denumerators" : []
+			},
+			"unit_scales" : [
+				{
+					"name" : "cubic feet",
+					"singular_name" : "foot^3",
+					"plural_name" : "feet^3",
+					"ratio" : {
+						"numerators" : ["feet", "feet", "feet"],
+						"denumerators" : []
+					}
+				},
+				{
+					"name" : "cubic yards",
+					"singular_name" : "yard^3",
+					"plural_name" : "yards^3",
+					"ratio" : {
+						"numerators" : ["yards", "yards", "yards"],
+						"denumerators" : []
+					}
+				},
+				{
+					"name" : "cubic meters",
+					"singular_name" : "meter^3",
+					"plural_name" : "meters^3",
+					"ratio" : {
+						"numerators" : ["meters", "meters", "meters"],
+						"denumerators" : []
+					}
+				},
+				{
+					"name" : "cubic kilometers",
+					"singular_name" : "kilometer^3",
+					"plural_name" : "kilometers^3",
+					"ratio" : {
+						"numerators" : ["kilometers", "kilometers", "kilometers"],
+						"denumerators" : []
+					}
+				},
+				{
+					"singular_name" : "liter",
+					"plural_name" : "liters",
+					"multiplyer_string" : "milli",
+					"relative_to" : "cubic meters"
+				},
+				{
+					"singular_name" : "milliliter",
+					"plural_name" : "milliliters",
+					"multiplyer_string" : "milli",
+					"relative_to" : "liters"
+				}
+			]
 		}
 	]
 }

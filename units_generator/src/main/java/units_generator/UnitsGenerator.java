@@ -32,9 +32,11 @@ public class UnitsGenerator {
 			logger.info("Generating cpp files succeded!");
 			return;
 		}
-		catch(IOException e)
-		{
+		catch(IOException e) {
 			logger.severe("Got io exception in read json file: " + e.getMessage());
+		}
+		catch(InvalidSchemaException e) {
+			logger.severe("Units schema is invalid because of the following reason:\n" + e.toString());
 		}
 		System.exit(1);
     }
@@ -49,11 +51,14 @@ public class UnitsGenerator {
 		outputFile.mkdir();
 	}
 	
-	private Schema getSchema(String jsonFilePath) throws IOException{
+	private Schema getSchema(String jsonFilePath) throws IOException, InvalidSchemaException{
 		logger.info("Reading schema from " + jsonFilePath + "...");
 		ObjectMapper mapper = new ObjectMapper();
 		Schema schema = mapper.readValue(new File(jsonFilePath), Schema.class);
 		logger.info("Reading schema succeded!");
+		logger.info("Validating schema...");
+		SchemaValidator.validateSchema(schema);
+		logger.info("Schema is valid!");
 		logger.fine("Schema content: " + schema.toString());
 		return schema;
 	}

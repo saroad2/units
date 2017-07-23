@@ -41,6 +41,30 @@ struct yards_tag
 	static std::string singularName();
 	static std::string pluralName();
 };
+struct statute_miles_tag
+{
+	static constexpr double scale = 621.371192237 * meters_tag::scale;
+	static std::string singularName();
+	static std::string pluralName();
+};
+struct nautical_miles_tag
+{
+	static constexpr double scale = 1852.0 * meters_tag::scale;
+	static std::string singularName();
+	static std::string pluralName();
+};
+struct geographical_miles_tag
+{
+	static constexpr double scale = 1855.3248 * meters_tag::scale;
+	static std::string singularName();
+	static std::string pluralName();
+};
+struct degrees_of_latitude_tag
+{
+	static constexpr double scale = 60.0 * geographical_miles_tag::scale;
+	static std::string singularName();
+	static std::string pluralName();
+};
 struct micrometers_tag
 {
 	static constexpr double scale = micro * meters_tag::scale;

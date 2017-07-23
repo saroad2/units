@@ -27,6 +27,30 @@
 					"relative_to" : "feet"
 				},
 				{
+					"singular_name" : "statute mile",
+					"plural_name" : "statute miles",
+					"multiplyer_number" :  621.371192237,
+					"relative_to" : "meters"
+				},
+				{
+					"singular_name" : "nautical mile",
+					"plural_name" : "nautical miles",
+					"multiplyer_number" : 1852,
+					"relative_to" : "meters"
+				},
+				{
+					"singular_name" : "geographical mile",
+					"plural_name" : "geographical miles",
+					"multiplyer_number" : 1855.3248,
+					"relative_to" : "meters"
+				},
+				{
+					"singular_name" : "degree of latitude",
+					"plural_name" : "degrees of latitude",
+					"multiplyer_number" : 60,
+					"relative_to" : "geographical miles"
+				},
+				{
 					"singular_name" : "micrometer",
 					"plural_name" : "micrometers",
 					"multiplyer_string" : "micro",

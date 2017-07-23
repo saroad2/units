@@ -27,7 +27,11 @@
 		units::length::Micrometers, \
 		units::length::Millimeters, \
 		units::length::Centimeters, \
-		units::length::Kilometers
+		units::length::Kilometers, \
+		units::length::StatuteMiles, \
+		units::length::NauticalMiles, \
+		units::length::GeographicalMiles, \
+		units::length::DegreesOfLatitude
 
 #define ANGLE_UNITS() \
 		units::angle::Mils, \

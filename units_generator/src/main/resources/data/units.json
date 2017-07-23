@@ -372,6 +372,35 @@
 					"relative_to" : "newtons"
 				}
 			]
+		},
+		{
+			"type_name" : "energy",
+			"ratio" : {
+				"numerators" : ["mass"],
+				"denumerators" : ["duration", "duration"]
+			},
+			"unit_scales" : [
+				{
+					"singular_name" : "joule",
+					"plural_name" : "joules",
+					"ratio" : {
+						"numerators" : ["kilograms"],
+						"denumerators" : ["seconds", "seconds"]
+					}
+				},
+				{
+					"singular_name" : "kilojoule",
+					"plural_name" : "kilojoules",
+					"multiplyer_string" : "kilo",
+					"relative_to" : "joules"
+				},
+				{
+					"singular_name" : "megajoule",
+					"plural_name" : "megajoules",
+					"multiplyer_string" : "mega",
+					"relative_to" : "joules"
+				}
+			]
 		}
 	]
 }

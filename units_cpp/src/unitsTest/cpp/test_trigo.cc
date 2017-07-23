@@ -27,8 +27,8 @@ using std::vector;
 class TestTrigo : public Test
 {
 protected:
-	using ValuesTupe = boost::tuples::tuple<ANGLE_UNITS()>;
-	using ValuesAndResultPair = boost::tuples::tuple<ValuesTupe, double>;
+	using ValuesTuple = boost::tuples::tuple<ANGLE_UNITS()>;
+	using ValuesAndResultPair = boost::tuples::tuple<ValuesTuple, double>;
 
 	void run(
 			vector<ValuesAndResultPair> valuesAndResultPairs,
@@ -55,11 +55,11 @@ protected:
 TEST_F(TestTrigo, cos_and_acos)
 {
 	vector<ValuesAndResultPair> data{
-		{ValuesTupe{Mils{0}, Degrees{0}, Radians{0}}, 1},
-		{ValuesTupe{Mils{1600.0 / 3}, Degrees{30}, Radians{M_PI / 6}}, sqrt(3) / 2},
-		{ValuesTupe{Mils{800}, Degrees{45}, Radians{M_PI_4}}, sqrt(0.5)},
-		{ValuesTupe{Mils{3200.0 / 3}, Degrees{60}, Radians{M_PI / 3}}, 0.5},
-		{ValuesTupe{Mils{1600}, Degrees{90}, Radians{M_PI_2}}, 0}
+		{ValuesTuple{Degrees{0},	Mils{0},			Radians{0}}, 1},
+		{ValuesTuple{Degrees{30},	Mils{1600.0 / 3},	Radians{M_PI / 6}}, sqrt(3) / 2},
+		{ValuesTuple{Degrees{45}, 	Mils{800},			Radians{M_PI_4}}, sqrt(0.5)},
+		{ValuesTuple{Degrees{60}, 	Mils{3200.0 / 3},	Radians{M_PI / 3}}, 0.5},
+		{ValuesTuple{Degrees{90}, 	Mils{1600}, 		Radians{M_PI_2}}, 0}
 	};
 
 	auto function = [](const auto& unit, const auto& result) {
@@ -77,11 +77,11 @@ TEST_F(TestTrigo, cos_and_acos)
 TEST_F(TestTrigo, sin_and_asin)
 {
 	vector<ValuesAndResultPair> data{
-		{ValuesTupe{Mils{0}, Degrees{0}, Radians{0}}, 0},
-		{ValuesTupe{Mils{1600.0 / 3}, Degrees{30}, Radians{M_PI / 6}}, 0.5},
-		{ValuesTupe{Mils{800}, Degrees{45}, Radians{M_PI_4}}, sqrt(0.5)},
-		{ValuesTupe{Mils{3200.0 / 3}, Degrees{60}, Radians{M_PI / 3}}, sqrt(3) / 2},
-		{ValuesTupe{Mils{1600}, Degrees{90}, Radians{M_PI_2}}, 1}
+		{ValuesTuple{Degrees{0},	Mils{0},			Radians{0}}, 0},
+		{ValuesTuple{Degrees{30},	Mils{1600.0 / 3},	Radians{M_PI / 6}}, 0.5},
+		{ValuesTuple{Degrees{45}, 	Mils{800},			Radians{M_PI_4}}, sqrt(0.5)},
+		{ValuesTuple{Degrees{60}, 	Mils{3200.0 / 3},	Radians{M_PI / 3}}, sqrt(3) / 2},
+		{ValuesTuple{Degrees{90}, 	Mils{1600},			Radians{M_PI_2}}, 1}
 	};
 
 	auto function = [](const auto& unit, const auto& result) {
@@ -99,10 +99,10 @@ TEST_F(TestTrigo, sin_and_asin)
 TEST_F(TestTrigo, tan_and_atan)
 {
 	vector<ValuesAndResultPair> data{
-		{ValuesTupe{Mils{0}, Degrees{0}, Radians{0}}, 0},
-		{ValuesTupe{Mils{1600.0 / 3}, Degrees{30}, Radians{M_PI / 6}}, 1 / sqrt(3)},
-		{ValuesTupe{Mils{800}, Degrees{45}, Radians{M_PI_4}}, 1},
-		{ValuesTupe{Mils{3200.0 / 3}, Degrees{60}, Radians{M_PI / 3}}, sqrt(3)},
+		{ValuesTuple{Degrees{0},	Mils{0},			Radians{0}}, 0},
+		{ValuesTuple{Degrees{30},	Mils{1600.0 / 3},	Radians{M_PI / 6}}, 1 / sqrt(3)},
+		{ValuesTuple{Degrees{45}, 	Mils{800},			Radians{M_PI_4}}, 1},
+		{ValuesTuple{Degrees{60}, 	Mils{3200.0 / 3},	Radians{M_PI / 3}}, sqrt(3)},
 	};
 
 	auto function = [](const auto& unit, const auto& result) {

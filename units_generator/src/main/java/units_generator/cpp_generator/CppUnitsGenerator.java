@@ -29,6 +29,7 @@ public class CppUnitsGenerator {
 		StringTemplateGroup group = getStringTempateGroup(stringTemplateDirectory);
 		generateHeaders(cppSchema, group, outputDirectory);
 		generateSources(cppSchema, group, outputDirectory);
+		generateTests(cppSchema, group, outputDirectory);
 	}
 
 	private CppSchema convertToCppSchema(Schema schema) {
@@ -119,6 +120,21 @@ public class CppUnitsGenerator {
 				Paths.get(headersDirectory.getPath(),
 						  unitType.getTagsSourceFileName());
 		st.setAttribute("unitType", unitType);
+		ArrayList<String> lines = new ArrayList<String>();
+		lines.add(st.toString());
+		Files.write(outputPath, lines, Charset.forName("utf-8"));
+	}
+
+	private void generateTests(
+			CppSchema cppSchema,
+			StringTemplateGroup group,
+			String outputDirectory) throws IOException {
+		File testsHeadersDirectory = Paths.get(outputDirectory, "unitsTest", "headers").toFile();
+		testsHeadersDirectory.mkdirs();
+		logger.info("Generating test header files to " + testsHeadersDirectory.toString());
+		StringTemplate st = group.getInstanceOf("all_units");
+		Path outputPath = Paths.get(testsHeadersDirectory.getPath(), "all_units.h");
+		st.setAttribute("schema", cppSchema);
 		ArrayList<String> lines = new ArrayList<String>();
 		lines.add(st.toString());
 		Files.write(outputPath, lines, Charset.forName("utf-8"));

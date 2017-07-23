@@ -32,6 +32,18 @@ struct <scale.tagName>
 };<\n>
 >>
 
+
+full_scale_declaration(scale) ::= <<
+units::<scale.namespace>::<scale.className>
+>>
+all_unit_type_scales(unitType) ::= <<
+
+#define <unitType.upperCaseName>_UNITS() \
+<first(unitType.unitScales): { scale | <\t><full_scale_declaration(scale)>}><rest(unitType.unitScales): {scale |, \\<\n><\t><full_scale_declaration(scale)>}>
+
+
+>>
+
 tags_header(unitType) ::= <<
 <declaration()>
 
@@ -96,4 +108,20 @@ namespace <unitType.namespace>
 }
 
 #endif /* <unitType.headerIncludeGurad> */
+>>
+
+all_units(schema) ::= <<
+<declaration()>
+
+<schema.unitTypes:{unitType | #include "<unitType.headerFileName>"<\n>}>
+
+#ifndef UNIT_TESTS_ALL_UNITS_H_
+#define UNIT_TESTS_ALL_UNITS_H_
+
+<schema.unitTypes:all_unit_type_scales()>
+
+#define ALL_UNITS() \
+<first(schema.unitTypes): { unitType | <\t><unitType.upperCaseName>_UNITS()}><rest(schema.unitTypes): {unitType |, \\<\n><\t><unitType.upperCaseName>_UNITS()}>
+
+#endif /* UNIT_TESTS_ALL_UNITS_H_ */
 >>

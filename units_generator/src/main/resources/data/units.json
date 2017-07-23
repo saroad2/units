@@ -158,8 +158,8 @@
 		{
 			"type_name" : "speed",
 			"ratio" : {
-				"numerator" : "length",
-				"denumerator" : "duration"
+				"numerators" : ["length"],
+				"denumerators" : ["duration"]
 			},
 			"unit_scales" : [
 				{
@@ -167,8 +167,8 @@
 					"singular_name" : "foot/second",
 					"plural_name" : "feet/second",
 					"ratio" : {
-						"numerator" : "feet",
-						"denumerator" : "seconds"
+						"numerators" : ["feet"],
+						"denumerators" : ["seconds"]
 					}
 				},
 				{
@@ -176,8 +176,8 @@
 					"singular_name" : "yard/second",
 					"plural_name" : "yards/second",
 					"ratio" : {
-						"numerator" : "yards",
-						"denumerator" : "seconds"
+						"numerators" : ["yards"],
+						"denumerators" : ["seconds"]
 					}
 				},
 				{
@@ -185,8 +185,8 @@
 					"singular_name" : "meter/second",
 					"plural_name" : "meters/second",
 					"ratio" : {
-						"numerator" : "meters",
-						"denumerator" : "seconds"
+						"numerators" : ["meters"],
+						"denumerators" : ["seconds"]
 					}
 				},
 				{
@@ -194,8 +194,8 @@
 					"singular_name" : "kilometer/hour",
 					"plural_name" : "kilometers/hour",
 					"ratio" : {
-						"numerator" : "kilometers",
-						"denumerator" : "hours"
+						"numerators" : ["kilometers"],
+						"denumerators" : ["hours"]
 					}
 				},
 				{
@@ -209,8 +209,8 @@
 		{
 			"type_name" : "angular speed",
 			"ratio" : {
-				"numerator" : "angle",
-				"denumerator" : "duration"
+				"numerators" : ["angle"],
+				"denumerators" : ["duration"]
 			},
 			"unit_scales" : [
 				{
@@ -218,8 +218,8 @@
 					"singular_name" : "degree/second",
 					"plural_name" : "degrees/second",
 					"ratio" : {
-						"numerator" : "degrees",
-						"denumerator" : "seconds"
+						"numerators" : ["degrees"],
+						"denumerators" : ["seconds"]
 					}
 				},
 				{
@@ -227,8 +227,8 @@
 					"singular_name" : "radian/second",
 					"plural_name" : "radians/second",
 					"ratio" : {
-						"numerator" : "radians",
-						"denumerator" : "seconds"
+						"numerators" : ["radians"],
+						"denumerators" : ["seconds"]
 					}
 				},
 				{
@@ -236,9 +236,60 @@
 					"singular_name" : "mil/second",
 					"plural_name" : "mils/second",
 					"ratio" : {
-						"numerator" : "mils",
-						"denumerator" : "seconds"
+						"numerators" : ["mils"],
+						"denumerators" : ["seconds"]
 					}
+				}
+			]
+		},
+		{
+			"type_name" : "area",
+			"ratio" : {
+				"numerators" : ["length", "length"],
+				"denumerators" : []
+			},
+			"unit_scales" : [
+				{
+					"name" : "square feet",
+					"singular_name" : "foot^2",
+					"plural_name" : "feet^2",
+					"ratio" : {
+						"numerators" : ["feet", "feet"],
+						"denumerators" : []
+					}
+				},
+				{
+					"name" : "square yards",
+					"singular_name" : "yard^2",
+					"plural_name" : "yards^2",
+					"ratio" : {
+						"numerators" : ["yards", "yards"],
+						"denumerators" : []
+					}
+				},
+				{
+					"name" : "square meters",
+					"singular_name" : "meter^2",
+					"plural_name" : "meters^2",
+					"ratio" : {
+						"numerators" : ["meters", "meters"],
+						"denumerators" : []
+					}
+				},
+				{
+					"name" : "square kilometers",
+					"singular_name" : "kilometer^2",
+					"plural_name" : "kilometers^2",
+					"ratio" : {
+						"numerators" : ["kilometers", "kilometers"],
+						"denumerators" : []
+					}
+				},
+				{
+					"singular_name" : "dunam",
+					"plural_name" : "dunams",
+					"multiplyer_string" : "kilo",
+					"relative_to" : "square meters"
 				}
 			]
 		}

@@ -5,8 +5,14 @@
 		"ratio" : {
 			"type" : "object",
 			"properties" : {
-				"numerator" : { "type" : "string" },
-				"denumerator" : { "type" : "string" }
+				"numerators" : { 
+					"type" : "array",
+					 "items" : {"type" : "string"}
+				},
+				"denumerators" : { 
+					"type" : "array",
+					 "items" : {"type" : "string"}
+				}
 			}
 		},
 	

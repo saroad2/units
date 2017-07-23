@@ -8,11 +8,11 @@
 #include "internal/same_type_validator.h"
 #include "internal/numeric_value.h"
 #include "internal/none_type.h"
-#include "internal/units_mutiply_type.h"
 #include "internal/units_ratio_type.h"
 
 #include <gtest/gtest.h>
 #include <ratio>
+#include "../../units/headers/internal/units_multiply_type.h"
 
 using units::is_from_the_same_type;
 using units::Multiply;

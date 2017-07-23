@@ -8,7 +8,8 @@
 #ifndef INCLUDE_NUMERIC_VALUE_H_
 #define INCLUDE_NUMERIC_VALUE_H_
 
-#include <internal/tags.h>
+#include "internal/tags.h"
+#include "internal/same_type_validator.h"
 #include <type_traits>
 #include <ostream>
 #include <string>
@@ -17,7 +18,8 @@ namespace units
 {
 
 #define VALIDATE_SAME_UNIT(Unit1, Unit2) \
-	static_assert(std::is_same<Unit1, Unit2>::value, \
+	static_assert(is_from_the_same_type<Unit1, Unit2>::value && \
+					Unit1::_scale::scale == Unit2::_scale::scale, \
 				  "Cannot use this operation on different units");
 
 template<class ScaleTag, class TypeTag, class OtherTags = Tags<>>

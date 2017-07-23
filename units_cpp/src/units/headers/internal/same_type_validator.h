@@ -8,7 +8,6 @@
 #ifndef INCLUDE_SAME_TYPE_VALIDATOR_H_
 #define INCLUDE_SAME_TYPE_VALIDATOR_H_
 
-#include <internal/units_mutiply_type.h>
 #include <type_traits>
 #include <ratio>
 

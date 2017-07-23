@@ -8,7 +8,7 @@
 #ifndef INCLUDE_UNITS_MULTIPLY_H_
 #define INCLUDE_UNITS_MULTIPLY_H_
 
-#include "internal/units_mutiply_type.h"
+#include "internal/units_multiply_type.h"
 #include "units_cast.h"
 
 namespace units

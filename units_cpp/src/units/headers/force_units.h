@@ -10,7 +10,6 @@
 
 #include "internal/numeric_value.h"
 #include "internal/units_pow_type.h"
-#include "internal/units_mutiply_type.h"
 #include "internal/units_ratio_type.h"
 #include "internal/utils.h"
 #include "length_units.h"
@@ -18,6 +17,7 @@
 #include "duration_units.h"
 
 #include <ratio>
+#include "internal/units_multiply_type.h"
 
 namespace units {
 namespace force

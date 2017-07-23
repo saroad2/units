@@ -349,6 +349,29 @@
 					"relative_to" : "liters"
 				}
 			]
+		},
+		{
+			"type_name" : "force",
+			"ratio" : {
+				"numerators" : ["mass", "length"],
+				"denumerators" : ["duration", "duration"]
+			},
+			"unit_scales" : [
+				{
+					"singular_name" : "newton",
+					"plural_name" : "newtons",
+					"ratio" : {
+						"numerators" : ["kilograms", "meters"],
+						"denumerators" : ["seconds", "seconds"]
+					}
+				},
+				{
+					"singular_name" : "dyne",
+					"plural_name" : "dynes",
+					"multiplyer_number" : 1e-5,
+					"relative_to" : "newtons"
+				}
+			]
 		}
 	]
 }

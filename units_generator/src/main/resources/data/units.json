@@ -400,7 +400,7 @@
 		{
 			"type_name" : "energy",
 			"ratio" : {
-				"numerators" : ["mass"],
+				"numerators" : ["mass", "length", "length"],
 				"denumerators" : ["duration", "duration"]
 			},
 			"unit_scales" : [
@@ -408,9 +408,21 @@
 					"singular_name" : "joule",
 					"plural_name" : "joules",
 					"ratio" : {
-						"numerators" : ["kilograms"],
+						"numerators" : ["kilograms", "meters", "meters"],
 						"denumerators" : ["seconds", "seconds"]
 					}
+				},
+				{
+					"singular_name" : "calorie",
+					"plural_name" : "calories",
+					"multiplyer_number" : 4.184,
+					"relative_to" : "joules"
+				},
+				{
+					"singular_name" : "kilocalorie",
+					"plural_name" : "kilocalories",
+					"multiplyer_string" : "kilo",
+					"relative_to" : "calories"
 				},
 				{
 					"singular_name" : "kilojoule",

@@ -95,6 +95,8 @@
 
 #define ENERGY_UNITS() \
 	units::energy::Joules, \
+	units::energy::Calories, \
+	units::energy::Kilocalories, \
 	units::energy::Kilojoules, \
 	units::energy::Megajoules
 

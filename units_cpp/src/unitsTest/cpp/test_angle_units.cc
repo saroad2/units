@@ -6,7 +6,7 @@
  */
 
 #include "cases.h"
-#include "angle_units.h"
+#include <units/angle_units.h>
 
 #include <gtest/gtest.h>
 

@@ -5,8 +5,8 @@
  *      Author: sagis
  */
 
-#include "force_units.h"
 #include "cases.h"
+#include <units/force_units.h>
 
 using namespace units::force;
 

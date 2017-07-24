@@ -6,7 +6,7 @@
  */
 
 #include "cases.h"
-#include "duration_units.h"
+#include <units/duration_units.h>
 
 #include <gtest/gtest.h>
 

@@ -77,9 +77,9 @@ public class CppTypeCodeCalculator {
 			List<String> numerators,
 			List<String> denumerators) {
 		if (denumerators.size() >= 1)
-			result.tagIncludes.add("\"internal/units_ratio_type.h\"");
+			result.tagIncludes.add("<units/internal/units_ratio_type.h>");
 		if (numerators.size() >= 2 || denumerators.size() >= 2)
-			result.tagIncludes.add("\"internal/units_multiply_type.h\"");
+			result.tagIncludes.add("<units/internal/units_multiply_type.h>");
 		
 		addUnitTypesInclude(result, numerators);
 		addUnitTypesInclude(result, denumerators);
@@ -91,8 +91,8 @@ public class CppTypeCodeCalculator {
 		Set<String> unitTypesNamesSet = new HashSet<String>(unitTypesNamesList);
 		for (String unitTypeName : unitTypesNamesSet) {
 			CppUnitType unitType = UnitsRepository.getInstance().getType(unitTypeName);
-			result.tagIncludes.add("\"" + unitType.getTagsHeaderFileName() + "\"");
-			result.unitIncludes.add("\"" + unitType.getHeaderFileName() + "\"");
+			result.tagIncludes.add("<units/tags/" + unitType.getTagsHeaderFileName() + ">");
+			result.unitIncludes.add("<units/" + unitType.getHeaderFileName() + ">");
 		}
 		
 	}

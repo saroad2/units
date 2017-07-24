@@ -105,8 +105,8 @@ public class CppUnitType {
 
 	private void initializeUnitIncludes() {
 		unitIncludes = new ArrayList<>();
-		unitIncludes.add("\"internal/numeric_value.h\"");
-		unitIncludes.add("\"internal/utils.h\"");
+		unitIncludes.add("<units/internal/numeric_value.h>");
+		unitIncludes.add("<units/internal/utils.h>");
 	}
 
 	private void initializeTagIncludes() {
@@ -133,7 +133,7 @@ public class CppUnitType {
 	private void addScale(UnitScale unitScale) {
 		CppUnitScale scale = new CppUnitScale(unitScale, this);
 		if (scale.isStringMultiplyer() && !hasMultiplyers) {
-			tagIncludes.add("\"internal/multiplyer_scales.h\"");
+			tagIncludes.add("<units/internal/multiplyer_scales.h>");
 			hasMultiplyers = true;
 		}
 		addToUnitScales(scale);

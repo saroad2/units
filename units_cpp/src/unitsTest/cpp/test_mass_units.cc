@@ -6,7 +6,7 @@
  */
 
 #include "cases.h"
-#include "mass_units.h"
+#include <units/mass_units.h>
 
 using namespace units::mass;
 

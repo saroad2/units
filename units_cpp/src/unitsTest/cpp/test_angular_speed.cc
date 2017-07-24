@@ -5,8 +5,8 @@
  *      Author: sagis
  */
 
-#include "angular_speed_units.h"
 #include "cases.h"
+#include <units/angular_speed_units.h>
 
 #include <math.h>
 

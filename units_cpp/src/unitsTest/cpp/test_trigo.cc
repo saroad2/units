@@ -5,9 +5,9 @@
  *      Author: sagis
  */
 
-#include "trigo.h"
-#include "angle_units.h"
-#include "length_units.h"
+#include <units/trigo.h>
+#include <units/angle_units.h>
+#include <units/length_units.h>
 
 #include <gtest/gtest.h>
 #include <boost/fusion/adapted/boost_tuple.hpp>

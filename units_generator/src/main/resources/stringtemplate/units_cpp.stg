@@ -71,7 +71,7 @@ struct <unitType.tagName> { using code = <unitType.code>; };
 tags_src(unitType) ::= <<
 <declaration()>
 
-#include "tags/<unitType.tagsHeaderFileName>"
+#include \<units/tags/<unitType.tagsHeaderFileName>\>
 
 namespace units {
 namespace <unitType.namespace> {
@@ -94,7 +94,7 @@ unit_type_header(unitType) ::= <<
 #define <unitType.headerIncludeGurad>
 
 <unitType.unitIncludes:{header | <include(header)>}>
-#include "tags/<unitType.tagsHeaderFileName>"
+#include \<units/tags/<unitType.tagsHeaderFileName>\>
 
 namespace units {
 namespace <unitType.namespace>
@@ -113,7 +113,7 @@ namespace <unitType.namespace>
 all_units(schema) ::= <<
 <declaration()>
 
-<schema.unitTypes:{unitType | #include "<unitType.headerFileName>"<\n>}>
+<schema.unitTypes:{unitType | #include \<units/<unitType.headerFileName>\><\n>}>
 
 #ifndef UNIT_TESTS_ALL_UNITS_H_
 #define UNIT_TESTS_ALL_UNITS_H_

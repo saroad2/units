@@ -6,7 +6,7 @@
  */
 
 #include "cases.h"
-#include "speed_units.h"
+#include <units/speed_units.h>
 
 using namespace units::speed;
 

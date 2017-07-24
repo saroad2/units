@@ -5,8 +5,8 @@
  *      Author: sagis
  */
 
-#include "energy_units.h"
 #include "cases.h"
+#include <units/energy_units.h>
 
 using namespace units::energy;
 

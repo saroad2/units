@@ -11,7 +11,7 @@ include(header) ::= <<
 >>
 
 scale_class(scale) ::= <<
-using <scale.className> = <scale.classDeclaration>;<\n>
+using <scale.className> = NumericValue\<tags::<scale.tagName>\>;<\n>
 >>
 
 scale_user_defined_literal(scale) ::= <<
@@ -26,6 +26,7 @@ string <scale.tagName>::pluralName() { return "<scale.pluralName>"; }<\n><\n>
 scale_tag(scale) ::= <<
 struct <scale.tagName>
 {
+<\t>using typeCode = <scale.typeCodeName>;
 <\t>static constexpr double scale = <scale.scale>;
 <\t>static std::string singularName();
 <\t>static std::string pluralName();
@@ -57,7 +58,7 @@ namespace <unitType.namespace> {
 namespace tags
 {
 
-struct <unitType.tagName> { using code = <unitType.code>; };
+using <unitType.codeName>  = <unitType.code>;
 
 <unitType.unitScales:{scale | <scale_tag(scale)>}>
 

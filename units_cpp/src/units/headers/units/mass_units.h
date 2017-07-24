@@ -14,11 +14,11 @@ namespace units {
 namespace mass
 {
 
-using Grams = NumericValue<tags::grams_tag, tags::mass_tag>;
-using Pounds = NumericValue<tags::pounds_tag, tags::mass_tag>;
-using Milligrams = NumericValue<tags::milligrams_tag, tags::mass_tag>;
-using Kilograms = NumericValue<tags::kilograms_tag, tags::mass_tag>;
-using Tonnes = NumericValue<tags::tonnes_tag, tags::mass_tag>;
+using Grams = NumericValue<tags::grams_tag>;
+using Pounds = NumericValue<tags::pounds_tag>;
+using Milligrams = NumericValue<tags::milligrams_tag>;
+using Kilograms = NumericValue<tags::kilograms_tag>;
+using Tonnes = NumericValue<tags::tonnes_tag>;
 
 
 USER_DEFINED_LITERALS(Grams, grams);

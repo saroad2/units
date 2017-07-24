@@ -19,22 +19,25 @@ namespace energy {
 namespace tags
 {
 
-struct energy_tag { using code = ratio_type_tag<mass::tags::mass_tag, multiply_type_tag<duration::tags::duration_tag, duration::tags::duration_tag>>::code; };
+using energy_code  = typename ratio_type_code<mass::tags::mass_code, multiply_type_code<duration::tags::duration_code, duration::tags::duration_code>::code>::code;
 
 struct joules_tag
 {
+	using typeCode = energy_code;
 	static constexpr double scale = ratio_scale_tag<mass::tags::kilograms_tag, multiply_scale_tag<duration::tags::seconds_tag, duration::tags::seconds_tag>>::scale;
 	static std::string singularName();
 	static std::string pluralName();
 };
 struct kilojoules_tag
 {
+	using typeCode = energy_code;
 	static constexpr double scale = kilo * joules_tag::scale;
 	static std::string singularName();
 	static std::string pluralName();
 };
 struct megajoules_tag
 {
+	using typeCode = energy_code;
 	static constexpr double scale = mega * joules_tag::scale;
 	static std::string singularName();
 	static std::string pluralName();

@@ -17,40 +17,46 @@ namespace volume {
 namespace tags
 {
 
-struct volume_tag { using code = multiply_type_tag<length::tags::length_tag, length::tags::length_tag, length::tags::length_tag>::code; };
+using volume_code  = multiply_type_code<length::tags::length_code, length::tags::length_code, length::tags::length_code>::code;
 
 struct cubic_feet_tag
 {
+	using typeCode = volume_code;
 	static constexpr double scale = multiply_scale_tag<length::tags::feet_tag, length::tags::feet_tag, length::tags::feet_tag>::scale;
 	static std::string singularName();
 	static std::string pluralName();
 };
 struct cubic_yards_tag
 {
+	using typeCode = volume_code;
 	static constexpr double scale = multiply_scale_tag<length::tags::yards_tag, length::tags::yards_tag, length::tags::yards_tag>::scale;
 	static std::string singularName();
 	static std::string pluralName();
 };
 struct cubic_meters_tag
 {
+	using typeCode = volume_code;
 	static constexpr double scale = multiply_scale_tag<length::tags::meters_tag, length::tags::meters_tag, length::tags::meters_tag>::scale;
 	static std::string singularName();
 	static std::string pluralName();
 };
 struct cubic_kilometers_tag
 {
+	using typeCode = volume_code;
 	static constexpr double scale = multiply_scale_tag<length::tags::kilometers_tag, length::tags::kilometers_tag, length::tags::kilometers_tag>::scale;
 	static std::string singularName();
 	static std::string pluralName();
 };
 struct liters_tag
 {
+	using typeCode = volume_code;
 	static constexpr double scale = milli * cubic_meters_tag::scale;
 	static std::string singularName();
 	static std::string pluralName();
 };
 struct milliliters_tag
 {
+	using typeCode = volume_code;
 	static constexpr double scale = milli * liters_tag::scale;
 	static std::string singularName();
 	static std::string pluralName();

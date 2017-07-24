@@ -45,31 +45,32 @@ public class CppTypeCodeCalculator {
 			List<String> numerators,
 			List<String> denumerators) {
 		String result = "";
-		String numeratorsTag = toTag(numerators);
+		String numeratorsCode = toCode(numerators);
 		if (denumerators.size() == 0)
-			result = numeratorsTag;
+			result = numeratorsCode;
 		else {
-			result = "ratio_type_tag<" + numeratorsTag +
-					", " + toTag(denumerators) + ">";
+			result += "typename ratio_type_code<";
+			result += numeratorsCode + ", ";
+			result += toCode(denumerators) + ">::code";
 		}
-		return result + "::code";
+		return result;
 	}
 	
-	private static String toTag(List<String> unitTypeNames) {
+	private static String toCode(List<String> unitTypeNames) {
 		List<String> tagsList = new ArrayList<String>();
 		for (String unitTypeName : unitTypeNames) {
 			CppUnitType unitType = UnitsRepository.getInstance().getType(unitTypeName);
-			tagsList.add(unitType.getNamespace() + "::tags::" + unitType.getTagName());
+			tagsList.add(unitType.getNamespace() + "::tags::" + unitType.getCodeName());
 		}
-		return combineTags(tagsList);
+		return combineCodes(tagsList);
 	}
 	
-	private static String combineTags(List<String> tags) {
+	private static String combineCodes(List<String> tags) {
 		if (tags.size() == 0)
 			return "";
 		if (tags.size() == 1)
 			return tags.get(0);
-		return "multiply_type_tag<" + String.join(", ", tags) + ">";
+		return "multiply_type_code<" + String.join(", ", tags) + ">::code";
 	}
 
 	private static void addIncludes(

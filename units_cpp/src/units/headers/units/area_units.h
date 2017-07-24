@@ -15,11 +15,11 @@ namespace units {
 namespace area
 {
 
-using SquareFeet = NumericValue<tags::square_feet_tag, tags::area_tag>;
-using SquareYards = NumericValue<tags::square_yards_tag, tags::area_tag>;
-using SquareMeters = NumericValue<tags::square_meters_tag, tags::area_tag>;
-using SquareKilometers = NumericValue<tags::square_kilometers_tag, tags::area_tag>;
-using Dunams = NumericValue<tags::dunams_tag, tags::area_tag>;
+using SquareFeet = NumericValue<tags::square_feet_tag>;
+using SquareYards = NumericValue<tags::square_yards_tag>;
+using SquareMeters = NumericValue<tags::square_meters_tag>;
+using SquareKilometers = NumericValue<tags::square_kilometers_tag>;
+using Dunams = NumericValue<tags::dunams_tag>;
 
 
 USER_DEFINED_LITERALS(SquareFeet, square_feet);

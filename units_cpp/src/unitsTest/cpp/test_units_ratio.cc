@@ -41,7 +41,7 @@ protected:
 		auto actualResult = units_ratio<ResultUnit>(unit1, unit2);
 		auto error = actualResult - expectedResult;
 		EXPECT_NEAR(0, error.value(), maxError)
-				<< expectedResult << " != " << actualResult;
+				<< expectedResult.value() << " != " << actualResult.value();
 	}
 	double maxError;
 };

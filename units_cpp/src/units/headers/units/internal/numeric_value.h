@@ -23,20 +23,14 @@ namespace units
 					Unit1::_scale::scale == Unit2::_scale::scale, \
 				  "Cannot use this operation on different units");
 
-template<class ScaleTag, class TypeTag, class OtherTags = Tags<>>
+template<typename ScaleTag, typename OtherTags = Tags<>>
 class NumericValue
 {
 private:
-	using _selfType = NumericValue<ScaleTag, TypeTag, OtherTags>;
+	using _selfType = NumericValue<ScaleTag, OtherTags>;
 public:
 	using _scale = ScaleTag;
-	using _type = TypeTag;
 	using _tags = OtherTags;
-
-	using code = typename _type::code;
-	static constexpr double scale = _scale::scale;
-	static std::string singularName() {return _scale::singularName();}
-	static std::string pluralName() {return _scale::pluralName();}
 
 	constexpr NumericValue() = default;
 	explicit constexpr NumericValue(double value)
@@ -84,11 +78,6 @@ public:
 	{
 		_value /= scalar;
 		return *this;
-	}
-
-	void print(std::ostream& stream) const
-	{
-		stream << value() << " " << pluralName();
 	}
 
 private:
@@ -184,10 +173,10 @@ constexpr NumericValue<Tags...> operator/(const NumericValue<Tags...>& unit, dou
 	return result;
 }
 
-template<class ScaleTag, class TypeTag>
-std::ostream& operator<<(std::ostream& stream, const NumericValue<ScaleTag, TypeTag>& unit)
+template<class... Tags>
+std::ostream& operator<<(std::ostream& stream, const NumericValue<Tags...>& unit)
 {
-	unit.print(stream);
+	stream << unit.value() << " " << NumericValue<Tags...>::_scale::pluralName();
 	return stream;
 }
 

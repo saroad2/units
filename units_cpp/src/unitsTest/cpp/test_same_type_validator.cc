@@ -22,23 +22,23 @@ using units::NoneType;
 using std::ratio;
 using namespace testing;
 
-struct a_type_tag { using code = std::ratio<2, 1>; };
-struct b_type_tag { using code = std::ratio<3, 1>; };
-struct c_type_tag { using code = std::ratio<5, 1>; };
-struct d_type_tag { using code = std::ratio<7, 1>; };
-struct e_type_tag { using code = std::ratio<11, 1>; };
+using a_type_code = std::ratio<2, 1>;
+using b_type_code = std::ratio<3, 1>;
+using c_type_code = std::ratio<5, 1>;
+using d_type_code = std::ratio<7, 1>;
+using e_type_code = std::ratio<11, 1>;
 
-struct a_scale_tag {};
-struct b_scale_tag {};
-struct c_scale_tag {};
-struct d_scale_tag {};
-struct e_scale_tag {};
+struct a_scale_tag { using typeCode = a_type_code; };
+struct b_scale_tag { using typeCode = b_type_code; };
+struct c_scale_tag { using typeCode = c_type_code; };
+struct d_scale_tag { using typeCode = d_type_code; };
+struct e_scale_tag { using typeCode = e_type_code; };
 
-using A = NumericValue<a_scale_tag, a_type_tag>;
-using B = NumericValue<b_scale_tag, b_type_tag>;
-using C = NumericValue<c_scale_tag, c_type_tag>;
-using D = NumericValue<d_scale_tag, d_type_tag>;
-using E = NumericValue<e_scale_tag, e_type_tag>;
+using A = NumericValue<a_scale_tag>;
+using B = NumericValue<b_scale_tag>;
+using C = NumericValue<c_scale_tag>;
+using D = NumericValue<d_scale_tag>;
+using E = NumericValue<e_scale_tag>;
 
 class TestSameTypeValidator : public Test
 {

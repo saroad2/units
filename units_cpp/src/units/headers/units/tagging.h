@@ -17,19 +17,16 @@ namespace units
 template<class Unit, class... ActualTags>
 using Tag = NumericValue<
 		typename Unit::_scale,
-		typename Unit::_type,
 		ConcatenateTags<typename Unit::_tags, Tags<ActualTags...>>>;
 
 template<class Unit, class... RemovedTags>
 using Untag = NumericValue<
 		typename Unit::_scale,
-		typename Unit::_type,
 		typename untag_calculate<typename Unit::_tags, RemovedTags...>::type>;
 
 template<class Unit>
 using UntagAll = NumericValue<
-		typename Unit::_scale,
-		typename Unit::_type>;
+		typename Unit::_scale>;
 
 template<class... ActualTags, class Unit>
 auto tag(const Unit& unit)

@@ -16,9 +16,9 @@ namespace units {
 namespace angular_speed
 {
 
-using DegreesPerSecond = NumericValue<tags::degrees_per_second_tag, tags::angular_speed_tag>;
-using RadiansPerSecond = NumericValue<tags::radians_per_second_tag, tags::angular_speed_tag>;
-using MilsPerSecond = NumericValue<tags::mils_per_second_tag, tags::angular_speed_tag>;
+using DegreesPerSecond = NumericValue<tags::degrees_per_second_tag>;
+using RadiansPerSecond = NumericValue<tags::radians_per_second_tag>;
+using MilsPerSecond = NumericValue<tags::mils_per_second_tag>;
 
 
 USER_DEFINED_LITERALS(DegreesPerSecond, degrees_per_second);

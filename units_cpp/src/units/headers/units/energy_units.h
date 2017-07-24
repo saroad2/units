@@ -16,9 +16,9 @@ namespace units {
 namespace energy
 {
 
-using Joules = NumericValue<tags::joules_tag, tags::energy_tag>;
-using Kilojoules = NumericValue<tags::kilojoules_tag, tags::energy_tag>;
-using Megajoules = NumericValue<tags::megajoules_tag, tags::energy_tag>;
+using Joules = NumericValue<tags::joules_tag>;
+using Kilojoules = NumericValue<tags::kilojoules_tag>;
+using Megajoules = NumericValue<tags::megajoules_tag>;
 
 
 USER_DEFINED_LITERALS(Joules, joules);

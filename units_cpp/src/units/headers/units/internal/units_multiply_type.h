@@ -17,46 +17,35 @@
 namespace units
 {
 
-extern const std::string multiplySymbol;
-
-template<class Unit1 = NoneType, class... Units>
-struct multiply_type_tag
+template<typename code1 = none_type_code, typename... codes>
+struct multiply_type_code
 {
-	using code = std::ratio_multiply<typename Unit1::code, typename multiply_type_tag<Units...>::code>;
+	using code = std::ratio_multiply<code1, typename multiply_type_code<codes...>::code>;
 };
 
 template<>
-struct multiply_type_tag<NoneType>
+struct multiply_type_code<none_type_code>
 {
-	using code = NoneType::code;
+	using code = none_type_code;
 };
 
-template<class Unit1 = NoneType, class... Units>
+template<typename scale1 = none_scale_tag, typename... scales>
 constexpr double multiplyScaleCalculator()
 {
-	return Unit1::scale * (sizeof...(Units) == 0 ? 1 : multiplyScaleCalculator<Units...>());
+	return scale1::scale * (sizeof...(scales) == 0 ? 1 : multiplyScaleCalculator<scales...>());
 }
 
-template<class Unit1 = NoneType, class... Units>
+template<typename scale1 = none_scale_tag, typename... scales>
 struct multiply_scale_tag
 {
-	static constexpr double scale = multiplyScaleCalculator<Unit1, Units...>();
-	static std::string singularName()
-	{
-		return sizeof...(Units) == 0 ?
-				Unit1::singularName() :
-				Unit1::singularName() + multiplySymbol + multiply_scale_tag<Units...>::singularName();
-	}
-	static std::string pluralName()
-	{
-		return sizeof...(Units) == 0 ?
-				Unit1::pluralName() :
-				Unit1::pluralName() + multiplySymbol + multiply_scale_tag<Units...>::pluralName();
-	}
+	using typeCode = typename multiply_type_code<
+			typename scale1::typeCode,
+			typename scales::typeCode...>::code;
+	static constexpr double scale = multiplyScaleCalculator<scale1, scales...>();
 };
 
-template<class... MultiplyedUnits>
-using Multiply = NumericValue<multiply_scale_tag<MultiplyedUnits...>, multiply_type_tag<MultiplyedUnits...>>;
+template<class... Units>
+using Multiply = NumericValue<multiply_scale_tag<typename Units::_scale...>>;
 
 }
 

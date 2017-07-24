@@ -15,12 +15,12 @@ namespace units {
 namespace volume
 {
 
-using CubicFeet = NumericValue<tags::cubic_feet_tag, tags::volume_tag>;
-using CubicYards = NumericValue<tags::cubic_yards_tag, tags::volume_tag>;
-using CubicMeters = NumericValue<tags::cubic_meters_tag, tags::volume_tag>;
-using CubicKilometers = NumericValue<tags::cubic_kilometers_tag, tags::volume_tag>;
-using Liters = NumericValue<tags::liters_tag, tags::volume_tag>;
-using Milliliters = NumericValue<tags::milliliters_tag, tags::volume_tag>;
+using CubicFeet = NumericValue<tags::cubic_feet_tag>;
+using CubicYards = NumericValue<tags::cubic_yards_tag>;
+using CubicMeters = NumericValue<tags::cubic_meters_tag>;
+using CubicKilometers = NumericValue<tags::cubic_kilometers_tag>;
+using Liters = NumericValue<tags::liters_tag>;
+using Milliliters = NumericValue<tags::milliliters_tag>;
 
 
 USER_DEFINED_LITERALS(CubicFeet, cubic_feet);

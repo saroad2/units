@@ -17,22 +17,25 @@ namespace angular_speed {
 namespace tags
 {
 
-struct angular_speed_tag { using code = ratio_type_tag<angle::tags::angle_tag, duration::tags::duration_tag>::code; };
+using angular_speed_code  = typename ratio_type_code<angle::tags::angle_code, duration::tags::duration_code>::code;
 
 struct degrees_per_second_tag
 {
+	using typeCode = angular_speed_code;
 	static constexpr double scale = ratio_scale_tag<angle::tags::degrees_tag, duration::tags::seconds_tag>::scale;
 	static std::string singularName();
 	static std::string pluralName();
 };
 struct radians_per_second_tag
 {
+	using typeCode = angular_speed_code;
 	static constexpr double scale = ratio_scale_tag<angle::tags::radians_tag, duration::tags::seconds_tag>::scale;
 	static std::string singularName();
 	static std::string pluralName();
 };
 struct mils_per_second_tag
 {
+	using typeCode = angular_speed_code;
 	static constexpr double scale = ratio_scale_tag<angle::tags::mils_tag, duration::tags::seconds_tag>::scale;
 	static std::string singularName();
 	static std::string pluralName();

@@ -17,7 +17,7 @@ namespace units
 template<class To, class From>
 constexpr double conversionScale()
 {
-	return From::scale / To::scale;
+	return From::_scale::scale / To::_scale::scale;
 }
 
 template<class To, class... Tags>

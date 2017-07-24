@@ -17,8 +17,8 @@ namespace units {
 namespace force
 {
 
-using Newtons = NumericValue<tags::newtons_tag, tags::force_tag>;
-using Dynes = NumericValue<tags::dynes_tag, tags::force_tag>;
+using Newtons = NumericValue<tags::newtons_tag>;
+using Dynes = NumericValue<tags::dynes_tag>;
 
 
 USER_DEFINED_LITERALS(Newtons, newtons);

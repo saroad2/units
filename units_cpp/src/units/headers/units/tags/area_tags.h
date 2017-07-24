@@ -17,34 +17,39 @@ namespace area {
 namespace tags
 {
 
-struct area_tag { using code = multiply_type_tag<length::tags::length_tag, length::tags::length_tag>::code; };
+using area_code  = multiply_type_code<length::tags::length_code, length::tags::length_code>::code;
 
 struct square_feet_tag
 {
+	using typeCode = area_code;
 	static constexpr double scale = multiply_scale_tag<length::tags::feet_tag, length::tags::feet_tag>::scale;
 	static std::string singularName();
 	static std::string pluralName();
 };
 struct square_yards_tag
 {
+	using typeCode = area_code;
 	static constexpr double scale = multiply_scale_tag<length::tags::yards_tag, length::tags::yards_tag>::scale;
 	static std::string singularName();
 	static std::string pluralName();
 };
 struct square_meters_tag
 {
+	using typeCode = area_code;
 	static constexpr double scale = multiply_scale_tag<length::tags::meters_tag, length::tags::meters_tag>::scale;
 	static std::string singularName();
 	static std::string pluralName();
 };
 struct square_kilometers_tag
 {
+	using typeCode = area_code;
 	static constexpr double scale = multiply_scale_tag<length::tags::kilometers_tag, length::tags::kilometers_tag>::scale;
 	static std::string singularName();
 	static std::string pluralName();
 };
 struct dunams_tag
 {
+	using typeCode = area_code;
 	static constexpr double scale = kilo * square_meters_tag::scale;
 	static std::string singularName();
 	static std::string pluralName();

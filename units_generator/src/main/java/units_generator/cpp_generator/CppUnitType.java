@@ -11,7 +11,7 @@ public class CppUnitType {
 	private String typeName;
 	private String upperCaseName;
 	private String namespace;
-	private String tagName;
+	private String codeName;
 	private List<String> tagIncludes;
 	private List<String> unitIncludes;
 	private String code;
@@ -37,8 +37,8 @@ public class CppUnitType {
 		return namespace;
 	}
 
-	public String getTagName() {
-		return tagName;
+	public String getCodeName() {
+		return codeName;
 	}
 	
 	public List<String> getTagIncludes() {
@@ -85,7 +85,7 @@ public class CppUnitType {
 		typeName = unitType.getTypeName();
 		namespace = typeName.replaceAll(" " , "_") ; 
 		upperCaseName = namespace.toUpperCase();
-		tagName = namespace + "_tag";
+		codeName = namespace + "_code";
 		initializeIncludes();
 		initializeCode(unitType);
 		headerIncludeGurad = "INCLUDE_" + namespace.toUpperCase() + "_UNITS_H_";

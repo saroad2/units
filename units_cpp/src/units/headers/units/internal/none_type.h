@@ -15,16 +15,17 @@
 namespace units
 {
 
-struct none_type_tag { using code = std::ratio<1, 1>; };
+using none_type_code = std::ratio<1, 1>;
 
 struct none_scale_tag
 {
+	using typeCode = none_type_code;
 	static constexpr double scale =  1;
 	static std::string singularName();
 	static std::string pluralName();
 };
 
-using NoneType = NumericValue<none_scale_tag, none_type_tag>;
+using NoneType = NumericValue<none_scale_tag>;
 
 }
 

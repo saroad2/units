@@ -35,7 +35,7 @@ protected:
 		auto actualResult = units_pow<power>(unit);
 		auto error = actualResult - expectedResult;
 		EXPECT_NEAR(0, error.value(), maxError)
-				<< expectedResult << " != " << actualResult;
+				<< expectedResult.value() << " != " << actualResult.value();
 	}
 
 	template<class ResultUnit, class Unit>

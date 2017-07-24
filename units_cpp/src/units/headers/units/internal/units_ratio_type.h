@@ -17,30 +17,24 @@
 namespace units
 {
 
-extern const std::string ratioSymbol;
-
-template<class Unit1, class Unit2>
-struct ratio_type_tag
+template<typename code1, typename code2>
+struct ratio_type_code
 {
-	using code = std::ratio_divide<typename Unit1::code, typename Unit2::code>;
+	using code = std::ratio_divide<code1, code2>;
 };
 
-template<class Unit1, class Unit2>
+template<typename scale1, typename scale2>
 struct ratio_scale_tag
 {
-	static constexpr double scale = Unit1::scale / Unit2::scale;
-	static std::string singularName()
-	{
-		return Unit1::singularName() + ratioSymbol + Unit2::singularName();
-	}
-	static std::string pluralName()
-	{
-		return Unit1::pluralName() + ratioSymbol + Unit2::singularName();
-	}
+	using typeCode = typename ratio_type_code<
+			typename scale1::typeCode,
+			typename scale2::typeCode>::code;
+	static constexpr double scale = scale1::scale / scale2::scale;
 };
 
 template<class Unit1, class Unit2>
-using Ratio = NumericValue<ratio_scale_tag<Unit1, Unit2>, ratio_type_tag<Unit1, Unit2>>;
+using Ratio = NumericValue<
+		ratio_scale_tag<typename Unit1::_scale, typename Unit2::_scale>>;
 
 }
 

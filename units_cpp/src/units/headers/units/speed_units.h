@@ -16,11 +16,11 @@ namespace units {
 namespace speed
 {
 
-using FeetPerSecond = NumericValue<tags::feet_per_second_tag, tags::speed_tag>;
-using YardsPerSecond = NumericValue<tags::yards_per_second_tag, tags::speed_tag>;
-using MetersPerSecond = NumericValue<tags::meters_per_second_tag, tags::speed_tag>;
-using KilometersPerHour = NumericValue<tags::kilometers_per_hour_tag, tags::speed_tag>;
-using Knots = NumericValue<tags::knots_tag, tags::speed_tag>;
+using FeetPerSecond = NumericValue<tags::feet_per_second_tag>;
+using YardsPerSecond = NumericValue<tags::yards_per_second_tag>;
+using MetersPerSecond = NumericValue<tags::meters_per_second_tag>;
+using KilometersPerHour = NumericValue<tags::kilometers_per_hour_tag>;
+using Knots = NumericValue<tags::knots_tag>;
 
 
 USER_DEFINED_LITERALS(FeetPerSecond, feet_per_second);

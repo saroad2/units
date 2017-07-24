@@ -14,8 +14,8 @@ public class CppUnitScale {
 	private String singularName;
 	private String pluralName;
 	private String tagName;
+	private String typeCodeName;
 	private String className;
-	private String classDeclaration;
 	private String userDefinedLiteral;
 	
 	public String getScale() {
@@ -38,12 +38,12 @@ public class CppUnitScale {
 		return tagName;
 	}
 	
-	public String getClassName() {
-		return className;
+	public String getTypeCodeName() {
+		return typeCodeName;
 	}
 	
-	public String getClassDeclaration() {
-		return classDeclaration;
+	public String getClassName() {
+		return className;
 	}
 	
 	public String getUserDefinedLiteral() {
@@ -66,8 +66,8 @@ public class CppUnitScale {
 		initializeScale(unitScale);
 		initializeNames(unitScale);
 		tagName = (name + "_tag").replaceAll(" ", "_");
+		typeCodeName = unitType.getCodeName();
 		className = CppNamesFormatter.formatClassname(name.replaceAll(" ", "_"));
-		classDeclaration = "NumericValue<tags::" + tagName + ", tags::" + unitType.getTagName() + ">";
 		userDefinedLiteral = name.replaceAll(" ", "_");
 	}
 

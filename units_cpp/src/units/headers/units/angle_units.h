@@ -14,9 +14,9 @@ namespace units {
 namespace angle
 {
 
-using Degrees = NumericValue<tags::degrees_tag, tags::angle_tag>;
-using Mils = NumericValue<tags::mils_tag, tags::angle_tag>;
-using Radians = NumericValue<tags::radians_tag, tags::angle_tag>;
+using Degrees = NumericValue<tags::degrees_tag>;
+using Mils = NumericValue<tags::mils_tag>;
+using Radians = NumericValue<tags::radians_tag>;
 
 
 USER_DEFINED_LITERALS(Degrees, degrees);

@@ -12,6 +12,7 @@
 #include <units/volume_units.h>
 #include <units/force_units.h>
 #include <units/energy_units.h>
+#include <units/frequency_units.h>
 
 
 #ifndef UNIT_TESTS_ALL_UNITS_H_
@@ -101,6 +102,12 @@
 	units::energy::Megajoules
 
 
+#define FREQUENCY_UNITS() \
+	units::frequency::Hertz, \
+	units::frequency::Kilohertz, \
+	units::frequency::Megahertz
+
+
 
 #define ALL_UNITS() \
 	LENGTH_UNITS(), \
@@ -112,6 +119,7 @@
 	AREA_UNITS(), \
 	VOLUME_UNITS(), \
 	FORCE_UNITS(), \
-	ENERGY_UNITS()
+	ENERGY_UNITS(), \
+	FREQUENCY_UNITS()
 
 #endif /* UNIT_TESTS_ALL_UNITS_H_ */

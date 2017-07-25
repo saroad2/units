@@ -437,6 +437,35 @@
 					"relative_to" : "joules"
 				}
 			]
+		},
+		{
+			"type_name" : "frequency",
+			"ratio" : {
+				"numerators" : [],
+				"denumerators" : ["duration"]
+			},
+			"unit_scales" : [
+				{
+					"singular_name" : "hertz",
+					"plural_name" : "hertz",
+					"ratio" : {
+						"numerators" : [],
+						"denumerators" : ["seconds"]
+					}
+				},
+				{
+					"singular_name" : "kilohertz",
+					"plural_name" : "kilohertz",
+					"multiplyer_string" : "kilo",
+					"relative_to" : "hertz"
+				},
+				{
+					"singular_name" : "megahertz",
+					"plural_name" : "megahertz",
+					"multiplyer_string" : "mega",
+					"relative_to" : "hertz"
+				}
+			]
 		}
 	]
 }

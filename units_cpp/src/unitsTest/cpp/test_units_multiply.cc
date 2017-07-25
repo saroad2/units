@@ -13,6 +13,7 @@
 #include <units/speed_units.h>
 #include <units/angle_units.h>
 #include <units/angular_speed_units.h>
+#include <units/frequency_units.h>
 
 #include <gtest/gtest.h>
 
@@ -24,6 +25,7 @@ using namespace units::duration;
 using namespace units::speed;
 using namespace units::angle;
 using namespace units::angular_speed;
+using namespace units::frequency;
 
 using namespace testing;
 
@@ -94,4 +96,19 @@ TEST_F(TestUnitsMultiply, multiply_degrees_per_second_with_second_when_return_ty
 TEST_F(TestUnitsMultiply, multiply_radians_per_second_with_minutes_when_return_type_is_degrees)
 {
 	checkMultiplication(171.88733853924697_degrees, 0.01_radians_per_second, 5_minutes);
+}
+
+TEST_F(TestUnitsMultiply, multiply_hertz_with_meters_when_return_type_is_merters_per_second)
+{
+	checkMultiplication(15_meters_per_second, 5_hertz, 3_meters);
+}
+
+TEST_F(TestUnitsMultiply, multiply_kilohertz_with_meters_when_return_type_is_merters_per_second)
+{
+	checkMultiplication(15000_meters_per_second, 5_kilohertz, 3_meters);
+}
+
+TEST_F(TestUnitsMultiply, multiply_megahertz_with_meters_when_return_type_is_merters_per_second)
+{
+	checkMultiplication(15000000_meters_per_second, 5_megahertz, 3_meters);
 }

@@ -43,15 +43,11 @@ public class CppScaleValueCalculator {
 	private static String getScaleFromNumeratorsAndDenumerators(
 			List<String> numerators,
 			List<String> denumerators) {
-		String result = "";
-		String numeratorsTag = toTag(numerators);
+		if (numerators.size() == 0)
+			return getInverseScale(denumerators);
 		if (denumerators.size() == 0)
-			result = numeratorsTag;
-		else {
-			result = "ratio_scale_tag<" + numeratorsTag +
-					", " + toTag(denumerators) + ">";
-		}
-		return result + "::scale";
+			return toTag(numerators) + "::scale";
+		return getRatioScale(numerators, denumerators);
 	}
 	
 	private static String toTag(List<String> unitTypeNames) {
@@ -71,8 +67,23 @@ public class CppScaleValueCalculator {
 		return "multiply_scale_tag<" + String.join(", ", tags) + ">";
 	}
 	
+	private static String getInverseScale(List<String> denumerators) {
+		return "inverse_scale_tag<" + toTag(denumerators) + ">::scale";
+	}
+	private static String getRatioScale(List<String> numerators, List<String> denumerators) {
+		String result = "";
+		boolean addTabs = numerators.size() >= 2 || denumerators.size() >= 2;
+		result += "ratio_scale_tag<"; 
+		if (addTabs)
+			result += "\n\t\t";
+		result += toTag(numerators) + ", " ;
+		if (addTabs)
+			result += "\n\t\t";
+		result += toTag(denumerators) + ">::scale";
+		return result;
+	}
 	
-	public static void initializeRelativeScale(Result result, UnitScale unitScale) {
+	private static void initializeRelativeScale(Result result, UnitScale unitScale) {
 		if (unitScale.getMultiplyerNumber() != null) {
 			result.scale = Double.toString(unitScale.getMultiplyerNumber());
 		}

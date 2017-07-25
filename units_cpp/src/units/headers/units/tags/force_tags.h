@@ -19,12 +19,16 @@ namespace force {
 namespace tags
 {
 
-using force_code  = typename ratio_type_code<multiply_type_code<mass::tags::mass_code, length::tags::length_code>::code, multiply_type_code<duration::tags::duration_code, duration::tags::duration_code>::code>::code;
+using force_code  = typename ratio_type_code<
+	multiply_type_code<mass::tags::mass_code, length::tags::length_code>::code, 
+	multiply_type_code<duration::tags::duration_code, duration::tags::duration_code>::code>::code;
 
 struct newtons_tag
 {
 	using typeCode = force_code;
-	static constexpr double scale = ratio_scale_tag<multiply_scale_tag<mass::tags::kilograms_tag, length::tags::meters_tag>, multiply_scale_tag<duration::tags::seconds_tag, duration::tags::seconds_tag>>::scale;
+	static constexpr double scale = ratio_scale_tag<
+		multiply_scale_tag<mass::tags::kilograms_tag, length::tags::meters_tag>, 
+		multiply_scale_tag<duration::tags::seconds_tag, duration::tags::seconds_tag>>::scale;
 	static std::string singularName();
 	static std::string pluralName();
 };

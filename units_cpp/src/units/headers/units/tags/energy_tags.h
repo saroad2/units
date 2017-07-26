@@ -43,21 +43,21 @@ struct calories_tag
 struct kilocalories_tag
 {
 	using typeCode = energy_code;
-	static constexpr double scale = kilo * calories_tag::scale;
+	static constexpr double scale = multiplyBy<std::kilo>(calories_tag::scale);
 	static std::string singularName();
 	static std::string pluralName();
 };
 struct kilojoules_tag
 {
 	using typeCode = energy_code;
-	static constexpr double scale = kilo * joules_tag::scale;
+	static constexpr double scale = multiplyBy<std::kilo>(joules_tag::scale);
 	static std::string singularName();
 	static std::string pluralName();
 };
 struct megajoules_tag
 {
 	using typeCode = energy_code;
-	static constexpr double scale = mega * joules_tag::scale;
+	static constexpr double scale = multiplyBy<std::mega>(joules_tag::scale);
 	static std::string singularName();
 	static std::string pluralName();
 };

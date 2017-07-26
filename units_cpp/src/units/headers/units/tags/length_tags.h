@@ -76,28 +76,28 @@ struct degrees_of_latitude_tag
 struct micrometers_tag
 {
 	using typeCode = length_code;
-	static constexpr double scale = micro * meters_tag::scale;
+	static constexpr double scale = multiplyBy<std::micro>(meters_tag::scale);
 	static std::string singularName();
 	static std::string pluralName();
 };
 struct millimeters_tag
 {
 	using typeCode = length_code;
-	static constexpr double scale = milli * meters_tag::scale;
+	static constexpr double scale = multiplyBy<std::milli>(meters_tag::scale);
 	static std::string singularName();
 	static std::string pluralName();
 };
 struct centimeters_tag
 {
 	using typeCode = length_code;
-	static constexpr double scale = centi * meters_tag::scale;
+	static constexpr double scale = multiplyBy<std::centi>(meters_tag::scale);
 	static std::string singularName();
 	static std::string pluralName();
 };
 struct kilometers_tag
 {
 	using typeCode = length_code;
-	static constexpr double scale = kilo * meters_tag::scale;
+	static constexpr double scale = multiplyBy<std::kilo>(meters_tag::scale);
 	static std::string singularName();
 	static std::string pluralName();
 };

@@ -84,16 +84,16 @@ public class CppScaleValueCalculator {
 	}
 	
 	private static void initializeRelativeScale(Result result, UnitScale unitScale) {
+		CppUnitScale relativeTo = UnitsRepository.getInstance().getScale(unitScale.getRelativeTo());
 		if (unitScale.getMultiplyerNumber() != null) {
-			result.scale = Double.toString(unitScale.getMultiplyerNumber());
+			result.scale = 
+					Double.toString(unitScale.getMultiplyerNumber()) + 
+					" * " + relativeTo.getTagName() + "::scale";
 		}
 		if (unitScale.getMultiplyerString() != null) {
-			result.scale = unitScale.getMultiplyerString();
+			result.scale = "multiplyBy<std::" + unitScale.getMultiplyerString() +
+					">(" + relativeTo.getTagName() + "::scale)";
 			result.isStringMultiplyer = true;
-		}
-		if (unitScale.getRelativeTo() != null) {
-			CppUnitScale relativeTo = UnitsRepository.getInstance().getScale(unitScale.getRelativeTo());
-			result.scale += " * " + relativeTo.getTagName() + "::scale";
 		}
 	}
 }

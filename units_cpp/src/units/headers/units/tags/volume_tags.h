@@ -50,14 +50,14 @@ struct cubic_kilometers_tag
 struct liters_tag
 {
 	using typeCode = volume_code;
-	static constexpr double scale = milli * cubic_meters_tag::scale;
+	static constexpr double scale = multiplyBy<std::milli>(cubic_meters_tag::scale);
 	static std::string singularName();
 	static std::string pluralName();
 };
 struct milliliters_tag
 {
 	using typeCode = volume_code;
-	static constexpr double scale = milli * liters_tag::scale;
+	static constexpr double scale = multiplyBy<std::milli>(liters_tag::scale);
 	static std::string singularName();
 	static std::string pluralName();
 };

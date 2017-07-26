@@ -50,7 +50,7 @@ struct square_kilometers_tag
 struct dunams_tag
 {
 	using typeCode = area_code;
-	static constexpr double scale = kilo * square_meters_tag::scale;
+	static constexpr double scale = multiplyBy<std::kilo>(square_meters_tag::scale);
 	static std::string singularName();
 	static std::string pluralName();
 };

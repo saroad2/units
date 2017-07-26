@@ -10,11 +10,12 @@
 
 namespace units
 {
-constexpr double micro = 1e-6;
-constexpr double milli = 1e-3;
-constexpr double centi = 1e-2;
-constexpr double kilo = 1e+3;
-constexpr double mega = 1e+6;
+
+template<class Multiplyer>
+constexpr double multiplyBy(double scale)
+{
+	return scale * Multiplyer::num / Multiplyer::den;
+}
 
 }
 

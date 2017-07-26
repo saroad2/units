@@ -55,14 +55,14 @@ struct years_tag
 struct microseconds_tag
 {
 	using typeCode = duration_code;
-	static constexpr double scale = micro * seconds_tag::scale;
+	static constexpr double scale = multiplyBy<std::micro>(seconds_tag::scale);
 	static std::string singularName();
 	static std::string pluralName();
 };
 struct milliseconds_tag
 {
 	using typeCode = duration_code;
-	static constexpr double scale = milli * seconds_tag::scale;
+	static constexpr double scale = multiplyBy<std::milli>(seconds_tag::scale);
 	static std::string singularName();
 	static std::string pluralName();
 };

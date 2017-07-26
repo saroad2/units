@@ -29,14 +29,14 @@ struct hertz_tag
 struct kilohertz_tag
 {
 	using typeCode = frequency_code;
-	static constexpr double scale = kilo * hertz_tag::scale;
+	static constexpr double scale = multiplyBy<std::kilo>(hertz_tag::scale);
 	static std::string singularName();
 	static std::string pluralName();
 };
 struct megahertz_tag
 {
 	using typeCode = frequency_code;
-	static constexpr double scale = mega * hertz_tag::scale;
+	static constexpr double scale = multiplyBy<std::mega>(hertz_tag::scale);
 	static std::string singularName();
 	static std::string pluralName();
 };

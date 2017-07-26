@@ -34,21 +34,21 @@ struct pounds_tag
 struct milligrams_tag
 {
 	using typeCode = mass_code;
-	static constexpr double scale = milli * grams_tag::scale;
+	static constexpr double scale = multiplyBy<std::milli>(grams_tag::scale);
 	static std::string singularName();
 	static std::string pluralName();
 };
 struct kilograms_tag
 {
 	using typeCode = mass_code;
-	static constexpr double scale = kilo * grams_tag::scale;
+	static constexpr double scale = multiplyBy<std::kilo>(grams_tag::scale);
 	static std::string singularName();
 	static std::string pluralName();
 };
 struct tonnes_tag
 {
 	using typeCode = mass_code;
-	static constexpr double scale = mega * grams_tag::scale;
+	static constexpr double scale = multiplyBy<std::mega>(grams_tag::scale);
 	static std::string singularName();
 	static std::string pluralName();
 };

@@ -8,25 +8,47 @@
 #ifndef INCLUDE_TAGGING_H_
 #define INCLUDE_TAGGING_H_
 
-#include "internal/tags.h"
-#include "internal/numeric_value.h"
+#include <units/internal/numeric_value.h>
+#include <units/internal/tags.h>
 
 namespace units
 {
 
+/*====== builders ====*/
+
 template<class Unit, class... ActualTags>
-using Tag = NumericValue<
-		typename Unit::_scale,
-		ConcatenateTags<typename Unit::_tags, Tags<ActualTags...>>>;
+struct tag_builder
+{
+	using tags = typename concatenate_tags<typename Unit::_tags, Tags<ActualTags...>>::type;
+	using result = NumericValue<typename Unit::_scale, tags>;
+};
 
 template<class Unit, class... RemovedTags>
-using Untag = NumericValue<
+struct untag_builder
+{
+	using result = NumericValue<
 		typename Unit::_scale,
 		typename untag_calculate<typename Unit::_tags, RemovedTags...>::type>;
+};
 
 template<class Unit>
-using UntagAll = NumericValue<
-		typename Unit::_scale>;
+struct untag_all_builder
+{
+	using result = NumericValue<typename Unit::_scale>;
+};
+
+/*====== typedefs ====*/
+
+template<class Unit, class... ActualTags>
+using Tag = typename tag_builder<Unit, ActualTags...>::result;
+
+template<class Unit, class... RemovedTags>
+using Untag = typename untag_builder<Unit, RemovedTags...>::result;
+
+template<class Unit>
+using UntagAll = typename untag_all_builder<Unit>::result;
+
+/*====== functions ====*/
 
 template<class... ActualTags, class Unit>
 auto tag(const Unit& unit)

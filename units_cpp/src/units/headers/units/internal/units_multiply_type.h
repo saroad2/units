@@ -45,7 +45,13 @@ struct multiply_scale_tag
 };
 
 template<class... Units>
-using Multiply = NumericValue<multiply_scale_tag<typename Units::_scale...>>;
+struct multiply_builder
+{
+	using result = NumericValue<multiply_scale_tag<typename Units::_scale...>>;
+};
+
+template<class... Units>
+using Multiply = typename multiply_builder<Units...>::result;
 
 }
 

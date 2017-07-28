@@ -40,11 +40,23 @@ template<typename scale>
 using inverse_scale_tag = ratio_scale_tag<none_scale_tag, scale>;
 
 template<class Unit1, class Unit2>
-using Ratio = NumericValue<
-		ratio_scale_tag<typename Unit1::_scale, typename Unit2::_scale>>;
+struct ratio_builder
+{
+	using result =
+		NumericValue<ratio_scale_tag<typename Unit1::_scale, typename Unit2::_scale>>;
+};
+
+template<class Unit1, class Unit2>
+using Ratio = typename ratio_builder<Unit1, Unit2>::result;
 
 template<class Unit>
-using Inverse = NumericValue<inverse_scale_tag<typename Unit::_scale>>;
+struct inverse_builder
+{
+	using result = NumericValue<inverse_scale_tag<typename Unit::_scale>>;
+};
+
+template<class Unit>
+using Inverse = typename inverse_builder<Unit>::result;
 
 }
 

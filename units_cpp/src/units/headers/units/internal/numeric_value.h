@@ -18,19 +18,15 @@
 namespace units
 {
 
-#define VALIDATE_SAME_UNIT(Unit1, Unit2) \
-	static_assert(is_from_the_same_type<Unit1, Unit2>::value && \
-					Unit1::_scale::scale == Unit2::_scale::scale, \
-				  "Cannot use this operation on different units");
-
 template<typename ScaleTag, typename OtherTags = Tags<>>
 class NumericValue
 {
 private:
 	using _selfType = NumericValue<ScaleTag, OtherTags>;
-public:
+protected:
 	using _scale = ScaleTag;
 	using _tags = OtherTags;
+public:
 
 	constexpr NumericValue() = default;
 	explicit constexpr NumericValue(double value)
@@ -79,6 +75,45 @@ public:
 		_value /= scalar;
 		return *this;
 	}
+
+	//Class friends declarations
+	template<class Unit1, class Unit2>
+	friend struct is_from_the_same_type;
+
+	template<class Unit1, class Unit2>
+	friend struct is_same_unit;
+
+	template<class... Units>
+	friend struct multiply_builder;
+
+	template <class Unit, int power>
+	friend struct pow_builder;
+
+	template<class Unit1, class Unit2>
+	friend struct ratio_builder;
+
+	template<class Unit>
+	friend struct inverse_builder;
+
+	template<class Unit, class... ActualTags>
+	friend struct tag_builder;
+
+	template<class Unit, class... RemovedTags>
+	friend struct untag_builder;
+
+	template<class Unit>
+	friend struct untag_all_builder;
+
+	template<class Unit, class Tag>
+	friend struct has_tag;
+
+	//Function friends declarations
+	template<class To, class From>
+	friend constexpr double conversionScale();
+
+	template<class... Tags>
+	friend std::ostream& operator<<(
+			std::ostream& stream, const NumericValue<Tags...>& unit);
 
 private:
 	double _value;

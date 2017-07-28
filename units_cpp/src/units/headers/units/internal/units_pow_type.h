@@ -45,8 +45,14 @@ struct pow_scale_tag
 };
 
 template <class Unit, int power>
-using Pow = NumericValue<pow_scale_tag<typename Unit::_scale, power>,
-			typename Unit::_tags>;
+struct pow_builder
+{
+	using result = NumericValue<pow_scale_tag<typename Unit::_scale, power>, typename Unit::_tags>;
+};
+
+template <class Unit, int power>
+using Pow = typename pow_builder<Unit, power>::result;
+
 }
 
 #endif /* INCLUDE_UNITS_POW_TYPE_H_ */

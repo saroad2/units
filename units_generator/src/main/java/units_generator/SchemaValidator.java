@@ -1,5 +1,7 @@
 package units_generator;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -8,24 +10,43 @@ import units_schema.UnitType;
 import units_schema.UnitScale;
 
 public class SchemaValidator {
+	public static String normalize(String name) {
+		return name.toLowerCase().replace("_", " ");
+	}
+	
 	public static void validateSchema(Schema schema) throws InvalidSchemaException {
+		List<String> typeNames = new ArrayList<String>();
 		for (UnitType unitType : schema.getUnitTypes()) {
 			if(!isStringValid(unitType.getTypeName())) {
+				int thisTypeIndex = schema.getUnitTypes().indexOf(unitType) + 1;
 				String errorMessage = 
 						"Unit type number " + 
-						Integer.toString(schema.getUnitTypes().indexOf(unitType) + 1) +
+						Integer.toString(thisTypeIndex) +
 						" has no type name";
 				throw new InvalidSchemaException(errorMessage);
 			}
+			String name = normalize(unitType.getTypeName());
+			int indexOfCopyType = typeNames.indexOf(name);
+			if (indexOfCopyType != -1)
+				throw new InvalidSchemaException(name + " unit type found twice in schema");
 			validateUnitType(unitType);
+			typeNames.add(name);
 		}
 	}
 	
 	public static void validateUnitType(UnitType unitType) throws InvalidSchemaException {
+		List<String> scaleNames = new ArrayList<String>();
 		for (UnitScale scale : unitType.getUnitScales()) {
 			validateUnitScalePrintNames(scale, unitType);
 			String name = getName(scale, unitType);
+			int indexOfScale = scaleNames.indexOf(name);
+			if (indexOfScale != -1) {
+				String errorString = name + " scale of unit type " +
+						unitType.getTypeName() + " found twice in schema";
+				throw new InvalidSchemaException(errorString);
+			}
 			validateUnitScale(name, scale);
+			scaleNames.add(name);
 		}
 	}
 	
@@ -81,7 +102,7 @@ public class SchemaValidator {
 	
 	public static String getName(UnitScale scale, UnitType unitType) throws InvalidSchemaException{
 		if (isValidName(scale.getName()))
-			return scale.getName();
+			return normalize(scale.getName());
 		if (!isValidName(scale.getPluralName())) {
 			throw new InvalidSchemaException(
 				"Unit scale number " + 
@@ -91,6 +112,6 @@ public class SchemaValidator {
 				"\t * \"plural name\" slot with string value that has only letters and spaces\n" +
 				"\t * \"name\" slot with string value that has only letters and spaces\n");
 		}
-		return scale.getPluralName();
+		return normalize(scale.getPluralName());
 	}
 }

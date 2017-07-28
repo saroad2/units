@@ -1,7 +1,42 @@
-task copyGenerated(type: Copy, dependsOn: ':units_generator:run') {
-    from 'units_generator/generated/'
+
+def generationGroup = "Generation"
+
+task copyGeneratedCpp(type: Copy) {
+	doLast {
+		println "Copied c++ files"
+	}
+	
+    from 'units_generator/generated/cpp/'
     into 'units_cpp/src/'
     include '**/*.h'
     include '**/*.cc'
     exclude { details -> details.file.name.endsWith('.swp')}
+    group generationGroup
+    description = "Copy c++ generated files into units_cpp project"
+}
+
+task copyGeneratedSupportedUnits(type: Copy) {
+	doLast {
+		println "Copied general files"
+	}
+	
+    from 'units_generator/generated/supported_units.md'
+    into rootProject.projectDir
+    group generationGroup
+    description = "Copy general generated files into units project"
+}
+
+task generate {
+	doFirst {
+		rootProject.project('units_generator').run.execute()
+		copyGeneratedCpp.execute()
+		copyGeneratedSupportedUnits.execute()
+	}
+	
+	doLast {
+		println "Finished generating!"
+	}
+	
+	group generationGroup
+	description = "Generate units files"
 }

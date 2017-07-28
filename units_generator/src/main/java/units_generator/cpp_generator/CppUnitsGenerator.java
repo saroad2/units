@@ -26,10 +26,12 @@ public class CppUnitsGenerator {
 			String stringTemplateDirectory,
 			String outputDirectory) throws IOException{
 		CppSchema cppSchema = convertToCppSchema(schema);
+		File cppDirectory = Paths.get(outputDirectory, "cpp").toFile();
+		cppDirectory.mkdir();
 		StringTemplateGroup group = getStringTempateGroup(stringTemplateDirectory);
-		generateHeaders(cppSchema, group, outputDirectory);
-		generateSources(cppSchema, group, outputDirectory);
-		generateTests(cppSchema, group, outputDirectory);
+		generateHeaders(cppSchema, group, cppDirectory.toString());
+		generateSources(cppSchema, group, cppDirectory.toString());
+		generateTests(cppSchema, group, cppDirectory.toString());
 	}
 
 	private CppSchema convertToCppSchema(Schema schema) {

@@ -1,0 +1,48 @@
+group units;
+
+declaration() ::= <<
+This file is auto generated.
+DO NOT EDIT IT MANUALY!
+
+>>
+
+supported_unit_scale(unitScale) ::= <<
+\<tr\>
+	\<td\>
+		<unitScale.name>
+	\</td\>
+\</tr\><\n>
+>>
+
+supported_unit_type(unitType) ::= <<
+\<tr\>
+	\<td rowspan=<unitType.numberOfScales> style="text-align:center; vertical-align:middle;font-weight:bold"\>
+		<unitType.name>
+	\</td\>
+	\<td\>
+		<first(unitType.unitScales).name>
+	\</td\>
+\</tr\>
+<rest(unitType.unitScales):supported_unit_scale()>
+>>
+
+supported_units(schema) ::= <<
+# Supported Units
+
+<declaration()>
+
+Those are the supported units in the *units* library:
+
+\<table\>
+	\<tr\>
+		\<th\>
+			Unit Type
+		\</th\>
+		\<th\>
+			Unit Scale
+		\</th\>
+	\</tr\>
+	<schema.unitTypes:supported_unit_type()>
+
+\</table\>
+>>

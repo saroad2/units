@@ -17,15 +17,15 @@ public class SchemaValidator {
 	public static void validateSchema(Schema schema) throws InvalidSchemaException {
 		List<String> typeNames = new ArrayList<String>();
 		for (UnitType unitType : schema.getUnitTypes()) {
-			if(!isStringValid(unitType.getTypeName())) {
+			String name = NamesManipulator.getName(unitType);
+			if(name == null) {
 				int thisTypeIndex = schema.getUnitTypes().indexOf(unitType) + 1;
 				String errorMessage = 
 						"Unit type number " + 
-						Integer.toString(thisTypeIndex) +
-						" has no type name";
+								Integer.toString(thisTypeIndex) +
+								" has no type name";
 				throw new InvalidSchemaException(errorMessage);
 			}
-			String name = normalize(unitType.getTypeName());
 			int indexOfCopyType = typeNames.indexOf(name);
 			if (indexOfCopyType != -1)
 				throw new InvalidSchemaException(name + " unit type found twice in schema");
@@ -38,7 +38,16 @@ public class SchemaValidator {
 		List<String> scaleNames = new ArrayList<String>();
 		for (UnitScale scale : unitType.getUnitScales()) {
 			validateUnitScalePrintNames(scale, unitType);
-			String name = getName(scale, unitType);
+			String name = NamesManipulator.getName(scale);
+			if (name == null) {
+				throw new InvalidSchemaException(
+					"Unit scale number " + 
+					Integer.toString(unitType.getUnitScales().indexOf(scale) + 1) +
+					" of type " + unitType.getTypeName() + 
+					" must have one of the followings:\n" +
+					"\t * \"plural name\" slot with string value that has only letters and spaces\n" +
+					"\t * \"name\" slot with string value that has only letters and spaces\n");
+			}
 			int indexOfScale = scaleNames.indexOf(name);
 			if (indexOfScale != -1) {
 				String errorString = name + " scale of unit type " +
@@ -51,7 +60,7 @@ public class SchemaValidator {
 	}
 	
 	public static void validateUnitScalePrintNames(UnitScale scale, UnitType unitType) throws InvalidSchemaException {
-		if (!isStringValid(scale.getPluralName())) {
+		if (!NamesManipulator.isValidString(scale.getPluralName())) {
 			throw new InvalidSchemaException(
 				"Unit scale number " + 
 				Integer.toString(unitType.getUnitScales().indexOf(scale) + 1) +
@@ -59,7 +68,7 @@ public class SchemaValidator {
 				" has no plural name."
 				);
 		}
-		if (!isStringValid(scale.getSingularName())) {
+		if (!NamesManipulator.isValidString(scale.getSingularName())) {
 			throw new InvalidSchemaException(
 				"Unit scale number " + 
 				Integer.toString(unitType.getUnitScales().indexOf(scale) + 1) +
@@ -73,10 +82,10 @@ public class SchemaValidator {
 		boolean isBasic = scale.getIsBasic();
 		boolean isRatio = scale.getRatio() != null;
 		boolean isStringMultiplyer = 
-				isStringValid(scale.getRelativeTo()) &&
-				isStringValid(scale.getMultiplyerString());
+				NamesManipulator.isValidName(scale.getRelativeTo()) &&
+				NamesManipulator.isValidName(scale.getMultiplyerString());
 		boolean isNumberMultiplyer = 
-				isStringValid(scale.getRelativeTo()) &&
+				NamesManipulator.isValidName(scale.getRelativeTo()) &&
 				scale.getMultiplyerNumber() != null;
 		if (!BooleanChecker.exactlyOne(isBasic, isRatio, isStringMultiplyer, isNumberMultiplyer)) {
 			throw new InvalidSchemaException(
@@ -86,32 +95,5 @@ public class SchemaValidator {
 				"\t * has \"multiplyer number\" and \"relative to\"\n" +
 				"\t * has \"ratio\"\n");
 		}
-	}
-	
-	public static boolean isStringValid(String s) {
-		return s != null && !s.isEmpty();
-	}
-	
-	public static boolean isValidName(String s) {
-		if (!isStringValid(s))
-			return false;
-		Pattern p = Pattern.compile("^[ A-Za-z]+$");
-		Matcher m = p.matcher(s);
-		return m.matches();
-	}
-	
-	public static String getName(UnitScale scale, UnitType unitType) throws InvalidSchemaException{
-		if (isValidName(scale.getName()))
-			return normalize(scale.getName());
-		if (!isValidName(scale.getPluralName())) {
-			throw new InvalidSchemaException(
-				"Unit scale number " + 
-				Integer.toString(unitType.getUnitScales().indexOf(scale) + 1) +
-				" of type " + unitType.getTypeName() + 
-				" must have one of the followings:\n" +
-				"\t * \"plural name\" slot with string value that has only letters and spaces\n" +
-				"\t * \"name\" slot with string value that has only letters and spaces\n");
-		}
-		return normalize(scale.getPluralName());
 	}
 }

@@ -3,6 +3,7 @@ package units_generator.cpp_generator;
 import java.util.ArrayList;
 import java.util.List;
 
+import units_generator.NamesManipulator;
 import units_schema.UnitScale;
 import units_schema.UnitType;
 
@@ -82,7 +83,7 @@ public class CppUnitType {
 	}
 	
 	public CppUnitType(UnitType unitType) {
-		typeName = unitType.getTypeName();
+		typeName = NamesManipulator.getName(unitType);
 		namespace = typeName.replaceAll(" " , "_") ; 
 		upperCaseName = namespace.toUpperCase();
 		codeName = namespace + "_code";

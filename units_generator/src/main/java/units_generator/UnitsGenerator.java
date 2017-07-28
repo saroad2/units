@@ -9,6 +9,8 @@ import units_generator.cpp_generator.CppSchema;
 import units_generator.cpp_generator.CppUnitType;
 import units_generator.cpp_generator.CppUnitsGenerator;
 
+import units_generator.general_generator.GeneralGenerator;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.logging.Logger;
@@ -30,6 +32,9 @@ public class UnitsGenerator {
 			logger.info("Generatating cpp files...");
 			new CppUnitsGenerator().generate(schema, stringTemplateDirectory, outputDirectory);
 			logger.info("Generating cpp files succeded!");
+			logger.info("Generatating general files...");
+			new GeneralGenerator().generate(schema, stringTemplateDirectory, outputDirectory);
+			logger.info("Generating general files succeded!");
 			return;
 		}
 		catch(IOException e) {

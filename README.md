@@ -10,7 +10,7 @@ Our main goal is:
 
 > To create a library of units handling that will validate that the user uses the right units in his code
 
-Our secondery goals are:
+Our secondary goals are:
 > * To do those validations in compiletime (when possible) in order to prevent performance issues.
 > * To support basic usage such as sumation, substraction, comparison, etc. of units.
 > * To maintain high accuracy when using units (especially in casting from one unit to another).
@@ -20,9 +20,13 @@ Our secondery goals are:
 How do we do this? learn how by reading the README.md file in the most suitable language file for you:
 * [c++](units_cpp/README.md)
 
-Future Supported Languages
---------------------------
+Look [here](supported_units.md) to see in which units do we support.
+
+For more details about our libraries, go to [here](https://github.com/saroad2/units/wiki) 
+
+## Future Supported Languages and Platforms
 
 * java
 * python
 * c#
+* .net

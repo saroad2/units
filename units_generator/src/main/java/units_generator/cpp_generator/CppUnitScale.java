@@ -2,6 +2,7 @@ package units_generator.cpp_generator;
 
 import java.util.ArrayList;
 
+import units_generator.NamesManipulator;
 import units_schema.UnitScale;
 import units_schema.Multiplyer;
 
@@ -74,10 +75,7 @@ public class CppUnitScale {
 	private void initializeNames(UnitScale unitScale) {
 		singularName = unitScale.getSingularName();
 		pluralName = unitScale.getPluralName();
-		if (unitScale.getName() == null)
-			name = pluralName;
-		else
-			name = unitScale.getName();
+		name = NamesManipulator.getName(unitScale);
 	}
 
 	private void initializeScale(UnitScale unitScale) {

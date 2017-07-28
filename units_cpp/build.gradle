@@ -45,7 +45,3 @@ model {
         }
     }
 }
-
-build {
-	dependsOn rootProject.copyGenerated
-}

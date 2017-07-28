@@ -16,61 +16,51 @@ class TestAreaUnitsConversions : public TestUnitsConversions
 
 TEST_F(TestAreaUnitsConversions, square_feet_to_square_meters)
 {
-	maxError = 1e-10;
 	check_conversions<SquareFeet, SquareMeters>(0.09290304, 10.763910416709725);
 }
 
 TEST_F(TestAreaUnitsConversions, square_yards_to_square_meters)
 {
-	maxError = 1e-10;
 	check_conversions<SquareYards, SquareMeters>(0.83612736, 1.1959900463010806);
 }
 
 TEST_F(TestAreaUnitsConversions, dunams_to_square_meters)
 {
-	maxError = 1e-10;
 	check_conversions<Dunams, SquareMeters>(1e+3, 1e-3);
 }
 
 TEST_F(TestAreaUnitsConversions, square_kilometers_to_square_meters)
 {
-	maxError = 1e-10;
 	check_conversions<SquareKilometers, SquareMeters>(1e+6, 1e-6);
 }
 
 TEST_F(TestAreaUnitsConversions, square_yards_to_square_feet)
 {
-	maxError = 1e-10;
 	check_conversions<SquareYards, SquareFeet>(9, 1.0 / 9);
 }
 
 TEST_F(TestAreaUnitsConversions, dunams_to_square_feet)
 {
-	maxError = 1e-10;
-	check_conversions<Dunams, SquareFeet>(10763.910416709725, 9.2903039717574756e-5);
+	check_conversions<Dunams, SquareFeet>(10763.910416709725, 9.290304e-5);
 }
 
 TEST_F(TestAreaUnitsConversions, square_kilometers_to_square_feet)
 {
-	maxError = 1e-8;
-	check_conversions<SquareKilometers, SquareFeet>(10763910.416709725, 9.2903039717574756e-8);
+	check_conversions<SquareKilometers, SquareFeet>(10763910.416709725, 9.290304e-8);
 }
 
 TEST_F(TestAreaUnitsConversions, dunams_to_square_yards)
 {
-	maxError = 1e-10;
-	check_conversions<Dunams, SquareYards>(1195.9900463010806, 8.3612735745817279e-4);
+	check_conversions<Dunams, SquareYards>(1195.9900463010806, 8.3612736e-4);
 }
 
 TEST_F(TestAreaUnitsConversions, square_kilometers_to_square_yards)
 {
-	maxError = 1e-10;
-	check_conversions<SquareKilometers, SquareYards>(1195990.0463010806, 8.3612735745817279e-7);
+	check_conversions<SquareKilometers, SquareYards>(1195990.0463010806, 8.3612736e-7);
 }
 
 TEST_F(TestAreaUnitsConversions, square_kilometers_to_dunams)
 {
-	maxError = 1e-10;
 	check_conversions<SquareKilometers, Dunams>(1e+3, 1e-3);
 }
 

@@ -18,7 +18,6 @@ class TestAngularSpeedUnitsConversions : public TestUnitsConversions
 
 TEST_F(TestAngularSpeedUnitsConversions, degrees_per_second_to_radians_per_second)
 {
-	maxError = 1e-10;
 	check_conversions<DegreesPerSecond, RadiansPerSecond>(M_PI / 180, 180 / M_PI);
 }
 

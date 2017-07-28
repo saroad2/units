@@ -19,13 +19,11 @@ class TestAngleUnitsConversions : public TestUnitsConversions
 
 TEST_F(TestAngleUnitsConversions, mils_to_degrees)
 {
-	maxError = 1e-10;
 	check_conversions<Mils, Degrees>(360.0 / 6400, 6400.0 / 360);
 }
 
 TEST_F(TestAngleUnitsConversions, radians_to_degrees)
 {
-	maxError = 1e-10;
 	check_conversions<Radians, Degrees>(180.0 / M_PI, M_PI / 180);
 }
 

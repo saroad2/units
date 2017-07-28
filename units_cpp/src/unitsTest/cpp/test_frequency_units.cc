@@ -16,19 +16,16 @@ class TestFrequencyUnitsConversions : public TestUnitsConversions
 
 TEST_F(TestFrequencyUnitsConversions, hertz_to_kilohertz)
 {
-	maxError = 1e-10;
 	check_conversions<Hertz, Kilohertz>(1e-3, 1e+3);
 }
 
 TEST_F(TestFrequencyUnitsConversions, hertz_to_megahertz)
 {
-	maxError = 1e-10;
 	check_conversions<Hertz, Megahertz>(1e-6, 1e+6);
 }
 
 TEST_F(TestFrequencyUnitsConversions, kilohertz_to_megahertz)
 {
-	maxError = 1e-10;
 	check_conversions<Kilohertz, Megahertz>(1e-3, 1e+3);
 }
 

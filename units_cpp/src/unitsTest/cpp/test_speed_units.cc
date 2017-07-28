@@ -16,62 +16,52 @@ class TestSpeedUnitsConversions : public TestUnitsConversions
 
 TEST_F(TestSpeedUnitsConversions, feet_per_second_to_meters_per_second)
 {
-	maxError = 1e-10;
 	check_conversions<FeetPerSecond, MetersPerSecond>(0.3048, 3.2808398950131239);
 }
 
 TEST_F(TestSpeedUnitsConversions, yards_per_second_to_meters_per_second)
 {
-	maxError = 1e-10;
 	check_conversions<YardsPerSecond, MetersPerSecond>(0.9144, 1.093613298337708);
 }
 
 TEST_F(TestSpeedUnitsConversions, kilometers_per_hour_to_meters_per_second)
 {
-	maxError = 1e-10;
-	check_conversions<KilometersPerHour, MetersPerSecond>(0.2777777777, 3.6);
+	check_conversions<KilometersPerHour, MetersPerSecond>(0.27777777777, 3.6);
 }
 
 
 TEST_F(TestSpeedUnitsConversions, knots_to_meters_per_second)
 {
-	maxError = 1e-10;
 	check_conversions<Knots, MetersPerSecond>(0.514444773689, 1.9438432483805059);
 }
 
 TEST_F(TestSpeedUnitsConversions, yards_per_second_to_feet_per_second)
 {
-	maxError = 1e-10;
 	check_conversions<YardsPerSecond, FeetPerSecond>(3, 1.0 / 3);
 }
 
 TEST_F(TestSpeedUnitsConversions, kilometers_per_hour_to_feet_per_second)
 {
-	maxError = 1e-10;
 	check_conversions<KilometersPerHour, FeetPerSecond>(0.91134441528142329, 1.09728);
 }
 
 TEST_F(TestSpeedUnitsConversions, knots_to_feet_per_second)
 {
-	maxError = 1e-10;
 	check_conversions<Knots, FeetPerSecond>(1.6878109372998689, 0.59248342210637817);
 }
 
 TEST_F(TestSpeedUnitsConversions, kilometers_per_hour_to_yards_per_second)
 {
-	maxError = 1e-10;
 	check_conversions<KilometersPerHour, YardsPerSecond>(0.30378147176047443, 3.29184);
 }
 
 TEST_F(TestSpeedUnitsConversions, knots_to_yards_per_second)
 {
-	maxError = 1e-10;
 	check_conversions<Knots, YardsPerSecond>(0.56260364576662303, 1.7774502663191345);
 }
 
 TEST_F(TestSpeedUnitsConversions, knots_to_kilometers_per_hour)
 {
-	maxError = 1e-10;
 	check_conversions<Knots, KilometersPerHour>(1.8520011852803999, 0.53995645788347391);
 }
 

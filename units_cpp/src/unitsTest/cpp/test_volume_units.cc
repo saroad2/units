@@ -16,85 +16,71 @@ class TestVolumeUnitsConversions : public TestUnitsConversions
 
 TEST_F(TestVolumeUnitsConversions, cubic_feet_to_cubic_meters)
 {
-	maxError = 1e-10;
 	check_conversions<CubicFeet, CubicMeters>(0.028316846592, 35.3146667214886);
 }
 
 TEST_F(TestVolumeUnitsConversions, cubic_yards_to_cubic_meters)
 {
-	maxError = 1e-10;
 	check_conversions<CubicYards, CubicMeters>(0.764554857984, 1.3079506193143928);
 }
 
 TEST_F(TestVolumeUnitsConversions, liters_to_cubic_meters)
 {
-	maxError = 1e-10;
 	check_conversions<Liters, CubicMeters>(1e-3, 1e+3);
 }
 
 TEST_F(TestVolumeUnitsConversions, milliliters_to_cubic_meters)
 {
-	maxError = 1e-10;
 	check_conversions<Milliliters, CubicMeters>(1e-6, 1e+6);
 }
 
 TEST_F(TestVolumeUnitsConversions, cubic_kilometers_to_cubic_meters)
 {
-	maxError = 1e-10;
 	check_conversions<CubicKilometers, CubicMeters>(1e+9, 1e-9);
 }
 
 TEST_F(TestVolumeUnitsConversions, cubic_yards_to_cubic_feet)
 {
-	maxError = 1e-10;
 	check_conversions<CubicYards, CubicFeet>(27, 1.0 / 27);
 }
 
 TEST_F(TestVolumeUnitsConversions, liters_to_cubic_feet)
 {
-	maxError = 1e-10;
 	check_conversions<Liters, CubicFeet>(0.0353146667214886, 28.316846592);
 }
 
 TEST_F(TestVolumeUnitsConversions, milliliters_to_cubic_feet)
 {
-	maxError = 1e-10;
 	check_conversions<Milliliters, CubicFeet>(3.53146667214886e-5, 28316.846592);
 }
 
 TEST_F(TestVolumeUnitsConversions, cubic_kilometers_to_cubic_feet)
 {
-	maxError = 1e-8;
 	check_conversions<CubicKilometers, CubicFeet>(35314666721.4886, 2.8316846592e-11);
 }
 
 TEST_F(TestVolumeUnitsConversions, liters_to_cubic_yards)
 {
-	maxError = 1e-10;
 	check_conversions<Liters, CubicYards>(1.3079506193143928e-3, 764.554857984);
 }
 
 TEST_F(TestVolumeUnitsConversions, milliliters_to_cubic_yards)
 {
-	maxError = 1e-9;
-	check_conversions<Milliliters, CubicYards>(1.3079506193143928e-6, 764554.857984);
+	check_conversions<Milliliters, CubicYards>(1.3079506193143928e-6, 764554.8579839998);
 }
 
 TEST_F(TestVolumeUnitsConversions, cubic_kilometers_to_cubic_yards)
 {
-	maxError = 1e-6;
 	check_conversions<CubicKilometers, CubicYards>(1.3079506193143928e+9, 7.64554857984e-10);
 }
 
 TEST_F(TestVolumeUnitsConversions, cubic_kilometers_to_liters)
 {
-	maxError = 1e-10;
 	check_conversions<CubicKilometers, Liters>(1e+12, 1e-12);
 }
 
 TEST_F(TestVolumeUnitsConversions, cubic_kilometers_to_milliliters)
 {
-	maxError = 1e-10;
 	check_conversions<CubicKilometers, Milliliters>(1e+15, 1e-15);
 }
 

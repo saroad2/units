@@ -59,127 +59,106 @@ class TestDurationUnitsConversions : public TestUnitsConversions
 
 TEST_F(TestDurationUnitsConversions, microseconds_to_seconds)
 {
-	maxError = 1e-10;
 	check_conversions<Microseconds, Seconds>(1e-6, 1e+6);
 }
 
 TEST_F(TestDurationUnitsConversions, milliseconds_to_seconds)
 {
-	maxError = 1e-10;
 	check_conversions<Milliseconds, Seconds>(1e-3, 1e+3);
 }
 
 TEST_F(TestDurationUnitsConversions, minutes_to_seconds)
 {
-	maxError = 1e-10;
 	check_conversions<Minutes, Seconds>(60, 1.0 / 60);
 }
 
 TEST_F(TestDurationUnitsConversions, hours_to_seconds)
 {
-	maxError = 1e-10;
 	check_conversions<Hours, Seconds>(3600, 1.0 / 3600);
 }
 
 TEST_F(TestDurationUnitsConversions, days_to_seconds)
 {
-	maxError = 1e-10;
 	check_conversions<Days, Seconds>(86400, 1.0 / 86400);
 }
 
 TEST_F(TestDurationUnitsConversions, years_to_seconds)
 {
-	maxError = 1e-10;
 	check_conversions<Years, Seconds>(31536000, 1.0 / 31536000);
 }
 
 TEST_F(TestDurationUnitsConversions, milliseconds_to_microseconds)
 {
-	maxError = 1e-10;
 	check_conversions<Milliseconds, Microseconds>(1e+3, 1e-3);
 }
 
 TEST_F(TestDurationUnitsConversions, minutes_to_microseconds)
 {
-	maxError = 1e-10;
 	check_conversions<Minutes, Microseconds>(6e+7, 1.0 / 6 * 1e-7);
 }
 
 TEST_F(TestDurationUnitsConversions, hours_to_microseconds)
 {
-	maxError = 1e-10;
 	check_conversions<Hours, Microseconds>(3.6e+9, 1.0 / 36 * 1e-8);
 }
 
 TEST_F(TestDurationUnitsConversions, days_to_microseconds)
 {
-	maxError = 1e-10;
 	check_conversions<Days, Microseconds>(8.64e+10, 1.0 / 864 * 1e-8);
 }
 
 TEST_F(TestDurationUnitsConversions, years_to_microseconds)
 {
-	maxError = 1e-10;
 	check_conversions<Years, Microseconds>(3.1536e+13, 1.0 / 31536 * 1e-9);
 }
 
 TEST_F(TestDurationUnitsConversions, minutes_to_milliseconds)
 {
-	maxError = 1e-10;
 	check_conversions<Minutes, Milliseconds>(6e+4, 1.0 / 6 * 1e-4);
 }
 
 TEST_F(TestDurationUnitsConversions, hours_to_milliseconds)
 {
-	maxError = 1e-10;
 	check_conversions<Hours, Milliseconds>(3.6e+6, 1.0 / 36 * 1e-5);
 }
 
 TEST_F(TestDurationUnitsConversions, days_to_milliseconds)
 {
-	maxError = 1e-10;
 	check_conversions<Days, Milliseconds>(8.64e+7, 1.0 / 864 * 1e-5);
 }
 
 TEST_F(TestDurationUnitsConversions, years_to_milliseconds)
 {
-	maxError = 1e-10;
 	check_conversions<Years, Milliseconds>(3.1536e+10, 1.0 / 31536 * 1e-6);
 }
 
 TEST_F(TestDurationUnitsConversions, hours_to_minutes)
 {
-	maxError = 1e-10;
 	check_conversions<Hours, Minutes>(60, 1.0 / 60);
 }
 
 TEST_F(TestDurationUnitsConversions, days_to_minutes)
 {
-	maxError = 1e-10;
 	check_conversions<Days, Minutes>(1440, 1.0 / 1440);
 }
 
 TEST_F(TestDurationUnitsConversions, years_to_minutes)
 {
-	maxError = 1e-10;
 	check_conversions<Years, Minutes>(525600, 1.0 / 525600);
 }
 
 TEST_F(TestDurationUnitsConversions, days_to_hours)
 {
-	maxError = 1e-10;
 	check_conversions<Days, Hours>(24, 1.0 / 24);
 }
 
 TEST_F(TestDurationUnitsConversions, years_to_hours)
 {
-	maxError = 1e-10;
 	check_conversions<Years, Hours>(8760, 1.0 / 8760);
 }
 
 TEST_F(TestDurationUnitsConversions, years_to_days)
 {
-	maxError = 1e-10;
 	check_conversions<Years, Days>(365, 1.0 / 365);
 }
 

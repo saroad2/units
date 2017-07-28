@@ -17,6 +17,12 @@
 class TestUnitsConversions : public ::testing::Test
 {
 protected:
+
+	TestUnitsConversions()
+	: maxError{defaultMaxError}
+	{
+	}
+
 	template<class Unit1, class Unit2>
 	void check_conversions(double unit1InUnit2, double unit2InUnit1) const
 	{
@@ -24,6 +30,7 @@ protected:
 		check_conversion<Unit2, Unit1>(unit2InUnit1);
 	}
 
+	constexpr static double defaultMaxError = 1e-10;
 	double maxError;
 
 private:
@@ -31,8 +38,20 @@ private:
 	void check_conversion(double unit1InUnit2) const
 	{
 		auto expected = Unit2{unit1InUnit2};
-		auto actual = units::units_cast<Unit2>(Unit1{1});
-		EXPECT_NEAR(expected.value(), actual.value(), maxError);
+		auto actual= units::units_cast<Unit2>(Unit1{1});
+		int count = 0;
+		while (actual < Unit2{1})
+		{
+			actual *= 10;
+			expected *= 10;
+			++count;
+		}
+		auto diff = actual - expected;
+		EXPECT_NEAR(diff.value(), 0, maxError)
+			<< std::setprecision(30)
+			<< expected.value() << "e-" << count
+			<< " != "
+			<< actual.value() << "e-" << count << std::fixed;
 	}
 };
 

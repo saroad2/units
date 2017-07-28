@@ -16,7 +16,6 @@ class TestForceUnitsConversions : public TestUnitsConversions
 
 TEST_F(TestForceUnitsConversions, newtons_to_dynes)
 {
-	maxError = 1e-10;
 	check_conversions<Newtons, Dynes>(1e+5, 1e-5);
 }
 

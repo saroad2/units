@@ -163,6 +163,14 @@ Those are the supported units in the *units* library:
 		</td>
 	</tr>
 	<tr>
+		<td rowspan=1 style="text-align:center; vertical-align:middle;font-weight:bold">
+			electric current
+		</td>
+		<td>
+			amperes
+		</td>
+	</tr>
+	<tr>
 		<td rowspan=5 style="text-align:center; vertical-align:middle;font-weight:bold">
 			speed
 		</td>

@@ -180,6 +180,16 @@
 			]
 		},
 		{
+			"type_name" : "electric current",
+			"unit_scales" : [
+				{
+					"singular_name" : "ampere",
+					"plural_name" : "amperes",
+					"is_basic": "true"
+				}
+			]
+		},
+		{
 			"type_name" : "speed",
 			"ratio" : {
 				"numerators" : ["length"],

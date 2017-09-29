@@ -40,7 +40,7 @@ TEST_F(TestAngularSpeedUnitsPrintings, print_degrees_per_second)
 // ============================================================
 
 #define TEST_ANGULAR_SPEED_USER_DEFINE_LITERALS(Name, name) \
-		TEST_USER_DEFINES_LITERALS(Area, Name, name);
+		TEST_USER_DEFINES_LITERALS(AngularSpeed, Name, name);
 
 TEST_ANGULAR_SPEED_USER_DEFINE_LITERALS(DegreesPerSecond, degrees_per_second);
 TEST_ANGULAR_SPEED_USER_DEFINE_LITERALS(RadiansPerSecond, radians_per_second);

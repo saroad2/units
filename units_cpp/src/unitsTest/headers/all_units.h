@@ -6,6 +6,7 @@
 #include <units/angle_units.h>
 #include <units/mass_units.h>
 #include <units/duration_units.h>
+#include <units/electric_current_units.h>
 #include <units/speed_units.h>
 #include <units/angular_speed_units.h>
 #include <units/area_units.h>
@@ -56,6 +57,10 @@
 	units::duration::Years, \
 	units::duration::Microseconds, \
 	units::duration::Milliseconds
+
+
+#define ELECTRIC_CURRENT_UNITS() \
+	units::electric_current::Amperes
 
 
 #define SPEED_UNITS() \
@@ -114,6 +119,7 @@
 	ANGLE_UNITS(), \
 	MASS_UNITS(), \
 	DURATION_UNITS(), \
+	ELECTRIC_CURRENT_UNITS(), \
 	SPEED_UNITS(), \
 	ANGULAR_SPEED_UNITS(), \
 	AREA_UNITS(), \

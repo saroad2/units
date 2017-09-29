@@ -14,10 +14,16 @@
 namespace units
 {
 
+template<class Unit1, class Unit2>
+constexpr auto auto_units_ratio(const Unit1& unit1, const Unit2& unit2)
+{
+	return Ratio<Unit1, Unit2>{unit1.value() / unit2.value()};
+}
+
 template<class ResultUnit, class Unit1, class Unit2>
 constexpr auto units_ratio(const Unit1& unit1, const Unit2& unit2)
 {
-	return units_cast<ResultUnit>(Ratio<Unit1, Unit2>{unit1.value() / unit2.value()});
+	return units_cast<ResultUnit>(auto_units_ratio(unit1, unit2));
 }
 
 }

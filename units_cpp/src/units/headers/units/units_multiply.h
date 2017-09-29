@@ -34,10 +34,16 @@ struct ValuesMultiplyer<Unit1>
 	double value;
 };
 
+template<class... Units>
+constexpr auto auto_units_multiply(const Units&... units)
+{
+	return Multiply<Units...>{ValuesMultiplyer<Units...>{units...}.value};
+}
+
 template<class ResultUnit, class... Units>
 constexpr auto units_multiply(const Units&... units)
 {
-	return units_cast<ResultUnit>(Multiply<Units...>{ValuesMultiplyer<Units...>{units...}.value});
+	return units_cast<ResultUnit>(auto_units_multiply(units...));
 }
 
 }

@@ -1,8 +1,10 @@
-package com.units;
+package com.units.length;
 
 import com.units.internal.NumericValue;
 
-public class Inches extends NumericValue{
+public class Inches extends NumericValue implements Length{
+
+	public static final double _scale = 0.0254;
 
 	public Inches(double value) {
 		super(value);
@@ -11,6 +13,11 @@ public class Inches extends NumericValue{
 	@Override
 	public String pluralName() {
 		return "inches";
+	}
+	
+	@Override
+	public double scale() {
+		return _scale;
 	}
 	
 	public static Inches zero() {
@@ -45,5 +52,9 @@ public class Inches extends NumericValue{
 		if (other == null)
 			return false;
 		return almostEqualsValue(other.value());
+	}
+	
+	public static Inches castFrom(Length other) {
+		return new Inches(other.value() * other.scale() / _scale);
 	}
 }

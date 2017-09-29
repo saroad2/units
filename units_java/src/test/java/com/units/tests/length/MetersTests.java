@@ -1,10 +1,11 @@
-package com.units.tests;
+package com.units.tests.length;
 
 import org.junit.Test;
+
+import com.units.length.Meters;
+
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
-
-import com.units.Meters;
 
 public class MetersTests {
 

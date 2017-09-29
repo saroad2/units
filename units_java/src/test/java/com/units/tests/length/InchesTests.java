@@ -1,10 +1,11 @@
-package com.units.tests;
+package com.units.tests.length;
 
 import org.junit.Test;
+
+import com.units.length.Inches;
+
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
-
-import com.units.Inches;
 
 public class InchesTests {
 

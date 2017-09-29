@@ -1,9 +1,11 @@
-package com.units;
+package com.units.length;
 
 import com.units.internal.NumericValue;
 
-public class Meters extends NumericValue{
+public class Meters extends NumericValue implements Length{
 
+	public static final double _scale = 1;
+	
 	public Meters(double value) {
 		super(value);
 	}
@@ -11,6 +13,11 @@ public class Meters extends NumericValue{
 	@Override
 	public String pluralName() {
 		return "meters";
+	}
+	
+	@Override
+	public double scale() {
+		return _scale;
 	}
 	
 	public static Meters zero() {
@@ -45,5 +52,9 @@ public class Meters extends NumericValue{
 		if (other == null)
 			return false;
 		return almostEqualsValue(other.value());
+	}
+	
+	public static Meters castFrom(Length other) {
+		return new Meters(other.value() * other.scale() / _scale);
 	}
 }

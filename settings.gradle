@@ -1,1 +1,1 @@
-include 'units_generator', 'units_cpp'
+include 'units_generator', 'units_cpp', 'units_java'

@@ -11,16 +11,20 @@ import java.util.logging.Level;
 
 import units_generator.cpp_generator.CppUnitScale;
 import units_generator.cpp_generator.CppUnitType;
-public class CppSchema {
+import units_generator.internal.UnitTypeInterface;
+import units_generator.internal.UnitsSchemaInterface;
+
+public class CppSchema implements UnitsSchemaInterface{
 	
-	private List<CppUnitType> unitTypes;
+	private List<UnitTypeInterface> unitTypes;
 	
-	public List<CppUnitType> getUnitTypes() {
+	@Override
+	public List<UnitTypeInterface> getUnitTypes() {
 		return unitTypes;
 	}
 
 	public CppSchema (Schema schema) {
-		unitTypes = new ArrayList<CppUnitType>();
+		unitTypes = new ArrayList<UnitTypeInterface>();
 		for (UnitType unitType : schema.getUnitTypes()) {
 			CppUnitType cppUnitType = new CppUnitType(unitType); 
 			unitTypes.add(cppUnitType);

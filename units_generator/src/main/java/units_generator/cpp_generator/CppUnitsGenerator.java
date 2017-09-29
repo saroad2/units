@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.logging.Logger;
 
 import units_generator.UnitsGenerator;
+import units_generator.internal.UnitTypeInterface;
 import units_schema.Schema;
 import org.antlr.stringtemplate.StringTemplateGroup;
 import org.antlr.stringtemplate.StringTemplate;
@@ -57,9 +58,9 @@ public class CppUnitsGenerator {
 		headersDirectory.mkdirs();
 		generateTagsHeaderFile(cppSchema, group, headersDirectory);
 		logger.info("Generating header files to " + headersDirectory.toString());
-		for (CppUnitType unitType : cppSchema.getUnitTypes()) {
-			if (!unitType.isTagsOnly()) {
-				generateUnitTypeHeaderFile(group, unitType, headersDirectory);
+		for (UnitTypeInterface unitType : cppSchema.getUnitTypes()) {
+			if (!((CppUnitType)unitType).isTagsOnly()) {
+				generateUnitTypeHeaderFile(group, (CppUnitType)unitType, headersDirectory);
 			}
 		}
 	}
@@ -70,8 +71,8 @@ public class CppUnitsGenerator {
 			File headersDirectory) throws IOException{
 		File tagsDirectory = Paths.get(headersDirectory.toString(), "tags").toFile();
 		tagsDirectory.mkdir();
-		for (CppUnitType unitType : cppSchema.getUnitTypes()) {
-			generateUnitTypeTagsHeaderFile(group, unitType, tagsDirectory);
+		for (UnitTypeInterface unitType : cppSchema.getUnitTypes()) {
+			generateUnitTypeTagsHeaderFile(group, (CppUnitType)unitType, tagsDirectory);
 		}
 	};
 	
@@ -110,8 +111,8 @@ public class CppUnitsGenerator {
 		File cppDirectory = Paths.get(outputDirectory, "units", "cpp", "units", "tags").toFile();
 		cppDirectory.mkdirs();
 		logger.info("Generating source files to " + cppDirectory.toString());
-		for (CppUnitType unitType : cppSchema.getUnitTypes()) {
-			generateUnitTypeSourceFile(group, unitType, cppDirectory);
+		for (UnitTypeInterface unitType : cppSchema.getUnitTypes()) {
+			generateUnitTypeSourceFile(group, (CppUnitType)unitType, cppDirectory);
 		}
 	}
 

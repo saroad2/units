@@ -3,10 +3,11 @@ package units_generator.cpp_generator;
 import java.util.ArrayList;
 
 import units_generator.NamesManipulator;
+import units_generator.internal.UnitScaleInterface;
 import units_schema.UnitScale;
 import units_schema.Multiplyer;
 
-public class CppUnitScale {
+public class CppUnitScale implements UnitScaleInterface{
 	
 	private CppUnitType unitType;
 	private String scale;
@@ -19,6 +20,7 @@ public class CppUnitScale {
 	private String className;
 	private String userDefinedLiteral;
 	
+	@Override
 	public String getScale() {
 		return scale;
 	}
@@ -27,6 +29,7 @@ public class CppUnitScale {
 		return singularName;
 	}
 
+	@Override
 	public String getName() {
 		return name;
 	}

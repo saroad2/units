@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import units_generator.NamesManipulator;
+import units_generator.internal.UnitScaleInterface;
+import units_generator.internal.UnitTypeInterface;
 import units_schema.UnitScale;
 import units_schema.UnitType;
 
-public class CppUnitType {
+public class CppUnitType implements UnitTypeInterface{
 	
 	private String typeName;
 	private String upperCaseName;
@@ -18,7 +20,7 @@ public class CppUnitType {
 	private String code;
 	private String headerIncludeGurad;
 	private String tagsHeaderIncludeGurad;
-	private List<CppUnitScale> unitScales;
+	private List<UnitScaleInterface> unitScales;
 	private String headerFileName;
 	private String tagsHeaderFileName;
 	private String tagsSourceFileName;
@@ -62,7 +64,8 @@ public class CppUnitType {
 		return tagsHeaderIncludeGurad;
 	}
 
-	public List<CppUnitScale> getUnitScales() {
+	@Override
+	public List<UnitScaleInterface> getUnitScales() {
 		return unitScales;
 	}
 	
@@ -124,7 +127,7 @@ public class CppUnitType {
 	}
 
 	private void initializeScales(UnitType unitType) {
-		unitScales = new ArrayList<CppUnitScale>();
+		unitScales = new ArrayList<UnitScaleInterface>();
 		hasMultiplyers = false;
 		for (UnitScale unitScale : unitType.getUnitScales()) {
 			addScale(unitScale);

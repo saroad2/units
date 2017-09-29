@@ -1,16 +1,16 @@
 package com.units;
 
-public class Meters {
+import com.units.internal.NumericValue;
 
-	private final double _value;
-	private static double error = 1e-10;
-	
+public class Meters extends NumericValue{
+
 	public Meters(double value) {
-		this._value = value;
+		super(value);
 	}
-	
-	public double value() {
-		return _value;
+
+	@Override
+	public String pluralName() {
+		return "meters";
 	}
 	
 	public static Meters zero() {
@@ -44,11 +44,6 @@ public class Meters {
 	public boolean equals(Meters other) {
 		if (other == null)
 			return false;
-		return Math.abs(value() - other.value()) < error;
-	}
-	
-	@Override
-	public String toString() {
-		return value() + " meters";
+		return almostEqualsValue(other.value());
 	}
 }

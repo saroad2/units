@@ -25,6 +25,7 @@ public class CppUnitsGenerator {
 			Schema schema,
 			String stringTemplateDirectory,
 			String outputDirectory) throws IOException{
+		logger.info("Generatating cpp files...");
 		CppSchema cppSchema = convertToCppSchema(schema);
 		File cppDirectory = Paths.get(outputDirectory, "cpp").toFile();
 		cppDirectory.mkdir();
@@ -32,6 +33,7 @@ public class CppUnitsGenerator {
 		generateHeaders(cppSchema, group, cppDirectory.toString());
 		generateSources(cppSchema, group, cppDirectory.toString());
 		generateTests(cppSchema, group, cppDirectory.toString());
+		logger.info("Generating cpp files succeded!");
 	}
 
 	private CppSchema convertToCppSchema(Schema schema) {

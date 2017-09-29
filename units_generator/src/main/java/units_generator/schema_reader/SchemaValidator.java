@@ -1,10 +1,11 @@
-package units_generator;
+package units_generator.schema_reader;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import units_generator.NamesManipulator;
 import units_schema.Schema;
 import units_schema.UnitType;
 import units_schema.UnitScale;

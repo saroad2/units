@@ -1,4 +1,4 @@
-package units_generator;
+package units_generator.schema_reader;
 
 import java.util.Arrays;
 

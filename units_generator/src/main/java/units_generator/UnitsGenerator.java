@@ -2,7 +2,6 @@ package units_generator;
 
 import units_schema.Schema;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.io.FileUtils;
 
 import units_generator.cpp_generator.CppSchema;
@@ -10,6 +9,8 @@ import units_generator.cpp_generator.CppUnitType;
 import units_generator.cpp_generator.CppUnitsGenerator;
 
 import units_generator.general_generator.GeneralGenerator;
+import units_generator.schema_reader.InvalidSchemaException;
+import units_generator.schema_reader.SchemaReader;
 
 import java.io.File;
 import java.io.IOException;
@@ -28,13 +29,9 @@ public class UnitsGenerator {
 			String outputDirectory) {
 		try {
 			makeDirectories(outputDirectory);
-			Schema schema = getSchema(jsonFilePath);
-			logger.info("Generatating cpp files...");
+			Schema schema = new SchemaReader().getSchema(jsonFilePath);
 			new CppUnitsGenerator().generate(schema, stringTemplateDirectory, outputDirectory);
-			logger.info("Generating cpp files succeded!");
-			logger.info("Generatating general files...");
 			new GeneralGenerator().generate(schema, stringTemplateDirectory, outputDirectory);
-			logger.info("Generating general files succeded!");
 			return;
 		}
 		catch(IOException e) {
@@ -54,18 +51,6 @@ public class UnitsGenerator {
 		}
 		logger.info("Making new output directory.");
 		outputFile.mkdir();
-	}
-	
-	private Schema getSchema(String jsonFilePath) throws IOException, InvalidSchemaException{
-		logger.info("Reading schema from " + jsonFilePath + "...");
-		ObjectMapper mapper = new ObjectMapper();
-		Schema schema = mapper.readValue(new File(jsonFilePath), Schema.class);
-		logger.info("Reading schema succeded!");
-		logger.info("Validating schema...");
-		SchemaValidator.validateSchema(schema);
-		logger.info("Schema is valid!");
-		logger.fine("Schema content: " + schema.toString());
-		return schema;
 	}
 
     public static void main(String[] args) {  

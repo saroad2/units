@@ -36,7 +36,7 @@ public class NamesManipulator {
 		if (s == null)
 			return false;
 		Pattern namePattern = Pattern.compile("^[ A-Za-z]+$");
-		Matcher matcher = namePattern.matcher("aaaaab");
+		Matcher matcher = namePattern.matcher(s);
 		return matcher.matches();
 	}
 }

@@ -3,6 +3,7 @@ package units_generator;
 import units_schema.Schema;
 
 import org.apache.commons.io.FileUtils;
+import org.antlr.stringtemplate.StringTemplateGroup;
 
 import units_generator.cpp_generator.CppSchema;
 import units_generator.cpp_generator.CppUnitType;
@@ -13,7 +14,11 @@ import units_generator.schema_reader.InvalidSchemaException;
 import units_generator.schema_reader.SchemaReader;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.logging.Logger;
 import java.util.logging.Level;
 import java.util.ArrayList;
@@ -30,7 +35,7 @@ public class UnitsGenerator {
 		try {
 			makeDirectories(outputDirectory);
 			Schema schema = new SchemaReader().getSchema(jsonFilePath);
-			new CppUnitsGenerator().generate(schema, stringTemplateDirectory, outputDirectory);
+			generateCpp(stringTemplateDirectory, schema, outputDirectory);
 			new GeneralGenerator().generate(schema, stringTemplateDirectory, outputDirectory);
 			return;
 		}
@@ -42,6 +47,14 @@ public class UnitsGenerator {
 		}
 		System.exit(1);
     }
+
+	private void generateCpp(String stringTemplateDirectory, Schema schema, String outputDirectory)
+			throws IOException, FileNotFoundException {
+		StringTemplateGroup group = getStringTempateGroup(stringTemplateDirectory,  "units_cpp.stg");
+		CppSchema cppSchema = new CppSchema(schema);
+		Path cppOutputDirectory = Paths.get(outputDirectory, "cpp");
+		new CppUnitsGenerator(group).generate(cppSchema, cppOutputDirectory);
+	}
 	
 	private void makeDirectories(String outputDirectory) throws IOException{
 		File outputFile = new File(outputDirectory);
@@ -51,6 +64,13 @@ public class UnitsGenerator {
 		}
 		logger.info("Making new output directory.");
 		outputFile.mkdir();
+	}
+	
+	private StringTemplateGroup getStringTempateGroup(
+			String stringTemplateDirectory,
+			String groupFileName) throws FileNotFoundException {
+		File groupFile = Paths.get(stringTemplateDirectory, groupFileName).toFile();
+		return new StringTemplateGroup(new FileReader(groupFile));
 	}
 
     public static void main(String[] args) {  

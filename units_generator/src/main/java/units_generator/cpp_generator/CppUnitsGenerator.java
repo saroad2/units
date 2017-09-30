@@ -2,146 +2,159 @@ package units_generator.cpp_generator;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Logger;
+
+import org.antlr.stringtemplate.StringTemplateGroup;
+import org.antlr.stringtemplate.StringTemplate;
 
 import units_generator.UnitsGenerator;
 import units_generator.internal.UnitTypeInterface;
-import units_schema.Schema;
-import org.antlr.stringtemplate.StringTemplateGroup;
-import org.antlr.stringtemplate.StringTemplate;
 
 public class CppUnitsGenerator {	
 	
 	private final static Logger logger =
 			Logger.getLogger(CppUnitsGenerator.class.getName());
+	private final static String root = "root";
+	private final static String headers = "headers";
+	private final static String tags = "tags";
+	private final static String source = "source";
+	private final static String tests = "tests";
+	
+	private StringTemplateGroup group;
+	
+	public CppUnitsGenerator(StringTemplateGroup group) {
+		this.group = group;
+	}
 
 	public void generate(
-			Schema schema,
-			String stringTemplateDirectory,
-			String outputDirectory) throws IOException{
+			CppSchema cppSchema,
+			Path outputDirectory) throws IOException{
 		logger.info("Generatating cpp files...");
-		CppSchema cppSchema = convertToCppSchema(schema);
-		File cppDirectory = Paths.get(outputDirectory, "cpp").toFile();
-		cppDirectory.mkdir();
-		StringTemplateGroup group = getStringTempateGroup(stringTemplateDirectory);
-		generateHeaders(cppSchema, group, cppDirectory.toString());
-		generateSources(cppSchema, group, cppDirectory.toString());
-		generateTests(cppSchema, group, cppDirectory.toString());
+		Map<String, Path> directoriesMap = getDirectoriesMap(outputDirectory);
+		generateHeaders(cppSchema, directoriesMap);
+		generateSources(cppSchema, directoriesMap);
+		generateTests(cppSchema, directoriesMap);
 		logger.info("Generating cpp files succeded!");
 	}
-
-	private CppSchema convertToCppSchema(Schema schema) {
-		logger.info("Convert to CPP schema...");
-		CppSchema cppSchema = new CppSchema(schema);
-		logger.info("Convert to CPP schema succeeded!");
-		return cppSchema;
+	
+	public Map<String, Path> getDirectoriesMap(Path rootDirectory) throws IOException{
+		Map<String, Path> directoriesMap = new HashMap<>();
+		addToDirectoriesMap(directoriesMap, root, rootDirectory);
+		Path headersDirectory = Paths.get(rootDirectory.toString(), "units", "headers", "units");
+		addToDirectoriesMap(directoriesMap, headers, headersDirectory);
+		addToDirectoriesMap(directoriesMap, tags, Paths.get(headersDirectory.toString(), "tags"));
+		addToDirectoriesMap(
+				directoriesMap,
+				source,
+				Paths.get(rootDirectory.toString(), "units", "cpp", "units", "tags"));
+		addToDirectoriesMap(
+				directoriesMap,
+				tests,
+				Paths.get(rootDirectory.toString(), "unitsTest", "headers"));
+		return directoriesMap;
 	}
 	
-	private StringTemplateGroup getStringTempateGroup(
-			String stringTemplateDirectory) throws FileNotFoundException {
-		File groupFile = Paths.get(stringTemplateDirectory, "units_cpp.stg").toFile();
-		return new StringTemplateGroup(new FileReader(groupFile));
+	public void addToDirectoriesMap(
+			Map<String, Path> directoriesMap,
+			String key,
+			Path directoryPath) throws IOException {
+		directoryPath.toFile().mkdirs();
+		directoriesMap.put(key, directoryPath);
 	}
 
 	private void generateHeaders(
 			CppSchema cppSchema,
-			StringTemplateGroup group,
-			String outputDirectory) throws IOException {
-		File headersDirectory = Paths.get(outputDirectory, "units", "headers", "units").toFile();
-		headersDirectory.mkdirs();
-		generateTagsHeaderFile(cppSchema, group, headersDirectory);
-		logger.info("Generating header files to " + headersDirectory.toString());
+			Map<String, Path> directoriesMap) throws IOException {
+		generateTagsHeaderFile(cppSchema, directoriesMap);
+		Path headersDirectory = directoriesMap.get(headers);
+		logger.info("Generating header files to " + headersDirectory);
 		for (UnitTypeInterface unitType : cppSchema.getUnitTypes()) {
 			if (!((CppUnitType)unitType).isTagsOnly()) {
-				generateUnitTypeHeaderFile(group, (CppUnitType)unitType, headersDirectory);
+				generateUnitTypeHeaderFile((CppUnitType)unitType, headersDirectory);
 			}
 		}
 	}
 
 	void generateTagsHeaderFile(
 			CppSchema cppSchema,
-			StringTemplateGroup group,
-			File headersDirectory) throws IOException{
-		File tagsDirectory = Paths.get(headersDirectory.toString(), "tags").toFile();
-		tagsDirectory.mkdir();
+			Map<String, Path> directoriesMap) throws IOException{
+		Path tagsDirectory = directoriesMap.get(tags);
 		for (UnitTypeInterface unitType : cppSchema.getUnitTypes()) {
-			generateUnitTypeTagsHeaderFile(group, (CppUnitType)unitType, tagsDirectory);
+			generateUnitTypeTagsHeaderFile((CppUnitType)unitType, tagsDirectory);
 		}
 	};
 	
 	private void generateUnitTypeTagsHeaderFile(
-			StringTemplateGroup group,
 			CppUnitType unitType,
-			File tagsDirectory) throws IOException {
-		StringTemplate st = group.getInstanceOf("tags_header");
-		Path outputPath =
-				Paths.get(tagsDirectory.getPath(),
-						  unitType.getTagsHeaderFileName());
-		st.setAttribute("unitType", unitType);
-		ArrayList<String> lines = new ArrayList<String>();
-		lines.add(st.toString());
-		Files.write(outputPath, lines, Charset.forName("utf-8"));
+			Path tagsDirectory) throws IOException {
+		Path outputPath = Paths.get(tagsDirectory.toString(), unitType.getTagsHeaderFileName());
+		logger.info("Generating " + unitType.getTypeName() + " tags header file to " + outputPath.toString());
+		writeStringTemplate("tags_header", "unitType", unitType, outputPath);
 	}
 	
 	private void generateUnitTypeHeaderFile(
-			StringTemplateGroup group,
 			CppUnitType unitType,
-			File headersDirectory) throws IOException {
-		StringTemplate st = group.getInstanceOf("unit_type_header");
-		Path outputPath =
-				Paths.get(headersDirectory.getPath(),
-						  unitType.getHeaderFileName());
-		st.setAttribute("unitType", unitType);
-		ArrayList<String> lines = new ArrayList<String>();
-		lines.add(st.toString());
-		Files.write(outputPath, lines, Charset.forName("utf-8"));
+			Path headersDirectory) throws IOException {
+		Path outputPath = Paths.get(headersDirectory.toString(), unitType.getHeaderFileName());
+		logger.info("Generating " + unitType.getTypeName() + " header file to " + outputPath.toString());
+		writeStringTemplate("unit_type_header", "unitType", unitType, outputPath);
+
 	}
 
 	private void generateSources(
 			CppSchema cppSchema,
-			StringTemplateGroup group,
-			String outputDirectory) throws IOException {
-		File cppDirectory = Paths.get(outputDirectory, "units", "cpp", "units", "tags").toFile();
-		cppDirectory.mkdirs();
-		logger.info("Generating source files to " + cppDirectory.toString());
+			Map<String, Path> directoriesMap) throws IOException {
+		Path sourceDirectoryPath = directoriesMap.get(source);
+		logger.info("Generating source files to " + sourceDirectoryPath);
 		for (UnitTypeInterface unitType : cppSchema.getUnitTypes()) {
-			generateUnitTypeSourceFile(group, (CppUnitType)unitType, cppDirectory);
+			generateUnitTypeSourceFile((CppUnitType)unitType, sourceDirectoryPath);
 		}
 	}
 
 	private void generateUnitTypeSourceFile(
-			StringTemplateGroup group,
 			CppUnitType unitType,
-			File headersDirectory) throws IOException {
-		StringTemplate st = group.getInstanceOf("tags_src");
-		Path outputPath =
-				Paths.get(headersDirectory.getPath(),
-						  unitType.getTagsSourceFileName());
-		st.setAttribute("unitType", unitType);
-		ArrayList<String> lines = new ArrayList<String>();
-		lines.add(st.toString());
-		Files.write(outputPath, lines, Charset.forName("utf-8"));
+			Path sourceFilesDirectory) throws IOException {
+		Path outputPath = Paths.get(sourceFilesDirectory.toString(), unitType.getTagsSourceFileName());
+		logger.info("Generating " + unitType.getTypeName() + " source file to " + outputPath.toString());
+		writeStringTemplate("tags_src", "unitType", unitType, outputPath);
 	}
 
 	private void generateTests(
 			CppSchema cppSchema,
-			StringTemplateGroup group,
-			String outputDirectory) throws IOException {
-		File testsHeadersDirectory = Paths.get(outputDirectory, "unitsTest", "headers").toFile();
-		testsHeadersDirectory.mkdirs();
-		logger.info("Generating test header files to " + testsHeadersDirectory.toString());
-		StringTemplate st = group.getInstanceOf("all_units");
-		Path outputPath = Paths.get(testsHeadersDirectory.getPath(), "all_units.h");
-		st.setAttribute("schema", cppSchema);
-		ArrayList<String> lines = new ArrayList<String>();
-		lines.add(st.toString());
-		Files.write(outputPath, lines, Charset.forName("utf-8"));
+			Map<String, Path> directoriesMap) throws IOException {
+		Path outputPath = Paths.get(directoriesMap.get(tests).toString(), "all_units.h");
+		logger.info("Generating test header files to " + outputPath.toString());
+		writeStringTemplate("all_units", "schema", cppSchema, outputPath);
+	}
+	
+	private void writeStringTemplate(
+			String stringTemplateName,
+			String attributeName,
+			Object obj,
+			Path outputPath) throws IOException {
+		StringTemplate st = group.getInstanceOf(stringTemplateName);
+		st.setAttribute(attributeName, obj);
+		writeToFile(st.toString(), outputPath);
+	}
+	
+	private void writeToFile(String lines, Path outputPath) throws IOException{
+		OutputStreamWriter stream = new OutputStreamWriter(
+				new FileOutputStream(outputPath.toString()),
+				StandardCharsets.UTF_8);
+		stream.write(lines);
+		stream.flush();
+		stream.close();
 	}
 }

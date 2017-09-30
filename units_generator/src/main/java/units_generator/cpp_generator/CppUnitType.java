@@ -28,6 +28,7 @@ public class CppUnitType implements UnitTypeInterface{
 
 	private boolean hasMultiplyers;
 
+	@Override
 	public String getTypeName() {
 		return typeName;
 	}

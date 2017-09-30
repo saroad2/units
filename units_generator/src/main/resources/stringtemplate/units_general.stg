@@ -17,7 +17,7 @@ supported_unit_scale(unitScale) ::= <<
 supported_unit_type(unitType) ::= <<
 \<tr\>
 	\<td rowspan=<unitType.numberOfScales> style="text-align:center; vertical-align:middle;font-weight:bold"\>
-		<unitType.name>
+		<unitType.typeName>
 	\</td\>
 	\<td\>
 		<first(unitType.unitScales).name>

@@ -10,6 +10,7 @@ import units_generator.cpp_generator.CppUnitType;
 import units_generator.cpp_generator.CppUnitsGenerator;
 
 import units_generator.general_generator.GeneralGenerator;
+import units_generator.general_generator.GeneralSchema;
 import units_generator.schema_reader.InvalidSchemaException;
 import units_generator.schema_reader.SchemaReader;
 
@@ -36,7 +37,7 @@ public class UnitsGenerator {
 			makeDirectories(outputDirectory);
 			Schema schema = new SchemaReader().getSchema(jsonFilePath);
 			generateCpp(stringTemplateDirectory, schema, outputDirectory);
-			new GeneralGenerator().generate(schema, stringTemplateDirectory, outputDirectory);
+			generateGeneralFiles(stringTemplateDirectory, schema, outputDirectory);
 			return;
 		}
 		catch(IOException e) {
@@ -54,6 +55,14 @@ public class UnitsGenerator {
 		CppSchema cppSchema = new CppSchema(schema);
 		Path cppOutputDirectory = Paths.get(outputDirectory, "cpp");
 		new CppUnitsGenerator(group).generate(cppSchema, cppOutputDirectory);
+	}
+	
+	private void generateGeneralFiles(String stringTemplateDirectory, Schema schema, String outputDirectory)
+			throws IOException {
+		StringTemplateGroup group = getStringTempateGroup(stringTemplateDirectory,  "units_general.stg");
+		GeneralSchema generalSchema = new GeneralSchema(schema);
+		Path outputPath = Paths.get(outputDirectory);
+		new GeneralGenerator(group).generate(generalSchema, outputPath);
 	}
 	
 	private void makeDirectories(String outputDirectory) throws IOException{

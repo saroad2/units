@@ -80,10 +80,26 @@ public class JavaUnitsGenerator extends LanguageUnitsGenerator {
 			UnitScaleInterface unitScale,
 			Map<String, Path> directoriesMap) throws IOException {
 		JavaUnitScale javaUnitScale = (JavaUnitScale)unitScale; 
+		generateUnitScaleClass(directoriesMap, javaUnitScale);
+		generateUnitScaleClassTests(directoriesMap, javaUnitScale);
+	}
+
+	private void generateUnitScaleClass(
+			Map<String, Path> directoriesMap,
+			JavaUnitScale javaUnitScale) throws IOException {
 		Path outputPath = Paths.get(
 				directoriesMap.get(unitTypePackageKey(javaUnitScale.getUnitType())).toString(),
 				javaUnitScale.getClassName() + ".java");
 		writeStringTemplate("unit_scale_class", "unitScale", javaUnitScale, outputPath);
+	}
+
+	private void generateUnitScaleClassTests(
+			Map<String, Path> directoriesMap,
+			JavaUnitScale javaUnitScale) throws IOException {
+		Path outputPath = Paths.get(
+				directoriesMap.get(unitTypeTestsPackageKey(javaUnitScale.getUnitType())).toString(),
+				javaUnitScale.getClassName() + "Tests.java");
+		writeStringTemplate("unit_scale_class_tests", "unitScale", javaUnitScale, outputPath);
 	}
 
 }

@@ -1,16 +1,16 @@
 /* This file is auto generated.
  * DO NOT EDIT IT MANUALY!
  */
-package com.units.tests.length;
+package com.units.tests.electric_current;
 
 import org.junit.Test;
 
-import com.units.length.Meters;
+import com.units.electric_current.Amperes;
 
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
 
-public class MetersTests {
+public class AmperesTests {
 
 	public void assertSameValue(double value1, double value2) {
 		assertTrue("unit value is " + value1 + " instead of " + value2, value1 == value2);
@@ -19,18 +19,18 @@ public class MetersTests {
 	@Test
 	public void testConstructor() {
 		double actualValue = 3.1;
-		assertSameValue(new Meters(actualValue).value(), actualValue);
+		assertSameValue(new Amperes(actualValue).value(), actualValue);
 	}
 
 	@Test
 	public void testZero() {
-		Meters zero = Meters.zero();
+		Amperes zero = Amperes.zero();
 		assertSameValue(zero.value(), 0);
 	}
 
 	@Test
 	public void testOne() {
-		Meters one = Meters.one();
+		Amperes one = Amperes.one();
 		assertSameValue(one.value(), 1);
 	}
 
@@ -38,13 +38,13 @@ public class MetersTests {
 	public void testEqualsSuccess() {
 		double actualValue = 3.1;
 		assertTrue("two units are not equal, even though thet have the same value",
-				new Meters(actualValue).equals(new Meters(actualValue)));
+				new Amperes(actualValue).equals(new Amperes(actualValue)));
 	}
 
 	@Test
 	public void testEqualsNullFails() {
 		double actualValue = 3.1;
-		assertFalse("two units are equal, even though one of the is null", new Meters(actualValue).equals(null));
+		assertFalse("two units are equal, even though one of the is null", new Amperes(actualValue).equals(null));
 	}
 
 	@Test
@@ -52,7 +52,7 @@ public class MetersTests {
 		double value1 = 3.1;
 		double value2 = 3.0;
 		assertFalse("two units are equal, even though thet have the different values",
-				new Meters(value1).equals(new Meters(value2)));
+				new Amperes(value1).equals(new Amperes(value2)));
 	}
 
 	@Test
@@ -61,9 +61,9 @@ public class MetersTests {
 		double value2 = 2.6;
 		double resultValue = 5.7;
 
-		Meters unit1 = new Meters(value1);
-		Meters unit2 = new Meters(value2);
-		Meters result = unit1.plus(unit2);
+		Amperes unit1 = new Amperes(value1);
+		Amperes unit2 = new Amperes(value2);
+		Amperes result = unit1.plus(unit2);
 
 		assertSameValue(unit1.value(), value1);
 		assertSameValue(unit2.value(), value2);
@@ -76,9 +76,9 @@ public class MetersTests {
 		double value2 = 2.6;
 		double resultValue = 0.5;
 
-		Meters unit1 = new Meters(value1);
-		Meters unit2 = new Meters(value2);
-		Meters result = unit1.minus(unit2);
+		Amperes unit1 = new Amperes(value1);
+		Amperes unit2 = new Amperes(value2);
+		Amperes result = unit1.minus(unit2);
 
 		assertSameValue(unit1.value(), value1);
 		assertSameValue(unit2.value(), value2);
@@ -89,8 +89,8 @@ public class MetersTests {
 	public void testopposite() {
 		double value = 3.1;
 
-		Meters unit = new Meters(value);
-		Meters result = unit.opposite();
+		Amperes unit = new Amperes(value);
+		Amperes result = unit.opposite();
 
 		assertSameValue(unit.value(), value);
 		assertSameValue(result.value(), -value);
@@ -102,8 +102,8 @@ public class MetersTests {
 		double scalar = 5;
 		double resultValue = 15.5;
 
-		Meters unit = new Meters(value);
-		Meters result = unit.multiplyByScalar(scalar);
+		Amperes unit = new Amperes(value);
+		Amperes result = unit.multiplyByScalar(scalar);
 
 		assertSameValue(unit.value(), value);
 		assertSameValue(result.value(), resultValue);
@@ -115,8 +115,8 @@ public class MetersTests {
 		double scalar = 5;
 		double resultValue = 0.62;
 
-		Meters unit = new Meters(value);
-		Meters result = unit.divideByScalar(scalar);
+		Amperes unit = new Amperes(value);
+		Amperes result = unit.divideByScalar(scalar);
 
 		assertSameValue(unit.value(), value);
 		assertSameValue(result.value(), resultValue);
@@ -125,9 +125,9 @@ public class MetersTests {
 	@Test
 	public void testToString() {
 		double value = 3.1;
-		String stringValue = "3.1 meters";
+		String stringValue = "3.1 amperes";
 
-		Meters unit = new Meters(value);
+		Amperes unit = new Amperes(value);
 		assertTrue("string value is \"" + unit.toString() + "\" instead of \"" + stringValue + "\"",
 				unit.toString().equals(stringValue));
 	}

@@ -29,10 +29,12 @@ public class GeneralGenerator extends LanguageUnitsGenerator{
 	private final static String root = "root";
 
 	public GeneralGenerator(StringTemplateGroup group) {
-		super(group);
+		super(GeneralGenerator.class.getSimpleName(), group);
 	}
 	@Override
-	public Map<String, Path> getDirectoriesMap(Path rootDirectory) throws IOException {
+	public Map<String, Path> getDirectoriesMap(
+			UnitsSchemaInterface schema, 
+			Path rootDirectory) throws IOException {
 		Map<String, Path> directoriesMap = new HashMap<>();
 		addToDirectoriesMap(directoriesMap, root, rootDirectory);
 		return directoriesMap;

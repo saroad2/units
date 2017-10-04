@@ -17,17 +17,16 @@ import java.util.logging.Logger;
 
 public abstract class LanguageUnitsGenerator {
 
-	private static final Logger logger = 
-			Logger.getLogger(LanguageUnitsGenerator.class.getName());
-
-			private StringTemplateGroup group;
+	private Logger logger;
+	private StringTemplateGroup group;
 	
-	public LanguageUnitsGenerator(StringTemplateGroup group) {
+	public LanguageUnitsGenerator(String name, StringTemplateGroup group) {
+		this.logger = Logger.getLogger(name);
 		this.group = group;
 	}
 
 	protected abstract Map<String, Path> getDirectoriesMap(
-			Path outputDirectory) throws IOException;
+			UnitsSchemaInterface schema, Path rootDirectory) throws IOException;
 	protected abstract void generateSchemaFiles(
 			UnitsSchemaInterface schema,
 			Map<String, Path> directoriesMap) throws IOException;
@@ -40,9 +39,9 @@ public abstract class LanguageUnitsGenerator {
 	
 	public void generate(
 			UnitsSchemaInterface schema,
-			Path outputDirectory) throws IOException{
+			Path rootDirectory) throws IOException{
 		logger.info("Generatating files...");
-		Map<String, Path> directoriesMap = getDirectoriesMap(outputDirectory);
+		Map<String, Path> directoriesMap = getDirectoriesMap(schema, rootDirectory);
 		generateSchemaFiles(schema, directoriesMap);
 		for (UnitTypeInterface unitType : schema.getUnitTypes()) {
 			generateUnitTypeFiles(unitType, directoriesMap);

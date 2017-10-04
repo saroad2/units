@@ -15,6 +15,19 @@ task copyGeneratedCpp(type: Copy) {
     description = "Copy c++ generated files into units_cpp project"
 }
 
+task copyGeneratedJava(type: Copy) {
+	doLast {
+		println "Copied java files"
+	}
+	
+    from 'units_generator/generated/java/'
+    into 'units_java/src/'
+    include '**/*.java'
+    exclude { details -> details.file.name.endsWith('.swp')}
+    group generationGroup
+    description = "Copy java generated files into units_java project"
+}
+
 task copyGeneratedSupportedUnits(type: Copy) {
 	doLast {
 		println "Copied general files"
@@ -30,6 +43,7 @@ task generate {
 	doFirst {
 		rootProject.project('units_generator').run.execute()
 		copyGeneratedCpp.execute()
+		copyGeneratedJava.execute()
 		copyGeneratedSupportedUnits.execute()
 	}
 	

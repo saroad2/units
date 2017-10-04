@@ -6,11 +6,15 @@ import org.apache.commons.io.FileUtils;
 import org.antlr.stringtemplate.StringTemplateGroup;
 
 import units_generator.cpp_generator.CppSchema;
-import units_generator.cpp_generator.CppUnitType;
 import units_generator.cpp_generator.CppUnitsGenerator;
 
 import units_generator.general_generator.GeneralGenerator;
 import units_generator.general_generator.GeneralSchema;
+
+import units_generator.java_generator.JavaUnitsGenerator;
+import units_generator.java_generator.JavaUnitsSchema;
+
+import units_generator.java_generator.JavaUnitsSchema;
 import units_generator.schema_reader.InvalidSchemaException;
 import units_generator.schema_reader.SchemaReader;
 
@@ -37,6 +41,7 @@ public class UnitsGenerator {
 			makeDirectories(outputDirectory);
 			Schema schema = new SchemaReader().getSchema(jsonFilePath);
 			generateCpp(stringTemplateDirectory, schema, outputDirectory);
+			generateJava(stringTemplateDirectory, schema, outputDirectory);
 			generateGeneralFiles(stringTemplateDirectory, schema, outputDirectory);
 			return;
 		}
@@ -55,6 +60,14 @@ public class UnitsGenerator {
 		CppSchema cppSchema = new CppSchema(schema);
 		Path cppOutputDirectory = Paths.get(outputDirectory, "cpp");
 		new CppUnitsGenerator(group).generate(cppSchema, cppOutputDirectory);
+	}
+	
+	private void generateJava(String stringTemplateDirectory, Schema schema, String outputDirectory)
+			throws IOException, FileNotFoundException {
+		StringTemplateGroup group = getStringTempateGroup(stringTemplateDirectory,  "units_java.stg");
+		JavaUnitsSchema javaSchema = new JavaUnitsSchema(schema);
+		Path javaOutputDirectory = Paths.get(outputDirectory, "java");
+		new JavaUnitsGenerator(group).generate(javaSchema, javaOutputDirectory);
 	}
 	
 	private void generateGeneralFiles(String stringTemplateDirectory, Schema schema, String outputDirectory)

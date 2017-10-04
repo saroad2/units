@@ -1,9 +1,9 @@
 /* This file is auto generated.
  * DO NOT EDIT IT MANUALY!
  */
-package com.units.length;
+package com.units.electric_current;
 
-public interface Length {
+public interface ElectricCurrent {
 	
 	public double value();
 	public double scale();

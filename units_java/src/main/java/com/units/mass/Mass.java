@@ -1,9 +1,9 @@
 /* This file is auto generated.
  * DO NOT EDIT IT MANUALY!
  */
-package com.units.length;
+package com.units.mass;
 
-public interface Length {
+public interface Mass {
 	
 	public double value();
 	public double scale();

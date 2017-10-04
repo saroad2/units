@@ -1,0 +1,18 @@
+group units;
+
+declaration() ::= <<
+/* This file is auto generated.
+ * DO NOT EDIT IT MANUALY!
+ */
+>>
+
+unit_type_interface(unitType) ::= <<
+<declaration()>
+package com.units.<unitType.packageName>;
+
+public interface <unitType.className> {
+	
+	public double value();
+	public double scale();
+}
+>>

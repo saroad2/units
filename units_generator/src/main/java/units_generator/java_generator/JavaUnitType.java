@@ -24,7 +24,7 @@ public class JavaUnitType implements UnitTypeInterface {
 		unitScales = new ArrayList<>();
 		for (UnitScale unitScale : unitType.getUnitScales()) {
 			if (JavaSupportChecker.isSupported(unitScale)) {
-				unitScales.add(new JavaUnitScale(unitScale));
+				unitScales.add(new JavaUnitScale(this, unitScale));
 			}
 		}
 	}

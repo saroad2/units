@@ -16,3 +16,67 @@ public interface <unitType.className> {
 	public double scale();
 }
 >>
+
+unit_scale_class(unitScale) ::= <<
+<declaration()>
+package com.units.<unitScale.packageName>;
+
+import com.units.internal.NumericValue;
+
+public class <unitScale.className> extends NumericValue implements <unitScale.typeInterfaceName>{
+
+	public static final double _scale = 1;
+	
+	public <unitScale.className>(double value) {
+		super(value);
+	}
+
+	@Override
+	public String pluralName() {
+		return "<unitScale.pluralName>";
+	}
+	
+	@Override
+	public double scale() {
+		return _scale;
+	}
+	
+	public static <unitScale.className> zero() {
+		return new <unitScale.className>(0);
+	}
+	
+	public static <unitScale.className> one() {
+		return new <unitScale.className>(1);
+	}
+	
+	public <unitScale.className> plus(<unitScale.className> other) {
+		return new <unitScale.className>(value() + other.value());
+	}
+	
+	public <unitScale.className> minus(<unitScale.className> other) {
+		return new <unitScale.className>(value() - other.value());
+	}
+	
+	public <unitScale.className> opposite() {
+		return new <unitScale.className>(-value());
+	}
+
+	public <unitScale.className> multiplyByScalar(double scalar) {
+		return new <unitScale.className>(scalar * value());
+	}
+	
+	public <unitScale.className> divideByScalar(double scalar) {
+		return new <unitScale.className>(value() / scalar);
+	}
+	
+	public boolean equals(<unitScale.className> other) {
+		if (other == null)
+			return false;
+		return almostEqualsValue(other.value());
+	}
+	
+	public static <unitScale.className> castFrom(<unitScale.typeInterfaceName> other) {
+		return new <unitScale.className>(other.value() * other.scale() / _scale);
+	}
+}
+>>

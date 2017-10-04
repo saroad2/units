@@ -79,6 +79,11 @@ public class JavaUnitsGenerator extends LanguageUnitsGenerator {
 	protected void generateUnitScaleFiles(
 			UnitScaleInterface unitScale,
 			Map<String, Path> directoriesMap) throws IOException {
+		JavaUnitScale javaUnitScale = (JavaUnitScale)unitScale; 
+		Path outputPath = Paths.get(
+				directoriesMap.get(unitTypePackageKey(javaUnitScale.getUnitType())).toString(),
+				javaUnitScale.getClassName() + ".java");
+		writeStringTemplate("unit_scale_class", "unitScale", javaUnitScale, outputPath);
 	}
 
 }

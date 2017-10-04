@@ -6,17 +6,47 @@ import units_schema.UnitScale;
 
 public class JavaUnitScale implements UnitScaleInterface {
 
+	private JavaUnitType unitType;
+	private String packageName;
 	private String name;
+	private String className;
+	private String pluralName;
+	private String typeInterfaceName;
 	private String scale;
 	
-	public JavaUnitScale(UnitScale unitScale) {
-		name = NamesManipulator.getName(unitScale);
-		scale = "1";
+	public JavaUnitScale(JavaUnitType unitType, UnitScale unitScale) {
+		this.unitType = unitType;
+		this.packageName = unitType.getPackageName();
+		this.name = NamesManipulator.getName(unitScale);
+		this.className = JavaNamesFormatter.formatClassname(name);
+		this.pluralName = unitScale.getPluralName();
+		this.typeInterfaceName = unitType.getClassName();
+		this.scale = "1";
 	}
 	
+	public JavaUnitType getUnitType() {
+		return unitType;
+	}
+
+	public String getPackageName() {
+		return packageName;
+	}
+
 	@Override
 	public String getName() {
 		return name;
+	}
+
+	public String getClassName() {
+		return className;
+	}
+
+	public String getPluralName() {
+		return pluralName;
+	}
+
+	public String getTypeInterfaceName() {
+		return typeInterfaceName;
 	}
 
 	@Override

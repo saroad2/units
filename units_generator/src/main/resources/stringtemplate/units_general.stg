@@ -8,6 +8,7 @@ DO NOT EDIT IT MANUALY!
 
 supported_unit_scale(unitScale) ::= <<
 \<td\><unitScale.name>\</td\>
+\<td\><unitScale.scale>\</td\>
 \<td\><if(unitScale.isCppSupported)>V<else>X<endif>\</td\>
 \<td\><if(unitScale.isJavaSupported)>V<else>X<endif>\</td\>
 >>
@@ -38,10 +39,13 @@ Those are the supported units in the *units* library:
 			Unit Scale
 		\</th\>
 		\<th\>
-			Is C++ supported?
+			Scale Definition
 		\</th\>
 		\<th\>
-			Is Java supported?
+			Is C++ Supported?
+		\</th\>
+		\<th\>
+			Is Java Supported?
 		\</th\>
 	\</tr\>
 	<schema.unitTypes:supported_unit_type()>

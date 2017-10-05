@@ -13,20 +13,22 @@ import units_generator.java_generator.JavaSupportChecker;
 public class GeneralUnitScale implements UnitScaleInterface {
 
 	private String name;
+	private String scale;
 	private boolean isCppSupported;
 	private boolean isJavaSupported;
 	
 	private static CppSupportChecker cppSupportChecker = new CppSupportChecker();
 	private static JavaSupportChecker javaSupportChecker = new JavaSupportChecker();
 	
-	public GeneralUnitScale(UnitType unitType, UnitScale scale) {
-		name = NamesManipulator.getName(scale);
+	public GeneralUnitScale(UnitType unitType, UnitScale unitScale) {
+		name = NamesManipulator.getName(unitScale);
+		scale = GeneralScaleCalculator.calculateScale(unitScale);
 		isCppSupported =
 				cppSupportChecker.isSupported(unitType) &&
-				cppSupportChecker.isSupported(scale);
+				cppSupportChecker.isSupported(unitScale);
 		isJavaSupported =
 				javaSupportChecker.isSupported(unitType) &&
-				javaSupportChecker.isSupported(scale);
+				javaSupportChecker.isSupported(unitScale);
 	}
 	
 	@Override
@@ -36,7 +38,7 @@ public class GeneralUnitScale implements UnitScaleInterface {
 
 	@Override
 	public String getScale() {
-		return null;
+		return scale;
 	}
 
 	public boolean getIsCppSupported() {

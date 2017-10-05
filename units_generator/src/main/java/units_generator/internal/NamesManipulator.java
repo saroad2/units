@@ -1,4 +1,4 @@
-package units_generator;
+package units_generator.internal;
 
 import units_schema.UnitType;
 

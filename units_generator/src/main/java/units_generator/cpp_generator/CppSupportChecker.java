@@ -1,18 +1,16 @@
-package units_generator.java_generator;
+package units_generator.cpp_generator;
 
 import units_generator.internal.LanguageSupportChecker;
 import units_schema.UnitScale;
 import units_schema.UnitType;
 
-public class JavaSupportChecker implements LanguageSupportChecker{
+public class CppSupportChecker implements LanguageSupportChecker{
 
-	@Override
 	public boolean isSupported(UnitScale unitScale) { 
-		return unitScale.getIsBasic();
+		return true;
 	}
 	
-	@Override
 	public boolean isSupported(UnitType unitType) { 
-		return unitType.getRatio() == null;
+		return true;
 	}
 }

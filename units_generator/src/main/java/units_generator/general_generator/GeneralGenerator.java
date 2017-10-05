@@ -15,7 +15,7 @@ import java.util.logging.Logger;
 
 import org.antlr.stringtemplate.StringTemplateGroup;
 
-import units_generator.LanguageUnitsGenerator;
+import units_generator.internal.LanguageUnitsGenerator;
 import units_generator.internal.UnitScaleInterface;
 import units_generator.internal.UnitTypeInterface;
 import units_generator.internal.UnitsSchemaInterface;

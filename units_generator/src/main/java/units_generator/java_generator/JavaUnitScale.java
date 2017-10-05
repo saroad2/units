@@ -1,6 +1,6 @@
 package units_generator.java_generator;
 
-import units_generator.NamesManipulator;
+import units_generator.internal.NamesManipulator;
 import units_generator.internal.UnitScaleInterface;
 import units_schema.UnitScale;
 

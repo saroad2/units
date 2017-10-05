@@ -1,11 +1,7 @@
-package units_generator;
+package units_generator.internal;
 
 import org.antlr.stringtemplate.StringTemplateGroup;
 import org.antlr.stringtemplate.StringTemplate;
-
-import units_generator.internal.UnitScaleInterface;
-import units_generator.internal.UnitTypeInterface;
-import units_generator.internal.UnitsSchemaInterface;
 
 import java.io.FileOutputStream;
 import java.io.IOException;

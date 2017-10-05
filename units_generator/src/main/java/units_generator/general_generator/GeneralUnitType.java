@@ -5,8 +5,7 @@ import java.util.List;
 
 import units_schema.UnitType;
 import units_schema.UnitScale;
-
-import units_generator.NamesManipulator;
+import units_generator.internal.NamesManipulator;
 import units_generator.internal.UnitScaleInterface;
 import units_generator.internal.UnitTypeInterface;
 
@@ -20,7 +19,7 @@ public class GeneralUnitType implements UnitTypeInterface {
 		name = NamesManipulator.getName(unitType);
 		unitScales = new ArrayList<UnitScaleInterface>();
 		for (UnitScale scale : unitType.getUnitScales())
-			unitScales.add(new GeneralUnitScale(scale));
+			unitScales.add(new GeneralUnitScale(unitType, scale));
 		numberOfScales = unitScales.size();
 	}
 	

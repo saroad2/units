@@ -13,10 +13,12 @@ public class JavaUnitsSchema implements UnitsSchemaInterface {
 
 	private List<UnitTypeInterface> unitTypes;
 	
+	private static JavaSupportChecker supportChecker = new JavaSupportChecker();
+	
 	public JavaUnitsSchema(Schema schema) {
 		unitTypes = new ArrayList<>();
 		for (UnitType unitType : schema.getUnitTypes()) {
-			if (JavaSupportChecker.isSupported(unitType)) {
+			if (supportChecker.isSupported(unitType)) {
 				unitTypes.add(new JavaUnitType(unitType));
 			}
 		}

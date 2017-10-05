@@ -7,11 +7,9 @@ DO NOT EDIT IT MANUALY!
 >>
 
 supported_unit_scale(unitScale) ::= <<
-\<tr\>
-	\<td\>
-		<unitScale.name>
-	\</td\>
-\</tr\><\n>
+\<td\><unitScale.name>\</td\>
+\<td\><if(unitScale.isCppSupported)>V<else>X<endif>\</td\>
+\<td\><if(unitScale.isJavaSupported)>V<else>X<endif>\</td\>
 >>
 
 supported_unit_type(unitType) ::= <<
@@ -19,11 +17,9 @@ supported_unit_type(unitType) ::= <<
 	\<td rowspan=<unitType.numberOfScales> style="text-align:center; vertical-align:middle;font-weight:bold"\>
 		<unitType.typeName>
 	\</td\>
-	\<td\>
-		<first(unitType.unitScales).name>
-	\</td\>
+	<first(unitType.unitScales):supported_unit_scale()>
 \</tr\>
-<rest(unitType.unitScales):supported_unit_scale()>
+<rest(unitType.unitScales):{scale | \<tr\><supported_unit_scale(scale)>\</tr\><\n>}>
 >>
 
 supported_units(schema) ::= <<
@@ -40,6 +36,12 @@ Those are the supported units in the *units* library:
 		\</th\>
 		\<th\>
 			Unit Scale
+		\</th\>
+		\<th\>
+			Is C++ supported?
+		\</th\>
+		\<th\>
+			Is Java supported?
 		\</th\>
 	\</tr\>
 	<schema.unitTypes:supported_unit_type()>

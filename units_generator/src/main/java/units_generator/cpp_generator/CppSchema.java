@@ -18,6 +18,8 @@ public class CppSchema implements UnitsSchemaInterface{
 	
 	private List<UnitTypeInterface> unitTypes;
 	
+	private static CppSupportChecker supportChecker = new CppSupportChecker();
+	
 	@Override
 	public List<UnitTypeInterface> getUnitTypes() {
 		return unitTypes;
@@ -26,6 +28,8 @@ public class CppSchema implements UnitsSchemaInterface{
 	public CppSchema (Schema schema) {
 		unitTypes = new ArrayList<UnitTypeInterface>();
 		for (UnitType unitType : schema.getUnitTypes()) {
+			if (!supportChecker.isSupported(unitType))
+				continue;
 			CppUnitType cppUnitType = new CppUnitType(unitType); 
 			unitTypes.add(cppUnitType);
 			UnitsRepository.getInstance().addType(cppUnitType);

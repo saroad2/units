@@ -3,7 +3,7 @@ package units_generator.general_generator;
 import java.util.ArrayList;
 import java.util.List;
 
-import units_generator.NamesManipulator;
+import units_generator.internal.NamesManipulator;
 import units_generator.internal.UnitTypeInterface;
 import units_generator.internal.UnitsSchemaInterface;
 import units_schema.Schema;

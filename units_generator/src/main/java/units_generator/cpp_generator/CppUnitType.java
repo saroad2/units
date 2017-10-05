@@ -3,7 +3,7 @@ package units_generator.cpp_generator;
 import java.util.ArrayList;
 import java.util.List;
 
-import units_generator.NamesManipulator;
+import units_generator.internal.NamesManipulator;
 import units_generator.internal.UnitScaleInterface;
 import units_generator.internal.UnitTypeInterface;
 import units_schema.UnitScale;
@@ -27,6 +27,8 @@ public class CppUnitType implements UnitTypeInterface{
 	private boolean tagsOnly;
 
 	private boolean hasMultiplyers;
+
+	private static CppSupportChecker supportChecker = new CppSupportChecker();
 
 	@Override
 	public String getTypeName() {
@@ -131,6 +133,8 @@ public class CppUnitType implements UnitTypeInterface{
 		unitScales = new ArrayList<UnitScaleInterface>();
 		hasMultiplyers = false;
 		for (UnitScale unitScale : unitType.getUnitScales()) {
+			if (!supportChecker.isSupported(unitScale))
+				continue;
 			addScale(unitScale);
 		}
 	}

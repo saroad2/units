@@ -1,5 +1,8 @@
 package units_generator.java_generator;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import units_generator.internal.NamesManipulator;
 import units_generator.internal.UnitScaleInterface;
 import units_schema.UnitScale;
@@ -13,6 +16,7 @@ public class JavaUnitScale implements UnitScaleInterface {
 	private String pluralName;
 	private String typeInterfaceName;
 	private String scale;
+	private List<String> imports;
 	
 	public JavaUnitScale(JavaUnitType unitType, UnitScale unitScale) {
 		this.unitType = unitType;
@@ -21,7 +25,10 @@ public class JavaUnitScale implements UnitScaleInterface {
 		this.className = JavaNamesFormatter.formatClassname(name);
 		this.pluralName = unitScale.getPluralName();
 		this.typeInterfaceName = unitType.getClassName();
-		this.scale = "1";
+		this.scale = JavaScaleCalculator.calculateScale(unitScale);
+		this.imports = new ArrayList<>();
+		if (unitScale.getMultiplyerString() != null)
+			this.imports.add("com.units.internal.Multiplyers");
 	}
 	
 	public JavaUnitType getUnitType() {
@@ -52,6 +59,10 @@ public class JavaUnitScale implements UnitScaleInterface {
 	@Override
 	public String getScale() {
 		return scale;
+	}
+
+	public List<String> getImports() {
+		return imports;
 	}
 
 }

@@ -8,7 +8,7 @@ public class JavaSupportChecker implements LanguageSupportChecker{
 
 	@Override
 	public boolean isSupported(UnitScale unitScale) { 
-		return unitScale.getIsBasic();
+		return unitScale.getRatio() == null;
 	}
 	
 	@Override

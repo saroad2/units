@@ -1,11 +1,14 @@
+/* This file is auto generated.
+ * DO NOT EDIT IT MANUALY!
+ */
 package com.units.length;
 
 import com.units.internal.NumericValue;
 
 public class Inches extends NumericValue implements Length{
 
-	public static final double _scale = 0.0254;
-
+	public static final double _scale = 0.0254 * Meters._scale;
+	
 	public Inches(double value) {
 		super(value);
 	}

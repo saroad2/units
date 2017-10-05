@@ -5,12 +5,12 @@ package com.units.tests.length;
 
 import org.junit.Test;
 
-import com.units.length.Inches;
+import com.units.length.Feet;
 
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
 
-public class InchesTests {
+public class FeetTests {
 
 	public void assertSameValue(double value1, double value2) {
 		assertTrue("unit value is " + value1 + " instead of " + value2, value1 == value2);
@@ -19,18 +19,18 @@ public class InchesTests {
 	@Test
 	public void testConstructor() {
 		double actualValue = 3.1;
-		assertSameValue(new Inches(actualValue).value(), actualValue);
+		assertSameValue(new Feet(actualValue).value(), actualValue);
 	}
 
 	@Test
 	public void testZero() {
-		Inches zero = Inches.zero();
+		Feet zero = Feet.zero();
 		assertSameValue(zero.value(), 0);
 	}
 
 	@Test
 	public void testOne() {
-		Inches one = Inches.one();
+		Feet one = Feet.one();
 		assertSameValue(one.value(), 1);
 	}
 
@@ -38,13 +38,13 @@ public class InchesTests {
 	public void testEqualsSuccess() {
 		double actualValue = 3.1;
 		assertTrue("two units are not equal, even though thet have the same value",
-				new Inches(actualValue).equals(new Inches(actualValue)));
+				new Feet(actualValue).equals(new Feet(actualValue)));
 	}
 
 	@Test
 	public void testEqualsNullFails() {
 		double actualValue = 3.1;
-		assertFalse("two units are equal, even though one of the is null", new Inches(actualValue).equals(null));
+		assertFalse("two units are equal, even though one of the is null", new Feet(actualValue).equals(null));
 	}
 
 	@Test
@@ -52,7 +52,7 @@ public class InchesTests {
 		double value1 = 3.1;
 		double value2 = 3.0;
 		assertFalse("two units are equal, even though thet have the different values",
-				new Inches(value1).equals(new Inches(value2)));
+				new Feet(value1).equals(new Feet(value2)));
 	}
 
 	@Test
@@ -61,9 +61,9 @@ public class InchesTests {
 		double value2 = 2.6;
 		double resultValue = 5.7;
 
-		Inches unit1 = new Inches(value1);
-		Inches unit2 = new Inches(value2);
-		Inches result = unit1.plus(unit2);
+		Feet unit1 = new Feet(value1);
+		Feet unit2 = new Feet(value2);
+		Feet result = unit1.plus(unit2);
 
 		assertSameValue(unit1.value(), value1);
 		assertSameValue(unit2.value(), value2);
@@ -76,9 +76,9 @@ public class InchesTests {
 		double value2 = 2.6;
 		double resultValue = 0.5;
 
-		Inches unit1 = new Inches(value1);
-		Inches unit2 = new Inches(value2);
-		Inches result = unit1.minus(unit2);
+		Feet unit1 = new Feet(value1);
+		Feet unit2 = new Feet(value2);
+		Feet result = unit1.minus(unit2);
 
 		assertSameValue(unit1.value(), value1);
 		assertSameValue(unit2.value(), value2);
@@ -89,8 +89,8 @@ public class InchesTests {
 	public void testopposite() {
 		double value = 3.1;
 
-		Inches unit = new Inches(value);
-		Inches result = unit.opposite();
+		Feet unit = new Feet(value);
+		Feet result = unit.opposite();
 
 		assertSameValue(unit.value(), value);
 		assertSameValue(result.value(), -value);
@@ -102,8 +102,8 @@ public class InchesTests {
 		double scalar = 5;
 		double resultValue = 15.5;
 
-		Inches unit = new Inches(value);
-		Inches result = unit.multiplyByScalar(scalar);
+		Feet unit = new Feet(value);
+		Feet result = unit.multiplyByScalar(scalar);
 
 		assertSameValue(unit.value(), value);
 		assertSameValue(result.value(), resultValue);
@@ -115,8 +115,8 @@ public class InchesTests {
 		double scalar = 5;
 		double resultValue = 0.62;
 
-		Inches unit = new Inches(value);
-		Inches result = unit.divideByScalar(scalar);
+		Feet unit = new Feet(value);
+		Feet result = unit.divideByScalar(scalar);
 
 		assertSameValue(unit.value(), value);
 		assertSameValue(result.value(), resultValue);
@@ -125,9 +125,9 @@ public class InchesTests {
 	@Test
 	public void testToString() {
 		double value = 3.1;
-		String stringValue = "3.1 inches";
+		String stringValue = "3.1 feet";
 
-		Inches unit = new Inches(value);
+		Feet unit = new Feet(value);
 		assertTrue("string value is \"" + unit.toString() + "\" instead of \"" + stringValue + "\"",
 				unit.toString().equals(stringValue));
 	}

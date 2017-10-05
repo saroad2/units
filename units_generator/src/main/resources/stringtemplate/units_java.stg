@@ -22,10 +22,11 @@ unit_scale_class(unitScale) ::= <<
 package com.units.<unitScale.packageName>;
 
 import com.units.internal.NumericValue;
+<unitScale.imports:{module | import <module>;<\n>}>
 
 public class <unitScale.className> extends NumericValue implements <unitScale.typeInterfaceName>{
 
-	public static final double _scale = 1;
+	public static final double _scale = <unitScale.scale>;
 	
 	public <unitScale.className>(double value) {
 		super(value);

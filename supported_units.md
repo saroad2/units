@@ -36,47 +36,47 @@ Those are the supported units in the *units* library:
 	<tr><td>inches</td>
 	<td>0.0254 * meters</td>
 	<td>V</td>
-	<td>X</td></tr>
+	<td>V</td></tr>
 	<tr><td>feet</td>
 	<td>12.0 * inches</td>
 	<td>V</td>
-	<td>X</td></tr>
+	<td>V</td></tr>
 	<tr><td>yards</td>
 	<td>3.0 * feet</td>
 	<td>V</td>
-	<td>X</td></tr>
+	<td>V</td></tr>
 	<tr><td>statute miles</td>
 	<td>621.371192237 * meters</td>
 	<td>V</td>
-	<td>X</td></tr>
+	<td>V</td></tr>
 	<tr><td>nautical miles</td>
 	<td>1852.0 * meters</td>
 	<td>V</td>
-	<td>X</td></tr>
+	<td>V</td></tr>
 	<tr><td>geographical miles</td>
 	<td>1855.3248 * meters</td>
 	<td>V</td>
-	<td>X</td></tr>
+	<td>V</td></tr>
 	<tr><td>degrees of latitude</td>
 	<td>60.0 * geographical miles</td>
 	<td>V</td>
-	<td>X</td></tr>
+	<td>V</td></tr>
 	<tr><td>micrometers</td>
 	<td>micro * meters</td>
 	<td>V</td>
-	<td>X</td></tr>
+	<td>V</td></tr>
 	<tr><td>millimeters</td>
 	<td>milli * meters</td>
 	<td>V</td>
-	<td>X</td></tr>
+	<td>V</td></tr>
 	<tr><td>centimeters</td>
 	<td>centi * meters</td>
 	<td>V</td>
-	<td>X</td></tr>
+	<td>V</td></tr>
 	<tr><td>kilometers</td>
 	<td>kilo * meters</td>
 	<td>V</td>
-	<td>X</td></tr>
+	<td>V</td></tr>
 	<tr>
 		<td rowspan=3 style="text-align:center; vertical-align:middle;font-weight:bold">
 			angle
@@ -89,11 +89,11 @@ Those are the supported units in the *units* library:
 	<tr><td>mils</td>
 	<td>0.05625 * degrees</td>
 	<td>V</td>
-	<td>X</td></tr>
+	<td>V</td></tr>
 	<tr><td>radians</td>
 	<td>57.2957795131 * degrees</td>
 	<td>V</td>
-	<td>X</td></tr>
+	<td>V</td></tr>
 	<tr>
 		<td rowspan=5 style="text-align:center; vertical-align:middle;font-weight:bold">
 			mass
@@ -106,19 +106,19 @@ Those are the supported units in the *units* library:
 	<tr><td>pounds</td>
 	<td>453.592333346094 * grams</td>
 	<td>V</td>
-	<td>X</td></tr>
+	<td>V</td></tr>
 	<tr><td>milligrams</td>
 	<td>milli * grams</td>
 	<td>V</td>
-	<td>X</td></tr>
+	<td>V</td></tr>
 	<tr><td>kilograms</td>
 	<td>kilo * grams</td>
 	<td>V</td>
-	<td>X</td></tr>
+	<td>V</td></tr>
 	<tr><td>tonnes</td>
 	<td>mega * grams</td>
 	<td>V</td>
-	<td>X</td></tr>
+	<td>V</td></tr>
 	<tr>
 		<td rowspan=7 style="text-align:center; vertical-align:middle;font-weight:bold">
 			duration
@@ -131,27 +131,27 @@ Those are the supported units in the *units* library:
 	<tr><td>minutes</td>
 	<td>60.0 * seconds</td>
 	<td>V</td>
-	<td>X</td></tr>
+	<td>V</td></tr>
 	<tr><td>hours</td>
 	<td>60.0 * minutes</td>
 	<td>V</td>
-	<td>X</td></tr>
+	<td>V</td></tr>
 	<tr><td>days</td>
 	<td>24.0 * hours</td>
 	<td>V</td>
-	<td>X</td></tr>
+	<td>V</td></tr>
 	<tr><td>years</td>
 	<td>365.0 * days</td>
 	<td>V</td>
-	<td>X</td></tr>
+	<td>V</td></tr>
 	<tr><td>microseconds</td>
 	<td>micro * seconds</td>
 	<td>V</td>
-	<td>X</td></tr>
+	<td>V</td></tr>
 	<tr><td>milliseconds</td>
 	<td>milli * seconds</td>
 	<td>V</td>
-	<td>X</td></tr>
+	<td>V</td></tr>
 	<tr>
 		<td rowspan=1 style="text-align:center; vertical-align:middle;font-weight:bold">
 			electric current

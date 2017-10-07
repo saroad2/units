@@ -18,7 +18,7 @@ class TestAngularSpeedUnitsConversions : public TestUnitsConversions
 
 TEST_F(TestAngularSpeedUnitsConversions, degrees_per_second_to_radians_per_second)
 {
-	check_conversions<DegreesPerSecond, RadiansPerSecond>(M_PI / 180, 180 / M_PI);
+	check_conversions<DegreesPerSecond, RadiansPerSecond>(0.017453292519937, 57.2957795131);
 }
 
 // ============================================================

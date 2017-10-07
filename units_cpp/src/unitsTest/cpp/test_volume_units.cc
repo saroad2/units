@@ -41,7 +41,7 @@ TEST_F(TestVolumeUnitsConversions, cubic_kilometers_to_cubic_meters)
 
 TEST_F(TestVolumeUnitsConversions, cubic_yards_to_cubic_feet)
 {
-	check_conversions<CubicYards, CubicFeet>(27, 1.0 / 27);
+	check_conversions<CubicYards, CubicFeet>(27, 0.03703703703703);
 }
 
 TEST_F(TestVolumeUnitsConversions, liters_to_cubic_feet)

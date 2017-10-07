@@ -19,18 +19,18 @@ class TestAngleUnitsConversions : public TestUnitsConversions
 
 TEST_F(TestAngleUnitsConversions, mils_to_degrees)
 {
-	check_conversions<Mils, Degrees>(360.0 / 6400, 6400.0 / 360);
+	check_conversions<Mils, Degrees>(0.05625, 17.7777777777777);
 }
 
 TEST_F(TestAngleUnitsConversions, radians_to_degrees)
 {
-	check_conversions<Radians, Degrees>(180.0 / M_PI, M_PI / 180);
+	check_conversions<Radians, Degrees>(57.2957795131, 0.017453292519937);
 }
 
 TEST_F(TestAngleUnitsConversions, radians_to_mils)
 {
 	maxError = 1e-9;
-	check_conversions<Radians, Mils>(3200 / M_PI, M_PI / 3200);
+	check_conversions<Radians, Mils>(1018.59163578844, 9.8174770424e-4);
 }
 // ============================================================
 

@@ -36,7 +36,7 @@ TEST_F(TestAreaUnitsConversions, square_kilometers_to_square_meters)
 
 TEST_F(TestAreaUnitsConversions, square_yards_to_square_feet)
 {
-	check_conversions<SquareYards, SquareFeet>(9, 1.0 / 9);
+	check_conversions<SquareYards, SquareFeet>(9, 0.11111111111);
 }
 
 TEST_F(TestAreaUnitsConversions, dunams_to_square_feet)

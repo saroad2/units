@@ -56,7 +56,7 @@ TEST_F(TestLengthUnitsConversions, statute_miles_to_meters)
 
 TEST_F(TestLengthUnitsConversions, nautical_miles_to_meters)
 {
-	check_conversions<NauticalMiles, Meters>(1852, 1.0 / 1852);
+	check_conversions<NauticalMiles, Meters>(1852, 0.00053995680345);
 }
 
 TEST_F(TestLengthUnitsConversions, geographical_miles_to_meters)
@@ -71,12 +71,12 @@ TEST_F(TestLengthUnitsConversions, degrees_of_latitude_to_meters)
 
 TEST_F(TestLengthUnitsConversions, feet_to_inches)
 {
-	check_conversions<Feet, Inches>(12, 1.0 / 12);
+	check_conversions<Feet, Inches>(12, 0.08333333333333);
 }
 
 TEST_F(TestLengthUnitsConversions, yards_to_inches)
 {
-	check_conversions<Yards, Inches>(36, 1.0 /36);
+	check_conversions<Yards, Inches>(36, 0.02777777777777);
 }
 
 
@@ -122,7 +122,7 @@ TEST_F(TestLengthUnitsConversions, degrees_of_latitude_to_inches)
 
 TEST_F(TestLengthUnitsConversions, yards_to_feet)
 {
-	check_conversions<Yards, Feet>(3, 1.0 /3);
+	check_conversions<Yards, Feet>(3, 0.333333333333);
 }
 
 TEST_F(TestLengthUnitsConversions, micrometer_to_feet)
@@ -346,7 +346,7 @@ TEST_F(TestLengthUnitsConversions, degrees_of_latitude_to_nautical_miles)
 
 TEST_F(TestLengthUnitsConversions, degrees_of_latitude_to_geographical_miles)
 {
-	check_conversions<DegreesOfLatitude, GeographicalMiles>(60, 1.0 / 60);
+	check_conversions<DegreesOfLatitude, GeographicalMiles>(60, 0.01666666666666);
 }
 
 // ============================================================

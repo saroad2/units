@@ -37,7 +37,7 @@ TEST_F(TestSpeedUnitsConversions, knots_to_meters_per_second)
 
 TEST_F(TestSpeedUnitsConversions, yards_per_second_to_feet_per_second)
 {
-	check_conversions<YardsPerSecond, FeetPerSecond>(3, 1.0 / 3);
+	check_conversions<YardsPerSecond, FeetPerSecond>(3, 0.3333333333333);
 }
 
 TEST_F(TestSpeedUnitsConversions, kilometers_per_hour_to_feet_per_second)

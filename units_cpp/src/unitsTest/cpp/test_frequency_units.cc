@@ -5,31 +5,10 @@
  *      Author: sagis
  */
 
-#include "cases.h"
+#include <units/cases.h>
 #include <units/frequency_units.h>
 
 using namespace units::frequency;
-
-class TestFrequencyUnitsConversions : public TestUnitsConversions
-{
-};
-
-TEST_F(TestFrequencyUnitsConversions, hertz_to_kilohertz)
-{
-	check_conversions<Hertz, Kilohertz>(1e-3, 1e+3);
-}
-
-TEST_F(TestFrequencyUnitsConversions, hertz_to_megahertz)
-{
-	check_conversions<Hertz, Megahertz>(1e-6, 1e+6);
-}
-
-TEST_F(TestFrequencyUnitsConversions, kilohertz_to_megahertz)
-{
-	check_conversions<Kilohertz, Megahertz>(1e-3, 1e+3);
-}
-
-// ============================================================
 
 class TestFrequencyUnitsPrintings : public TestUnitsPrintings
 {

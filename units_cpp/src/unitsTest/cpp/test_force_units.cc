@@ -5,21 +5,10 @@
  *      Author: sagis
  */
 
-#include "cases.h"
+#include <units/cases.h>
 #include <units/force_units.h>
 
 using namespace units::force;
-
-class TestForceUnitsConversions : public TestUnitsConversions
-{
-};
-
-TEST_F(TestForceUnitsConversions, newtons_to_dynes)
-{
-	check_conversions<Newtons, Dynes>(1e+5, 1e-5);
-}
-
-// ============================================================
 
 class TestForceUnitsPrintings : public TestUnitsPrintings
 {

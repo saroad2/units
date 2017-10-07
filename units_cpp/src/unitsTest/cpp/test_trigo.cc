@@ -8,11 +8,11 @@
 #include <units/trigo.h>
 #include <units/angle_units.h>
 #include <units/length_units.h>
+#include <units/all_units.h>
 
 #include <gtest/gtest.h>
 #include <boost/fusion/adapted/boost_tuple.hpp>
 #include <boost/fusion/algorithm/iteration/for_each.hpp>
-#include <all_units.h>
 #include <functional>
 #include <vector>
 

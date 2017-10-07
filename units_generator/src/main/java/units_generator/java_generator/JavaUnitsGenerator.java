@@ -10,6 +10,7 @@ import units_generator.internal.LanguageUnitsGenerator;
 import units_generator.internal.UnitScaleInterface;
 import units_generator.internal.UnitTypeInterface;
 import units_generator.internal.UnitsSchemaInterface;
+import units_generator.internal.UnitsTestSuiteInterface;
 
 import org.antlr.stringtemplate.StringTemplateGroup;
 
@@ -83,6 +84,12 @@ public class JavaUnitsGenerator extends LanguageUnitsGenerator {
 		generateUnitScaleClass(directoriesMap, javaUnitScale);
 		generateUnitScaleClassTests(directoriesMap, javaUnitScale);
 	}
+	
+	@Override
+	protected void generateTestSuiteFiles(
+			UnitsTestSuiteInterface testSuite,
+			Map<String, Path> directoriesMap) throws IOException {
+	};
 
 	private void generateUnitScaleClass(
 			Map<String, Path> directoriesMap,

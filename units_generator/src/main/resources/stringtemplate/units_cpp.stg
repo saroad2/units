@@ -126,3 +126,26 @@ all_units(schema) ::= <<
 
 #endif /* UNIT_TESTS_ALL_UNITS_H_ */
 >>
+
+write_test_case(testCase) ::= <<
+TEST_F(<testSuite.testSuiteName>, <testCase.testName>)
+{
+	check_conversion\<<testCase.from>, <testCase.to>\>(<testCase.value>);
+}
+
+>>
+
+conversion_test_suite(testSuite) ::= <<
+<declaration()>
+
+<testSuite.includes:{include | #include <include><\n>}>
+<testSuite.namespaces:{namespace | using namespace <namespace>;<\n>}>
+
+class <testSuite.testSuiteName> : public TestUnitsConversions
+{
+};
+
+<testSuite.testCases:write_test_case()>
+
+>>
+

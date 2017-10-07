@@ -32,6 +32,9 @@ public abstract class LanguageUnitsGenerator {
 	protected abstract void generateUnitScaleFiles(
 			UnitScaleInterface unitScale,
 			Map<String, Path> directoriesMap) throws IOException;
+	protected abstract void generateTestSuiteFiles(
+			UnitsTestSuiteInterface testSuite,
+			Map<String, Path> directoriesMap) throws IOException;
 	
 	public void generate(
 			UnitsSchemaInterface schema,
@@ -43,6 +46,11 @@ public abstract class LanguageUnitsGenerator {
 			generateUnitTypeFiles(unitType, directoriesMap);
 			for (UnitScaleInterface unitScale : unitType.getUnitScales()) {
 				generateUnitScaleFiles(unitScale, directoriesMap);
+			}
+		}
+		if (schema.getTestSuites() != null) {
+			for (UnitsTestSuiteInterface testSuite : schema.getTestSuites()) {
+				generateTestSuiteFiles(testSuite, directoriesMap);
 			}
 		}
 		logger.info("Generating files succeded!");

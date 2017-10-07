@@ -12,7 +12,9 @@ public class CppUnitsTestSuite implements UnitsTestSuiteInterface {
 
 	private String unitType;
 	private List<UnitsTestCaseInterface> testCases;
-	
+	private List<String> includes;
+	private List<String> namespaces;
+	private String testSuiteName;
 	
 	public CppUnitsTestSuite(TestSuite testSuite) {
 		unitType = testSuite.getUnitType();
@@ -20,6 +22,22 @@ public class CppUnitsTestSuite implements UnitsTestSuiteInterface {
 		for (TestCase testCase : testSuite.getTestCases()) {
 			testCases.add(new CppUnitsTestCase(testCase));
 		}
+		buildIncludes();
+		buildNamespaces();
+		testSuiteName = CppNamesFormatter.formatClassName("test " + unitType + " conversions");
+	}
+
+	private void buildIncludes() {
+		includes = new ArrayList<>();
+		includes.add("<units/cases.h>");
+		includes.add("<gtest/gtest.h>");
+		includes.add("<units/" + CppNamesFormatter.formatUnitTypeHeaderName(unitType) + ">");
+	}
+	
+	private void buildNamespaces() {
+		namespaces = new ArrayList<>();
+		namespaces.add("testing");
+		namespaces.add("units::" + CppNamesFormatter.formatNamespaceName(unitType));
 	}
 	
 	@Override
@@ -30,6 +48,18 @@ public class CppUnitsTestSuite implements UnitsTestSuiteInterface {
 	@Override
 	public List<UnitsTestCaseInterface> getTestCases() {
 		return testCases;
+	}
+
+	public List<String> getIncludes() {
+		return includes;
+	}
+
+	public List<String> getNamespaces() {
+		return namespaces;
+	}
+
+	public String getTestSuiteName() {
+		return testSuiteName;
 	}
 
 }

@@ -18,11 +18,6 @@ class TestUnitsConversions : public ::testing::Test
 {
 protected:
 
-	TestUnitsConversions()
-	: maxError{defaultMaxError}
-	{
-	}
-
 	template<class Unit1, class Unit2>
 	void check_conversions(double unit1InUnit2, double unit2InUnit1) const
 	{
@@ -30,10 +25,6 @@ protected:
 		check_conversion<Unit2, Unit1>(unit2InUnit1);
 	}
 
-	constexpr static double defaultMaxError = 1e-10;
-	double maxError;
-
-private:
 	template<class Unit1, class Unit2>
 	void check_conversion(double unit1InUnit2) const
 	{
@@ -53,6 +44,8 @@ private:
 			<< " != "
 			<< actual.value() << "e-" << count << std::fixed;
 	}
+
+	static constexpr double maxError = 1e-6;
 };
 
 class TestUnitsPrintings : public ::testing::Test

@@ -5,23 +5,12 @@
  *      Author: sagis
  */
 
-#include "cases.h"
+#include <units/cases.h>
 #include <units/angular_speed_units.h>
 
 #include <math.h>
 
 using namespace units::angular_speed;
-
-class TestAngularSpeedUnitsConversions : public TestUnitsConversions
-{
-};
-
-TEST_F(TestAngularSpeedUnitsConversions, degrees_per_second_to_radians_per_second)
-{
-	check_conversions<DegreesPerSecond, RadiansPerSecond>(0.017453292519937, 57.2957795131);
-}
-
-// ============================================================
 
 class TestAngularSpeedUnitsPrintings : public TestUnitsPrintings
 {

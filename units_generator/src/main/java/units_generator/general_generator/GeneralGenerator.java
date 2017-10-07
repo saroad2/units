@@ -1,14 +1,8 @@
 package units_generator.general_generator;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
-import java.nio.charset.Charset;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Logger;
@@ -19,8 +13,7 @@ import units_generator.internal.LanguageUnitsGenerator;
 import units_generator.internal.UnitScaleInterface;
 import units_generator.internal.UnitTypeInterface;
 import units_generator.internal.UnitsSchemaInterface;
-
-import org.antlr.stringtemplate.StringTemplate;
+import units_generator.internal.UnitsTestSuiteInterface;
 
 public class GeneralGenerator extends LanguageUnitsGenerator{
 
@@ -59,6 +52,12 @@ public class GeneralGenerator extends LanguageUnitsGenerator{
 			UnitScaleInterface unitScale,
 			Map<String, Path> directoriesMap) throws IOException {
 	}
+	
+	@Override
+	protected void generateTestSuiteFiles(
+			UnitsTestSuiteInterface testSuite,
+			Map<String, Path> directoriesMap) throws IOException {
+	};
 	
 	public void generateSupportedUnits(
 			GeneralSchema schema,

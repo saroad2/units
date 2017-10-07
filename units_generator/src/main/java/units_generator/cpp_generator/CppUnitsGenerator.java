@@ -2,27 +2,18 @@ package units_generator.cpp_generator;
 
 import org.antlr.stringtemplate.StringTemplateGroup;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileReader;
 import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Logger;
 
-import units_generator.UnitsGenerator;
 import units_generator.internal.LanguageUnitsGenerator;
 import units_generator.internal.UnitScaleInterface;
 import units_generator.internal.UnitTypeInterface;
 import units_generator.internal.UnitsSchemaInterface;
+import units_generator.internal.UnitsTestSuiteInterface;
 
 public class CppUnitsGenerator extends LanguageUnitsGenerator{	
 	
@@ -32,7 +23,8 @@ public class CppUnitsGenerator extends LanguageUnitsGenerator{
 	private final static String headers = "headers";
 	private final static String tags = "tags";
 	private final static String source = "source";
-	private final static String tests = "tests";
+	private final static String testsHeaders = "tests_headers";
+	private final static String testsSource = "tests_source";
 	
 	public CppUnitsGenerator(StringTemplateGroup group) {
 		super(CppUnitsGenerator.class.getSimpleName(), group);
@@ -51,10 +43,15 @@ public class CppUnitsGenerator extends LanguageUnitsGenerator{
 				directoriesMap,
 				source,
 				Paths.get(rootDirectory.toString(), "units", "cpp", "units", "tags"));
+		Path testsPath = Paths.get(rootDirectory.toString(), "unitsTest");
 		addToDirectoriesMap(
 				directoriesMap,
-				tests,
-				Paths.get(rootDirectory.toString(), "unitsTest", "headers"));
+				testsHeaders,
+				Paths.get(testsPath.toString(), "headers", "units"));
+		addToDirectoriesMap(
+				directoriesMap,
+				testsSource,
+				Paths.get(testsPath.toString(), "cpp"));
 		return directoriesMap;
 	}
 	
@@ -62,7 +59,7 @@ public class CppUnitsGenerator extends LanguageUnitsGenerator{
 	protected void generateSchemaFiles(
 			UnitsSchemaInterface schema,
 			Map<String, Path> directoriesMap) throws IOException {
-		Path allUnitsPath = Paths.get(directoriesMap.get(tests).toString(), "all_units.h");
+		Path allUnitsPath = Paths.get(directoriesMap.get(testsHeaders).toString(), "all_units.h");
 		generateTests((CppSchema)schema, allUnitsPath);
 	}
 	
@@ -87,6 +84,16 @@ public class CppUnitsGenerator extends LanguageUnitsGenerator{
 			UnitScaleInterface unitScale,
 			Map<String, Path> directoriesMap) throws IOException {
 	}
+	
+	@Override
+	protected void generateTestSuiteFiles(
+			UnitsTestSuiteInterface testSuite,
+			Map<String, Path> directoriesMap) throws IOException {
+		CppUnitsTestSuite cppUnitsTestSuite = (CppUnitsTestSuite)testSuite;
+		String fileName = "test_" + cppUnitsTestSuite.getUnitType().replace(" ", "_") + "_conversions.cc";
+		Path outputPath = Paths.get(directoriesMap.get(testsSource).toString(), fileName);
+		writeStringTemplate("conversion_test_suite", "testSuite", cppUnitsTestSuite, outputPath);
+	};
 
 	private void generateUnitTypeHeaderFile(
 			CppUnitType unitType,

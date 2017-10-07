@@ -5,7 +5,7 @@
  *      Author: sagis
  */
 
-#include "cases.h"
+#include <units/cases.h>
 #include <units/electric_current_units.h>
 
 #include <gtest/gtest.h>

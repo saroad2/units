@@ -8,11 +8,13 @@ public class CppUnitsTestCase implements UnitsTestCaseInterface {
 	private String from;
 	private String to;
 	private double value;
+	private String testName;
 	
 	public CppUnitsTestCase(TestCase testCase) {
-		from = testCase.getFrom();
-		to = testCase.getTo();
+		from = CppNamesFormatter.formatClassName(testCase.getFrom());
+		to = CppNamesFormatter.formatClassName(testCase.getTo());
 		value = testCase.getValue();
+		testName = from.replace(" ", "_") + "_to_" + to.replace(" ", "_"); 
 	}
 	
 	@Override
@@ -28,6 +30,10 @@ public class CppUnitsTestCase implements UnitsTestCaseInterface {
 	@Override
 	public double getValue() {
 		return value;
+	}
+
+	public String getTestName() {
+		return testName;
 	}
 
 }

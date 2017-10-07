@@ -68,7 +68,7 @@ public class CppUnitScale implements UnitScaleInterface{
 		initializeNames(unitScale);
 		tagName = (name + "_tag").replaceAll(" ", "_");
 		typeCodeName = unitType.getCodeName();
-		className = CppNamesFormatter.formatClassname(name.replaceAll(" ", "_"));
+		className = CppNamesFormatter.formatClassName(name.replaceAll(" ", "_"));
 		userDefinedLiteral = name.replaceAll(" ", "_");
 	}
 

@@ -90,7 +90,7 @@ public class CppUnitType implements UnitTypeInterface{
 	
 	public CppUnitType(UnitType unitType) {
 		typeName = NamesManipulator.getName(unitType);
-		namespace = typeName.replaceAll(" " , "_") ; 
+		namespace = CppNamesFormatter.formatNamespaceName(typeName); 
 		upperCaseName = namespace.toUpperCase();
 		codeName = namespace + "_code";
 		initializeIncludes();
@@ -98,7 +98,7 @@ public class CppUnitType implements UnitTypeInterface{
 		headerIncludeGurad = "INCLUDE_" + namespace.toUpperCase() + "_UNITS_H_";
 		tagsHeaderIncludeGurad = "INCLUDE_" + namespace.toUpperCase() + "_TAGS_H_";
 		initializeScales(unitType);
-		headerFileName = namespace + "_units.h";
+		headerFileName = CppNamesFormatter.formatUnitTypeHeaderName(typeName);
 		tagsHeaderFileName = namespace + "_tags.h";
 		tagsSourceFileName = namespace + "_tags.cc";
 		tagsOnly = unitType.getTagsOnly();

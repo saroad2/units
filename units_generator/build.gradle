@@ -1,6 +1,7 @@
 apply plugin: 'java'
 apply plugin: 'application'
 apply plugin: 'jsonschema2pojo'
+apply plugin: "eclipse"
 
 buildscript {
   repositories {

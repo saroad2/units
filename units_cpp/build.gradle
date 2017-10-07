@@ -16,7 +16,9 @@ model {
     }
     
     components {
-        units(NativeLibrarySpec) { }
+        units(NativeLibrarySpec) {
+		sources.cpp.source.exclude '**/*.swp'
+	}
     }
 
     binaries {
@@ -41,6 +43,14 @@ model {
                 cppCompiler.withArguments { args ->
                     args << "-std=c++1y"
                 }
+            }
+        }
+    }
+
+	testSuites {
+        unitsTest {
+            sources {
+                cpp.source.exclude "**/*.swp"
             }
         }
     }

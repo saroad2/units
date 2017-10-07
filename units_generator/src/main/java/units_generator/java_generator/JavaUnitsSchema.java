@@ -5,7 +5,7 @@ import java.util.List;
 
 import units_generator.internal.UnitTypeInterface;
 import units_generator.internal.UnitsSchemaInterface;
-
+import units_generator.internal.UnitsTestSuiteInterface;
 import units_schema.Schema;
 import units_schema.UnitType;
 
@@ -27,6 +27,11 @@ public class JavaUnitsSchema implements UnitsSchemaInterface {
 	@Override
 	public List<UnitTypeInterface> getUnitTypes() {
 		return unitTypes;
+	}
+	
+	@Override
+	public List<UnitsTestSuiteInterface> getTestSuites() {
+		return null;
 	}
 
 }

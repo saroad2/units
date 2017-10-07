@@ -4,15 +4,12 @@ import units_schema.Schema;
 import units_schema.UnitType;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.logging.Level;
 
-import units_generator.cpp_generator.CppUnitScale;
 import units_generator.cpp_generator.CppUnitType;
 import units_generator.internal.UnitTypeInterface;
 import units_generator.internal.UnitsSchemaInterface;
+import units_generator.internal.UnitsTestSuiteInterface;
 
 public class CppSchema implements UnitsSchemaInterface{
 	
@@ -23,6 +20,11 @@ public class CppSchema implements UnitsSchemaInterface{
 	@Override
 	public List<UnitTypeInterface> getUnitTypes() {
 		return unitTypes;
+	}
+	
+	@Override
+	public List<UnitsTestSuiteInterface> getTestSuites() {
+		return null;
 	}
 
 	public CppSchema (Schema schema) {

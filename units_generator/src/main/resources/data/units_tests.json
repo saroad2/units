@@ -1,0 +1,1553 @@
+{
+    "test_suites": [
+        {
+            "unit_type": "angle",
+            "tests": [
+                {
+                    "from": "degrees",
+                    "to": "mils",
+                    "value": 17.7777777777777
+                },
+                {
+                    "from": "degrees",
+                    "to": "radians",
+                    "value": 0.017453292519937
+                },
+                {
+                    "from": "mils",
+                    "to": "degrees",
+                    "value": 0.05625
+                },
+                {
+                    "from": "mils",
+                    "to": "radians",
+                    "value": 0.00098174770424
+                },
+                {
+                    "from": "radians",
+                    "to": "degrees",
+                    "value": 57.2957795131
+                },
+                {
+                    "from": "radians",
+                    "to": "mils",
+                    "value": 1018.59163578844
+                }
+            ]
+        },
+        {
+            "unit_type": "angular speed",
+            "tests": [
+                {
+                    "from": "degrees per second",
+                    "to": "radians per second",
+                    "value": 0.017453292519937
+                },
+                {
+                    "from": "radians per second",
+                    "to": "degrees per second",
+                    "value": 57.2957795131
+                }
+            ]
+        },
+        {
+            "unit_type": "area",
+            "tests": [
+                {
+                    "from": "dunams",
+                    "to": "square feet",
+                    "value": 10763.910416709725
+                },
+                {
+                    "from": "dunams",
+                    "to": "square kilometers",
+                    "value": 0.001
+                },
+                {
+                    "from": "dunams",
+                    "to": "square meters",
+                    "value": 1000.0
+                },
+                {
+                    "from": "dunams",
+                    "to": "square yards",
+                    "value": 1195.9900463010806
+                },
+                {
+                    "from": "square feet",
+                    "to": "dunams",
+                    "value": 9.290304e-05
+                },
+                {
+                    "from": "square feet",
+                    "to": "square kilometers",
+                    "value": 9.290304e-08
+                },
+                {
+                    "from": "square feet",
+                    "to": "square meters",
+                    "value": 0.09290304
+                },
+                {
+                    "from": "square feet",
+                    "to": "square yards",
+                    "value": 0.11111111111
+                },
+                {
+                    "from": "square kilometers",
+                    "to": "dunams",
+                    "value": 1000.0
+                },
+                {
+                    "from": "square kilometers",
+                    "to": "square feet",
+                    "value": 10763910.416709725
+                },
+                {
+                    "from": "square kilometers",
+                    "to": "square meters",
+                    "value": 1000000.0
+                },
+                {
+                    "from": "square kilometers",
+                    "to": "square yards",
+                    "value": 1195990.0463010806
+                },
+                {
+                    "from": "square meters",
+                    "to": "dunams",
+                    "value": 0.001
+                },
+                {
+                    "from": "square meters",
+                    "to": "square feet",
+                    "value": 10.763910416709725
+                },
+                {
+                    "from": "square meters",
+                    "to": "square kilometers",
+                    "value": 1e-06
+                },
+                {
+                    "from": "square meters",
+                    "to": "square yards",
+                    "value": 1.1959900463010806
+                },
+                {
+                    "from": "square yards",
+                    "to": "dunams",
+                    "value": 0.00083612736
+                },
+                {
+                    "from": "square yards",
+                    "to": "square feet",
+                    "value": 9.0
+                },
+                {
+                    "from": "square yards",
+                    "to": "square kilometers",
+                    "value": 8.3612736e-07
+                },
+                {
+                    "from": "square yards",
+                    "to": "square meters",
+                    "value": 0.83612736
+                }
+            ]
+        },
+        {
+            "unit_type": "duration",
+            "tests": [
+                {
+                    "from": "days",
+                    "to": "hours",
+                    "value": 24.0
+                },
+                {
+                    "from": "days",
+                    "to": "microseconds",
+                    "value": 86400000000.0
+                },
+                {
+                    "from": "days",
+                    "to": "milliseconds",
+                    "value": 86400000.0
+                },
+                {
+                    "from": "days",
+                    "to": "minutes",
+                    "value": 1440.0
+                },
+                {
+                    "from": "days",
+                    "to": "seconds",
+                    "value": 86400.0
+                },
+                {
+                    "from": "days",
+                    "to": "years",
+                    "value": 0.00273972602739
+                },
+                {
+                    "from": "hours",
+                    "to": "days",
+                    "value": 0.04166666666666
+                },
+                {
+                    "from": "hours",
+                    "to": "microseconds",
+                    "value": 3600000000.0
+                },
+                {
+                    "from": "hours",
+                    "to": "milliseconds",
+                    "value": 3600000.0
+                },
+                {
+                    "from": "hours",
+                    "to": "minutes",
+                    "value": 60.0
+                },
+                {
+                    "from": "hours",
+                    "to": "seconds",
+                    "value": 3600.0
+                },
+                {
+                    "from": "hours",
+                    "to": "years",
+                    "value": 0.000114155251141
+                },
+                {
+                    "from": "microseconds",
+                    "to": "days",
+                    "value": 1.1574074074e-11
+                },
+                {
+                    "from": "microseconds",
+                    "to": "hours",
+                    "value": 2.7777777777e-10
+                },
+                {
+                    "from": "microseconds",
+                    "to": "milliseconds",
+                    "value": 0.001
+                },
+                {
+                    "from": "microseconds",
+                    "to": "minutes",
+                    "value": 1.6666666666e-08
+                },
+                {
+                    "from": "microseconds",
+                    "to": "seconds",
+                    "value": 1e-06
+                },
+                {
+                    "from": "microseconds",
+                    "to": "years",
+                    "value": 3.1709791983e-14
+                },
+                {
+                    "from": "milliseconds",
+                    "to": "days",
+                    "value": 1.1574074074e-08
+                },
+                {
+                    "from": "milliseconds",
+                    "to": "hours",
+                    "value": 2.7777777777e-07
+                },
+                {
+                    "from": "milliseconds",
+                    "to": "microseconds",
+                    "value": 1000.0
+                },
+                {
+                    "from": "milliseconds",
+                    "to": "minutes",
+                    "value": 1.6666666666e-05
+                },
+                {
+                    "from": "milliseconds",
+                    "to": "seconds",
+                    "value": 0.001
+                },
+                {
+                    "from": "milliseconds",
+                    "to": "years",
+                    "value": 3.1709791983e-11
+                },
+                {
+                    "from": "minutes",
+                    "to": "days",
+                    "value": 0.00069444444444
+                },
+                {
+                    "from": "minutes",
+                    "to": "hours",
+                    "value": 0.016666666666
+                },
+                {
+                    "from": "minutes",
+                    "to": "microseconds",
+                    "value": 60000000.0
+                },
+                {
+                    "from": "minutes",
+                    "to": "milliseconds",
+                    "value": 60000.0
+                },
+                {
+                    "from": "minutes",
+                    "to": "seconds",
+                    "value": 60.0
+                },
+                {
+                    "from": "minutes",
+                    "to": "years",
+                    "value": 1.90258751902e-06
+                },
+                {
+                    "from": "seconds",
+                    "to": "days",
+                    "value": 1.1574074074e-05
+                },
+                {
+                    "from": "seconds",
+                    "to": "hours",
+                    "value": 0.00027777777777
+                },
+                {
+                    "from": "seconds",
+                    "to": "microseconds",
+                    "value": 1000000.0
+                },
+                {
+                    "from": "seconds",
+                    "to": "milliseconds",
+                    "value": 1000.0
+                },
+                {
+                    "from": "seconds",
+                    "to": "minutes",
+                    "value": 0.016666666666
+                },
+                {
+                    "from": "seconds",
+                    "to": "years",
+                    "value": 3.1709791983e-08
+                },
+                {
+                    "from": "years",
+                    "to": "days",
+                    "value": 365.0
+                },
+                {
+                    "from": "years",
+                    "to": "hours",
+                    "value": 8760.0
+                },
+                {
+                    "from": "years",
+                    "to": "microseconds",
+                    "value": 31536000000000.0
+                },
+                {
+                    "from": "years",
+                    "to": "milliseconds",
+                    "value": 31536000000.0
+                },
+                {
+                    "from": "years",
+                    "to": "minutes",
+                    "value": 525600.0
+                },
+                {
+                    "from": "years",
+                    "to": "seconds",
+                    "value": 31536000.0
+                }
+            ]
+        },
+        {
+            "unit_type": "electric current",
+            "tests": []
+        },
+        {
+            "unit_type": "energy",
+            "tests": [
+                {
+                    "from": "calories",
+                    "to": "joules",
+                    "value": 4.184
+                },
+                {
+                    "from": "calories",
+                    "to": "kilocalories",
+                    "value": 0.001
+                },
+                {
+                    "from": "calories",
+                    "to": "kilojoules",
+                    "value": 0.004184
+                },
+                {
+                    "from": "calories",
+                    "to": "megajoules",
+                    "value": 4.184e-06
+                },
+                {
+                    "from": "joules",
+                    "to": "calories",
+                    "value": 0.2390057361376673
+                },
+                {
+                    "from": "joules",
+                    "to": "kilocalories",
+                    "value": 0.0002390057361376673
+                },
+                {
+                    "from": "joules",
+                    "to": "kilojoules",
+                    "value": 0.001
+                },
+                {
+                    "from": "joules",
+                    "to": "megajoules",
+                    "value": 1e-06
+                },
+                {
+                    "from": "kilocalories",
+                    "to": "calories",
+                    "value": 1000.0
+                },
+                {
+                    "from": "kilocalories",
+                    "to": "joules",
+                    "value": 4184.0
+                },
+                {
+                    "from": "kilocalories",
+                    "to": "kilojoules",
+                    "value": 4.184
+                },
+                {
+                    "from": "kilocalories",
+                    "to": "megajoules",
+                    "value": 0.004184
+                },
+                {
+                    "from": "kilojoules",
+                    "to": "calories",
+                    "value": 239.0057361376673
+                },
+                {
+                    "from": "kilojoules",
+                    "to": "joules",
+                    "value": 1000.0
+                },
+                {
+                    "from": "kilojoules",
+                    "to": "kilocalories",
+                    "value": 0.2390057361376673
+                },
+                {
+                    "from": "kilojoules",
+                    "to": "megajoules",
+                    "value": 0.001
+                },
+                {
+                    "from": "megajoules",
+                    "to": "calories",
+                    "value": 239005.7361376673
+                },
+                {
+                    "from": "megajoules",
+                    "to": "joules",
+                    "value": 1000000.0
+                },
+                {
+                    "from": "megajoules",
+                    "to": "kilocalories",
+                    "value": 239.0057361376673
+                },
+                {
+                    "from": "megajoules",
+                    "to": "kilojoules",
+                    "value": 1000.0
+                }
+            ]
+        },
+        {
+            "unit_type": "force",
+            "tests": [
+                {
+                    "from": "dynes",
+                    "to": "newtons",
+                    "value": 1e-05
+                },
+                {
+                    "from": "newtons",
+                    "to": "dynes",
+                    "value": 100000.0
+                }
+            ]
+        },
+        {
+            "unit_type": "frequency",
+            "tests": [
+                {
+                    "from": "hertz",
+                    "to": "kilohertz",
+                    "value": 0.001
+                },
+                {
+                    "from": "hertz",
+                    "to": "megahertz",
+                    "value": 1e-06
+                },
+                {
+                    "from": "kilohertz",
+                    "to": "hertz",
+                    "value": 1000.0
+                },
+                {
+                    "from": "kilohertz",
+                    "to": "megahertz",
+                    "value": 0.001
+                },
+                {
+                    "from": "megahertz",
+                    "to": "hertz",
+                    "value": 1000000.0
+                },
+                {
+                    "from": "megahertz",
+                    "to": "kilohertz",
+                    "value": 1000.0
+                }
+            ]
+        },
+        {
+            "unit_type": "length",
+            "tests": [
+                {
+                    "from": "centimeters",
+                    "to": "degrees of latitude",
+                    "value": 8.983153066604113e-08
+                },
+                {
+                    "from": "centimeters",
+                    "to": "feet",
+                    "value": 0.03280839895
+                },
+                {
+                    "from": "centimeters",
+                    "to": "geographical miles",
+                    "value": 5.389891839962469e-06
+                },
+                {
+                    "from": "centimeters",
+                    "to": "inches",
+                    "value": 0.3937007874015748
+                },
+                {
+                    "from": "centimeters",
+                    "to": "kilometers",
+                    "value": 1e-05
+                },
+                {
+                    "from": "centimeters",
+                    "to": "meters",
+                    "value": 0.01
+                },
+                {
+                    "from": "centimeters",
+                    "to": "micrometers",
+                    "value": 10000.0
+                },
+                {
+                    "from": "centimeters",
+                    "to": "millimeters",
+                    "value": 10.0
+                },
+                {
+                    "from": "centimeters",
+                    "to": "nautical miles",
+                    "value": 5.399568034557235e-06
+                },
+                {
+                    "from": "centimeters",
+                    "to": "statute miles",
+                    "value": 1.609344e-05
+                },
+                {
+                    "from": "centimeters",
+                    "to": "yards",
+                    "value": 0.010936132983
+                },
+                {
+                    "from": "degrees of latitude",
+                    "to": "centimeters",
+                    "value": 11131948.8
+                },
+                {
+                    "from": "degrees of latitude",
+                    "to": "feet",
+                    "value": 365221.4173228347
+                },
+                {
+                    "from": "degrees of latitude",
+                    "to": "geographical miles",
+                    "value": 60.0
+                },
+                {
+                    "from": "degrees of latitude",
+                    "to": "inches",
+                    "value": 4382657.007874017
+                },
+                {
+                    "from": "degrees of latitude",
+                    "to": "kilometers",
+                    "value": 111.319488
+                },
+                {
+                    "from": "degrees of latitude",
+                    "to": "meters",
+                    "value": 111319.488
+                },
+                {
+                    "from": "degrees of latitude",
+                    "to": "micrometers",
+                    "value": 111319488000.00002
+                },
+                {
+                    "from": "degrees of latitude",
+                    "to": "millimeters",
+                    "value": 111319488.0
+                },
+                {
+                    "from": "degrees of latitude",
+                    "to": "nautical miles",
+                    "value": 60.10771490280778
+                },
+                {
+                    "from": "degrees of latitude",
+                    "to": "statute miles",
+                    "value": 179.15135009596833
+                },
+                {
+                    "from": "degrees of latitude",
+                    "to": "yards",
+                    "value": 121740.47244094491
+                },
+                {
+                    "from": "feet",
+                    "to": "centimeters",
+                    "value": 30.48
+                },
+                {
+                    "from": "feet",
+                    "to": "degrees of latitude",
+                    "value": 2.7380650547009335e-06
+                },
+                {
+                    "from": "feet",
+                    "to": "geographical miles",
+                    "value": 0.00016428390328205602
+                },
+                {
+                    "from": "feet",
+                    "to": "inches",
+                    "value": 12.0
+                },
+                {
+                    "from": "feet",
+                    "to": "kilometers",
+                    "value": 0.0003048
+                },
+                {
+                    "from": "feet",
+                    "to": "meters",
+                    "value": 0.3048
+                },
+                {
+                    "from": "feet",
+                    "to": "micrometers",
+                    "value": 304800.0
+                },
+                {
+                    "from": "feet",
+                    "to": "millimeters",
+                    "value": 304.8
+                },
+                {
+                    "from": "feet",
+                    "to": "nautical miles",
+                    "value": 0.00016457883369330452
+                },
+                {
+                    "from": "feet",
+                    "to": "statute miles",
+                    "value": 0.0004905280512002636
+                },
+                {
+                    "from": "feet",
+                    "to": "yards",
+                    "value": 0.333333333333
+                },
+                {
+                    "from": "geographical miles",
+                    "to": "centimeters",
+                    "value": 185532.48
+                },
+                {
+                    "from": "geographical miles",
+                    "to": "degrees of latitude",
+                    "value": 0.01666666666666
+                },
+                {
+                    "from": "geographical miles",
+                    "to": "feet",
+                    "value": 6087.023622047245
+                },
+                {
+                    "from": "geographical miles",
+                    "to": "inches",
+                    "value": 73044.28346456694
+                },
+                {
+                    "from": "geographical miles",
+                    "to": "kilometers",
+                    "value": 1.8553248
+                },
+                {
+                    "from": "geographical miles",
+                    "to": "meters",
+                    "value": 1855.3248
+                },
+                {
+                    "from": "geographical miles",
+                    "to": "micrometers",
+                    "value": 1855324800.0
+                },
+                {
+                    "from": "geographical miles",
+                    "to": "millimeters",
+                    "value": 1855324.8
+                },
+                {
+                    "from": "geographical miles",
+                    "to": "nautical miles",
+                    "value": 1.0017952483801296
+                },
+                {
+                    "from": "geographical miles",
+                    "to": "statute miles",
+                    "value": 2.985855834932805
+                },
+                {
+                    "from": "geographical miles",
+                    "to": "yards",
+                    "value": 2029.0078740157485
+                },
+                {
+                    "from": "inches",
+                    "to": "centimeters",
+                    "value": 2.54
+                },
+                {
+                    "from": "inches",
+                    "to": "degrees of latitude",
+                    "value": 2.281720878917445e-07
+                },
+                {
+                    "from": "inches",
+                    "to": "feet",
+                    "value": 0.08333333333333
+                },
+                {
+                    "from": "inches",
+                    "to": "geographical miles",
+                    "value": 1.369032527350467e-05
+                },
+                {
+                    "from": "inches",
+                    "to": "kilometers",
+                    "value": 2.54e-05
+                },
+                {
+                    "from": "inches",
+                    "to": "meters",
+                    "value": 0.0254
+                },
+                {
+                    "from": "inches",
+                    "to": "micrometers",
+                    "value": 25400.0
+                },
+                {
+                    "from": "inches",
+                    "to": "millimeters",
+                    "value": 25.4
+                },
+                {
+                    "from": "inches",
+                    "to": "nautical miles",
+                    "value": 1.3714902807775378e-05
+                },
+                {
+                    "from": "inches",
+                    "to": "statute miles",
+                    "value": 4.0877337600021975e-05
+                },
+                {
+                    "from": "inches",
+                    "to": "yards",
+                    "value": 0.02777777777777
+                },
+                {
+                    "from": "kilometers",
+                    "to": "centimeters",
+                    "value": 100000.0
+                },
+                {
+                    "from": "kilometers",
+                    "to": "degrees of latitude",
+                    "value": 0.008983153066604114
+                },
+                {
+                    "from": "kilometers",
+                    "to": "feet",
+                    "value": 3280.8398950131236
+                },
+                {
+                    "from": "kilometers",
+                    "to": "geographical miles",
+                    "value": 0.5389891839962468
+                },
+                {
+                    "from": "kilometers",
+                    "to": "inches",
+                    "value": 39370.07874015748
+                },
+                {
+                    "from": "kilometers",
+                    "to": "meters",
+                    "value": 1000.0
+                },
+                {
+                    "from": "kilometers",
+                    "to": "micrometers",
+                    "value": 1000000000.0
+                },
+                {
+                    "from": "kilometers",
+                    "to": "millimeters",
+                    "value": 1000000.0
+                },
+                {
+                    "from": "kilometers",
+                    "to": "nautical miles",
+                    "value": 0.5399568034557235
+                },
+                {
+                    "from": "kilometers",
+                    "to": "statute miles",
+                    "value": 1.609344
+                },
+                {
+                    "from": "kilometers",
+                    "to": "yards",
+                    "value": 1093.6132983377079
+                },
+                {
+                    "from": "meters",
+                    "to": "centimeters",
+                    "value": 100.0
+                },
+                {
+                    "from": "meters",
+                    "to": "degrees of latitude",
+                    "value": 8.983153066604114e-06
+                },
+                {
+                    "from": "meters",
+                    "to": "feet",
+                    "value": 3.280839895013124
+                },
+                {
+                    "from": "meters",
+                    "to": "geographical miles",
+                    "value": 0.0005389891839962469
+                },
+                {
+                    "from": "meters",
+                    "to": "inches",
+                    "value": 39.37007874015748
+                },
+                {
+                    "from": "meters",
+                    "to": "kilometers",
+                    "value": 0.001
+                },
+                {
+                    "from": "meters",
+                    "to": "micrometers",
+                    "value": 1000000.0
+                },
+                {
+                    "from": "meters",
+                    "to": "millimeters",
+                    "value": 1000.0
+                },
+                {
+                    "from": "meters",
+                    "to": "nautical miles",
+                    "value": 0.00053995680345
+                },
+                {
+                    "from": "meters",
+                    "to": "statute miles",
+                    "value": 0.001609344
+                },
+                {
+                    "from": "meters",
+                    "to": "yards",
+                    "value": 1.093613298337708
+                },
+                {
+                    "from": "micrometers",
+                    "to": "centimeters",
+                    "value": 0.0001
+                },
+                {
+                    "from": "micrometers",
+                    "to": "degrees of latitude",
+                    "value": 8.983153066604113e-12
+                },
+                {
+                    "from": "micrometers",
+                    "to": "feet",
+                    "value": 3.280839895e-06
+                },
+                {
+                    "from": "micrometers",
+                    "to": "geographical miles",
+                    "value": 5.389891839962468e-10
+                },
+                {
+                    "from": "micrometers",
+                    "to": "inches",
+                    "value": 3.937007874e-05
+                },
+                {
+                    "from": "micrometers",
+                    "to": "kilometers",
+                    "value": 1e-09
+                },
+                {
+                    "from": "micrometers",
+                    "to": "meters",
+                    "value": 1e-06
+                },
+                {
+                    "from": "micrometers",
+                    "to": "millimeters",
+                    "value": 0.001
+                },
+                {
+                    "from": "micrometers",
+                    "to": "nautical miles",
+                    "value": 5.399568034557235e-10
+                },
+                {
+                    "from": "micrometers",
+                    "to": "statute miles",
+                    "value": 1.609344e-09
+                },
+                {
+                    "from": "micrometers",
+                    "to": "yards",
+                    "value": 1.0936132983e-06
+                },
+                {
+                    "from": "millimeters",
+                    "to": "centimeters",
+                    "value": 0.1
+                },
+                {
+                    "from": "millimeters",
+                    "to": "degrees of latitude",
+                    "value": 8.983153066604112e-09
+                },
+                {
+                    "from": "millimeters",
+                    "to": "feet",
+                    "value": 0.003280839895
+                },
+                {
+                    "from": "millimeters",
+                    "to": "geographical miles",
+                    "value": 5.389891839962469e-07
+                },
+                {
+                    "from": "millimeters",
+                    "to": "inches",
+                    "value": 0.03937007874015748
+                },
+                {
+                    "from": "millimeters",
+                    "to": "kilometers",
+                    "value": 1e-06
+                },
+                {
+                    "from": "millimeters",
+                    "to": "meters",
+                    "value": 0.001
+                },
+                {
+                    "from": "millimeters",
+                    "to": "micrometers",
+                    "value": 1000.0
+                },
+                {
+                    "from": "millimeters",
+                    "to": "nautical miles",
+                    "value": 5.399568034557234e-07
+                },
+                {
+                    "from": "millimeters",
+                    "to": "statute miles",
+                    "value": 1.609344e-06
+                },
+                {
+                    "from": "millimeters",
+                    "to": "yards",
+                    "value": 0.0010936132983
+                },
+                {
+                    "from": "nautical miles",
+                    "to": "centimeters",
+                    "value": 185200.0
+                },
+                {
+                    "from": "nautical miles",
+                    "to": "degrees of latitude",
+                    "value": 0.01663679947935082
+                },
+                {
+                    "from": "nautical miles",
+                    "to": "feet",
+                    "value": 6076.115485564305
+                },
+                {
+                    "from": "nautical miles",
+                    "to": "geographical miles",
+                    "value": 0.9982079687610492
+                },
+                {
+                    "from": "nautical miles",
+                    "to": "inches",
+                    "value": 72913.38582677166
+                },
+                {
+                    "from": "nautical miles",
+                    "to": "kilometers",
+                    "value": 1.852
+                },
+                {
+                    "from": "nautical miles",
+                    "to": "meters",
+                    "value": 1852.0
+                },
+                {
+                    "from": "nautical miles",
+                    "to": "micrometers",
+                    "value": 1852000000.0
+                },
+                {
+                    "from": "nautical miles",
+                    "to": "millimeters",
+                    "value": 1852000.0
+                },
+                {
+                    "from": "nautical miles",
+                    "to": "statute miles",
+                    "value": 2.9805050880016024
+                },
+                {
+                    "from": "nautical miles",
+                    "to": "yards",
+                    "value": 2025.3718285214352
+                },
+                {
+                    "from": "statute miles",
+                    "to": "centimeters",
+                    "value": 62137.1192237
+                },
+                {
+                    "from": "statute miles",
+                    "to": "degrees of latitude",
+                    "value": 0.0055818725310432605
+                },
+                {
+                    "from": "statute miles",
+                    "to": "feet",
+                    "value": 2038.6193971030184
+                },
+                {
+                    "from": "statute miles",
+                    "to": "geographical miles",
+                    "value": 0.33491235186259566
+                },
+                {
+                    "from": "statute miles",
+                    "to": "inches",
+                    "value": 24463.43276523622
+                },
+                {
+                    "from": "statute miles",
+                    "to": "kilometers",
+                    "value": 0.621371192237
+                },
+                {
+                    "from": "statute miles",
+                    "to": "meters",
+                    "value": 621.371192237
+                },
+                {
+                    "from": "statute miles",
+                    "to": "micrometers",
+                    "value": 621371192.237
+                },
+                {
+                    "from": "statute miles",
+                    "to": "millimeters",
+                    "value": 621371.192237
+                },
+                {
+                    "from": "statute miles",
+                    "to": "nautical miles",
+                    "value": 0.3355136027197624
+                },
+                {
+                    "from": "statute miles",
+                    "to": "yards",
+                    "value": 679.5397990343395
+                },
+                {
+                    "from": "yards",
+                    "to": "centimeters",
+                    "value": 91.44
+                },
+                {
+                    "from": "yards",
+                    "to": "degrees of latitude",
+                    "value": 8.214195164102801e-06
+                },
+                {
+                    "from": "yards",
+                    "to": "feet",
+                    "value": 3.0
+                },
+                {
+                    "from": "yards",
+                    "to": "geographical miles",
+                    "value": 0.000492851709846168
+                },
+                {
+                    "from": "yards",
+                    "to": "inches",
+                    "value": 36.0
+                },
+                {
+                    "from": "yards",
+                    "to": "kilometers",
+                    "value": 0.0009144
+                },
+                {
+                    "from": "yards",
+                    "to": "meters",
+                    "value": 0.9144
+                },
+                {
+                    "from": "yards",
+                    "to": "micrometers",
+                    "value": 914400.0
+                },
+                {
+                    "from": "yards",
+                    "to": "millimeters",
+                    "value": 914.4
+                },
+                {
+                    "from": "yards",
+                    "to": "nautical miles",
+                    "value": 0.0004937365010799135
+                },
+                {
+                    "from": "yards",
+                    "to": "statute miles",
+                    "value": 0.001471584153600791
+                }
+            ]
+        },
+        {
+            "unit_type": "mass",
+            "tests": [
+                {
+                    "from": "grams",
+                    "to": "kilograms",
+                    "value": 0.001
+                },
+                {
+                    "from": "grams",
+                    "to": "milligrams",
+                    "value": 1000.0
+                },
+                {
+                    "from": "grams",
+                    "to": "pounds",
+                    "value": 0.002204622800000002
+                },
+                {
+                    "from": "grams",
+                    "to": "tonnes",
+                    "value": 1e-06
+                },
+                {
+                    "from": "kilograms",
+                    "to": "grams",
+                    "value": 1000.0
+                },
+                {
+                    "from": "kilograms",
+                    "to": "milligrams",
+                    "value": 1000000.0
+                },
+                {
+                    "from": "kilograms",
+                    "to": "pounds",
+                    "value": 2.204622800000002
+                },
+                {
+                    "from": "kilograms",
+                    "to": "tonnes",
+                    "value": 0.001
+                },
+                {
+                    "from": "milligrams",
+                    "to": "grams",
+                    "value": 0.001
+                },
+                {
+                    "from": "milligrams",
+                    "to": "kilograms",
+                    "value": 1e-06
+                },
+                {
+                    "from": "milligrams",
+                    "to": "pounds",
+                    "value": 2.204622800000002e-06
+                },
+                {
+                    "from": "milligrams",
+                    "to": "tonnes",
+                    "value": 1e-09
+                },
+                {
+                    "from": "pounds",
+                    "to": "grams",
+                    "value": 453.592333346094
+                },
+                {
+                    "from": "pounds",
+                    "to": "kilograms",
+                    "value": 0.453592333346094
+                },
+                {
+                    "from": "pounds",
+                    "to": "milligrams",
+                    "value": 453592.333346094
+                },
+                {
+                    "from": "pounds",
+                    "to": "tonnes",
+                    "value": 0.000453592333346094
+                },
+                {
+                    "from": "tonnes",
+                    "to": "grams",
+                    "value": 1000000.0
+                },
+                {
+                    "from": "tonnes",
+                    "to": "kilograms",
+                    "value": 1000.0
+                },
+                {
+                    "from": "tonnes",
+                    "to": "milligrams",
+                    "value": 1000000000.0
+                },
+                {
+                    "from": "tonnes",
+                    "to": "pounds",
+                    "value": 2204.622800000002
+                }
+            ]
+        },
+        {
+            "unit_type": "speed",
+            "tests": [
+                {
+                    "from": "feet per second",
+                    "to": "kilometers per hour",
+                    "value": 1.09728
+                },
+                {
+                    "from": "feet per second",
+                    "to": "knots",
+                    "value": 0.5924834221063782
+                },
+                {
+                    "from": "feet per second",
+                    "to": "meters per second",
+                    "value": 0.3048
+                },
+                {
+                    "from": "feet per second",
+                    "to": "yards per second",
+                    "value": 0.3333333333333
+                },
+                {
+                    "from": "kilometers per hour",
+                    "to": "feet per second",
+                    "value": 0.9113444152814233
+                },
+                {
+                    "from": "kilometers per hour",
+                    "to": "knots",
+                    "value": 0.5399564578834739
+                },
+                {
+                    "from": "kilometers per hour",
+                    "to": "meters per second",
+                    "value": 0.27777777777
+                },
+                {
+                    "from": "kilometers per hour",
+                    "to": "yards per second",
+                    "value": 0.30378147176047443
+                },
+                {
+                    "from": "knots",
+                    "to": "feet per second",
+                    "value": 1.6878109372998689
+                },
+                {
+                    "from": "knots",
+                    "to": "kilometers per hour",
+                    "value": 1.8520011852804
+                },
+                {
+                    "from": "knots",
+                    "to": "meters per second",
+                    "value": 0.514444773689
+                },
+                {
+                    "from": "knots",
+                    "to": "yards per second",
+                    "value": 0.562603645766623
+                },
+                {
+                    "from": "meters per second",
+                    "to": "feet per second",
+                    "value": 3.280839895013124
+                },
+                {
+                    "from": "meters per second",
+                    "to": "kilometers per hour",
+                    "value": 3.6
+                },
+                {
+                    "from": "meters per second",
+                    "to": "knots",
+                    "value": 1.943843248380506
+                },
+                {
+                    "from": "meters per second",
+                    "to": "yards per second",
+                    "value": 1.093613298337708
+                },
+                {
+                    "from": "yards per second",
+                    "to": "feet per second",
+                    "value": 3.0
+                },
+                {
+                    "from": "yards per second",
+                    "to": "kilometers per hour",
+                    "value": 3.29184
+                },
+                {
+                    "from": "yards per second",
+                    "to": "knots",
+                    "value": 1.7774502663191345
+                },
+                {
+                    "from": "yards per second",
+                    "to": "meters per second",
+                    "value": 0.9144
+                }
+            ]
+        },
+        {
+            "unit_type": "volume",
+            "tests": [
+                {
+                    "from": "cubic feet",
+                    "to": "cubic kilometers",
+                    "value": 2.8316846592e-11
+                },
+                {
+                    "from": "cubic feet",
+                    "to": "cubic meters",
+                    "value": 0.028316846592
+                },
+                {
+                    "from": "cubic feet",
+                    "to": "cubic yards",
+                    "value": 0.03703703703703
+                },
+                {
+                    "from": "cubic feet",
+                    "to": "liters",
+                    "value": 28.316846592
+                },
+                {
+                    "from": "cubic feet",
+                    "to": "milliliters",
+                    "value": 28316.846592
+                },
+                {
+                    "from": "cubic kilometers",
+                    "to": "cubic feet",
+                    "value": 35314666721.4886
+                },
+                {
+                    "from": "cubic kilometers",
+                    "to": "cubic meters",
+                    "value": 1000000000.0
+                },
+                {
+                    "from": "cubic kilometers",
+                    "to": "cubic yards",
+                    "value": 1307950619.3143928
+                },
+                {
+                    "from": "cubic kilometers",
+                    "to": "liters",
+                    "value": 1000000000000.0
+                },
+                {
+                    "from": "cubic kilometers",
+                    "to": "milliliters",
+                    "value": 1000000000000000.0
+                },
+                {
+                    "from": "cubic meters",
+                    "to": "cubic feet",
+                    "value": 35.3146667214886
+                },
+                {
+                    "from": "cubic meters",
+                    "to": "cubic kilometers",
+                    "value": 1e-09
+                },
+                {
+                    "from": "cubic meters",
+                    "to": "cubic yards",
+                    "value": 1.3079506193143928
+                },
+                {
+                    "from": "cubic meters",
+                    "to": "liters",
+                    "value": 1000.0
+                },
+                {
+                    "from": "cubic meters",
+                    "to": "milliliters",
+                    "value": 1000000.0
+                },
+                {
+                    "from": "cubic yards",
+                    "to": "cubic feet",
+                    "value": 27.0
+                },
+                {
+                    "from": "cubic yards",
+                    "to": "cubic kilometers",
+                    "value": 7.64554857984e-10
+                },
+                {
+                    "from": "cubic yards",
+                    "to": "cubic meters",
+                    "value": 0.764554857984
+                },
+                {
+                    "from": "cubic yards",
+                    "to": "liters",
+                    "value": 764.554857984
+                },
+                {
+                    "from": "cubic yards",
+                    "to": "milliliters",
+                    "value": 764554.8579839998
+                },
+                {
+                    "from": "liters",
+                    "to": "cubic feet",
+                    "value": 0.0353146667214886
+                },
+                {
+                    "from": "liters",
+                    "to": "cubic kilometers",
+                    "value": 1e-12
+                },
+                {
+                    "from": "liters",
+                    "to": "cubic meters",
+                    "value": 0.001
+                },
+                {
+                    "from": "liters",
+                    "to": "cubic yards",
+                    "value": 0.0013079506193143927
+                },
+                {
+                    "from": "milliliters",
+                    "to": "cubic feet",
+                    "value": 3.53146667214886e-05
+                },
+                {
+                    "from": "milliliters",
+                    "to": "cubic kilometers",
+                    "value": 1e-15
+                },
+                {
+                    "from": "milliliters",
+                    "to": "cubic meters",
+                    "value": 1e-06
+                },
+                {
+                    "from": "milliliters",
+                    "to": "cubic yards",
+                    "value": 1.3079506193143927e-06
+                }
+            ]
+        }
+    ]
+}

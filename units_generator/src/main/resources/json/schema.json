@@ -1,61 +1,13 @@
-{
-
-	"definitions" : {
-	
-		"ratio" : {
-			"type" : "object",
-			"properties" : {
-				"numerators" : { 
-					"type" : "array",
-					 "items" : {"type" : "string"}
-				},
-				"denumerators" : { 
-					"type" : "array",
-					 "items" : {"type" : "string"}
-				}
-			}
-		},
-	
-		"unit_scale" : {
-			"type" : "object",
-			"properties" : {
-				"is_basic" : {
-					"type" : "boolean",
-					"default" : "false"
-				},
-				"multiplyer_number" : { "type" : "number" },
-				"multiplyer_string" : { "type" : "string" },
-				"relative_to" : { "type" : "string" },
-				"ratio" : { "$ref" : "#/definitions/ratio" },
-				"name" : { "type" : "string" },
-				"singular_name" : { "type" : "string" },
-				"plural_name" : { "type" : "string" }
-			}
-		},
-		
-		"unit_type" : {
-        	"type" : "object",
-        	"properties" : {
-        		"type_name" : { "type" : "string" },
-        		"ratio" : {"$ref" : "#/definitions/ratio" },
-				"tags_only" : {
-					"type" : "boolean",
-					"default" : "false"
-				},
-        		"unit_scales" : {
-        			"type" : "array",
-        			"items": { "$ref" : "#/definitions/unit_scale" }
-        		}
-        	}
-        }
-	},
-	
+{	
     "title": "Units",
     "type": "object",
     "properties": {
         "unit_types": {
             "type" : "array",
-            "items" : { "$ref" : "#/definitions/unit_type" }
+            "items" : { "$ref" : "unit_type.json" }
+        },
+        "tests" : {
+        	 "$ref" : "tests.json" 
         }
     }
 }

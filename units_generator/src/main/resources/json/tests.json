@@ -1,0 +1,37 @@
+{	
+
+	"definitions" : {
+		"test_case" : {
+			"type" : "object",
+			"properties" : {
+				"from" : { "type" : "string"},
+				"to" : { "type" : "string"},
+				"value" : { "type" : "number"} 
+			}
+		},
+		
+		"test_suite" : {
+			"type" : "object",
+			"properties" : {
+				"unit_type" : {"type" : "string"},
+				"test_cases" : {
+					"type" : "array",
+					"items" : {
+						"$ref" : "#/definitions/test_case"
+					}
+				}
+			}
+		}
+	},
+	
+    "title": "Tests",
+    "type": "object",
+    "properties": {
+        "test_suites": {
+            "type" : "array",
+            "items" : {
+            	"$ref" : "#/definitions/test_suite"
+            }
+        }
+    }
+}

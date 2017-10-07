@@ -1,11 +1,8 @@
 package units_generator.cpp_generator;
 
-import java.util.ArrayList;
-
 import units_generator.internal.NamesManipulator;
 import units_generator.internal.UnitScaleInterface;
 import units_schema.UnitScale;
-import units_schema.Multiplyer;
 
 public class CppUnitScale implements UnitScaleInterface{
 	

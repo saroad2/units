@@ -14,7 +14,6 @@ import units_generator.general_generator.GeneralSchema;
 import units_generator.java_generator.JavaUnitsGenerator;
 import units_generator.java_generator.JavaUnitsSchema;
 
-import units_generator.java_generator.JavaUnitsSchema;
 import units_generator.schema_reader.InvalidSchemaException;
 import units_generator.schema_reader.SchemaReader;
 
@@ -25,8 +24,6 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.logging.Logger;
-import java.util.logging.Level;
-import java.util.ArrayList;
 
 public class UnitsGenerator {
 	
@@ -34,12 +31,12 @@ public class UnitsGenerator {
 			Logger.getLogger(UnitsGenerator.class.getName());
 	
 	public void generate(
-			String jsonFilePath,
+			String dataDirectoryPath,
 			String stringTemplateDirectory,
 			String outputDirectory) {
 		try {
 			makeDirectories(outputDirectory);
-			Schema schema = new SchemaReader().getSchema(jsonFilePath);
+			Schema schema = new SchemaReader().getSchema(dataDirectoryPath);
 			generateCpp(stringTemplateDirectory, schema, outputDirectory);
 			generateJava(stringTemplateDirectory, schema, outputDirectory);
 			generateGeneralFiles(stringTemplateDirectory, schema, outputDirectory);
@@ -96,12 +93,12 @@ public class UnitsGenerator {
 	}
 
     public static void main(String[] args) {  
-    	String jsonFilePath = new String(args[0]);
+    	String dataDirectoryPath = new String(args[0]);
     	String stringTemplateDirectory = new String(args[1]);
     	String outputDirectory = new String(args[2]);
-    	logger.info("generate units from json file: " + jsonFilePath);
+    	logger.info("generate units from json file: " + dataDirectoryPath);
     	logger.info("stringtemplate directory: " + stringTemplateDirectory);
     	logger.info("output directory: " + outputDirectory);
-    	new UnitsGenerator().generate(jsonFilePath, stringTemplateDirectory, outputDirectory);
+    	new UnitsGenerator().generate(dataDirectoryPath, stringTemplateDirectory, outputDirectory);
     }
 }

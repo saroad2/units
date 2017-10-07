@@ -32,12 +32,12 @@ jsonSchema2Pojo {
   propertyWordDelimiters = ['_'] as char[]
 }
 
-File jsonFile = file('src/main/resources/data/units.json')
+File dataDirectory = file('src/main/resources/data')
 File stringTemplateDirectory = file('src/main/resources/stringtemplate')
 File outputDirectory = file('generated')
 
 run {
-	args = [ jsonFile.absolutePath, stringTemplateDirectory.absolutePath, outputDirectory.absolutePath ]
+	args = [ dataDirectory.absolutePath, stringTemplateDirectory.absolutePath, outputDirectory.absolutePath ]
 }
 
 mainClassName = 'units_generator.UnitsGenerator'

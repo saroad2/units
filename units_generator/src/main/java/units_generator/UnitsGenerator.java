@@ -13,9 +13,8 @@ import units_generator.general_generator.GeneralSchema;
 
 import units_generator.java_generator.JavaUnitsGenerator;
 import units_generator.java_generator.JavaUnitsSchema;
-
-import units_generator.schema_reader.InvalidSchemaException;
 import units_generator.schema_reader.SchemaReader;
+import units_generator.schema_reader.exceptions.InvalidSchema;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -45,7 +44,7 @@ public class UnitsGenerator {
 		catch(IOException e) {
 			logger.severe("Got io exception in read json file: " + e.getMessage());
 		}
-		catch(InvalidSchemaException e) {
+		catch(InvalidSchema e) {
 			logger.severe("Units schema is invalid because of the following reason:\n" + e.toString());
 		}
 		System.exit(1);

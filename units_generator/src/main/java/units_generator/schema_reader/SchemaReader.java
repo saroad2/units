@@ -2,6 +2,8 @@ package units_generator.schema_reader;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import units_generator.schema_reader.exceptions.InvalidSchema;
+
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -15,7 +17,7 @@ public class SchemaReader {
 	private final static Logger logger =
 			Logger.getLogger(SchemaReader.class.getName());
 	
-	public Schema getSchema(String dataDirectoryPath) throws IOException, InvalidSchemaException{
+	public Schema getSchema(String dataDirectoryPath) throws IOException, InvalidSchema{
 		Schema schema = readSchemaForDataDirectory(dataDirectoryPath);
 		validateSchema(schema);
 		logger.fine("Schema content: " + schema.toString());
@@ -34,7 +36,7 @@ public class SchemaReader {
 		return schema;
 	}
 	
-	private void validateSchema(Schema schema) throws InvalidSchemaException {
+	private void validateSchema(Schema schema) throws InvalidSchema {
 		logger.info("Validating schema...");
 		SchemaValidator.validateSchema(schema);
 		logger.info("Schema is valid!");

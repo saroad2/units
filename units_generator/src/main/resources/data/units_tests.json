@@ -38,15 +38,35 @@
         {
             "unit_type": "angular speed",
             "test_cases": [
+            	{
+                    "from": "degrees per second",
+                    "to": "mils per second",
+                    "value": 17.7777777777777
+                },
                 {
                     "from": "degrees per second",
                     "to": "radians per second",
                     "value": 0.017453292519937
                 },
                 {
+                    "from": "mils per second",
+                    "to": "degrees per second",
+                    "value": 0.05625
+                },
+                {
+                    "from": "mils per second",
+                    "to": "radians per second",
+                    "value": 0.00098174770424
+                },
+                {
                     "from": "radians per second",
                     "to": "degrees per second",
                     "value": 57.2957795131
+                },
+                {
+                    "from": "radians per second",
+                    "to": "mils per second",
+                    "value": 1018.59163578844
                 }
             ]
         },
@@ -1528,6 +1548,11 @@
                     "value": 0.0013079506193143927
                 },
                 {
+                    "from": "liters",
+                    "to": "milliliters",
+                    "value": 1e+03
+                },
+                {
                     "from": "milliliters",
                     "to": "cubic feet",
                     "value": 3.53146667214886e-05
@@ -1546,6 +1571,11 @@
                     "from": "milliliters",
                     "to": "cubic yards",
                     "value": 1.3079506193143927e-06
+                },
+                {
+                    "from": "milliliters",
+                    "to": "liters",
+                    "value": 1e-3
                 }
             ]
         }

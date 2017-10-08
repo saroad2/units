@@ -110,6 +110,10 @@ TEST_F(TestVolumeConversions, Liters_to_CubicYards)
 {
 	check_conversion<Liters, CubicYards>(0.0013079506193143927);
 }
+TEST_F(TestVolumeConversions, Liters_to_Milliliters)
+{
+	check_conversion<Liters, Milliliters>(1000.0);
+}
 TEST_F(TestVolumeConversions, Milliliters_to_CubicFeet)
 {
 	check_conversion<Milliliters, CubicFeet>(3.53146667214886E-5);
@@ -125,5 +129,9 @@ TEST_F(TestVolumeConversions, Milliliters_to_CubicMeters)
 TEST_F(TestVolumeConversions, Milliliters_to_CubicYards)
 {
 	check_conversion<Milliliters, CubicYards>(1.3079506193143927E-6);
+}
+TEST_F(TestVolumeConversions, Milliliters_to_Liters)
+{
+	check_conversion<Milliliters, Liters>(0.001);
 }
 

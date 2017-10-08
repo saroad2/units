@@ -216,3 +216,24 @@ public class <unitScale.className>Tests {
 	}
 }
 >>
+
+conversion_test_case(testCase) ::= <<
+@Test
+public void <testCase.name>() {
+	checkCastedValue(<testCase.to>.castFrom(<testCase.from>.one()).value(), <testCase.value>);
+}
+<\n>
+>>
+
+conversion_test_suite(testSuite) ::= <<
+<declaration()>
+package com.units.tests.casting;
+
+import org.junit.Test;
+import com.units.<testSuite.packageName>.*;
+
+public class <testSuite.name> extends CastingTestsBase{
+
+	<testSuite.testCases:conversion_test_case()>
+}
+>>

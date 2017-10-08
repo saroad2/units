@@ -21,8 +21,8 @@ public class JavaUnitType implements UnitTypeInterface {
 	
 	public JavaUnitType(UnitType unitType) {
 		typeName = NamesManipulator.getName(unitType);
-		packageName = typeName.replaceAll(" ", "_");
-		className = JavaNamesFormatter.formatClassname(packageName);
+		packageName = JavaNamesFormatter.formatPackageName(typeName);
+		className = JavaNamesFormatter.formatClassName(typeName);
 		unitScales = new ArrayList<>();
 		for (UnitScale unitScale : unitType.getUnitScales()) {
 			if (supportChecker.isSupported(unitScale)) {

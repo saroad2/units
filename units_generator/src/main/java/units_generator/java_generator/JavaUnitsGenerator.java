@@ -19,6 +19,7 @@ public class JavaUnitsGenerator extends LanguageUnitsGenerator {
 	private static final String root = "root";
 	private static final String library = "libary";
 	private static final String tests = "tests";
+	private static final String conversionTests = "conversion_tests";
 	
 	public JavaUnitsGenerator(StringTemplateGroup group) {
 		super(JavaUnitsGenerator.class.getSimpleName(), group);
@@ -47,6 +48,10 @@ public class JavaUnitsGenerator extends LanguageUnitsGenerator {
 					unitTypeTestsPackageKey(javaUnitType),
 					unitTypeTestsPackagePath);
 		}
+		addToDirectoriesMap(
+				directoriesMap,
+				conversionTests,
+				Paths.get(testsPath.toString(), "casting"));
 		return directoriesMap;
 	}
 	
@@ -89,6 +94,11 @@ public class JavaUnitsGenerator extends LanguageUnitsGenerator {
 	protected void generateTestSuiteFiles(
 			UnitsTestSuiteInterface testSuite,
 			Map<String, Path> directoriesMap) throws IOException {
+		JavaTestSuite javaTestSuite = (JavaTestSuite)testSuite;
+		Path outputPath = Paths.get(
+				directoriesMap.get(conversionTests).toString(),
+				javaTestSuite.getName() + ".java");
+		writeStringTemplate("conversion_test_suite", "testSuite", javaTestSuite, outputPath);
 	};
 
 	private void generateUnitScaleClass(

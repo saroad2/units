@@ -22,7 +22,7 @@ public class JavaUnitScale implements UnitScaleInterface {
 		this.unitType = unitType;
 		this.packageName = unitType.getPackageName();
 		this.name = NamesManipulator.getName(unitScale);
-		this.className = JavaNamesFormatter.formatClassname(name);
+		this.className = JavaNamesFormatter.formatClassName(name);
 		this.pluralName = unitScale.getPluralName();
 		this.typeInterfaceName = unitType.getClassName();
 		this.scale = JavaScaleCalculator.calculateScale(unitScale);

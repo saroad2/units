@@ -36,9 +36,8 @@ public class CppSchema implements UnitsSchemaInterface{
 		for (UnitType unitType : schema.getUnitTypes()) {
 			if (!supportChecker.isSupported(unitType))
 				continue;
-			CppUnitType cppUnitType = new CppUnitType(unitType); 
+			CppUnitType cppUnitType = new CppUnitType(this, unitType); 
 			unitTypes.add(cppUnitType);
-			UnitsRepository.getInstance().addType(cppUnitType);
 			TestSuite testSuite = schema.getTests().getTestSuites().stream()
 					.filter((someTestSuite) -> someTestSuite.getUnitType().equals(unitType.getTypeName()))
 					.collect(Collectors.toList()).get(0);			
@@ -49,5 +48,18 @@ public class CppSchema implements UnitsSchemaInterface{
 	@Override
 	public String toString() {
 		return "CppSchema [unitTypes=" + unitTypes + ", testSuites=" + testSuites + "]";
+	}
+	
+	public String getUnitTypeOfScale(String scaleName) {
+		return unitTypes.stream()
+				.filter((unitType) -> unitTypeHasScale(unitType, scaleName))
+				.collect(Collectors.toList())
+				.get(0).getTypeName();
+	}
+	
+	public boolean unitTypeHasScale(UnitTypeInterface unitType, String scaleName) {
+		return unitType.getUnitScales().stream()
+				.filter((unitScale) -> unitScale.getName().equals(scaleName))
+				.count() != 0;
 	}
 }

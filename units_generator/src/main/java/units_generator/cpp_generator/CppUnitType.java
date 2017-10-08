@@ -11,6 +11,7 @@ import units_schema.UnitType;
 
 public class CppUnitType implements UnitTypeInterface{
 	
+	private CppSchema schema;
 	private String typeName;
 	private String upperCaseName;
 	private String namespace;
@@ -88,11 +89,12 @@ public class CppUnitType implements UnitTypeInterface{
 		return tagsOnly;
 	}
 	
-	public CppUnitType(UnitType unitType) {
+	public CppUnitType(CppSchema schema, UnitType unitType) {
+		this.schema = schema;
 		typeName = NamesManipulator.getName(unitType);
 		namespace = CppNamesFormatter.formatNamespaceName(typeName); 
 		upperCaseName = namespace.toUpperCase();
-		codeName = namespace + "_code";
+		codeName = CppNamesFormatter.formatCodeName(typeName);
 		initializeIncludes();
 		initializeCode(unitType);
 		headerIncludeGurad = "INCLUDE_" + namespace.toUpperCase() + "_UNITS_H_";
@@ -140,7 +142,7 @@ public class CppUnitType implements UnitTypeInterface{
 	}
 
 	private void addScale(UnitScale unitScale) {
-		CppUnitScale scale = new CppUnitScale(unitScale, this);
+		CppUnitScale scale = new CppUnitScale(schema, typeName, unitScale);
 		if (scale.isStringMultiplyer() && !hasMultiplyers) {
 			tagIncludes.add("<units/internal/multiplyer_scales.h>");
 			hasMultiplyers = true;
@@ -150,7 +152,6 @@ public class CppUnitType implements UnitTypeInterface{
 
 	private void addToUnitScales(CppUnitScale scale) {
 		unitScales.add(scale);
-		UnitsRepository.getInstance().addScale(scale);
 	}
 	
 	public String toString() {

@@ -54,8 +54,10 @@ public class CppTypeCodeCalculator {
 	private static String toCode(List<String> unitTypeNames) {
 		List<String> tagsList = new ArrayList<String>();
 		for (String unitTypeName : unitTypeNames) {
-			CppUnitType unitType = UnitsRepository.getInstance().getType(unitTypeName);
-			tagsList.add(unitType.getNamespace() + "::tags::" + unitType.getCodeName());
+			tagsList.add(
+					CppNamesFormatter.formatNamespaceName(unitTypeName) +
+					"::tags::" +
+					CppNamesFormatter.formatCodeName(unitTypeName));
 		}
 		return combineCodes(tagsList);
 	}
@@ -103,9 +105,14 @@ public class CppTypeCodeCalculator {
 			List<String> unitTypesNamesList) {
 		Set<String> unitTypesNamesSet = new HashSet<String>(unitTypesNamesList);
 		for (String unitTypeName : unitTypesNamesSet) {
-			CppUnitType unitType = UnitsRepository.getInstance().getType(unitTypeName);
-			result.tagIncludes.add("<units/tags/" + unitType.getTagsHeaderFileName() + ">");
-			result.unitIncludes.add("<units/" + unitType.getHeaderFileName() + ">");
+			result.tagIncludes.add(
+					"<units/tags/" +
+					CppNamesFormatter.formatUnitTypeTagHeaderName(unitTypeName) +
+					">");
+			result.unitIncludes.add(
+					"<units/" +
+					CppNamesFormatter.formatUnitTypeHeaderName(unitTypeName) +
+					">");
 		}
 		
 	}

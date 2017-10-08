@@ -4,17 +4,33 @@ import com.google.common.base.CaseFormat;
 
 public class CppNamesFormatter {
 
-	static String formatClassName(String unitName) {
+	static String formatClassName(String name) {
 		return CaseFormat.LOWER_UNDERSCORE.to(
 				CaseFormat.UPPER_CAMEL,
-				unitName.toLowerCase().replace(" ", "_"));
+				toLowerUnderscore(name));
 	}
 	
-	static String formatUnitTypeHeaderName(String unitType) {
-		return unitType.toLowerCase().replace(" ", "_") + "_units.h";
+	static String formatUnitTypeTagHeaderName(String name) {
+		return toLowerUnderscore(name) + "_tags.h";
 	}
 	
-	static String formatNamespaceName(String unitType) {
-		return unitType.toLowerCase().replace(" ", "_");
+	static String formatUnitTypeHeaderName(String name) {
+		return toLowerUnderscore(name) + "_units.h";
+	}
+	
+	static String formatNamespaceName(String name) {
+		return toLowerUnderscore(name);
+	}
+	
+	static String formatTagName(String name) {
+		return toLowerUnderscore(name + " tag");
+	}
+	
+	static String formatCodeName(String name) {
+		return toLowerUnderscore(name) + "_code";
+	}
+	
+	static String toLowerUnderscore(String name) {
+		return name.toLowerCase().replace(" ", "_");
 	}
 }

@@ -11,8 +11,16 @@ unit_type_interface(unitType) ::= <<
 package com.units.<unitType.packageName>;
 
 import com.units.Unit;
+import com.units.internal.Ratio;
 
 public interface <unitType.className> extends Unit {
+
+	public static final Ratio _typeCode = <unitType.code>;
+
+	@Override
+	default public Ratio typeCode() {
+		return _typeCode;
+	};
 }
 >>
 

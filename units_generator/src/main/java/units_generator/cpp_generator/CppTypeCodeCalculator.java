@@ -5,9 +5,13 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import units_generator.internal.PrimesGetter;
 import units_schema.UnitType;
 
 public class CppTypeCodeCalculator {
+	
+	private static PrimesGetter primesGetter = new PrimesGetter();
+	
 	public static class Result {
 		public String code;
 		public List<String> tagIncludes;
@@ -30,7 +34,7 @@ public class CppTypeCodeCalculator {
 	}
 
 	private static void initializeBasicCode(Result result) {
-		result.code = "std::ratio<" + Integer.toString(CppNewCodeGetter.getInstance().getNextAndBump()) + ", 1>";
+		result.code = "std::ratio<" + Integer.toString(primesGetter.getNextPrimeAndBump()) + ", 1>";
 	}
 
 	private static void initializeRatioCode(Result result, UnitType unitType) {

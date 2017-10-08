@@ -15,6 +15,7 @@ public class JavaUnitType implements UnitTypeInterface {
 	private String typeName;
 	private String packageName;
 	private String className;
+	private String code;
 	private List<UnitScaleInterface> unitScales;
 	
 	private static JavaSupportChecker supportChecker = new JavaSupportChecker();
@@ -23,6 +24,7 @@ public class JavaUnitType implements UnitTypeInterface {
 		typeName = NamesManipulator.getName(unitType);
 		packageName = JavaNamesFormatter.formatPackageName(typeName);
 		className = JavaNamesFormatter.formatClassName(typeName);
+		code = JavaUnitTypeCodeCalculator.getCode(unitType);
 		unitScales = new ArrayList<>();
 		for (UnitScale unitScale : unitType.getUnitScales()) {
 			if (supportChecker.isSupported(unitScale)) {
@@ -44,6 +46,10 @@ public class JavaUnitType implements UnitTypeInterface {
 		return className;
 	}
 	
+	public String getCode() {
+		return code;
+	}
+
 	@Override
 	public List<UnitScaleInterface> getUnitScales() {
 		return unitScales;

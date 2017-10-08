@@ -1,25 +1,20 @@
-package units_generator.cpp_generator;
+package units_generator.internal;
 
-public class CppNewCodeGetter {
-	static private CppNewCodeGetter _codeGetter = new CppNewCodeGetter();
+public class PrimesGetter {
 	
 	private int nextCode;
 	
-	public static CppNewCodeGetter getInstance() {
-		return _codeGetter;
-	}
-	
-	private CppNewCodeGetter() {
+	public PrimesGetter() {
 		nextCode = 2;
 	}
 	
-	public int getNextCode() {
+	public int getNextPrime() {
 		return nextCode;
 	}
 	
-	public int getNextAndBump()
+	public int getNextPrimeAndBump()
 	{
-		int returned = getNextCode();
+		int returned = getNextPrime();
 		bump();
 		return returned;
 	}

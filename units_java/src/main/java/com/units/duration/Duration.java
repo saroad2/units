@@ -3,8 +3,7 @@
  */
 package com.units.duration;
 
-public interface Duration {
-	
-	public double value();
-	public double scale();
+import com.units.Unit;
+
+public interface Duration extends Unit {
 }

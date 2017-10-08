@@ -3,8 +3,7 @@
  */
 package com.units.angle;
 
-public interface Angle {
-	
-	public double value();
-	public double scale();
+import com.units.Unit;
+
+public interface Angle extends Unit {
 }

@@ -3,8 +3,7 @@
  */
 package com.units.mass;
 
-public interface Mass {
-	
-	public double value();
-	public double scale();
+import com.units.Unit;
+
+public interface Mass extends Unit {
 }

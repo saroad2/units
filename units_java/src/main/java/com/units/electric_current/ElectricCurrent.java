@@ -3,8 +3,7 @@
  */
 package com.units.electric_current;
 
-public interface ElectricCurrent {
-	
-	public double value();
-	public double scale();
+import com.units.Unit;
+
+public interface ElectricCurrent extends Unit {
 }

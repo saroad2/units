@@ -10,10 +10,9 @@ unit_type_interface(unitType) ::= <<
 <declaration()>
 package com.units.<unitType.packageName>;
 
-public interface <unitType.className> {
-	
-	public double value();
-	public double scale();
+import com.units.Unit;
+
+public interface <unitType.className> extends Unit {
 }
 >>
 

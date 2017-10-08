@@ -3,8 +3,7 @@
  */
 package com.units.length;
 
-public interface Length {
-	
-	public double value();
-	public double scale();
+import com.units.Unit;
+
+public interface Length extends Unit {
 }

@@ -25,7 +25,7 @@ public class JavaUnitsSchema implements UnitsSchemaInterface {
 		for (UnitType unitType : schema.getUnitTypes()) {
 			if (!supportChecker.isSupported(unitType))
 				continue;
-			unitTypes.add(new JavaUnitType(unitType));
+			unitTypes.add(new JavaUnitType(this, unitType));
 			String unitTypeName = NamesManipulator.getName(unitType);
 			TestSuite testSuite = schema.getTests().getTestSuites().stream()
 					.filter((someTestSuite) -> someTestSuite.getUnitType().equals(unitTypeName))
@@ -43,5 +43,4 @@ public class JavaUnitsSchema implements UnitsSchemaInterface {
 	public List<UnitsTestSuiteInterface> getTestSuites() {
 		return testSuites;
 	}
-
 }

@@ -1,16 +1,16 @@
 /* This file is auto generated.
  * DO NOT EDIT IT MANUALY!
  */
-package com.units.tests.speed;
+package com.units.tests.angular_speed;
 
 import org.junit.Test;
 
-import com.units.speed.MetersPerSecond;
+import com.units.angular_speed.RadiansPerSecond;
 
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
 
-public class MetersPerSecondTests {
+public class RadiansPerSecondTests {
 
 	public void assertSameValue(double value1, double value2) {
 		assertTrue("unit value is " + value1 + " instead of " + value2, value1 == value2);
@@ -19,18 +19,18 @@ public class MetersPerSecondTests {
 	@Test
 	public void testConstructor() {
 		double actualValue = 3.1;
-		assertSameValue(new MetersPerSecond(actualValue).value(), actualValue);
+		assertSameValue(new RadiansPerSecond(actualValue).value(), actualValue);
 	}
 
 	@Test
 	public void testZero() {
-		MetersPerSecond zero = MetersPerSecond.zero();
+		RadiansPerSecond zero = RadiansPerSecond.zero();
 		assertSameValue(zero.value(), 0);
 	}
 
 	@Test
 	public void testOne() {
-		MetersPerSecond one = MetersPerSecond.one();
+		RadiansPerSecond one = RadiansPerSecond.one();
 		assertSameValue(one.value(), 1);
 	}
 
@@ -38,13 +38,13 @@ public class MetersPerSecondTests {
 	public void testEqualsSuccess() {
 		double actualValue = 3.1;
 		assertTrue("two units are not equal, even though thet have the same value",
-				new MetersPerSecond(actualValue).equals(new MetersPerSecond(actualValue)));
+				new RadiansPerSecond(actualValue).equals(new RadiansPerSecond(actualValue)));
 	}
 
 	@Test
 	public void testEqualsNullFails() {
 		double actualValue = 3.1;
-		assertFalse("two units are equal, even though one of the is null", new MetersPerSecond(actualValue).equals(null));
+		assertFalse("two units are equal, even though one of the is null", new RadiansPerSecond(actualValue).equals(null));
 	}
 
 	@Test
@@ -52,7 +52,7 @@ public class MetersPerSecondTests {
 		double value1 = 3.1;
 		double value2 = 3.0;
 		assertFalse("two units are equal, even though thet have the different values",
-				new MetersPerSecond(value1).equals(new MetersPerSecond(value2)));
+				new RadiansPerSecond(value1).equals(new RadiansPerSecond(value2)));
 	}
 
 	@Test
@@ -61,9 +61,9 @@ public class MetersPerSecondTests {
 		double value2 = 2.6;
 		double resultValue = 5.7;
 
-		MetersPerSecond unit1 = new MetersPerSecond(value1);
-		MetersPerSecond unit2 = new MetersPerSecond(value2);
-		MetersPerSecond result = unit1.plus(unit2);
+		RadiansPerSecond unit1 = new RadiansPerSecond(value1);
+		RadiansPerSecond unit2 = new RadiansPerSecond(value2);
+		RadiansPerSecond result = unit1.plus(unit2);
 
 		assertSameValue(unit1.value(), value1);
 		assertSameValue(unit2.value(), value2);
@@ -76,9 +76,9 @@ public class MetersPerSecondTests {
 		double value2 = 2.6;
 		double resultValue = 0.5;
 
-		MetersPerSecond unit1 = new MetersPerSecond(value1);
-		MetersPerSecond unit2 = new MetersPerSecond(value2);
-		MetersPerSecond result = unit1.minus(unit2);
+		RadiansPerSecond unit1 = new RadiansPerSecond(value1);
+		RadiansPerSecond unit2 = new RadiansPerSecond(value2);
+		RadiansPerSecond result = unit1.minus(unit2);
 
 		assertSameValue(unit1.value(), value1);
 		assertSameValue(unit2.value(), value2);
@@ -89,8 +89,8 @@ public class MetersPerSecondTests {
 	public void testopposite() {
 		double value = 3.1;
 
-		MetersPerSecond unit = new MetersPerSecond(value);
-		MetersPerSecond result = unit.opposite();
+		RadiansPerSecond unit = new RadiansPerSecond(value);
+		RadiansPerSecond result = unit.opposite();
 
 		assertSameValue(unit.value(), value);
 		assertSameValue(result.value(), -value);
@@ -102,8 +102,8 @@ public class MetersPerSecondTests {
 		double scalar = 5;
 		double resultValue = 15.5;
 
-		MetersPerSecond unit = new MetersPerSecond(value);
-		MetersPerSecond result = unit.multiplyByScalar(scalar);
+		RadiansPerSecond unit = new RadiansPerSecond(value);
+		RadiansPerSecond result = unit.multiplyByScalar(scalar);
 
 		assertSameValue(unit.value(), value);
 		assertSameValue(result.value(), resultValue);
@@ -115,8 +115,8 @@ public class MetersPerSecondTests {
 		double scalar = 5;
 		double resultValue = 0.62;
 
-		MetersPerSecond unit = new MetersPerSecond(value);
-		MetersPerSecond result = unit.divideByScalar(scalar);
+		RadiansPerSecond unit = new RadiansPerSecond(value);
+		RadiansPerSecond result = unit.divideByScalar(scalar);
 
 		assertSameValue(unit.value(), value);
 		assertSameValue(result.value(), resultValue);
@@ -125,9 +125,9 @@ public class MetersPerSecondTests {
 	@Test
 	public void testToString() {
 		double value = 3.1;
-		String stringValue = "3.1 meters/second";
+		String stringValue = "3.1 radians/second";
 
-		MetersPerSecond unit = new MetersPerSecond(value);
+		RadiansPerSecond unit = new RadiansPerSecond(value);
 		assertTrue("string value is \"" + unit.toString() + "\" instead of \"" + stringValue + "\"",
 				unit.toString().equals(stringValue));
 	}

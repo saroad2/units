@@ -168,24 +168,24 @@ Those are the supported units in the *units* library:
 		<td>feet per second</td>
 		<td>feet / seconds</td>
 		<td>V</td>
-		<td>X</td>
+		<td>V</td>
 	</tr>
 	<tr><td>yards per second</td>
 	<td>yards / seconds</td>
 	<td>V</td>
-	<td>X</td></tr>
+	<td>V</td></tr>
 	<tr><td>meters per second</td>
 	<td>meters / seconds</td>
 	<td>V</td>
-	<td>X</td></tr>
+	<td>V</td></tr>
 	<tr><td>kilometers per hour</td>
 	<td>kilometers / hours</td>
 	<td>V</td>
-	<td>X</td></tr>
+	<td>V</td></tr>
 	<tr><td>knots</td>
 	<td>0.514444773689 * meters per second</td>
 	<td>V</td>
-	<td>X</td></tr>
+	<td>V</td></tr>
 	<tr>
 		<td rowspan=3 style="text-align:center; vertical-align:middle;font-weight:bold">
 			angular speed
@@ -193,16 +193,16 @@ Those are the supported units in the *units* library:
 		<td>degrees per second</td>
 		<td>degrees / seconds</td>
 		<td>V</td>
-		<td>X</td>
+		<td>V</td>
 	</tr>
 	<tr><td>radians per second</td>
 	<td>radians / seconds</td>
 	<td>V</td>
-	<td>X</td></tr>
+	<td>V</td></tr>
 	<tr><td>mils per second</td>
 	<td>mils / seconds</td>
 	<td>V</td>
-	<td>X</td></tr>
+	<td>V</td></tr>
 	<tr>
 		<td rowspan=5 style="text-align:center; vertical-align:middle;font-weight:bold">
 			area

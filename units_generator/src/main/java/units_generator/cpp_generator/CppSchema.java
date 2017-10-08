@@ -13,7 +13,7 @@ import units_generator.internal.UnitTypeInterface;
 import units_generator.internal.UnitsSchemaInterface;
 import units_generator.internal.UnitsTestSuiteInterface;
 
-public class CppSchema implements UnitsSchemaInterface{
+public class CppSchema implements UnitsSchemaInterface {
 	
 	private List<UnitTypeInterface> unitTypes;
 	private List<UnitsTestSuiteInterface> testSuites;
@@ -48,18 +48,5 @@ public class CppSchema implements UnitsSchemaInterface{
 	@Override
 	public String toString() {
 		return "CppSchema [unitTypes=" + unitTypes + ", testSuites=" + testSuites + "]";
-	}
-	
-	public String getUnitTypeOfScale(String scaleName) {
-		return unitTypes.stream()
-				.filter((unitType) -> unitTypeHasScale(unitType, scaleName))
-				.collect(Collectors.toList())
-				.get(0).getTypeName();
-	}
-	
-	public boolean unitTypeHasScale(UnitTypeInterface unitType, String scaleName) {
-		return unitType.getUnitScales().stream()
-				.filter((unitScale) -> unitScale.getName().equals(scaleName))
-				.count() != 0;
 	}
 }

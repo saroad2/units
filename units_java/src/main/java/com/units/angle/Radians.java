@@ -3,7 +3,9 @@
  */
 package com.units.angle;
 
+import com.units.Unit;
 import com.units.internal.NumericValue;
+import com.units.internal.Ratio;
 
 public class Radians extends NumericValue implements Angle{
 
@@ -57,7 +59,20 @@ public class Radians extends NumericValue implements Angle{
 		return almostEqualsValue(other.value());
 	}
 	
+	private static Radians castFromScale(double value, double scale) {
+		return new Radians(value * scale / _scale);
+	}
+
 	public static Radians castFrom(Angle other) {
-		return new Radians(other.value() * other.scale() / _scale);
+		return castFromScale(other.value(), other.scale());
+	}
+
+	public static Radians divide(Unit unit1, Unit unit2) {
+		Ratio resultTypeCode = unit1.typeCode().divide(unit2.typeCode());
+		if (!resultTypeCode.equals(_typeCode))
+			throw new IllegalArgumentException("Illigal division");
+		return castFromScale(
+				unit1.value() / unit2.value(),
+				unit1.scale() / unit2.scale());
 	}
 }

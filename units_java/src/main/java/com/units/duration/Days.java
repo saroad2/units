@@ -3,7 +3,9 @@
  */
 package com.units.duration;
 
+import com.units.Unit;
 import com.units.internal.NumericValue;
+import com.units.internal.Ratio;
 
 public class Days extends NumericValue implements Duration{
 
@@ -57,7 +59,20 @@ public class Days extends NumericValue implements Duration{
 		return almostEqualsValue(other.value());
 	}
 	
+	private static Days castFromScale(double value, double scale) {
+		return new Days(value * scale / _scale);
+	}
+
 	public static Days castFrom(Duration other) {
-		return new Days(other.value() * other.scale() / _scale);
+		return castFromScale(other.value(), other.scale());
+	}
+
+	public static Days divide(Unit unit1, Unit unit2) {
+		Ratio resultTypeCode = unit1.typeCode().divide(unit2.typeCode());
+		if (!resultTypeCode.equals(_typeCode))
+			throw new IllegalArgumentException("Illigal division");
+		return castFromScale(
+				unit1.value() / unit2.value(),
+				unit1.scale() / unit2.scale());
 	}
 }

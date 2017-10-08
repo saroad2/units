@@ -3,7 +3,9 @@
  */
 package com.units.length;
 
+import com.units.Unit;
 import com.units.internal.NumericValue;
+import com.units.internal.Ratio;
 
 public class Feet extends NumericValue implements Length{
 
@@ -57,7 +59,20 @@ public class Feet extends NumericValue implements Length{
 		return almostEqualsValue(other.value());
 	}
 	
+	private static Feet castFromScale(double value, double scale) {
+		return new Feet(value * scale / _scale);
+	}
+
 	public static Feet castFrom(Length other) {
-		return new Feet(other.value() * other.scale() / _scale);
+		return castFromScale(other.value(), other.scale());
+	}
+
+	public static Feet divide(Unit unit1, Unit unit2) {
+		Ratio resultTypeCode = unit1.typeCode().divide(unit2.typeCode());
+		if (!resultTypeCode.equals(_typeCode))
+			throw new IllegalArgumentException("Illigal division");
+		return castFromScale(
+				unit1.value() / unit2.value(),
+				unit1.scale() / unit2.scale());
 	}
 }

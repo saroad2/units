@@ -5,12 +5,12 @@ package com.units.tests.speed;
 
 import org.junit.Test;
 
-import com.units.speed.MetersPerSecond;
+import com.units.speed.YardsPerSecond;
 
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
 
-public class MetersPerSecondTests {
+public class YardsPerSecondTests {
 
 	public void assertSameValue(double value1, double value2) {
 		assertTrue("unit value is " + value1 + " instead of " + value2, value1 == value2);
@@ -19,18 +19,18 @@ public class MetersPerSecondTests {
 	@Test
 	public void testConstructor() {
 		double actualValue = 3.1;
-		assertSameValue(new MetersPerSecond(actualValue).value(), actualValue);
+		assertSameValue(new YardsPerSecond(actualValue).value(), actualValue);
 	}
 
 	@Test
 	public void testZero() {
-		MetersPerSecond zero = MetersPerSecond.zero();
+		YardsPerSecond zero = YardsPerSecond.zero();
 		assertSameValue(zero.value(), 0);
 	}
 
 	@Test
 	public void testOne() {
-		MetersPerSecond one = MetersPerSecond.one();
+		YardsPerSecond one = YardsPerSecond.one();
 		assertSameValue(one.value(), 1);
 	}
 
@@ -38,13 +38,13 @@ public class MetersPerSecondTests {
 	public void testEqualsSuccess() {
 		double actualValue = 3.1;
 		assertTrue("two units are not equal, even though thet have the same value",
-				new MetersPerSecond(actualValue).equals(new MetersPerSecond(actualValue)));
+				new YardsPerSecond(actualValue).equals(new YardsPerSecond(actualValue)));
 	}
 
 	@Test
 	public void testEqualsNullFails() {
 		double actualValue = 3.1;
-		assertFalse("two units are equal, even though one of the is null", new MetersPerSecond(actualValue).equals(null));
+		assertFalse("two units are equal, even though one of the is null", new YardsPerSecond(actualValue).equals(null));
 	}
 
 	@Test
@@ -52,7 +52,7 @@ public class MetersPerSecondTests {
 		double value1 = 3.1;
 		double value2 = 3.0;
 		assertFalse("two units are equal, even though thet have the different values",
-				new MetersPerSecond(value1).equals(new MetersPerSecond(value2)));
+				new YardsPerSecond(value1).equals(new YardsPerSecond(value2)));
 	}
 
 	@Test
@@ -61,9 +61,9 @@ public class MetersPerSecondTests {
 		double value2 = 2.6;
 		double resultValue = 5.7;
 
-		MetersPerSecond unit1 = new MetersPerSecond(value1);
-		MetersPerSecond unit2 = new MetersPerSecond(value2);
-		MetersPerSecond result = unit1.plus(unit2);
+		YardsPerSecond unit1 = new YardsPerSecond(value1);
+		YardsPerSecond unit2 = new YardsPerSecond(value2);
+		YardsPerSecond result = unit1.plus(unit2);
 
 		assertSameValue(unit1.value(), value1);
 		assertSameValue(unit2.value(), value2);
@@ -76,9 +76,9 @@ public class MetersPerSecondTests {
 		double value2 = 2.6;
 		double resultValue = 0.5;
 
-		MetersPerSecond unit1 = new MetersPerSecond(value1);
-		MetersPerSecond unit2 = new MetersPerSecond(value2);
-		MetersPerSecond result = unit1.minus(unit2);
+		YardsPerSecond unit1 = new YardsPerSecond(value1);
+		YardsPerSecond unit2 = new YardsPerSecond(value2);
+		YardsPerSecond result = unit1.minus(unit2);
 
 		assertSameValue(unit1.value(), value1);
 		assertSameValue(unit2.value(), value2);
@@ -89,8 +89,8 @@ public class MetersPerSecondTests {
 	public void testopposite() {
 		double value = 3.1;
 
-		MetersPerSecond unit = new MetersPerSecond(value);
-		MetersPerSecond result = unit.opposite();
+		YardsPerSecond unit = new YardsPerSecond(value);
+		YardsPerSecond result = unit.opposite();
 
 		assertSameValue(unit.value(), value);
 		assertSameValue(result.value(), -value);
@@ -102,8 +102,8 @@ public class MetersPerSecondTests {
 		double scalar = 5;
 		double resultValue = 15.5;
 
-		MetersPerSecond unit = new MetersPerSecond(value);
-		MetersPerSecond result = unit.multiplyByScalar(scalar);
+		YardsPerSecond unit = new YardsPerSecond(value);
+		YardsPerSecond result = unit.multiplyByScalar(scalar);
 
 		assertSameValue(unit.value(), value);
 		assertSameValue(result.value(), resultValue);
@@ -115,8 +115,8 @@ public class MetersPerSecondTests {
 		double scalar = 5;
 		double resultValue = 0.62;
 
-		MetersPerSecond unit = new MetersPerSecond(value);
-		MetersPerSecond result = unit.divideByScalar(scalar);
+		YardsPerSecond unit = new YardsPerSecond(value);
+		YardsPerSecond result = unit.divideByScalar(scalar);
 
 		assertSameValue(unit.value(), value);
 		assertSameValue(result.value(), resultValue);
@@ -125,9 +125,9 @@ public class MetersPerSecondTests {
 	@Test
 	public void testToString() {
 		double value = 3.1;
-		String stringValue = "3.1 meters/second";
+		String stringValue = "3.1 yards/second";
 
-		MetersPerSecond unit = new MetersPerSecond(value);
+		YardsPerSecond unit = new YardsPerSecond(value);
 		assertTrue("string value is \"" + unit.toString() + "\" instead of \"" + stringValue + "\"",
 				unit.toString().equals(stringValue));
 	}

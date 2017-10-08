@@ -3,14 +3,12 @@
  */
 package com.units.speed;
 
-import java.util.Arrays;
-import java.util.List;
 import com.units.Unit;
 import com.units.internal.NumericValue;
 import com.units.internal.Ratio;
-
-import com.units.duration.Seconds;
 import com.units.length.Meters;
+import com.units.duration.Seconds;
+
 
 public class MetersPerSecond extends NumericValue implements Speed{
 
@@ -22,7 +20,7 @@ public class MetersPerSecond extends NumericValue implements Speed{
 
 	@Override
 	public String pluralName() {
-		return "meters per second";
+		return "meters/second";
 	}
 	
 	@Override
@@ -67,11 +65,11 @@ public class MetersPerSecond extends NumericValue implements Speed{
 	private static MetersPerSecond castFromScale(double value, double scale) {
 		return new MetersPerSecond(value * scale / _scale);
 	}
-	
+
 	public static MetersPerSecond castFrom(Speed other) {
 		return castFromScale(other.value(), other.scale());
 	}
-	
+
 	public static MetersPerSecond divide(Unit unit1, Unit unit2) {
 		Ratio resultTypeCode = unit1.typeCode().divide(unit2.typeCode());
 		if (!resultTypeCode.equals(_typeCode))

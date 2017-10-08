@@ -45,6 +45,10 @@ public class Ratio {
 		int newDenumerator = getDenumerator() * other.getNumerator();
 		return new Ratio(newNumerator, newDenumerator);
 	}
+	
+	public static Ratio one() {
+		return new Ratio(1);
+	}
 
 	@Override
 	public int hashCode() {

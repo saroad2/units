@@ -8,7 +8,7 @@ What? Why? How?
 
 Our main goal is:
 
-> To create a library of units handling that will validate that the user uses the right units in his code
+> To create a library of units handling that will validate that the user uses the right units in their code
 
 Our secondary goals are:
 > * To do those validations in compiletime (when possible) in order to prevent performance issues.

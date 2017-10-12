@@ -9,7 +9,8 @@ import com.units.internal.Ratio;
 
 public class Knots extends NumericValue implements Speed{
 
-	public static final double _scale = 0.514444773689 * MetersPerSecond._scale;
+	public static final double _scale =
+		0.514444773689 * MetersPerSecond._scale;
 	
 	public Knots(double value) {
 		super(value);

@@ -210,24 +210,24 @@ Those are the supported units in the *units* library:
 		<td>square feet</td>
 		<td>feet * feet</td>
 		<td>V</td>
-		<td>X</td>
+		<td>V</td>
 	</tr>
 	<tr><td>square yards</td>
 	<td>yards * yards</td>
 	<td>V</td>
-	<td>X</td></tr>
+	<td>V</td></tr>
 	<tr><td>square meters</td>
 	<td>meters * meters</td>
 	<td>V</td>
-	<td>X</td></tr>
+	<td>V</td></tr>
 	<tr><td>square kilometers</td>
 	<td>kilometers * kilometers</td>
 	<td>V</td>
-	<td>X</td></tr>
+	<td>V</td></tr>
 	<tr><td>dunams</td>
 	<td>kilo * square meters</td>
 	<td>V</td>
-	<td>X</td></tr>
+	<td>V</td></tr>
 	<tr>
 		<td rowspan=6 style="text-align:center; vertical-align:middle;font-weight:bold">
 			volume
@@ -235,28 +235,28 @@ Those are the supported units in the *units* library:
 		<td>cubic feet</td>
 		<td>feet * feet * feet</td>
 		<td>V</td>
-		<td>X</td>
+		<td>V</td>
 	</tr>
 	<tr><td>cubic yards</td>
 	<td>yards * yards * yards</td>
 	<td>V</td>
-	<td>X</td></tr>
+	<td>V</td></tr>
 	<tr><td>cubic meters</td>
 	<td>meters * meters * meters</td>
 	<td>V</td>
-	<td>X</td></tr>
+	<td>V</td></tr>
 	<tr><td>cubic kilometers</td>
 	<td>kilometers * kilometers * kilometers</td>
 	<td>V</td>
-	<td>X</td></tr>
+	<td>V</td></tr>
 	<tr><td>liters</td>
 	<td>milli * cubic meters</td>
 	<td>V</td>
-	<td>X</td></tr>
+	<td>V</td></tr>
 	<tr><td>milliliters</td>
 	<td>milli * liters</td>
 	<td>V</td>
-	<td>X</td></tr>
+	<td>V</td></tr>
 	<tr>
 		<td rowspan=2 style="text-align:center; vertical-align:middle;font-weight:bold">
 			force
@@ -264,12 +264,12 @@ Those are the supported units in the *units* library:
 		<td>newtons</td>
 		<td>(kilograms * meters) / (seconds * seconds)</td>
 		<td>V</td>
-		<td>X</td>
+		<td>V</td>
 	</tr>
 	<tr><td>dynes</td>
 	<td>1.0E-5 * newtons</td>
 	<td>V</td>
-	<td>X</td></tr>
+	<td>V</td></tr>
 	<tr>
 		<td rowspan=5 style="text-align:center; vertical-align:middle;font-weight:bold">
 			energy
@@ -277,24 +277,24 @@ Those are the supported units in the *units* library:
 		<td>joules</td>
 		<td>(kilograms * meters * meters) / (seconds * seconds)</td>
 		<td>V</td>
-		<td>X</td>
+		<td>V</td>
 	</tr>
 	<tr><td>calories</td>
 	<td>4.184 * joules</td>
 	<td>V</td>
-	<td>X</td></tr>
+	<td>V</td></tr>
 	<tr><td>kilocalories</td>
 	<td>kilo * calories</td>
 	<td>V</td>
-	<td>X</td></tr>
+	<td>V</td></tr>
 	<tr><td>kilojoules</td>
 	<td>kilo * joules</td>
 	<td>V</td>
-	<td>X</td></tr>
+	<td>V</td></tr>
 	<tr><td>megajoules</td>
 	<td>mega * joules</td>
 	<td>V</td>
-	<td>X</td></tr>
+	<td>V</td></tr>
 	<tr>
 		<td rowspan=3 style="text-align:center; vertical-align:middle;font-weight:bold">
 			frequency
@@ -302,16 +302,16 @@ Those are the supported units in the *units* library:
 		<td>hertz</td>
 		<td>seconds^(-1)</td>
 		<td>V</td>
-		<td>X</td>
+		<td>V</td>
 	</tr>
 	<tr><td>kilohertz</td>
 	<td>kilo * hertz</td>
 	<td>V</td>
-	<td>X</td></tr>
+	<td>V</td></tr>
 	<tr><td>megahertz</td>
 	<td>mega * hertz</td>
 	<td>V</td>
-	<td>X</td></tr>
+	<td>V</td></tr>
 
 
 </table>

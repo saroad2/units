@@ -11,7 +11,8 @@ import com.units.internal.Multiplyers;
 
 public class Millimeters extends NumericValue implements Length{
 
-	public static final double _scale = Multiplyers.milli * Meters._scale;
+	public static final double _scale =
+		Multiplyers.milli * Meters._scale;
 	
 	public Millimeters(double value) {
 		super(value);

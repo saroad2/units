@@ -12,7 +12,8 @@ import com.units.duration.Seconds;
 
 public class DegreesPerSecond extends NumericValue implements AngularSpeed{
 
-	public static final double _scale = Degrees._scale / Seconds._scale;
+	public static final double _scale =
+		Degrees._scale / Seconds._scale;
 	
 	public DegreesPerSecond(double value) {
 		super(value);

@@ -6,13 +6,14 @@ package com.units.speed;
 import com.units.Unit;
 import com.units.internal.NumericValue;
 import com.units.internal.Ratio;
-import com.units.length.Yards;
 import com.units.duration.Seconds;
+import com.units.length.Yards;
 
 
 public class YardsPerSecond extends NumericValue implements Speed{
 
-	public static final double _scale = Yards._scale / Seconds._scale;
+	public static final double _scale =
+		Yards._scale / Seconds._scale;
 	
 	public YardsPerSecond(double value) {
 		super(value);

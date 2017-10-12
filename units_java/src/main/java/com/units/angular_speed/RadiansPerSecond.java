@@ -12,7 +12,8 @@ import com.units.duration.Seconds;
 
 public class RadiansPerSecond extends NumericValue implements AngularSpeed{
 
-	public static final double _scale = Radians._scale / Seconds._scale;
+	public static final double _scale =
+		Radians._scale / Seconds._scale;
 	
 	public RadiansPerSecond(double value) {
 		super(value);

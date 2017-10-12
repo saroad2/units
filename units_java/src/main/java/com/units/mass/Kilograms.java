@@ -11,7 +11,8 @@ import com.units.internal.Multiplyers;
 
 public class Kilograms extends NumericValue implements Mass{
 
-	public static final double _scale = Multiplyers.kilo * Grams._scale;
+	public static final double _scale =
+		Multiplyers.kilo * Grams._scale;
 	
 	public Kilograms(double value) {
 		super(value);

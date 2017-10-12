@@ -9,7 +9,8 @@ import com.units.internal.Ratio;
 
 public class GeographicalMiles extends NumericValue implements Length{
 
-	public static final double _scale = 1855.3248 * Meters._scale;
+	public static final double _scale =
+		1855.3248 * Meters._scale;
 	
 	public GeographicalMiles(double value) {
 		super(value);

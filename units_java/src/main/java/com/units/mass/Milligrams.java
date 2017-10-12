@@ -11,7 +11,8 @@ import com.units.internal.Multiplyers;
 
 public class Milligrams extends NumericValue implements Mass{
 
-	public static final double _scale = Multiplyers.milli * Grams._scale;
+	public static final double _scale =
+		Multiplyers.milli * Grams._scale;
 	
 	public Milligrams(double value) {
 		super(value);

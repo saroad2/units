@@ -9,7 +9,8 @@ import com.units.internal.Ratio;
 
 public class StatuteMiles extends NumericValue implements Length{
 
-	public static final double _scale = 621.371192237 * Meters._scale;
+	public static final double _scale =
+		621.371192237 * Meters._scale;
 	
 	public StatuteMiles(double value) {
 		super(value);

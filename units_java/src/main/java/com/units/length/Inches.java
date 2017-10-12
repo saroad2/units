@@ -9,7 +9,8 @@ import com.units.internal.Ratio;
 
 public class Inches extends NumericValue implements Length{
 
-	public static final double _scale = 0.0254 * Meters._scale;
+	public static final double _scale =
+		0.0254 * Meters._scale;
 	
 	public Inches(double value) {
 		super(value);

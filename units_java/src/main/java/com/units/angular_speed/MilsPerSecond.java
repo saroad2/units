@@ -12,7 +12,8 @@ import com.units.duration.Seconds;
 
 public class MilsPerSecond extends NumericValue implements AngularSpeed{
 
-	public static final double _scale = Mils._scale / Seconds._scale;
+	public static final double _scale =
+		Mils._scale / Seconds._scale;
 	
 	public MilsPerSecond(double value) {
 		super(value);

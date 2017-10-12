@@ -9,7 +9,8 @@ import com.units.internal.Ratio;
 
 public class NauticalMiles extends NumericValue implements Length{
 
-	public static final double _scale = 1852.0 * Meters._scale;
+	public static final double _scale =
+		1852.0 * Meters._scale;
 	
 	public NauticalMiles(double value) {
 		super(value);

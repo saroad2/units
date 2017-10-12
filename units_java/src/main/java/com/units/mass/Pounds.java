@@ -9,7 +9,8 @@ import com.units.internal.Ratio;
 
 public class Pounds extends NumericValue implements Mass{
 
-	public static final double _scale = 453.592333346094 * Grams._scale;
+	public static final double _scale =
+		453.592333346094 * Grams._scale;
 	
 	public Pounds(double value) {
 		super(value);

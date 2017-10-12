@@ -8,7 +8,8 @@ import com.units.internal.Ratio;
 
 public interface Duration extends Unit {
 
-	public static final Ratio _typeCode = new Ratio(7);
+	public static final Ratio _typeCode =
+		new Ratio(7);
 
 	@Override
 	default public Ratio typeCode() {

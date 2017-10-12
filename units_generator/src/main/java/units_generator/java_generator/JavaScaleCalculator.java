@@ -1,27 +1,71 @@
 package units_generator.java_generator;
 
+import java.util.List;
+import java.util.StringJoiner;
+import java.util.logging.Logger;
+
+import units_generator.internal.NamesManipulator;
 import units_schema.Ratio;
 import units_schema.UnitScale;
 
 public class JavaScaleCalculator {
 	
+	private static final Logger logger =
+			Logger.getLogger(JavaScaleCalculator.class.getSimpleName());
+	
 	public static String calculateScale(UnitScale unitScale) {
+		logger.fine("calculate scale of " + NamesManipulator.getName(unitScale));
 		if (unitScale.getIsBasic())
 			return "1";
 		if(unitScale.getRatio() != null)
 			return calculateRatioScale(unitScale.getRatio());
+		return calculateRelativeScale(unitScale);
+	}
+	
+	private static String calculateRatioScale(Ratio ratio) {
+		String numeratorScale = combineScales(ratio.getNumerators());
+		if (ratio.getDenumerators().isEmpty())
+			return numeratorScale;
+		String denumeratorScale = combineScales(ratio.getDenumerators());
+		return addBracketsIfNeeaded(
+					ratio.getNumerators().size(),
+					numeratorScale)
+				+ getSeperator(ratio)
+				+ addBracketsIfNeeaded(
+					ratio.getDenumerators().size(),
+					denumeratorScale);
+	}
+	
+	public static String combineScales(List<String> numerators) {
+		if (numerators == null || numerators.isEmpty())
+			return "1.0";
+		StringJoiner joiner = new StringJoiner(" * ");
+		for (String unitScaleName : numerators) {
+			joiner.add(unitScaleNameToScale(unitScaleName));
+		}
+		return joiner.toString();
+	}
+	
+	private static String unitScaleNameToScale(String unitScaleName) {
+		return JavaNamesFormatter.formatClassName(unitScaleName) + "._scale";
+	}
+	
+	private static String calculateRelativeScale(UnitScale unitScale) {
 		String relativeToScale = JavaNamesFormatter.formatClassName(unitScale.getRelativeTo()) + "._scale";
 		if (unitScale.getMultiplyerNumber() != null)
 			return unitScale.getMultiplyerNumber() + " * " + relativeToScale;
 		return "Multiplyers." + unitScale.getMultiplyerString() + " * " + relativeToScale;
 	}
 	
-	private static String calculateRatioScale(Ratio ratio) {
-		return unitScaleNameToScale(ratio.getNumerators().get(0)) +
-				" / " + unitScaleNameToScale(ratio.getDenumerators().get(0));
+	private static String addBracketsIfNeeaded(int listSize, String str) {
+		if (listSize >= 2)
+			return "(" + str + ")";
+		return str;
 	}
 	
-	private static String unitScaleNameToScale(String unitScaleName) {
-		return JavaNamesFormatter.formatClassName(unitScaleName) + "._scale";
-	}
+	private static String getSeperator(Ratio ratio) {
+		if (ratio.getNumerators().size() >=2 || ratio.getDenumerators().size() >=2)
+			return "\n / ";
+		return " / ";
+	};
 }

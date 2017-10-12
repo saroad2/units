@@ -9,7 +9,8 @@ import com.units.internal.Ratio;
 
 public class Feet extends NumericValue implements Length{
 
-	public static final double _scale = 12.0 * Inches._scale;
+	public static final double _scale =
+		12.0 * Inches._scale;
 	
 	public Feet(double value) {
 		super(value);

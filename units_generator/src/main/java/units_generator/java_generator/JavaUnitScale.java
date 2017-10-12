@@ -1,7 +1,8 @@
 package units_generator.java_generator;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 import units_generator.internal.NamesManipulator;
 import units_generator.internal.UnitScaleInterface;
@@ -18,7 +19,7 @@ public class JavaUnitScale implements UnitScaleInterface {
 	private String pluralName;
 	private String typeInterfaceName;
 	private String scale;
-	private List<String> imports;
+	private Set<String> imports;
 	
 	public JavaUnitScale(JavaUnitsSchema schema, JavaUnitType unitType, UnitScale unitScale) {
 		this.schema = schema;
@@ -33,7 +34,7 @@ public class JavaUnitScale implements UnitScaleInterface {
 	}
 
 	private void initializeImports(UnitScale unitScale) {
-		this.imports = new ArrayList<>();
+		this.imports = new TreeSet<>();
 		if (unitScale.getMultiplyerString() != null)
 			this.imports.add("com.units.internal.Multiplyers");
 		initializeImportsFromRatio(unitScale.getRatio());
@@ -88,7 +89,7 @@ public class JavaUnitScale implements UnitScaleInterface {
 		return scale;
 	}
 
-	public List<String> getImports() {
+	public Set<String> getImports() {
 		return imports;
 	}
 

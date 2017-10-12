@@ -16,7 +16,8 @@ import com.units.internal.Ratio;
 
 public interface <unitType.className> extends Unit {
 
-	public static final Ratio _typeCode = <unitType.code>;
+	public static final Ratio _typeCode =
+		<unitType.code>;
 
 	@Override
 	default public Ratio typeCode() {
@@ -36,7 +37,8 @@ import com.units.internal.Ratio;
 
 public class <unitScale.className> extends NumericValue implements <unitScale.typeInterfaceName>{
 
-	public static final double _scale = <unitScale.scale>;
+	public static final double _scale =
+		<unitScale.scale>;
 	
 	public <unitScale.className>(double value) {
 		super(value);

@@ -6,13 +6,14 @@ package com.units.speed;
 import com.units.Unit;
 import com.units.internal.NumericValue;
 import com.units.internal.Ratio;
-import com.units.length.Feet;
 import com.units.duration.Seconds;
+import com.units.length.Feet;
 
 
 public class FeetPerSecond extends NumericValue implements Speed{
 
-	public static final double _scale = Feet._scale / Seconds._scale;
+	public static final double _scale =
+		Feet._scale / Seconds._scale;
 	
 	public FeetPerSecond(double value) {
 		super(value);

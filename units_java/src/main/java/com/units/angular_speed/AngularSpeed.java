@@ -11,7 +11,9 @@ import com.units.duration.Duration;
 
 public interface AngularSpeed extends Unit {
 
-	public static final Ratio _typeCode = Angle._typeCode.divide(Duration._typeCode);
+	public static final Ratio _typeCode =
+		Angle._typeCode
+		.divide(Duration._typeCode);
 
 	@Override
 	default public Ratio typeCode() {

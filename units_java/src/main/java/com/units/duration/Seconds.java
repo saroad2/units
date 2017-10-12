@@ -9,7 +9,8 @@ import com.units.internal.Ratio;
 
 public class Seconds extends NumericValue implements Duration{
 
-	public static final double _scale = 1;
+	public static final double _scale =
+		1;
 	
 	public Seconds(double value) {
 		super(value);

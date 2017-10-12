@@ -9,7 +9,8 @@ import com.units.internal.Ratio;
 
 public class DegreesOfLatitude extends NumericValue implements Length{
 
-	public static final double _scale = 60.0 * GeographicalMiles._scale;
+	public static final double _scale =
+		60.0 * GeographicalMiles._scale;
 	
 	public DegreesOfLatitude(double value) {
 		super(value);

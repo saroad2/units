@@ -9,7 +9,8 @@ import com.units.internal.Ratio;
 
 public class Amperes extends NumericValue implements ElectricCurrent{
 
-	public static final double _scale = 1;
+	public static final double _scale =
+		1;
 	
 	public Amperes(double value) {
 		super(value);

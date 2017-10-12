@@ -9,7 +9,8 @@ import com.units.internal.Ratio;
 
 public class Radians extends NumericValue implements Angle{
 
-	public static final double _scale = 57.2957795131 * Degrees._scale;
+	public static final double _scale =
+		57.2957795131 * Degrees._scale;
 	
 	public Radians(double value) {
 		super(value);

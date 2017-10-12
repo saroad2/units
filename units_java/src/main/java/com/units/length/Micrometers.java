@@ -11,7 +11,8 @@ import com.units.internal.Multiplyers;
 
 public class Micrometers extends NumericValue implements Length{
 
-	public static final double _scale = Multiplyers.micro * Meters._scale;
+	public static final double _scale =
+		Multiplyers.micro * Meters._scale;
 	
 	public Micrometers(double value) {
 		super(value);

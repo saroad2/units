@@ -9,7 +9,8 @@ import com.units.internal.Ratio;
 
 public class Grams extends NumericValue implements Mass{
 
-	public static final double _scale = 1;
+	public static final double _scale =
+		1;
 	
 	public Grams(double value) {
 		super(value);

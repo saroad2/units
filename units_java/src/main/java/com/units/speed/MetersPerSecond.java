@@ -6,13 +6,14 @@ package com.units.speed;
 import com.units.Unit;
 import com.units.internal.NumericValue;
 import com.units.internal.Ratio;
-import com.units.length.Meters;
 import com.units.duration.Seconds;
+import com.units.length.Meters;
 
 
 public class MetersPerSecond extends NumericValue implements Speed{
 
-	public static final double _scale = Meters._scale / Seconds._scale;
+	public static final double _scale =
+		Meters._scale / Seconds._scale;
 	
 	public MetersPerSecond(double value) {
 		super(value);

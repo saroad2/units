@@ -9,7 +9,8 @@ import com.units.internal.Ratio;
 
 public class Meters extends NumericValue implements Length{
 
-	public static final double _scale = 1;
+	public static final double _scale =
+		1;
 	
 	public Meters(double value) {
 		super(value);

@@ -8,7 +8,8 @@ import com.units.internal.Ratio;
 
 public interface ElectricCurrent extends Unit {
 
-	public static final Ratio _typeCode = new Ratio(11);
+	public static final Ratio _typeCode =
+		new Ratio(11);
 
 	@Override
 	default public Ratio typeCode() {

@@ -11,7 +11,8 @@ import com.units.internal.Multiplyers;
 
 public class Microseconds extends NumericValue implements Duration{
 
-	public static final double _scale = Multiplyers.micro * Seconds._scale;
+	public static final double _scale =
+		Multiplyers.micro * Seconds._scale;
 	
 	public Microseconds(double value) {
 		super(value);

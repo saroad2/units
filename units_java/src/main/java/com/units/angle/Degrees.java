@@ -9,7 +9,8 @@ import com.units.internal.Ratio;
 
 public class Degrees extends NumericValue implements Angle{
 
-	public static final double _scale = 1;
+	public static final double _scale =
+		1;
 	
 	public Degrees(double value) {
 		super(value);

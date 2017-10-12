@@ -9,7 +9,8 @@ import com.units.internal.Ratio;
 
 public class Days extends NumericValue implements Duration{
 
-	public static final double _scale = 24.0 * Hours._scale;
+	public static final double _scale =
+		24.0 * Hours._scale;
 	
 	public Days(double value) {
 		super(value);

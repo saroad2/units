@@ -11,7 +11,8 @@ import com.units.internal.Multiplyers;
 
 public class Centimeters extends NumericValue implements Length{
 
-	public static final double _scale = Multiplyers.centi * Meters._scale;
+	public static final double _scale =
+		Multiplyers.centi * Meters._scale;
 	
 	public Centimeters(double value) {
 		super(value);

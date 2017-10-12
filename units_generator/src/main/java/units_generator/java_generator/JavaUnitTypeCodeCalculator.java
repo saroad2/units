@@ -1,5 +1,8 @@
 package units_generator.java_generator;
 
+import java.util.List;
+import java.util.StringJoiner;
+
 import units_generator.internal.PrimesGetter;
 import units_schema.Ratio;
 import units_schema.UnitType;
@@ -15,9 +18,24 @@ public class JavaUnitTypeCodeCalculator {
 	}
 	
 	public static String getRatioCode(Ratio ratio) {
-		return unitTypeToCode(ratio.getNumerators().get(0)) + ".divide("
-				+ unitTypeToCode(ratio.getDenumerators().get(0)) + ")";
+		StringJoiner joiner = new StringJoiner("");
+		joiner.add(calculateNumeratorType(ratio.getNumerators()));
+		for (String unitTypeName : ratio.getDenumerators()) {
+			joiner.add("\n.divide(" + unitTypeToCode(unitTypeName) + ")");
+		}
+		return joiner.toString();
 	};
+	
+	public static String calculateNumeratorType(List<String> numerators) {
+		if (numerators == null || numerators.isEmpty())
+			return "Ratio.one()";
+		StringJoiner joiner = new StringJoiner("");
+		joiner.add(unitTypeToCode(numerators.get(0)));
+		for (int i=1; i < numerators.size(); ++i) {
+			joiner.add("\n.multiply(" + unitTypeToCode(numerators.get(i)) + ")");
+		}
+		return joiner.toString();
+	}
 	
 	public static String unitTypeToCode(String unitTypeName) {
 		return JavaNamesFormatter.formatClassName(unitTypeName) + "._typeCode";

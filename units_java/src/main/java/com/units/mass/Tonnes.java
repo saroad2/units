@@ -11,7 +11,8 @@ import com.units.internal.Multiplyers;
 
 public class Tonnes extends NumericValue implements Mass{
 
-	public static final double _scale = Multiplyers.mega * Grams._scale;
+	public static final double _scale =
+		Multiplyers.mega * Grams._scale;
 	
 	public Tonnes(double value) {
 		super(value);

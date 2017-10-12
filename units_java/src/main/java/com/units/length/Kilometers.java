@@ -11,7 +11,8 @@ import com.units.internal.Multiplyers;
 
 public class Kilometers extends NumericValue implements Length{
 
-	public static final double _scale = Multiplyers.kilo * Meters._scale;
+	public static final double _scale =
+		Multiplyers.kilo * Meters._scale;
 	
 	public Kilometers(double value) {
 		super(value);

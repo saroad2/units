@@ -2,6 +2,8 @@ package units_generator.java_generator;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 import units_generator.internal.NamesManipulator;
 import units_generator.internal.UnitScaleInterface;
@@ -18,7 +20,7 @@ public class JavaUnitType implements UnitTypeInterface {
 	private String packageName;
 	private String className;
 	private String code;
-	private List<String> imports;
+	private Set<String> imports;
 	private List<UnitScaleInterface> unitScales;
 	
 	private static JavaSupportChecker supportChecker = new JavaSupportChecker();
@@ -34,7 +36,7 @@ public class JavaUnitType implements UnitTypeInterface {
 	}
 
 	private void initializeImports(UnitType unitType) {
-		imports = new ArrayList<>();
+		imports = new TreeSet<>();
 		Ratio ratio = unitType.getRatio();
 		if (ratio == null)
 			return;
@@ -79,7 +81,7 @@ public class JavaUnitType implements UnitTypeInterface {
 		return code;
 	}
 
-	public List<String> getImports() {
+	public Set<String> getImports() {
 		return imports;
 	}
 

@@ -6,13 +6,14 @@ package com.units.speed;
 import com.units.Unit;
 import com.units.internal.NumericValue;
 import com.units.internal.Ratio;
-import com.units.length.Kilometers;
 import com.units.duration.Hours;
+import com.units.length.Kilometers;
 
 
 public class KilometersPerHour extends NumericValue implements Speed{
 
-	public static final double _scale = Kilometers._scale / Hours._scale;
+	public static final double _scale =
+		Kilometers._scale / Hours._scale;
 	
 	public KilometersPerHour(double value) {
 		super(value);

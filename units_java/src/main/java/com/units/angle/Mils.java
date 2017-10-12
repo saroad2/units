@@ -9,7 +9,8 @@ import com.units.internal.Ratio;
 
 public class Mils extends NumericValue implements Angle{
 
-	public static final double _scale = 0.05625 * Degrees._scale;
+	public static final double _scale =
+		0.05625 * Degrees._scale;
 	
 	public Mils(double value) {
 		super(value);

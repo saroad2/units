@@ -77,4 +77,13 @@ public class Tonnes extends NumericValue implements Mass{
 				unit1.value() / unit2.value(),
 				unit1.scale() / unit2.scale());
 	}
+
+	public static Tonnes multiply(Unit unit1, Unit unit2) {
+		Ratio resultTypeCode = unit1.typeCode().multiply(unit2.typeCode());
+		if (!resultTypeCode.equals(_typeCode))
+			throw new IllegalArgumentException("Illigal multiplication");
+		return castFromScale(
+				unit1.value() * unit2.value(),
+				unit1.scale() * unit2.scale());
+	}
 }

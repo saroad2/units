@@ -8,133 +8,215 @@
 #include <units/trigo.h>
 #include <units/angle_units.h>
 #include <units/length_units.h>
-#include <units/all_units.h>
 
 #include <gtest/gtest.h>
-#include <boost/fusion/adapted/boost_tuple.hpp>
-#include <boost/fusion/algorithm/iteration/for_each.hpp>
 #include <functional>
 #include <vector>
+#include <math.h>
+#include <cmath>
 
 using namespace units::angle;
-using namespace units::trigo;
+using namespace units::length;
 using namespace testing;
-using boost::tuples::get;
-using boost::fusion::for_each;
-using std::function;
 using std::vector;
 
 class TestTrigo : public Test
 {
 protected:
-	using ValuesTuple = boost::tuples::tuple<ANGLE_UNITS()>;
-	using ValuesAndResultPair = boost::tuples::tuple<ValuesTuple, double>;
+	std::vector<Degrees> degreesValues = {};
+	std::vector<Radians> radiansValues = {};
+	std::vector<Mils> milsValues = {};
+	std::vector<double> doubleValues = {};
 
-	void run(
-			vector<ValuesAndResultPair> valuesAndResultPairs,
-			auto function,
-			auto reverseFunction)
+	void checkError(auto input, double doubleValue, auto errorFunction)
 	{
-		for (auto valuesAndResultPair : valuesAndResultPairs)
+		double error = errorFunction(input, doubleValue);
+		ASSERT_LT(error, 1e-9);
+	}
+
+	void run(auto errorFunction)
+	{
+		std::size_t size = doubleValues.size();
+		for (std::size_t i=0; i < size; ++i)
 		{
-			auto values = get<0>(valuesAndResultPair);
-			auto result = get<1>(valuesAndResultPair);
-			auto forEachFunction = [&function, &result](const auto& unit) {
-				function(unit, result);
-			};
-			auto forEachReverseFunction = [&reverseFunction, &result](const auto& unit) {
-				reverseFunction(unit, result);
-			};
-			for_each(values, forEachFunction);
-			for_each(values, forEachReverseFunction);
+			checkError(degreesValues[i], doubleValues[i], errorFunction);
+			checkError(radiansValues[i], doubleValues[i], errorFunction);
+			checkError(milsValues[i], doubleValues[i], errorFunction);
 		}
 	}
-	static constexpr double maxError = 1e-9;
 };
 
-TEST_F(TestTrigo, cos_and_acos)
+TEST_F(TestTrigo, sin)
 {
-	vector<ValuesAndResultPair> data{
-		{ValuesTuple{Degrees{0},	Mils{0},			Radians{0}}, 1},
-		{ValuesTuple{Degrees{30},	Mils{1600.0 / 3},	Radians{M_PI / 6}}, sqrt(3) / 2},
-		{ValuesTuple{Degrees{45}, 	Mils{800},			Radians{M_PI_4}}, sqrt(0.5)},
-		{ValuesTuple{Degrees{60}, 	Mils{3200.0 / 3},	Radians{M_PI / 3}}, 0.5},
-		{ValuesTuple{Degrees{90}, 	Mils{1600}, 		Radians{M_PI_2}}, 0}
-	};
-
-	auto function = [](const auto& unit, const auto& result) {
-		EXPECT_NEAR(cos(unit), result, maxError);
-	};
-
-	auto reverseFunction = [](auto unit, const auto& result) {
-		using Unit = decltype(unit);
-		EXPECT_NEAR(acos<Unit>(result).value(), unit.value(), maxError);
-	};
-
-	run(data, function, reverseFunction);
+	degreesValues = {
+			Degrees(0),
+			Degrees(30),
+			Degrees(45),
+			Degrees(60),
+			Degrees(90)};
+	radiansValues = {
+			Radians(0),
+			Radians(M_PI / 6),
+			Radians(M_PI / 4),
+			Radians(M_PI / 3),
+			Radians(M_PI / 2)};
+	milsValues = {
+			Mils(0),
+			Mils(6400.0 / 12),
+			Mils(6400.0 / 8),
+			Mils(6400.0 / 6),
+			Mils(6400.0 / 4)};
+	doubleValues = {0, 0.5, std::sqrt(0.5), std::sqrt(0.75), 1};
+	run([](const auto& unit, double doubleValue) {
+		return std::abs(units::trigo::sin(unit) - doubleValue);
+	});
 }
 
-TEST_F(TestTrigo, sin_and_asin)
+TEST_F(TestTrigo, cos)
 {
-	vector<ValuesAndResultPair> data{
-		{ValuesTuple{Degrees{0},	Mils{0},			Radians{0}}, 0},
-		{ValuesTuple{Degrees{30},	Mils{1600.0 / 3},	Radians{M_PI / 6}}, 0.5},
-		{ValuesTuple{Degrees{45}, 	Mils{800},			Radians{M_PI_4}}, sqrt(0.5)},
-		{ValuesTuple{Degrees{60}, 	Mils{3200.0 / 3},	Radians{M_PI / 3}}, sqrt(3) / 2},
-		{ValuesTuple{Degrees{90}, 	Mils{1600},			Radians{M_PI_2}}, 1}
-	};
-
-	auto function = [](const auto& unit, const auto& result) {
-		EXPECT_NEAR(sin(unit), result, maxError);
-	};
-
-	auto reverseFunction = [](auto unit, const auto& result) {
-		using Unit = decltype(unit);
-		EXPECT_NEAR(asin<Unit>(result).value(), unit.value(), maxError);
-	};
-
-	run(data, function, reverseFunction);
+	degreesValues = {
+			Degrees(0),
+			Degrees(30),
+			Degrees(45),
+			Degrees(60),
+			Degrees(90)};
+	radiansValues = {
+			Radians(0),
+			Radians(M_PI / 6),
+			Radians(M_PI / 4),
+			Radians(M_PI / 3),
+			Radians(M_PI / 2)};
+	milsValues = {
+			Mils(0),
+			Mils(6400.0 / 12),
+			Mils(6400.0 / 8),
+			Mils(6400.0 / 6),
+			Mils(6400.0 / 4)};
+	doubleValues = {1, std::sqrt(0.75), std::sqrt(0.5), 0.5, 0};
+	run([](const auto& unit, double doubleValue) {
+		return std::abs(units::trigo::cos(unit) - doubleValue);
+	});
 }
 
-TEST_F(TestTrigo, tan_and_atan)
+TEST_F(TestTrigo, tan)
 {
-	vector<ValuesAndResultPair> data{
-		{ValuesTuple{Degrees{0},	Mils{0},			Radians{0}}, 0},
-		{ValuesTuple{Degrees{30},	Mils{1600.0 / 3},	Radians{M_PI / 6}}, 1 / sqrt(3)},
-		{ValuesTuple{Degrees{45}, 	Mils{800},			Radians{M_PI_4}}, 1},
-		{ValuesTuple{Degrees{60}, 	Mils{3200.0 / 3},	Radians{M_PI / 3}}, sqrt(3)},
-	};
+	degreesValues = {
+			Degrees(0),
+			Degrees(30),
+			Degrees(45),
+			Degrees(60)};
+	radiansValues = {
+			Radians(0),
+			Radians(M_PI / 6),
+			Radians(M_PI / 4),
+			Radians(M_PI / 3)};
+	milsValues = {
+			Mils(0),
+			Mils(6400.0 / 12),
+			Mils(6400.0 / 8),
+			Mils(6400.0 / 6)};
+	doubleValues = {0, std::sqrt(1.0 / 3), 1, std::sqrt(3)};
+	run([](const auto& unit, double doubleValue) {
+		return std::abs(units::trigo::tan(unit) - doubleValue);
+	});
+}
 
-	auto function = [](const auto& unit, const auto& result) {
-		EXPECT_NEAR(tan(unit), result, maxError);
-	};
-
-	auto reverseFunction = [](auto unit, const auto& result) {
+TEST_F(TestTrigo, asin)
+{
+	degreesValues = {
+			Degrees(0),
+			Degrees(30),
+			Degrees(45),
+			Degrees(60),
+			Degrees(90)};
+	radiansValues = {
+			Radians(0),
+			Radians(M_PI / 6),
+			Radians(M_PI / 4),
+			Radians(M_PI / 3),
+			Radians(M_PI / 2)};
+	milsValues = {
+			Mils(0),
+			Mils(6400.0 / 12),
+			Mils(6400.0 / 8),
+			Mils(6400.0 / 6),
+			Mils(6400.0 / 4)};
+	doubleValues = {0, 0.5, std::sqrt(0.5), std::sqrt(0.75), 1};
+	run([](auto unit, double doubleValue) {
 		using Unit = decltype(unit);
-		EXPECT_NEAR(atan<Unit>(result).value(), unit.value(), maxError);
-	};
+		return (units::trigo::asin<Unit>(doubleValue) - unit).value();
+	});
+}
 
-	run(data, function, reverseFunction);
+TEST_F(TestTrigo, acos)
+{
+	degreesValues = {
+			Degrees(0),
+			Degrees(30),
+			Degrees(45),
+			Degrees(60),
+			Degrees(90)};
+	radiansValues = {
+			Radians(0),
+			Radians(M_PI / 6),
+			Radians(M_PI / 4),
+			Radians(M_PI / 3),
+			Radians(M_PI / 2)};
+	milsValues = {
+			Mils(0),
+			Mils(6400.0 / 12),
+			Mils(6400.0 / 8),
+			Mils(6400.0 / 6),
+			Mils(6400.0 / 4)};
+	doubleValues = {1, std::sqrt(0.75), std::sqrt(0.5), 0.5, 0};
+	run([](auto unit, double doubleValue) {
+		using Unit = decltype(unit);
+		return (units::trigo::acos<Unit>(doubleValue) - unit).value();
+	});
+}
+
+TEST_F(TestTrigo, atan)
+{
+	degreesValues = {
+			Degrees(0),
+			Degrees(30),
+			Degrees(45),
+			Degrees(60)};
+	radiansValues = {
+			Radians(0),
+			Radians(M_PI / 6),
+			Radians(M_PI / 4),
+			Radians(M_PI / 3)};
+	milsValues = {
+			Mils(0),
+			Mils(6400.0 / 12),
+			Mils(6400.0 / 8),
+			Mils(6400.0 / 6)};
+	doubleValues = {0, std::sqrt(1.0 / 3), 1, std::sqrt(3)};
+	run([](auto unit, double doubleValue) {
+		using Unit = decltype(unit);
+		return (units::trigo::atan<Unit>(doubleValue) - unit).value();
+	});
 }
 
 TEST_F(TestTrigo, atan2)
 {
 	EXPECT_NEAR(
-			atan2<Degrees>(
-				units::length::Meters{0},
-				units::length::Meters{8}).value(),
+			units::trigo::atan2<Degrees>(
+				Meters{0},
+				Meters{8}).value(),
 			0,
-			maxError);
+			1e-9);
 	EXPECT_NEAR(
-			atan2<Radians>(
-				units::length::Inches{2 * sqrt(3)},
-				units::length::Inches{2}).value(),
+			units::trigo::atan2<Radians>(
+				Inches{2 * sqrt(3)},
+				Inches{2}).value(),
 			M_PI / 3,
-			maxError);
+			1e-9);
 	EXPECT_NEAR(
-			atan2<Mils>(
-				units::length::Feet{5.2},
-				units::length::Feet{5.2}).value(),
+			units::trigo::atan2<Mils>(
+				Feet{5.2},
+				Feet{5.2}).value(),
 			800,
-			maxError);
+			1e-9);
 }

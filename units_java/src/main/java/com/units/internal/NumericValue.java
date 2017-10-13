@@ -3,7 +3,7 @@ package com.units.internal;
 public abstract class NumericValue {
 
 	private final double _value;
-	private static double error = 1e-10;
+	private static double error = 1e-9;
 
 	public NumericValue(double value) {
 		this._value = value;

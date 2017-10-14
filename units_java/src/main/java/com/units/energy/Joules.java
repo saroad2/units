@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import com.units.Unit;
+import com.units.internal.IllegalUnitsCasting;
 import com.units.internal.IllegalUnitsDivision;
 import com.units.internal.IllegalUnitsMultiplication;
 import com.units.internal.NumericValue;
@@ -69,13 +70,22 @@ public class Joules extends NumericValue implements Energy{
 			return false;
 		return almostEqualsValue(other.value());
 	}
-	
-	private static Joules castFromScale(double value, double scale) {
-		return new Joules(value * scale / _scale);
-	}
 
 	public static Joules castFrom(Energy other) {
+		return castFromWithoutValidate(other);
+	}
+
+	public static Joules castFrom(Unit other) {
+		validateTypeCode(other.typeCode(), IllegalUnitsCasting.class);
+		return castFromWithoutValidate(other);
+	}
+	
+	private static Joules castFromWithoutValidate(Unit other) {
 		return castFromScale(other.value(), other.scale());
+	}
+
+	private static Joules castFromScale(double value, double scale) {
+		return new Joules(value * scale / _scale);
 	}
 
 	private static <E extends IllegalArgumentException> void

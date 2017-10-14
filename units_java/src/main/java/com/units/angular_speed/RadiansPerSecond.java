@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import com.units.Unit;
+import com.units.internal.IllegalUnitsCasting;
 import com.units.internal.IllegalUnitsDivision;
 import com.units.internal.IllegalUnitsMultiplication;
 import com.units.internal.NumericValue;
@@ -67,13 +68,22 @@ public class RadiansPerSecond extends NumericValue implements AngularSpeed{
 			return false;
 		return almostEqualsValue(other.value());
 	}
-	
-	private static RadiansPerSecond castFromScale(double value, double scale) {
-		return new RadiansPerSecond(value * scale / _scale);
-	}
 
 	public static RadiansPerSecond castFrom(AngularSpeed other) {
+		return castFromWithoutValidate(other);
+	}
+
+	public static RadiansPerSecond castFrom(Unit other) {
+		validateTypeCode(other.typeCode(), IllegalUnitsCasting.class);
+		return castFromWithoutValidate(other);
+	}
+	
+	private static RadiansPerSecond castFromWithoutValidate(Unit other) {
 		return castFromScale(other.value(), other.scale());
+	}
+
+	private static RadiansPerSecond castFromScale(double value, double scale) {
+		return new RadiansPerSecond(value * scale / _scale);
 	}
 
 	private static <E extends IllegalArgumentException> void

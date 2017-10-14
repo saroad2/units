@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import com.units.Unit;
+import com.units.internal.IllegalUnitsCasting;
 import com.units.internal.IllegalUnitsDivision;
 import com.units.internal.IllegalUnitsMultiplication;
 import com.units.internal.NumericValue;
@@ -66,13 +67,22 @@ public class CubicMeters extends NumericValue implements Volume{
 			return false;
 		return almostEqualsValue(other.value());
 	}
-	
-	private static CubicMeters castFromScale(double value, double scale) {
-		return new CubicMeters(value * scale / _scale);
-	}
 
 	public static CubicMeters castFrom(Volume other) {
+		return castFromWithoutValidate(other);
+	}
+
+	public static CubicMeters castFrom(Unit other) {
+		validateTypeCode(other.typeCode(), IllegalUnitsCasting.class);
+		return castFromWithoutValidate(other);
+	}
+	
+	private static CubicMeters castFromWithoutValidate(Unit other) {
 		return castFromScale(other.value(), other.scale());
+	}
+
+	private static CubicMeters castFromScale(double value, double scale) {
+		return new CubicMeters(value * scale / _scale);
 	}
 
 	private static <E extends IllegalArgumentException> void

@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import com.units.Unit;
+import com.units.internal.IllegalUnitsCasting;
 import com.units.internal.IllegalUnitsDivision;
 import com.units.internal.IllegalUnitsMultiplication;
 import com.units.internal.NumericValue;
@@ -66,13 +67,22 @@ public class Millimeters extends NumericValue implements Length{
 			return false;
 		return almostEqualsValue(other.value());
 	}
-	
-	private static Millimeters castFromScale(double value, double scale) {
-		return new Millimeters(value * scale / _scale);
-	}
 
 	public static Millimeters castFrom(Length other) {
+		return castFromWithoutValidate(other);
+	}
+
+	public static Millimeters castFrom(Unit other) {
+		validateTypeCode(other.typeCode(), IllegalUnitsCasting.class);
+		return castFromWithoutValidate(other);
+	}
+	
+	private static Millimeters castFromWithoutValidate(Unit other) {
 		return castFromScale(other.value(), other.scale());
+	}
+
+	private static Millimeters castFromScale(double value, double scale) {
+		return new Millimeters(value * scale / _scale);
 	}
 
 	private static <E extends IllegalArgumentException> void

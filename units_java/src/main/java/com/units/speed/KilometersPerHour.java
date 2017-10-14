@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import com.units.Unit;
+import com.units.internal.IllegalUnitsCasting;
 import com.units.internal.IllegalUnitsDivision;
 import com.units.internal.IllegalUnitsMultiplication;
 import com.units.internal.NumericValue;
@@ -67,13 +68,22 @@ public class KilometersPerHour extends NumericValue implements Speed{
 			return false;
 		return almostEqualsValue(other.value());
 	}
-	
-	private static KilometersPerHour castFromScale(double value, double scale) {
-		return new KilometersPerHour(value * scale / _scale);
-	}
 
 	public static KilometersPerHour castFrom(Speed other) {
+		return castFromWithoutValidate(other);
+	}
+
+	public static KilometersPerHour castFrom(Unit other) {
+		validateTypeCode(other.typeCode(), IllegalUnitsCasting.class);
+		return castFromWithoutValidate(other);
+	}
+	
+	private static KilometersPerHour castFromWithoutValidate(Unit other) {
 		return castFromScale(other.value(), other.scale());
+	}
+
+	private static KilometersPerHour castFromScale(double value, double scale) {
+		return new KilometersPerHour(value * scale / _scale);
 	}
 
 	private static <E extends IllegalArgumentException> void

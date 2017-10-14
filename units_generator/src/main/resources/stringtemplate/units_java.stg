@@ -34,6 +34,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import com.units.Unit;
+import com.units.internal.IllegalUnitsCasting;
 import com.units.internal.IllegalUnitsDivision;
 import com.units.internal.IllegalUnitsMultiplication;
 import com.units.internal.NumericValue;
@@ -92,13 +93,22 @@ public class <unitScale.className> extends NumericValue implements <unitScale.ty
 			return false;
 		return almostEqualsValue(other.value());
 	}
-	
-	private static <unitScale.className> castFromScale(double value, double scale) {
-		return new <unitScale.className>(value * scale / _scale);
-	}
 
 	public static <unitScale.className> castFrom(<unitScale.typeInterfaceName> other) {
+		return castFromWithoutValidate(other);
+	}
+
+	public static <unitScale.className> castFrom(Unit other) {
+		validateTypeCode(other.typeCode(), IllegalUnitsCasting.class);
+		return castFromWithoutValidate(other);
+	}
+	
+	private static <unitScale.className> castFromWithoutValidate(Unit other) {
 		return castFromScale(other.value(), other.scale());
+	}
+
+	private static <unitScale.className> castFromScale(double value, double scale) {
+		return new <unitScale.className>(value * scale / _scale);
 	}
 
 	private static \<E extends IllegalArgumentException\> void

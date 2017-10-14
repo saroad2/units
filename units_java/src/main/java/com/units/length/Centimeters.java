@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import com.units.Unit;
+import com.units.internal.IllegalUnitsCasting;
 import com.units.internal.IllegalUnitsDivision;
 import com.units.internal.IllegalUnitsMultiplication;
 import com.units.internal.NumericValue;
@@ -66,13 +67,22 @@ public class Centimeters extends NumericValue implements Length{
 			return false;
 		return almostEqualsValue(other.value());
 	}
-	
-	private static Centimeters castFromScale(double value, double scale) {
-		return new Centimeters(value * scale / _scale);
-	}
 
 	public static Centimeters castFrom(Length other) {
+		return castFromWithoutValidate(other);
+	}
+
+	public static Centimeters castFrom(Unit other) {
+		validateTypeCode(other.typeCode(), IllegalUnitsCasting.class);
+		return castFromWithoutValidate(other);
+	}
+	
+	private static Centimeters castFromWithoutValidate(Unit other) {
 		return castFromScale(other.value(), other.scale());
+	}
+
+	private static Centimeters castFromScale(double value, double scale) {
+		return new Centimeters(value * scale / _scale);
 	}
 
 	private static <E extends IllegalArgumentException> void

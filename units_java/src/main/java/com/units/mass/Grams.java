@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import com.units.Unit;
+import com.units.internal.IllegalUnitsCasting;
 import com.units.internal.IllegalUnitsDivision;
 import com.units.internal.IllegalUnitsMultiplication;
 import com.units.internal.NumericValue;
@@ -64,13 +65,22 @@ public class Grams extends NumericValue implements Mass{
 			return false;
 		return almostEqualsValue(other.value());
 	}
-	
-	private static Grams castFromScale(double value, double scale) {
-		return new Grams(value * scale / _scale);
-	}
 
 	public static Grams castFrom(Mass other) {
+		return castFromWithoutValidate(other);
+	}
+
+	public static Grams castFrom(Unit other) {
+		validateTypeCode(other.typeCode(), IllegalUnitsCasting.class);
+		return castFromWithoutValidate(other);
+	}
+	
+	private static Grams castFromWithoutValidate(Unit other) {
 		return castFromScale(other.value(), other.scale());
+	}
+
+	private static Grams castFromScale(double value, double scale) {
+		return new Grams(value * scale / _scale);
 	}
 
 	private static <E extends IllegalArgumentException> void

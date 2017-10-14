@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import com.units.Unit;
+import com.units.internal.IllegalUnitsCasting;
 import com.units.internal.IllegalUnitsDivision;
 import com.units.internal.IllegalUnitsMultiplication;
 import com.units.internal.NumericValue;
@@ -66,13 +67,22 @@ public class Liters extends NumericValue implements Volume{
 			return false;
 		return almostEqualsValue(other.value());
 	}
-	
-	private static Liters castFromScale(double value, double scale) {
-		return new Liters(value * scale / _scale);
-	}
 
 	public static Liters castFrom(Volume other) {
+		return castFromWithoutValidate(other);
+	}
+
+	public static Liters castFrom(Unit other) {
+		validateTypeCode(other.typeCode(), IllegalUnitsCasting.class);
+		return castFromWithoutValidate(other);
+	}
+	
+	private static Liters castFromWithoutValidate(Unit other) {
 		return castFromScale(other.value(), other.scale());
+	}
+
+	private static Liters castFromScale(double value, double scale) {
+		return new Liters(value * scale / _scale);
 	}
 
 	private static <E extends IllegalArgumentException> void

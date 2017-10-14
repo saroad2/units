@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import com.units.Unit;
+import com.units.internal.IllegalUnitsCasting;
 import com.units.internal.IllegalUnitsDivision;
 import com.units.internal.IllegalUnitsMultiplication;
 import com.units.internal.NumericValue;
@@ -64,13 +65,22 @@ public class Amperes extends NumericValue implements ElectricCurrent{
 			return false;
 		return almostEqualsValue(other.value());
 	}
-	
-	private static Amperes castFromScale(double value, double scale) {
-		return new Amperes(value * scale / _scale);
-	}
 
 	public static Amperes castFrom(ElectricCurrent other) {
+		return castFromWithoutValidate(other);
+	}
+
+	public static Amperes castFrom(Unit other) {
+		validateTypeCode(other.typeCode(), IllegalUnitsCasting.class);
+		return castFromWithoutValidate(other);
+	}
+	
+	private static Amperes castFromWithoutValidate(Unit other) {
 		return castFromScale(other.value(), other.scale());
+	}
+
+	private static Amperes castFromScale(double value, double scale) {
+		return new Amperes(value * scale / _scale);
 	}
 
 	private static <E extends IllegalArgumentException> void

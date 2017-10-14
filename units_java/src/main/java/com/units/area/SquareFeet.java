@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import com.units.Unit;
+import com.units.internal.IllegalUnitsCasting;
 import com.units.internal.IllegalUnitsDivision;
 import com.units.internal.IllegalUnitsMultiplication;
 import com.units.internal.NumericValue;
@@ -66,13 +67,22 @@ public class SquareFeet extends NumericValue implements Area{
 			return false;
 		return almostEqualsValue(other.value());
 	}
-	
-	private static SquareFeet castFromScale(double value, double scale) {
-		return new SquareFeet(value * scale / _scale);
-	}
 
 	public static SquareFeet castFrom(Area other) {
+		return castFromWithoutValidate(other);
+	}
+
+	public static SquareFeet castFrom(Unit other) {
+		validateTypeCode(other.typeCode(), IllegalUnitsCasting.class);
+		return castFromWithoutValidate(other);
+	}
+	
+	private static SquareFeet castFromWithoutValidate(Unit other) {
 		return castFromScale(other.value(), other.scale());
+	}
+
+	private static SquareFeet castFromScale(double value, double scale) {
+		return new SquareFeet(value * scale / _scale);
 	}
 
 	private static <E extends IllegalArgumentException> void

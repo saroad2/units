@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import com.units.Unit;
+import com.units.internal.IllegalUnitsCasting;
 import com.units.internal.IllegalUnitsDivision;
 import com.units.internal.IllegalUnitsMultiplication;
 import com.units.internal.NumericValue;
@@ -67,13 +68,22 @@ public class MilsPerSecond extends NumericValue implements AngularSpeed{
 			return false;
 		return almostEqualsValue(other.value());
 	}
-	
-	private static MilsPerSecond castFromScale(double value, double scale) {
-		return new MilsPerSecond(value * scale / _scale);
-	}
 
 	public static MilsPerSecond castFrom(AngularSpeed other) {
+		return castFromWithoutValidate(other);
+	}
+
+	public static MilsPerSecond castFrom(Unit other) {
+		validateTypeCode(other.typeCode(), IllegalUnitsCasting.class);
+		return castFromWithoutValidate(other);
+	}
+	
+	private static MilsPerSecond castFromWithoutValidate(Unit other) {
 		return castFromScale(other.value(), other.scale());
+	}
+
+	private static MilsPerSecond castFromScale(double value, double scale) {
+		return new MilsPerSecond(value * scale / _scale);
 	}
 
 	private static <E extends IllegalArgumentException> void

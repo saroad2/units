@@ -3,9 +3,11 @@ package com.units.tests;
 import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
+import com.units.Unit;
 import com.units.angle.Degrees;
 import com.units.duration.Minutes;
 import com.units.duration.Seconds;
+import com.units.internal.IllegalUnitsCasting;
 import com.units.internal.IllegalUnitsDivision;
 import com.units.length.Meters;
 import com.units.length.Yards;
@@ -54,4 +56,20 @@ public class TestUnitsDivide {
 		MetersPerSecond.divide(new Meters(8), new Degrees(2));
 	}
 
+	@Test
+	public void testAnonymousDivision() {
+		Unit anonymousSpeed = 
+				new Meters(15)
+				.divide(new Seconds(3));
+		MetersPerSecond speed = MetersPerSecond.castFrom(anonymousSpeed);
+		checkResult(speed, new MetersPerSecond(5));
+	}
+
+	@Test(expected = IllegalUnitsCasting.class)
+	public void testAnonymousDivisionThrowsAnException() {
+		Unit anonymousSpeed = 
+				new Meters(15)
+				.divide(new Degrees(3));
+		MetersPerSecond.castFrom(anonymousSpeed);
+	}
 }

@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import com.units.Unit;
+import com.units.internal.IllegalUnitsCasting;
 import com.units.internal.IllegalUnitsDivision;
 import com.units.internal.IllegalUnitsMultiplication;
 import com.units.internal.NumericValue;
@@ -66,13 +67,22 @@ public class Milligrams extends NumericValue implements Mass{
 			return false;
 		return almostEqualsValue(other.value());
 	}
-	
-	private static Milligrams castFromScale(double value, double scale) {
-		return new Milligrams(value * scale / _scale);
-	}
 
 	public static Milligrams castFrom(Mass other) {
+		return castFromWithoutValidate(other);
+	}
+
+	public static Milligrams castFrom(Unit other) {
+		validateTypeCode(other.typeCode(), IllegalUnitsCasting.class);
+		return castFromWithoutValidate(other);
+	}
+	
+	private static Milligrams castFromWithoutValidate(Unit other) {
 		return castFromScale(other.value(), other.scale());
+	}
+
+	private static Milligrams castFromScale(double value, double scale) {
+		return new Milligrams(value * scale / _scale);
 	}
 
 	private static <E extends IllegalArgumentException> void

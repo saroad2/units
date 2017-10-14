@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import com.units.Unit;
+import com.units.internal.IllegalUnitsCasting;
 import com.units.internal.IllegalUnitsDivision;
 import com.units.internal.IllegalUnitsMultiplication;
 import com.units.internal.NumericValue;
@@ -64,13 +65,22 @@ public class Radians extends NumericValue implements Angle{
 			return false;
 		return almostEqualsValue(other.value());
 	}
-	
-	private static Radians castFromScale(double value, double scale) {
-		return new Radians(value * scale / _scale);
-	}
 
 	public static Radians castFrom(Angle other) {
+		return castFromWithoutValidate(other);
+	}
+
+	public static Radians castFrom(Unit other) {
+		validateTypeCode(other.typeCode(), IllegalUnitsCasting.class);
+		return castFromWithoutValidate(other);
+	}
+	
+	private static Radians castFromWithoutValidate(Unit other) {
 		return castFromScale(other.value(), other.scale());
+	}
+
+	private static Radians castFromScale(double value, double scale) {
+		return new Radians(value * scale / _scale);
 	}
 
 	private static <E extends IllegalArgumentException> void

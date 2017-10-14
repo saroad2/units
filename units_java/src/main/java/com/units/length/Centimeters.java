@@ -10,6 +10,7 @@ import com.units.Unit;
 import com.units.internal.IllegalUnitsCasting;
 import com.units.internal.IllegalUnitsDivision;
 import com.units.internal.IllegalUnitsMultiplication;
+import com.units.internal.NoneScale;
 import com.units.internal.NumericValue;
 import com.units.internal.Ratio;
 import com.units.internal.Multiplyers;
@@ -78,11 +79,7 @@ public class Centimeters extends NumericValue implements Length{
 	}
 	
 	private static Centimeters castFromWithoutValidate(Unit other) {
-		return castFromScale(other.value(), other.scale());
-	}
-
-	private static Centimeters castFromScale(double value, double scale) {
-		return new Centimeters(value * scale / _scale);
+		return new Centimeters(other.value() * other.scale() / _scale);
 	}
 
 	private static <E extends IllegalArgumentException> void
@@ -99,9 +96,7 @@ public class Centimeters extends NumericValue implements Length{
 		validateTypeCode(
 				unit1.typeCode().divide(unit2.typeCode()),
 				IllegalUnitsDivision.class);
-		return castFromScale(
-				unit1.value() / unit2.value(),
-				unit1.scale() / unit2.scale());
+		return castFromWithoutValidate(unit1.divide(unit2));
 	}
 
 	public static Centimeters multiply(Unit... units) {
@@ -111,12 +106,8 @@ public class Centimeters extends NumericValue implements Length{
 				.map((unit) -> unit.typeCode())
 				.reduce(Ratio.one(), (a, b) -> a.multiply(b)),
 				IllegalUnitsMultiplication.class);
-		double newValue = unitsAsList.stream()
-				.mapToDouble((unit) -> unit.value())
-				.reduce(1, (a, b) -> a * b);
-		double newScale = unitsAsList.stream()
-				.mapToDouble((unit) -> unit.scale())
-				.reduce(1, (a, b) -> a * b);
-		return castFromScale(newValue, newScale);
+		return castFromWithoutValidate(
+				unitsAsList.stream()
+				.reduce(NoneScale.one(), (a, b) -> a.multiply(b)));
 	}
 }

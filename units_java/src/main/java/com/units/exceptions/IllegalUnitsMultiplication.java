@@ -1,4 +1,4 @@
-package com.units.internal;
+package com.units.exceptions;
 
 public class IllegalUnitsMultiplication extends IllegalArgumentException {
 

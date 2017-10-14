@@ -5,9 +5,9 @@ import org.junit.Test;
 
 import com.units.angle.Degrees;
 import com.units.duration.Seconds;
+import com.units.exceptions.IllegalUnitsCasting;
+import com.units.exceptions.IllegalUnitsMultiplication;
 import com.units.internal.AnonymousUnit;
-import com.units.internal.IllegalUnitsCasting;
-import com.units.internal.IllegalUnitsMultiplication;
 import com.units.length.Meters;
 import com.units.length.Yards;
 import com.units.speed.Knots;

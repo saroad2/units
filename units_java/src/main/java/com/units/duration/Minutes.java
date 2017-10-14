@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import com.units.Unit;
+import com.units.exceptions.*;
 import com.units.internal.*;
 
 public class Minutes extends NumericValue implements Duration{

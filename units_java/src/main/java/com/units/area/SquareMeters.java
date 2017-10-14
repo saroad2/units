@@ -7,12 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import com.units.Unit;
-import com.units.internal.IllegalUnitsCasting;
-import com.units.internal.IllegalUnitsDivision;
-import com.units.internal.IllegalUnitsMultiplication;
-import com.units.internal.NoneScale;
-import com.units.internal.NumericValue;
-import com.units.internal.Ratio;
+import com.units.internal.*;
 import com.units.length.Meters;
 
 
@@ -73,7 +68,7 @@ public class SquareMeters extends NumericValue implements Area{
 		return castFromWithoutValidate(other);
 	}
 
-	public static SquareMeters castFrom(Unit other) {
+	public static SquareMeters castFrom(AnonymousUnit other) {
 		validateTypeCode(other.typeCode(), IllegalUnitsCasting.class);
 		return castFromWithoutValidate(other);
 	}

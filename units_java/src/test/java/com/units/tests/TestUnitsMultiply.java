@@ -3,9 +3,9 @@ package com.units.tests;
 import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
-import com.units.Unit;
 import com.units.angle.Degrees;
 import com.units.duration.Seconds;
+import com.units.internal.AnonymousUnit;
 import com.units.internal.IllegalUnitsCasting;
 import com.units.internal.IllegalUnitsMultiplication;
 import com.units.length.Meters;
@@ -85,7 +85,7 @@ public class TestUnitsMultiply {
 	
 	@Test
 	public void testAnonymousMultiplication() {
-		Unit anonymousVolume = 
+		AnonymousUnit anonymousVolume = 
 				new Meters(2)
 				.multiply(new Meters(3))
 				.multiply(new Yards(5));
@@ -96,7 +96,7 @@ public class TestUnitsMultiply {
 	
 	@Test(expected = IllegalUnitsCasting.class)
 	public void testAnonymousMultiplicationThrowsAnException() {
-		Unit anonymousVolume = 
+		AnonymousUnit anonymousVolume = 
 				new Meters(2)
 				.multiply(new Degrees(3))
 				.multiply(new Yards(5));

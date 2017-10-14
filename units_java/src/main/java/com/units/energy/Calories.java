@@ -7,12 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import com.units.Unit;
-import com.units.internal.IllegalUnitsCasting;
-import com.units.internal.IllegalUnitsDivision;
-import com.units.internal.IllegalUnitsMultiplication;
-import com.units.internal.NoneScale;
-import com.units.internal.NumericValue;
-import com.units.internal.Ratio;
+import com.units.internal.*;
 
 public class Calories extends NumericValue implements Energy{
 
@@ -71,7 +66,7 @@ public class Calories extends NumericValue implements Energy{
 		return castFromWithoutValidate(other);
 	}
 
-	public static Calories castFrom(Unit other) {
+	public static Calories castFrom(AnonymousUnit other) {
 		validateTypeCode(other.typeCode(), IllegalUnitsCasting.class);
 		return castFromWithoutValidate(other);
 	}

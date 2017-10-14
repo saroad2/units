@@ -7,12 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import com.units.Unit;
-import com.units.internal.IllegalUnitsCasting;
-import com.units.internal.IllegalUnitsDivision;
-import com.units.internal.IllegalUnitsMultiplication;
-import com.units.internal.NoneScale;
-import com.units.internal.NumericValue;
-import com.units.internal.Ratio;
+import com.units.internal.*;
 import com.units.angle.Degrees;
 import com.units.duration.Seconds;
 
@@ -74,7 +69,7 @@ public class DegreesPerSecond extends NumericValue implements AngularSpeed{
 		return castFromWithoutValidate(other);
 	}
 
-	public static DegreesPerSecond castFrom(Unit other) {
+	public static DegreesPerSecond castFrom(AnonymousUnit other) {
 		validateTypeCode(other.typeCode(), IllegalUnitsCasting.class);
 		return castFromWithoutValidate(other);
 	}

@@ -7,12 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import com.units.Unit;
-import com.units.internal.IllegalUnitsCasting;
-import com.units.internal.IllegalUnitsDivision;
-import com.units.internal.IllegalUnitsMultiplication;
-import com.units.internal.NoneScale;
-import com.units.internal.NumericValue;
-import com.units.internal.Ratio;
+import com.units.internal.*;
 import com.units.angle.Radians;
 import com.units.duration.Seconds;
 
@@ -74,7 +69,7 @@ public class RadiansPerSecond extends NumericValue implements AngularSpeed{
 		return castFromWithoutValidate(other);
 	}
 
-	public static RadiansPerSecond castFrom(Unit other) {
+	public static RadiansPerSecond castFrom(AnonymousUnit other) {
 		validateTypeCode(other.typeCode(), IllegalUnitsCasting.class);
 		return castFromWithoutValidate(other);
 	}

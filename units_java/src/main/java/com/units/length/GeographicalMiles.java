@@ -3,6 +3,9 @@
  */
 package com.units.length;
 
+import java.util.Arrays;
+import java.util.List;
+
 import com.units.Unit;
 import com.units.internal.NumericValue;
 import com.units.internal.Ratio;
@@ -77,12 +80,19 @@ public class GeographicalMiles extends NumericValue implements Length{
 				unit1.scale() / unit2.scale());
 	}
 
-	public static GeographicalMiles multiply(Unit unit1, Unit unit2) {
-		Ratio resultTypeCode = unit1.typeCode().multiply(unit2.typeCode());
+	public static GeographicalMiles multiply(Unit... units) {
+		List<Unit> unitsAsList = Arrays.asList(units);
+		Ratio resultTypeCode = unitsAsList.stream()
+				.map((unit) -> unit.typeCode())
+				.reduce(Ratio.one(), (a, b) -> a.multiply(b));
 		if (!resultTypeCode.equals(_typeCode))
 			throw new IllegalArgumentException("Illigal multiplication");
-		return castFromScale(
-				unit1.value() * unit2.value(),
-				unit1.scale() * unit2.scale());
+		double newValue = unitsAsList.stream()
+				.mapToDouble((unit) -> unit.value())
+				.reduce(1, (a, b) -> a * b);
+		double newScale = unitsAsList.stream()
+				.mapToDouble((unit) -> unit.scale())
+				.reduce(1, (a, b) -> a * b);
+		return castFromScale(newValue, newScale);
 	}
 }

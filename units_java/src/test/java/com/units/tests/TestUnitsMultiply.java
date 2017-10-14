@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import com.units.angle.Degrees;
 import com.units.duration.Seconds;
+import com.units.internal.IllegalUnitsMultiplication;
 import com.units.length.Meters;
 import com.units.length.Yards;
 import com.units.speed.Knots;
@@ -46,12 +47,12 @@ public class TestUnitsMultiply {
 			new Meters(7.716671605335));
 	}
 
-	@Test(expected = IllegalArgumentException.class)
+	@Test(expected = IllegalUnitsMultiplication.class)
 	public void testMultiplyDegreesBySecondsToCreateMetersThrowsException() {
 		Meters.multiply(new Degrees(5), new Seconds(3));
 	}
 
-	@Test(expected = IllegalArgumentException.class)
+	@Test(expected = IllegalUnitsMultiplication.class)
 	public void testMultiplyKnotsByDegreesToCreateMetersThrowsException() {
 		Meters.multiply(new Knots(5), new Degrees(3));
 	}
@@ -74,7 +75,7 @@ public class TestUnitsMultiply {
 					new CubicMeters(27.432));
 	}
 
-	@Test(expected = IllegalArgumentException.class)
+	@Test(expected = IllegalUnitsMultiplication.class)
 	public void 
 		testMultiplyMetersByDegreesByYardsToCreateCubicMetersThrowsException() {
 		CubicMeters.multiply(new Meters(2), new Degrees(3), new Yards(5));

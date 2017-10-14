@@ -6,6 +6,7 @@ import org.junit.Test;
 import com.units.angle.Degrees;
 import com.units.duration.Minutes;
 import com.units.duration.Seconds;
+import com.units.internal.IllegalUnitsDivision;
 import com.units.length.Meters;
 import com.units.length.Yards;
 import com.units.speed.MetersPerSecond;
@@ -43,12 +44,12 @@ public class TestUnitsDivide {
 				new MetersPerSecond(0.0666666666666666));
 	}
 	
-	@Test(expected = IllegalArgumentException.class)
+	@Test(expected = IllegalUnitsDivision.class)
 	public void testCantDivideDegreesBySecondsToCreateMetersPerSecond() {
 		MetersPerSecond.divide(new Degrees(8), new Seconds(2));
 	}
 	
-	@Test(expected = IllegalArgumentException.class)
+	@Test(expected = IllegalUnitsDivision.class)
 	public void testCantDivideMetersByDegreesToCreateMetersPerSecond() {
 		MetersPerSecond.divide(new Meters(8), new Degrees(2));
 	}

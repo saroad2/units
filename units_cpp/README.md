@@ -72,15 +72,15 @@ in **yards** instead of **meters** to `walkForward()` and angle measured in **ra
 * No runtime error message will be printed to the user
 * The program will run perfectly and move the robot
 * The robot will move the wrong distance but will assume it walked the right distance.
-* The robot will spin in the wrong angle but will assume it spinned ok.
+* The robot will spin in the wrong angle but will assume it spun ok.
 
 We need a solution that will fix this problem. Our main goal is:
 
 > To create a library of units handling that will validate that the user uses the right units in his code
 
-Our secondery goals are:
-> * To do this validation in compiletime in order to prevent performance issues.
-> * To support basic usage such as sumation, substraction, comparison, etc. of units.
+Our secondary goals are:
+> * To do this validation in compile time in order to prevent performance issues.
+> * To support basic usage such as summation, subtraction, comparison, etc. of units.
 > * To maintain high accuracy when using units (especially in casting from one unit to another).
 > * To support insertion of new units to the library easily.
 
@@ -120,14 +120,14 @@ r.spin(45); // Will not compile!
 Since all units classes has an explicit double constructor.
 We implemented it that way so the user will make sure that he is using the right unit.
 
-Moreover, the follwing will also not compile:
+Moreover, the following will also not compile:
 
 ```c++
 Robot r;
 r.walkForward(Yards{3}); // Will not compile
 r.spin(Radians{M_PI_4}); // Will not compile
 ```
-Since the unit validation is done in **compiletime**.
+Since the unit validation is done in **compile time**.
 
 Full Code Example
 ===========

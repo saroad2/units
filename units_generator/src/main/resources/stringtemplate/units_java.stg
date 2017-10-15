@@ -11,6 +11,7 @@ unit_type_interface(unitType) ::= <<
 package com.units.<unitType.packageName>;
 
 import com.units.Unit;
+import com.units.exceptions.IllegalUnitsCasting;
 import com.units.internal.Ratio;
 <unitType.imports:{module | import <module>;<\n>}>
 
@@ -18,6 +19,17 @@ public interface <unitType.className> extends Unit {
 
 	public static final Ratio _typeCode =
 		<unitType.code>;
+
+	default public \<E extends <unitType.className>\> E castTo(Class\<E\> toClass) {
+		try {
+			double toScale = (double)toClass.getField("_scale").get(null);
+			double newValue = value() * scale() / toScale;
+			return toClass.getDeclaredConstructor(double.class).newInstance(newValue);
+		}
+		catch (ReflectiveOperationException e) {
+			throw new IllegalUnitsCasting();
+		}
+	}
 
 	@Override
 	default public Ratio typeCode() {
@@ -30,11 +42,6 @@ unit_scale_class(unitScale) ::= <<
 <declaration()>
 package com.units.<unitScale.packageName>;
 
-import java.util.Arrays;
-import java.util.List;
-
-import com.units.Unit;
-import com.units.exceptions.*;
 import com.units.internal.*;
 <unitScale.imports:{module | import <module>;<\n>}>
 
@@ -89,48 +96,6 @@ public class <unitScale.className> extends NumericValue implements <unitScale.ty
 		if (other == null)
 			return false;
 		return almostEqualsValue(other.value());
-	}
-
-	public static <unitScale.className> castFrom(<unitScale.typeInterfaceName> other) {
-		return castFromWithoutValidate(other);
-	}
-
-	public static <unitScale.className> castFrom(AnonymousUnit other) {
-		validateTypeCode(other.typeCode(), IllegalUnitsCasting.class);
-		return castFromWithoutValidate(other);
-	}
-	
-	private static <unitScale.className> castFromWithoutValidate(Unit other) {
-		return new <unitScale.className>(other.value() * other.scale() / _scale);
-	}
-
-	private static \<E extends IllegalArgumentException\> void
-		validateTypeCode(Ratio typeCode, Class\<E\> exceptionClass) {
-		try {
-			if (!typeCode.equals(_typeCode))
-				throw exceptionClass.newInstance();
-		}
-		catch(ReflectiveOperationException e) {
-		}
-	}
-
-	public static <unitScale.className> divide(Unit unit1, Unit unit2) {
-		validateTypeCode(
-				unit1.typeCode().divide(unit2.typeCode()),
-				IllegalUnitsDivision.class);
-		return castFromWithoutValidate(unit1.divide(unit2));
-	}
-
-	public static <unitScale.className> multiply(Unit... units) {
-		List\<Unit\> unitsAsList = Arrays.asList(units);
-		validateTypeCode(
-				unitsAsList.stream()
-				.map((unit) -> unit.typeCode())
-				.reduce(Ratio.one(), (a, b) -> a.multiply(b)),
-				IllegalUnitsMultiplication.class);
-		return castFromWithoutValidate(
-				unitsAsList.stream()
-				.reduce(NoneScale.one(), (a, b) -> a.multiply(b)));
 	}
 }
 >>
@@ -273,7 +238,7 @@ public class <unitScale.className>Tests {
 conversion_test_case(testCase) ::= <<
 @Test
 public void <testCase.name>() {
-	checkCastedValue(<testCase.to>.castFrom(<testCase.from>.one()).value(), <testCase.value>);
+	checkCastedValue(<testCase.from>.one().castTo(<testCase.to>.class).value(), <testCase.value>);
 }
 <\n>
 >>

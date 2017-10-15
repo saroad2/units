@@ -10,102 +10,102 @@ public class MassCastingTests extends CastingTestsBase{
 
 	@Test
 	public void testCastFromGramsToKilograms() {
-		checkCastedValue(Kilograms.castFrom(Grams.one()).value(), 0.001);
+		checkCastedValue(Grams.one().castTo(Kilograms.class).value(), 0.001);
 	}
 
 	@Test
 	public void testCastFromGramsToMilligrams() {
-		checkCastedValue(Milligrams.castFrom(Grams.one()).value(), 1000.0);
+		checkCastedValue(Grams.one().castTo(Milligrams.class).value(), 1000.0);
 	}
 
 	@Test
 	public void testCastFromGramsToPounds() {
-		checkCastedValue(Pounds.castFrom(Grams.one()).value(), 0.002204622800000002);
+		checkCastedValue(Grams.one().castTo(Pounds.class).value(), 0.002204622800000002);
 	}
 
 	@Test
 	public void testCastFromGramsToTonnes() {
-		checkCastedValue(Tonnes.castFrom(Grams.one()).value(), 1.0E-6);
+		checkCastedValue(Grams.one().castTo(Tonnes.class).value(), 1.0E-6);
 	}
 
 	@Test
 	public void testCastFromKilogramsToGrams() {
-		checkCastedValue(Grams.castFrom(Kilograms.one()).value(), 1000.0);
+		checkCastedValue(Kilograms.one().castTo(Grams.class).value(), 1000.0);
 	}
 
 	@Test
 	public void testCastFromKilogramsToMilligrams() {
-		checkCastedValue(Milligrams.castFrom(Kilograms.one()).value(), 1000000.0);
+		checkCastedValue(Kilograms.one().castTo(Milligrams.class).value(), 1000000.0);
 	}
 
 	@Test
 	public void testCastFromKilogramsToPounds() {
-		checkCastedValue(Pounds.castFrom(Kilograms.one()).value(), 2.204622800000002);
+		checkCastedValue(Kilograms.one().castTo(Pounds.class).value(), 2.204622800000002);
 	}
 
 	@Test
 	public void testCastFromKilogramsToTonnes() {
-		checkCastedValue(Tonnes.castFrom(Kilograms.one()).value(), 0.001);
+		checkCastedValue(Kilograms.one().castTo(Tonnes.class).value(), 0.001);
 	}
 
 	@Test
 	public void testCastFromMilligramsToGrams() {
-		checkCastedValue(Grams.castFrom(Milligrams.one()).value(), 0.001);
+		checkCastedValue(Milligrams.one().castTo(Grams.class).value(), 0.001);
 	}
 
 	@Test
 	public void testCastFromMilligramsToKilograms() {
-		checkCastedValue(Kilograms.castFrom(Milligrams.one()).value(), 1.0E-6);
+		checkCastedValue(Milligrams.one().castTo(Kilograms.class).value(), 1.0E-6);
 	}
 
 	@Test
 	public void testCastFromMilligramsToPounds() {
-		checkCastedValue(Pounds.castFrom(Milligrams.one()).value(), 2.204622800000002E-6);
+		checkCastedValue(Milligrams.one().castTo(Pounds.class).value(), 2.204622800000002E-6);
 	}
 
 	@Test
 	public void testCastFromMilligramsToTonnes() {
-		checkCastedValue(Tonnes.castFrom(Milligrams.one()).value(), 1.0E-9);
+		checkCastedValue(Milligrams.one().castTo(Tonnes.class).value(), 1.0E-9);
 	}
 
 	@Test
 	public void testCastFromPoundsToGrams() {
-		checkCastedValue(Grams.castFrom(Pounds.one()).value(), 453.592333346094);
+		checkCastedValue(Pounds.one().castTo(Grams.class).value(), 453.592333346094);
 	}
 
 	@Test
 	public void testCastFromPoundsToKilograms() {
-		checkCastedValue(Kilograms.castFrom(Pounds.one()).value(), 0.453592333346094);
+		checkCastedValue(Pounds.one().castTo(Kilograms.class).value(), 0.453592333346094);
 	}
 
 	@Test
 	public void testCastFromPoundsToMilligrams() {
-		checkCastedValue(Milligrams.castFrom(Pounds.one()).value(), 453592.333346094);
+		checkCastedValue(Pounds.one().castTo(Milligrams.class).value(), 453592.333346094);
 	}
 
 	@Test
 	public void testCastFromPoundsToTonnes() {
-		checkCastedValue(Tonnes.castFrom(Pounds.one()).value(), 4.53592333346094E-4);
+		checkCastedValue(Pounds.one().castTo(Tonnes.class).value(), 4.53592333346094E-4);
 	}
 
 	@Test
 	public void testCastFromTonnesToGrams() {
-		checkCastedValue(Grams.castFrom(Tonnes.one()).value(), 1000000.0);
+		checkCastedValue(Tonnes.one().castTo(Grams.class).value(), 1000000.0);
 	}
 
 	@Test
 	public void testCastFromTonnesToKilograms() {
-		checkCastedValue(Kilograms.castFrom(Tonnes.one()).value(), 1000.0);
+		checkCastedValue(Tonnes.one().castTo(Kilograms.class).value(), 1000.0);
 	}
 
 	@Test
 	public void testCastFromTonnesToMilligrams() {
-		checkCastedValue(Milligrams.castFrom(Tonnes.one()).value(), 1.0E9);
+		checkCastedValue(Tonnes.one().castTo(Milligrams.class).value(), 1.0E9);
 	}
 
 	@Test
 	public void testCastFromTonnesToPounds() {
-		checkCastedValue(Pounds.castFrom(Tonnes.one()).value(), 2204.622800000002);
+		checkCastedValue(Tonnes.one().castTo(Pounds.class).value(), 2204.622800000002);
 	}
 
 

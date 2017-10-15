@@ -7,6 +7,7 @@
 #include <units/mass_units.h>
 #include <units/duration_units.h>
 #include <units/electric_current_units.h>
+#include <units/electric_charge_units.h>
 #include <units/speed_units.h>
 #include <units/angular_speed_units.h>
 #include <units/area_units.h>
@@ -21,6 +22,7 @@
 
 
 #define LENGTH_UNITS() \
+
 	units::length::Meters, \
 	units::length::Inches, \
 	units::length::Feet, \
@@ -36,12 +38,14 @@
 
 
 #define ANGLE_UNITS() \
+
 	units::angle::Degrees, \
 	units::angle::Mils, \
 	units::angle::Radians
 
 
 #define MASS_UNITS() \
+
 	units::mass::Grams, \
 	units::mass::Pounds, \
 	units::mass::Milligrams, \
@@ -50,6 +54,7 @@
 
 
 #define DURATION_UNITS() \
+
 	units::duration::Seconds, \
 	units::duration::Minutes, \
 	units::duration::Hours, \
@@ -60,10 +65,17 @@
 
 
 #define ELECTRIC_CURRENT_UNITS() \
+
 	units::electric_current::Amperes
 
 
+#define ELECTRIC_CHARGE_UNITS() \
+
+	units::electric_charge::Coulombs
+
+
 #define SPEED_UNITS() \
+
 	units::speed::FeetPerSecond, \
 	units::speed::YardsPerSecond, \
 	units::speed::MetersPerSecond, \
@@ -72,12 +84,14 @@
 
 
 #define ANGULAR_SPEED_UNITS() \
+
 	units::angular_speed::DegreesPerSecond, \
 	units::angular_speed::RadiansPerSecond, \
 	units::angular_speed::MilsPerSecond
 
 
 #define AREA_UNITS() \
+
 	units::area::SquareFeet, \
 	units::area::SquareYards, \
 	units::area::SquareMeters, \
@@ -86,6 +100,7 @@
 
 
 #define VOLUME_UNITS() \
+
 	units::volume::CubicFeet, \
 	units::volume::CubicYards, \
 	units::volume::CubicMeters, \
@@ -95,11 +110,13 @@
 
 
 #define FORCE_UNITS() \
+
 	units::force::Newtons, \
 	units::force::Dynes
 
 
 #define ENERGY_UNITS() \
+
 	units::energy::Joules, \
 	units::energy::Calories, \
 	units::energy::Kilocalories, \
@@ -108,6 +125,7 @@
 
 
 #define FREQUENCY_UNITS() \
+
 	units::frequency::Hertz, \
 	units::frequency::Kilohertz, \
 	units::frequency::Megahertz
@@ -115,11 +133,13 @@
 
 
 #define ALL_UNITS() \
+
 	LENGTH_UNITS(), \
 	ANGLE_UNITS(), \
 	MASS_UNITS(), \
 	DURATION_UNITS(), \
 	ELECTRIC_CURRENT_UNITS(), \
+	ELECTRIC_CHARGE_UNITS(), \
 	SPEED_UNITS(), \
 	ANGULAR_SPEED_UNITS(), \
 	AREA_UNITS(), \

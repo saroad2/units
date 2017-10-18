@@ -1582,6 +1582,10 @@
                     "value": 1e-3
                 }
             ]
-        }
+        },
+        {
+            "unit_type": "acceleration",
+            "test_cases": []
+        }    
     ]
 }

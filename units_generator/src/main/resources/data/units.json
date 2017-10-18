@@ -192,7 +192,7 @@
 		{
 			"type_name": "electric charge",
 			"ratio": {
-				"numerators": [ "electric current", "time" ],
+				"numerators": [ "electric current", "duration" ],
 				"denumerators": []
 			},
 			"unit_scales": [
@@ -498,7 +498,7 @@
 			"type_name" : "acceleration",
 			"ratio" : {
 				"numerators" : ["length"],
-				"denumerators" : ["time", "time"]
+				"denumerators" : ["duration", "duration"]
 			},
 			"unit_scales" : [
 				{

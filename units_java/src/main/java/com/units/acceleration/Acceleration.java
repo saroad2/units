@@ -6,16 +6,16 @@ package com.units.acceleration;
 import com.units.Unit;
 import com.units.exceptions.IllegalUnitsCasting;
 import com.units.internal.Ratio;
+import com.units.duration.Duration;
 import com.units.length.Length;
-import com.units.time.Time;
 
 
 public interface Acceleration extends Unit {
 
 	public static final Ratio _typeCode =
 		Length._typeCode
-		.divide(Time._typeCode)
-		.divide(Time._typeCode);
+		.divide(Duration._typeCode)
+		.divide(Duration._typeCode);
 
 	default public <E extends Acceleration> E castTo(Class<E> toClass) {
 		try {

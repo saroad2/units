@@ -8,7 +8,7 @@
 #include <units/internal/numeric_value.h>
 #include <units/internal/utils.h>
 #include <units/length_units.h>
-#include <units/time_units.h>
+#include <units/duration_units.h>
 
 #include <units/tags/acceleration_tags.h>
 

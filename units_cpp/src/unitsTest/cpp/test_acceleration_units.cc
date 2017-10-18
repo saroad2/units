@@ -19,7 +19,7 @@ class TestAccelerationUnitsPrintings : public TestUnitsPrintings
 
 TEST_F(TestAccelerationUnitsPrintings, print_meters_per_square_seconds)
 {
-	check_print<MetersPerSquareSeconds>("meters_per_square_seconds");
+	check_print<MetersPerSquareSeconds>("meters per square seconds");
 }
 
 // ============================================================

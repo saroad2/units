@@ -8,8 +8,8 @@
 #include <ratio>
 #include <string>
 #include <units/internal/units_multiply_type.h>
+#include <units/tags/duration_tags.h>
 #include <units/tags/electric_current_tags.h>
-#include <units/tags/time_tags.h>
 
 
 namespace units {
@@ -17,7 +17,7 @@ namespace electric_charge {
 namespace tags
 {
 
-using electric_charge_code  = multiply_type_code<electric_current::tags::electric_current_code, time::tags::time_code>::code;
+using electric_charge_code  = multiply_type_code<electric_current::tags::electric_current_code, duration::tags::duration_code>::code;
 
 struct coulombs_tag
 {

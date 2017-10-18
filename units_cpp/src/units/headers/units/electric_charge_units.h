@@ -7,8 +7,8 @@
 
 #include <units/internal/numeric_value.h>
 #include <units/internal/utils.h>
+#include <units/duration_units.h>
 #include <units/electric_current_units.h>
-#include <units/time_units.h>
 
 #include <units/tags/electric_charge_tags.h>
 

@@ -6,15 +6,15 @@ package com.units.electric_charge;
 import com.units.Unit;
 import com.units.exceptions.IllegalUnitsCasting;
 import com.units.internal.Ratio;
+import com.units.duration.Duration;
 import com.units.electric_current.ElectricCurrent;
-import com.units.time.Time;
 
 
 public interface ElectricCharge extends Unit {
 
 	public static final Ratio _typeCode =
 		ElectricCurrent._typeCode
-		.multiply(Time._typeCode);
+		.multiply(Duration._typeCode);
 
 	default public <E extends ElectricCharge> E castTo(Class<E> toClass) {
 		try {

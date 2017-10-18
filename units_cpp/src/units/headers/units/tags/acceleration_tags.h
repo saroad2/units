@@ -10,7 +10,7 @@
 #include <units/internal/units_ratio_type.h>
 #include <units/internal/units_multiply_type.h>
 #include <units/tags/length_tags.h>
-#include <units/tags/time_tags.h>
+#include <units/tags/duration_tags.h>
 
 
 namespace units {
@@ -20,7 +20,7 @@ namespace tags
 
 using acceleration_code  = typename ratio_type_code<
 	length::tags::length_code, 
-	multiply_type_code<time::tags::time_code, time::tags::time_code>::code>::code;
+	multiply_type_code<duration::tags::duration_code, duration::tags::duration_code>::code>::code;
 
 struct meters_per_square_seconds_tag
 {

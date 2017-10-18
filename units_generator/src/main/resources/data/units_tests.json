@@ -394,6 +394,10 @@
             "unit_type": "electric current",
             "test_cases": []
         },
+		{
+            "unit_type": "electric charge",
+            "test_cases": []
+        },
         {
             "unit_type": "energy",
             "test_cases": [

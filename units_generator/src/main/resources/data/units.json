@@ -190,6 +190,23 @@
 			]
 		},
 		{
+			"type_name": "electric charge",
+			"ratio": {
+				"numerators": [ "electric current", "time" ],
+				"denumerators": []
+			},
+			"unit_scales": [
+				{
+					"singular_name": "coulomb",
+					"plural_name": "coulombs",
+					"ratio" : {
+						"numerators" : ["amperes", "seconds"],
+						"denumerators" : []
+					}
+				}
+			]
+		},
+		{
 			"type_name" : "speed",
 			"ratio" : {
 				"numerators" : ["length"],

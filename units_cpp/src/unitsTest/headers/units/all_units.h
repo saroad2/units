@@ -15,6 +15,7 @@
 #include <units/force_units.h>
 #include <units/energy_units.h>
 #include <units/frequency_units.h>
+#include <units/acceleration_units.h>
 
 
 #ifndef UNIT_TESTS_ALL_UNITS_H_
@@ -118,6 +119,10 @@
 	units::frequency::Megahertz
 
 
+#define ACCELERATION_UNITS() \
+	units::acceleration::MetersPerSquareSeconds
+
+
 
 #define ALL_UNITS() \
 	LENGTH_UNITS(), \
@@ -132,6 +137,7 @@
 	VOLUME_UNITS(), \
 	FORCE_UNITS(), \
 	ENERGY_UNITS(), \
-	FREQUENCY_UNITS()
+	FREQUENCY_UNITS(), \
+	ACCELERATION_UNITS()
 
 #endif /* UNIT_TESTS_ALL_UNITS_H_ */

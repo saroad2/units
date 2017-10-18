@@ -312,6 +312,15 @@ Those are the supported units in the *units* library:
 	<td>mega * hertz</td>
 	<td>V</td>
 	<td>V</td></tr>
+	<tr>
+		<td rowspan=1 style="text-align:center; vertical-align:middle;font-weight:bold">
+			acceleration
+		</td>
+		<td>meters per square seconds</td>
+		<td>meters / (seconds * seconds)</td>
+		<td>V</td>
+		<td>V</td>
+	</tr>
 
 
 </table>

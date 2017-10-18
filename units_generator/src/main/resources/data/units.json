@@ -476,6 +476,23 @@
 					"relative_to" : "hertz"
 				}
 			]
+		},
+		{
+			"type_name" : "acceleration",
+			"ratio" : {
+				"numerators" : ["length"],
+				"denumerators" : ["time", "time"]
+			},
+			"unit_scales" : [
+				{
+					"singular_name" : "meter per square seconds",
+					"plural_name" : "meters per square seconds",
+					"ratio" : {
+						"numerators" : ["meters"],
+						"denumerators" : ["seconds", "seconds"]
+					}
+				}
+			]
 		}
 	]
 }

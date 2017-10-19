@@ -391,6 +391,21 @@
             ]
         },
         {
+            "unit_type": "temperature",
+            "test_cases": [
+            	{
+                    "from": "kelvins",
+                    "to": "rankines",
+                    "value": 1.8
+                },
+                {
+                    "from": "rankines",
+                    "to": "kelvins",
+                    "value": 0.5555555555
+                }
+            ]
+        },
+        {
             "unit_type": "electric current",
             "test_cases": []
         },

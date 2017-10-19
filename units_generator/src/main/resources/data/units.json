@@ -180,6 +180,22 @@
 			]
 		},
 		{
+			"type_name" : "temperature",
+			"unit_scales" : [
+				{
+					"singular_name" : "kelvin",
+					"plural_name" : "kelvins",
+					"is_basic" : "true"
+				},
+				{
+					"singular_name" : "rankine",
+					"plural_name" : "rankines",
+					"multiplyer_number" : 0.5555555555,
+					"relative_to" : "kelvins"
+				}
+			]
+		},
+		{
 			"type_name" : "electric current",
 			"unit_scales" : [
 				{

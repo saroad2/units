@@ -153,6 +153,19 @@ Those are the supported units in the *units* library:
 	<td>V</td>
 	<td>V</td></tr>
 	<tr>
+		<td rowspan=2 style="text-align:center; vertical-align:middle;font-weight:bold">
+			temperature
+		</td>
+		<td>kelvins</td>
+		<td>basic</td>
+		<td>V</td>
+		<td>V</td>
+	</tr>
+	<tr><td>rankines</td>
+	<td>0.5555555555 * kelvins</td>
+	<td>V</td>
+	<td>V</td></tr>
+	<tr>
 		<td rowspan=1 style="text-align:center; vertical-align:middle;font-weight:bold">
 			electric current
 		</td>

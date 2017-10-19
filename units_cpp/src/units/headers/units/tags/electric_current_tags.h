@@ -14,7 +14,7 @@ namespace electric_current {
 namespace tags
 {
 
-using electric_current_code  = std::ratio<11, 1>;
+using electric_current_code  = std::ratio<13, 1>;
 
 struct amperes_tag
 {

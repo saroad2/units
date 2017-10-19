@@ -3,8 +3,8 @@
 
 # Explicitly declare text files you want to always be normalized and converted
 # to native line endings on checkout.
-*.cc text
-*.h text
-*.java text
+*.cc text diff=cpp
+*.h text diff=cpp
+*.java text diff=java
 *.json text
 *.gradle text

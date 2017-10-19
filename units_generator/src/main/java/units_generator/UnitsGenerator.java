@@ -66,7 +66,7 @@ public class UnitsGenerator {
 	
 	private void generateDocs(String stringTemplateDirectory, Schema schema, String outputDirectory)
 			throws IOException {
-		StringTemplateGroup group = getStringTempateGroup(stringTemplateDirectory,  "units_general.stg");
+		StringTemplateGroup group = getStringTempateGroup(stringTemplateDirectory,  "units_docs.stg");
 		DocsSchema generalSchema = new DocsSchema(schema);
 		Path outputPath = Paths.get(outputDirectory, "docs");
 		new DocsGenerator(group).generate(generalSchema, outputPath);

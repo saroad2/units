@@ -209,7 +209,7 @@
 			"type_name": "electric charge",
 			"ratio": {
 				"numerators": [ "electric current", "duration" ],
-				"denumerators": []
+				"denominators": []
 			},
 			"unit_scales": [
 				{
@@ -217,7 +217,7 @@
 					"plural_name": "coulombs",
 					"ratio" : {
 						"numerators" : ["amperes", "seconds"],
-						"denumerators" : []
+						"denominators" : []
 					}
 				}
 			]
@@ -226,7 +226,7 @@
 			"type_name" : "speed",
 			"ratio" : {
 				"numerators" : ["length"],
-				"denumerators" : ["duration"]
+				"denominators" : ["duration"]
 			},
 			"unit_scales" : [
 				{
@@ -235,7 +235,7 @@
 					"plural_name" : "feet/second",
 					"ratio" : {
 						"numerators" : ["feet"],
-						"denumerators" : ["seconds"]
+						"denominators" : ["seconds"]
 					}
 				},
 				{
@@ -244,7 +244,7 @@
 					"plural_name" : "yards/second",
 					"ratio" : {
 						"numerators" : ["yards"],
-						"denumerators" : ["seconds"]
+						"denominators" : ["seconds"]
 					}
 				},
 				{
@@ -253,7 +253,7 @@
 					"plural_name" : "meters/second",
 					"ratio" : {
 						"numerators" : ["meters"],
-						"denumerators" : ["seconds"]
+						"denominators" : ["seconds"]
 					}
 				},
 				{
@@ -262,7 +262,7 @@
 					"plural_name" : "kilometers/hour",
 					"ratio" : {
 						"numerators" : ["kilometers"],
-						"denumerators" : ["hours"]
+						"denominators" : ["hours"]
 					}
 				},
 				{
@@ -277,7 +277,7 @@
 			"type_name" : "angular speed",
 			"ratio" : {
 				"numerators" : ["angle"],
-				"denumerators" : ["duration"]
+				"denominators" : ["duration"]
 			},
 			"unit_scales" : [
 				{
@@ -286,7 +286,7 @@
 					"plural_name" : "degrees/second",
 					"ratio" : {
 						"numerators" : ["degrees"],
-						"denumerators" : ["seconds"]
+						"denominators" : ["seconds"]
 					}
 				},
 				{
@@ -295,7 +295,7 @@
 					"plural_name" : "radians/second",
 					"ratio" : {
 						"numerators" : ["radians"],
-						"denumerators" : ["seconds"]
+						"denominators" : ["seconds"]
 					}
 				},
 				{
@@ -304,7 +304,7 @@
 					"plural_name" : "mils/second",
 					"ratio" : {
 						"numerators" : ["mils"],
-						"denumerators" : ["seconds"]
+						"denominators" : ["seconds"]
 					}
 				}
 			]
@@ -313,7 +313,7 @@
 			"type_name" : "area",
 			"ratio" : {
 				"numerators" : ["length", "length"],
-				"denumerators" : []
+				"denominators" : []
 			},
 			"unit_scales" : [
 				{
@@ -322,7 +322,7 @@
 					"plural_name" : "feet^2",
 					"ratio" : {
 						"numerators" : ["feet", "feet"],
-						"denumerators" : []
+						"denominators" : []
 					}
 				},
 				{
@@ -331,7 +331,7 @@
 					"plural_name" : "yards^2",
 					"ratio" : {
 						"numerators" : ["yards", "yards"],
-						"denumerators" : []
+						"denominators" : []
 					}
 				},
 				{
@@ -340,7 +340,7 @@
 					"plural_name" : "meters^2",
 					"ratio" : {
 						"numerators" : ["meters", "meters"],
-						"denumerators" : []
+						"denominators" : []
 					}
 				},
 				{
@@ -349,7 +349,7 @@
 					"plural_name" : "kilometers^2",
 					"ratio" : {
 						"numerators" : ["kilometers", "kilometers"],
-						"denumerators" : []
+						"denominators" : []
 					}
 				},
 				{
@@ -364,7 +364,7 @@
 			"type_name" : "volume",
 			"ratio" : {
 				"numerators" : ["length", "length", "length"],
-				"denumerators" : []
+				"denominators" : []
 			},
 			"unit_scales" : [
 				{
@@ -373,7 +373,7 @@
 					"plural_name" : "feet^3",
 					"ratio" : {
 						"numerators" : ["feet", "feet", "feet"],
-						"denumerators" : []
+						"denominators" : []
 					}
 				},
 				{
@@ -382,7 +382,7 @@
 					"plural_name" : "yards^3",
 					"ratio" : {
 						"numerators" : ["yards", "yards", "yards"],
-						"denumerators" : []
+						"denominators" : []
 					}
 				},
 				{
@@ -391,7 +391,7 @@
 					"plural_name" : "meters^3",
 					"ratio" : {
 						"numerators" : ["meters", "meters", "meters"],
-						"denumerators" : []
+						"denominators" : []
 					}
 				},
 				{
@@ -400,7 +400,7 @@
 					"plural_name" : "kilometers^3",
 					"ratio" : {
 						"numerators" : ["kilometers", "kilometers", "kilometers"],
-						"denumerators" : []
+						"denominators" : []
 					}
 				},
 				{
@@ -421,7 +421,7 @@
 			"type_name" : "force",
 			"ratio" : {
 				"numerators" : ["mass", "length"],
-				"denumerators" : ["duration", "duration"]
+				"denominators" : ["duration", "duration"]
 			},
 			"unit_scales" : [
 				{
@@ -429,7 +429,7 @@
 					"plural_name" : "newtons",
 					"ratio" : {
 						"numerators" : ["kilograms", "meters"],
-						"denumerators" : ["seconds", "seconds"]
+						"denominators" : ["seconds", "seconds"]
 					}
 				},
 				{
@@ -444,7 +444,7 @@
 			"type_name" : "energy",
 			"ratio" : {
 				"numerators" : ["mass", "length", "length"],
-				"denumerators" : ["duration", "duration"]
+				"denominators" : ["duration", "duration"]
 			},
 			"unit_scales" : [
 				{
@@ -452,7 +452,7 @@
 					"plural_name" : "joules",
 					"ratio" : {
 						"numerators" : ["kilograms", "meters", "meters"],
-						"denumerators" : ["seconds", "seconds"]
+						"denominators" : ["seconds", "seconds"]
 					}
 				},
 				{
@@ -485,7 +485,7 @@
 			"type_name" : "frequency",
 			"ratio" : {
 				"numerators" : [],
-				"denumerators" : ["duration"]
+				"denominators" : ["duration"]
 			},
 			"unit_scales" : [
 				{
@@ -493,7 +493,7 @@
 					"plural_name" : "hertz",
 					"ratio" : {
 						"numerators" : [],
-						"denumerators" : ["seconds"]
+						"denominators" : ["seconds"]
 					}
 				},
 				{
@@ -514,7 +514,7 @@
 			"type_name" : "acceleration",
 			"ratio" : {
 				"numerators" : ["length"],
-				"denumerators" : ["duration", "duration"]
+				"denominators" : ["duration", "duration"]
 			},
 			"unit_scales" : [
 				{
@@ -522,7 +522,7 @@
 					"plural_name" : "meters per square seconds",
 					"ratio" : {
 						"numerators" : ["meters"],
-						"denumerators" : ["seconds", "seconds"]
+						"denominators" : ["seconds", "seconds"]
 					}
 				}
 			]

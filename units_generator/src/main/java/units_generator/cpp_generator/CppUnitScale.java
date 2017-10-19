@@ -103,21 +103,21 @@ public class CppUnitScale implements UnitScaleInterface{
 	
 	public void initializeRatioScale(UnitScale unitScale) {
 		List<String> numerators = unitScale.getRatio().getNumerators();
-		List<String> denumerators = unitScale.getRatio().getDenumerators();
+		List<String> denominators = unitScale.getRatio().getDenominators();
 
-		scale = getScaleFromNumeratorsAndDenumerators(numerators, denumerators);
+		scale = getScaleFromNumeratorsAndDenominators(numerators, denominators);
 		stringMultiplyer = false;
 	}
 	
 
-	private String getScaleFromNumeratorsAndDenumerators(
+	private String getScaleFromNumeratorsAndDenominators(
 			List<String> numerators,
-			List<String> denumerators) {
+			List<String> denominators) {
 		if (numerators.size() == 0)
-			return getInverseScale(denumerators);
-		if (denumerators.size() == 0)
+			return getInverseScale(denominators);
+		if (denominators.size() == 0)
 			return toTag(numerators) + "::scale";
-		return getRatioScale(numerators, denumerators);
+		return getRatioScale(numerators, denominators);
 	}
 
 	private String toTag(List<String> unitScalenames) {
@@ -140,20 +140,20 @@ public class CppUnitScale implements UnitScaleInterface{
 		return "multiply_scale_tag<" + String.join(", ", tags) + ">";
 	}
 	
-	private String getInverseScale(List<String> denumerators) {
-		return "inverse_scale_tag<" + toTag(denumerators) + ">::scale";
+	private String getInverseScale(List<String> denominators) {
+		return "inverse_scale_tag<" + toTag(denominators) + ">::scale";
 	}
 	
-	private String getRatioScale(List<String> numerators, List<String> denumerators) {
+	private String getRatioScale(List<String> numerators, List<String> denominators) {
 		String result = "";
-		boolean addTabs = numerators.size() >= 2 || denumerators.size() >= 2;
+		boolean addTabs = numerators.size() >= 2 || denominators.size() >= 2;
 		result += "ratio_scale_tag<"; 
 		if (addTabs)
 			result += "\n\t\t";
 		result += toTag(numerators) + ", " ;
 		if (addTabs)
 			result += "\n\t\t";
-		result += toTag(denumerators) + ">::scale";
+		result += toTag(denominators) + ">::scale";
 		return result;
 	}
 	

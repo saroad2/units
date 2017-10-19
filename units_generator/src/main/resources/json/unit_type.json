@@ -8,7 +8,7 @@
 					"type" : "array",
 					 "items" : {"type" : "string"}
 				},
-				"denumerators" : { 
+				"denominators" : { 
 					"type" : "array",
 					 "items" : {"type" : "string"}
 				}

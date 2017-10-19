@@ -24,16 +24,16 @@ public class JavaScaleCalculator {
 	
 	private static String calculateRatioScale(Ratio ratio) {
 		String numeratorScale = combineScales(ratio.getNumerators());
-		if (ratio.getDenumerators().isEmpty())
+		if (ratio.getDenominators().isEmpty())
 			return numeratorScale;
-		String denumeratorScale = combineScales(ratio.getDenumerators());
+		String denominatorScale = combineScales(ratio.getDenominators());
 		return addBracketsIfNeeaded(
 					ratio.getNumerators().size(),
 					numeratorScale)
 				+ getSeperator(ratio)
 				+ addBracketsIfNeeaded(
-					ratio.getDenumerators().size(),
-					denumeratorScale);
+					ratio.getDenominators().size(),
+					denominatorScale);
 	}
 	
 	public static String combineScales(List<String> numerators) {
@@ -64,7 +64,7 @@ public class JavaScaleCalculator {
 	}
 	
 	private static String getSeperator(Ratio ratio) {
-		if (ratio.getNumerators().size() >=2 || ratio.getDenumerators().size() >=2)
+		if (ratio.getNumerators().size() >=2 || ratio.getDenominators().size() >=2)
 			return "\n / ";
 		return " / ";
 	};

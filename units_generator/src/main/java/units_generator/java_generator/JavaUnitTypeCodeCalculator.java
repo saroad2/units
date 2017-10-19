@@ -20,7 +20,7 @@ public class JavaUnitTypeCodeCalculator {
 	public static String getRatioCode(Ratio ratio) {
 		StringJoiner joiner = new StringJoiner("");
 		joiner.add(calculateNumeratorType(ratio.getNumerators()));
-		for (String unitTypeName : ratio.getDenumerators()) {
+		for (String unitTypeName : ratio.getDenominators()) {
 			joiner.add("\n.divide(" + unitTypeToCode(unitTypeName) + ")");
 		}
 		return joiner.toString();

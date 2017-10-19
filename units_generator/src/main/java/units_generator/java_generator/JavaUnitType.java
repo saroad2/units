@@ -41,7 +41,7 @@ public class JavaUnitType implements UnitTypeInterface {
 		if (ratio == null)
 			return;
 		initializeImportsFromList(ratio.getNumerators());
-		initializeImportsFromList(ratio.getDenumerators());
+		initializeImportsFromList(ratio.getDenominators());
 	}
 	
 	private void initializeImportsFromList(List<String> unitTypesList) {

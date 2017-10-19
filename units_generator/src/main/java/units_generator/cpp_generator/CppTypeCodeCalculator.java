@@ -39,20 +39,20 @@ public class CppTypeCodeCalculator {
 
 	private static void initializeRatioCode(Result result, UnitType unitType) {
 		List<String> numerators = unitType.getRatio().getNumerators();
-		List<String> denumerators = unitType.getRatio().getDenumerators();
+		List<String> denominators = unitType.getRatio().getDenominators();
 
-		result.code = getCodeFromNumeratorsAndDenumerators(numerators, denumerators);
-		addIncludes(result, numerators, denumerators);
+		result.code = getCodeFromNumeratorsAndDenominators(numerators, denominators);
+		addIncludes(result, numerators, denominators);
 	}
 	
-	private static String getCodeFromNumeratorsAndDenumerators(
+	private static String getCodeFromNumeratorsAndDenominators(
 			List<String> numerators,
-			List<String> denumerators) {
+			List<String> denominators) {
 		if (numerators.size() == 0)
-			return getInverseCode(denumerators);
-		if (denumerators.size() == 0)
+			return getInverseCode(denominators);
+		if (denominators.size() == 0)
 			return toCode(numerators);
-		return getRatioCode(numerators, denumerators);
+		return getRatioCode(numerators, denominators);
 	}
 	
 	private static String toCode(List<String> unitTypeNames) {
@@ -72,36 +72,36 @@ public class CppTypeCodeCalculator {
 		return "multiply_type_code<" + String.join(", ", tags) + ">::code";
 	}
 	
-	private static String getInverseCode(List<String> denumerators) {
-		return "inverse_type_code<" + toCode(denumerators) + ">::code";
+	private static String getInverseCode(List<String> denominators) {
+		return "inverse_type_code<" + toCode(denominators) + ">::code";
 	}
 	
 	private static String getRatioCode(
 			List<String> numerators,
-			List<String> denumerators) {
+			List<String> denominators) {
 		String result = "";
-		boolean addTabs = numerators.size() >= 2 || denumerators.size() >= 2;
+		boolean addTabs = numerators.size() >= 2 || denominators.size() >= 2;
 		result += "typename ratio_type_code<";
 		if (addTabs)
 			result += "\n\t";
 		result += toCode(numerators) + ", ";
 		if (addTabs)
 			result += "\n\t";
-		result += toCode(denumerators) + ">::code";
+		result += toCode(denominators) + ">::code";
 		return result;
 	}
 
 	private static void addIncludes(
 			Result result,
 			List<String> numerators,
-			List<String> denumerators) {
-		if (denumerators.size() >= 1)
+			List<String> denominators) {
+		if (denominators.size() >= 1)
 			result.tagIncludes.add("<units/internal/units_ratio_type.h>");
-		if (numerators.size() >= 2 || denumerators.size() >= 2)
+		if (numerators.size() >= 2 || denominators.size() >= 2)
 			result.tagIncludes.add("<units/internal/units_multiply_type.h>");
 		
 		addUnitTypesInclude(result, numerators);
-		addUnitTypesInclude(result, denumerators);
+		addUnitTypesInclude(result, denominators);
 	}
 	
 	private static void addUnitTypesInclude(

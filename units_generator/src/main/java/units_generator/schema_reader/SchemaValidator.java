@@ -64,7 +64,7 @@ public class SchemaValidator {
 			) throws InvalidSchema {
 		validateRatio(typeName, ratio);
 		validateUnitTypesList(schema, typeName, ratio.getNumerators());
-		validateUnitTypesList(schema, typeName, ratio.getDenumerators());
+		validateUnitTypesList(schema, typeName, ratio.getDenominators());
 	}
 	
 	private static void validateRatio(
@@ -72,8 +72,8 @@ public class SchemaValidator {
 			Ratio ratio) throws InvalidSchema {
 		if (ratio.getNumerators() == null)
 			throw new InvalidNumeratorsInRatio(definedUnit);
-		if (ratio.getDenumerators() == null)
-			throw new InvalidDenumeratorsInRatio(definedUnit);
+		if (ratio.getDenominators() == null)
+			throw new InvalidDenominatorsInRatio(definedUnit);
 	}
 	
 	private static void validateUnitTypesList(
@@ -162,7 +162,7 @@ public class SchemaValidator {
 			) throws InvalidSchema {
 		validateRatio(scaleName, ratio);
 		validateUnitScalesList(schema, scaleName, ratio.getNumerators());
-		validateUnitScalesList(schema, scaleName, ratio.getDenumerators());
+		validateUnitScalesList(schema, scaleName, ratio.getDenominators());
 	}
 	
 	private static void validateUnitScalesList(

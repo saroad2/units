@@ -44,7 +44,7 @@ public class JavaUnitScale implements UnitScaleInterface {
 		if (ratio == null)
 			return;
 		initializeImportsFromUnitScalesList(ratio.getNumerators());
-		initializeImportsFromUnitScalesList(ratio.getDenumerators());
+		initializeImportsFromUnitScalesList(ratio.getDenominators());
 	}
 	
 	private void initializeImportsFromUnitScalesList(List<String> unitScalesList) {

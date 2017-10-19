@@ -17,12 +17,12 @@ public class DocsScaleCalculator {
 	
 	public static String calculateRatioScale(UnitScale unitScale) {
 		List<String> numerators = unitScale.getRatio().getNumerators();
-		List<String> denumerators = unitScale.getRatio().getDenumerators();
+		List<String> denominators = unitScale.getRatio().getDenominators();
 		if (numerators.size() == 0)
-			return combineWithBrackets(denumerators) + "^(-1)";
-		if (denumerators.size() == 0)
+			return combineWithBrackets(denominators) + "^(-1)";
+		if (denominators.size() == 0)
 			return combine(numerators);
-		return combineWithBrackets(numerators) + " / " + combineWithBrackets(denumerators);
+		return combineWithBrackets(numerators) + " / " + combineWithBrackets(denominators);
 	}
 	
 	public static String combine(List<String> scalesList) {

@@ -1,4 +1,4 @@
-package units_generator.general_generator;
+package units_generator.docs_generator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,17 +9,17 @@ import units_generator.internal.NamesManipulator;
 import units_generator.internal.UnitScaleInterface;
 import units_generator.internal.UnitTypeInterface;
 
-public class GeneralUnitType implements UnitTypeInterface {
+public class DocsUnitType implements UnitTypeInterface {
 	
 	private String name;
 	private List<UnitScaleInterface> unitScales;
 	private int numberOfScales;
 
-	GeneralUnitType(UnitType unitType) {
+	DocsUnitType(UnitType unitType) {
 		name = NamesManipulator.getName(unitType);
 		unitScales = new ArrayList<UnitScaleInterface>();
 		for (UnitScale scale : unitType.getUnitScales())
-			unitScales.add(new GeneralUnitScale(unitType, scale));
+			unitScales.add(new DocsUnitScale(unitType, scale));
 		numberOfScales = unitScales.size();
 	}
 	

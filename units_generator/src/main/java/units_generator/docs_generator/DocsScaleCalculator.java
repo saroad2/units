@@ -1,11 +1,11 @@
-package units_generator.general_generator;
+package units_generator.docs_generator;
 
 import java.util.List;
 import java.util.StringJoiner;
 
 import units_schema.UnitScale;
 
-public class GeneralScaleCalculator {
+public class DocsScaleCalculator {
 
 	public static String calculateScale(UnitScale unitScale) {
 		if (unitScale.getIsBasic())

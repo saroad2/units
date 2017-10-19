@@ -7,10 +7,8 @@ import org.antlr.stringtemplate.StringTemplateGroup;
 
 import units_generator.cpp_generator.CppSchema;
 import units_generator.cpp_generator.CppUnitsGenerator;
-
-import units_generator.general_generator.GeneralGenerator;
-import units_generator.general_generator.GeneralSchema;
-
+import units_generator.docs_generator.DocsGenerator;
+import units_generator.docs_generator.DocsSchema;
 import units_generator.java_generator.JavaUnitsGenerator;
 import units_generator.java_generator.JavaUnitsSchema;
 import units_generator.schema_reader.SchemaReader;
@@ -38,7 +36,7 @@ public class UnitsGenerator {
 			Schema schema = new SchemaReader().getSchema(dataDirectoryPath);
 			generateCpp(stringTemplateDirectory, schema, outputDirectory);
 			generateJava(stringTemplateDirectory, schema, outputDirectory);
-			generateGeneralFiles(stringTemplateDirectory, schema, outputDirectory);
+			generateDocs(stringTemplateDirectory, schema, outputDirectory);
 			return;
 		}
 		catch(IOException e) {
@@ -66,12 +64,12 @@ public class UnitsGenerator {
 		new JavaUnitsGenerator(group).generate(javaSchema, javaOutputDirectory);
 	}
 	
-	private void generateGeneralFiles(String stringTemplateDirectory, Schema schema, String outputDirectory)
+	private void generateDocs(String stringTemplateDirectory, Schema schema, String outputDirectory)
 			throws IOException {
 		StringTemplateGroup group = getStringTempateGroup(stringTemplateDirectory,  "units_general.stg");
-		GeneralSchema generalSchema = new GeneralSchema(schema);
-		Path outputPath = Paths.get(outputDirectory);
-		new GeneralGenerator(group).generate(generalSchema, outputPath);
+		DocsSchema generalSchema = new DocsSchema(schema);
+		Path outputPath = Paths.get(outputDirectory, "docs");
+		new DocsGenerator(group).generate(generalSchema, outputPath);
 	}
 	
 	private void makeDirectories(String outputDirectory) throws IOException{

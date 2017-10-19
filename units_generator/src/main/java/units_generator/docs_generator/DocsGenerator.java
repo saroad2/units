@@ -1,4 +1,4 @@
-package units_generator.general_generator;
+package units_generator.docs_generator;
 
 import java.io.IOException;
 import java.nio.file.Path;
@@ -15,14 +15,14 @@ import units_generator.internal.UnitTypeInterface;
 import units_generator.internal.UnitsSchemaInterface;
 import units_generator.internal.UnitsTestSuiteInterface;
 
-public class GeneralGenerator extends LanguageUnitsGenerator{
+public class DocsGenerator extends LanguageUnitsGenerator{
 
 	private final static Logger logger =
-			Logger.getLogger(GeneralGenerator.class.getName());
+			Logger.getLogger(DocsGenerator.class.getName());
 	private final static String root = "root";
 
-	public GeneralGenerator(StringTemplateGroup group) {
-		super(GeneralGenerator.class.getSimpleName(), group);
+	public DocsGenerator(StringTemplateGroup group) {
+		super(DocsGenerator.class.getSimpleName(), group);
 	}
 	@Override
 	public Map<String, Path> getDirectoriesMap(
@@ -38,7 +38,7 @@ public class GeneralGenerator extends LanguageUnitsGenerator{
 			UnitsSchemaInterface schema,
 			Map<String, Path> directoriesMap) throws IOException {
 		Path outputPath = Paths.get(directoriesMap.get(root).toString(), "supported_units.md");
-		generateSupportedUnits((GeneralSchema)schema, outputPath);
+		generateSupportedUnits((DocsSchema)schema, outputPath);
 	}
 	
 	@Override
@@ -60,7 +60,7 @@ public class GeneralGenerator extends LanguageUnitsGenerator{
 	};
 	
 	public void generateSupportedUnits(
-			GeneralSchema schema,
+			DocsSchema schema,
 			Path outputPath) throws IOException{
 		logger.info("Generatating supported units to " + outputPath + "...");
 		writeStringTemplate("supported_units", "schema", schema, outputPath);

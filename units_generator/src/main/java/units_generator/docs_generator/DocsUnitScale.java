@@ -1,4 +1,4 @@
-package units_generator.general_generator;
+package units_generator.docs_generator;
 
 import units_schema.UnitType;
 import units_schema.UnitScale;
@@ -10,7 +10,7 @@ import units_generator.cpp_generator.CppSupportChecker;
 import units_generator.java_generator.JavaSupportChecker;
 
 
-public class GeneralUnitScale implements UnitScaleInterface {
+public class DocsUnitScale implements UnitScaleInterface {
 
 	private String name;
 	private String scale;
@@ -20,9 +20,9 @@ public class GeneralUnitScale implements UnitScaleInterface {
 	private static CppSupportChecker cppSupportChecker = new CppSupportChecker();
 	private static JavaSupportChecker javaSupportChecker = new JavaSupportChecker();
 	
-	public GeneralUnitScale(UnitType unitType, UnitScale unitScale) {
+	public DocsUnitScale(UnitType unitType, UnitScale unitScale) {
 		name = NamesManipulator.getName(unitScale);
-		scale = GeneralScaleCalculator.calculateScale(unitScale);
+		scale = DocsScaleCalculator.calculateScale(unitScale);
 		isCppSupported =
 				cppSupportChecker.isSupported(unitType) &&
 				cppSupportChecker.isSupported(unitScale);

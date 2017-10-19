@@ -18,6 +18,40 @@
 namespace units
 {
 
+template<class Unit1, class Unit2>
+struct is_from_the_same_type;
+
+template<class Unit1, class Unit2>
+struct is_same_unit;
+
+template<class... Units>
+struct multiply_builder;
+
+template <class Unit, int power>
+struct pow_builder;
+
+template<class Unit1, class Unit2>
+struct ratio_builder;
+
+template<class Unit>
+struct inverse_builder;
+
+template<class Unit, class... ActualTags>
+struct tag_builder;
+
+template<class Unit, class... RemovedTags>
+struct untag_builder;
+
+template<class Unit>
+struct untag_all_builder;
+
+template<class Unit, class Tag>
+struct has_tag;
+
+//Function friends declarations
+template<class To, class From>
+constexpr double conversionScale();
+
 template<typename ScaleTag, typename OtherTags = Tags<>>
 class NumericValue
 {

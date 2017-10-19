@@ -17,8 +17,8 @@ model {
     
     components {
         units(NativeLibrarySpec) {
-		sources.cpp.source.exclude '**/*.swp'
-	}
+			sources.cpp.source.exclude '**/*.swp'
+		}
     }
 
     binaries {
@@ -51,6 +51,18 @@ model {
         unitsTest {
             sources {
                 cpp.source.exclude "**/*.swp"
+            }
+        }
+    }
+}
+
+model {
+    components {
+        main(NativeExecutableSpec) {
+            sources {
+                cpp {
+                    lib library: "units", linkage: "static"
+                }
             }
         }
     }

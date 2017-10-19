@@ -3,14 +3,14 @@ package com.units.internal;
 public class Ratio {
 
 	private int numerator;
-	private int denumerator;
+	private int denominator;
 	
-	public Ratio(int numerator, int denumerator) {
-		if (denumerator == 0)
-			throw new IllegalArgumentException("denumerator can't be 0");
-		int gcd = calculateGcd(numerator, denumerator);
+	public Ratio(int numerator, int denominator) {
+		if (denominator == 0)
+			throw new IllegalArgumentException("denominator can't be 0");
+		int gcd = calculateGcd(numerator, denominator);
 		this.numerator = numerator / gcd;
-		this.denumerator = denumerator / gcd;
+		this.denominator = denominator / gcd;
 	}
 	
 	public Ratio(int number) {
@@ -30,20 +30,20 @@ public class Ratio {
 		return numerator;
 	}
 
-	public int getDenumerator() {
-		return denumerator;
+	public int getDenominator() {
+		return denominator;
 	}
 	
 	public Ratio multiply(Ratio other) {
 		int newNumerator = getNumerator() * other.getNumerator();
-		int newDenumerator = getDenumerator() * other.getDenumerator();
-		return new Ratio(newNumerator, newDenumerator);
+		int newDenominator = getDenominator() * other.getDenominator();
+		return new Ratio(newNumerator, newDenominator);
 	}
 	
 	public Ratio divide(Ratio other) {
-		int newNumerator = getNumerator() * other.getDenumerator();
-		int newDenumerator = getDenumerator() * other.getNumerator();
-		return new Ratio(newNumerator, newDenumerator);
+		int newNumerator = getNumerator() * other.getDenominator();
+		int newDenominator = getDenominator() * other.getNumerator();
+		return new Ratio(newNumerator, newDenominator);
 	}
 	
 	public static Ratio one() {
@@ -54,7 +54,7 @@ public class Ratio {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + denumerator;
+		result = prime * result + denominator;
 		result = prime * result + numerator;
 		return result;
 	}
@@ -68,7 +68,7 @@ public class Ratio {
 		if (getClass() != obj.getClass())
 			return false;
 		Ratio other = (Ratio) obj;
-		if (denumerator != other.denumerator)
+		if (denominator != other.denominator)
 			return false;
 		if (numerator != other.numerator)
 			return false;
@@ -77,6 +77,6 @@ public class Ratio {
 
 	@Override
 	public String toString() {
-		return "Ratio [" + numerator + "/" + denumerator + "]";
+		return "Ratio [" + numerator + "/" + denominator + "]";
 	}
 }

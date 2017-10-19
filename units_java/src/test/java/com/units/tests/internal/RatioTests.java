@@ -7,28 +7,28 @@ import com.units.internal.Ratio;
 
 public class RatioTests {
 
-	public void checkRatio(Ratio r, int expectedNumerator, int expectedDenumerator) {
+	public void checkRatio(Ratio r, int expectedNumerator, int expectedDenominator) {
 		assertTrue("numerator is " + r.getNumerator() + " instead of " + expectedNumerator,
 				r.getNumerator() == expectedNumerator);
-		assertTrue("denumerator is " + r.getDenumerator() + " instead of " + expectedDenumerator,
-				r.getDenumerator() == expectedDenumerator);
+		assertTrue("denominator is " + r.getDenominator() + " instead of " + expectedDenominator,
+				r.getDenominator() == expectedDenominator);
 	}
 	@Test
 	public void testRatioConstructorWithoutCommonDivisor() {
 		int numerator = 3;
-		int denumerator = 5;
-		Ratio r = new Ratio(numerator, denumerator);
-		checkRatio(r, numerator, denumerator);
+		int denominator = 5;
+		Ratio r = new Ratio(numerator, denominator);
+		checkRatio(r, numerator, denominator);
 	}
 	
 	@Test
 	public void testRatioConstructorWithCommonDivisor() {
 		int numerator = 6;
-		int denumerator = 10;
+		int denominator = 10;
 		int coprimeNumerator = 3;
-		int coprimeDenumerator = 5;
-		Ratio r = new Ratio(numerator, denumerator);
-		checkRatio(r, coprimeNumerator, coprimeDenumerator);
+		int coprimeDenominator = 5;
+		Ratio r = new Ratio(numerator, denominator);
+		checkRatio(r, coprimeNumerator, coprimeDenominator);
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
@@ -39,8 +39,8 @@ public class RatioTests {
 	
 	@Test()
 	public void testRatioCanDivideZero() {
-		int denumerator = 8;
-		Ratio r = new Ratio(0, denumerator);
+		int denominator = 8;
+		Ratio r = new Ratio(0, denominator);
 		checkRatio(r, 0, 1);
 	}
 	
@@ -54,9 +54,9 @@ public class RatioTests {
 	@Test()
 	public void testEqualsIsTrue() {
 		int numerator = 3;
-		int denumerator = 7;
-		Ratio r1 = new Ratio(numerator, denumerator);
-		Ratio r2 = new Ratio(numerator, denumerator);
+		int denominator = 7;
+		Ratio r1 = new Ratio(numerator, denominator);
+		Ratio r2 = new Ratio(numerator, denominator);
 		assertTrue("ratios were suppose to be equal, but they are not",
 				r1.equals(r2));
 	}
@@ -65,20 +65,20 @@ public class RatioTests {
 	public void testEqualsIsFalseBecauseOfDifferentNumerators() {
 		int numerator1 = 3;
 		int numerator2 = 2;
-		int denumerator = 7;
-		Ratio r1 = new Ratio(numerator1, denumerator);
-		Ratio r2 = new Ratio(numerator2, denumerator);
+		int denominator = 7;
+		Ratio r1 = new Ratio(numerator1, denominator);
+		Ratio r2 = new Ratio(numerator2, denominator);
 		assertFalse("ratios were suppose not to be equal, but they are",
 				r1.equals(r2));
 	}
 
 	@Test()
-	public void testEqualsIsFalseBecauseOfDifferentDenumerators() {
+	public void testEqualsIsFalseBecauseOfDifferentDenominators() {
 		int numerator = 3;
-		int denumerator1 = 7;
-		int denumerator2 = 8;
-		Ratio r1 = new Ratio(numerator, denumerator1);
-		Ratio r2 = new Ratio(numerator, denumerator2);
+		int denominator1 = 7;
+		int denominator2 = 8;
+		Ratio r1 = new Ratio(numerator, denominator1);
+		Ratio r2 = new Ratio(numerator, denominator2);
 		assertFalse("ratios were suppose not to be equal, but they are",
 				r1.equals(r2));
 	}

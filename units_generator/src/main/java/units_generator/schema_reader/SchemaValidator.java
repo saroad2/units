@@ -100,6 +100,8 @@ public class SchemaValidator {
 		validateUnitScaleName(scaleName, thisScaleIndex, typeName);
 		validateUnitScaleCount(scaleName, unitType);
 		validateUnitScaleDefinition(scale);
+		if (scale.getRatio() != null)
+			validateRatioScale(schema, scaleName, scale.getRatio());
 	}
 
 	public static void validateUnitScalePrintNames(
@@ -151,6 +153,35 @@ public class SchemaValidator {
 				isNumberMultiplyer)) {
 			throw new InvalidScaleDefinition(NamesManipulator.getName(scale));
 		}
+	}
+	
+	private static void validateRatioScale(
+			Schema schema,
+			String scaleName,
+			Ratio ratio
+			) throws InvalidSchema {
+		validateRatio(scaleName, ratio);
+		validateUnitScalesList(schema, scaleName, ratio.getNumerators());
+		validateUnitScalesList(schema, scaleName, ratio.getDenumerators());
+	}
+	
+	private static void validateUnitScalesList(
+			Schema schema,
+			String definedUnitName,
+			List<String> unitTypesList) throws InvalidSchema {
+		for (String unitScale : unitTypesList) {
+			boolean unitTypeFound = schema.getUnitTypes().stream()
+					.filter((someUnitType) -> hasScale(someUnitType, unitScale))
+					.count() != 0;
+			if (!unitTypeFound)
+				throw new NoneExitingUnitScale(definedUnitName, unitScale);
+		}
+	}
+	
+	private static boolean hasScale(UnitType unitType, String scaleName) {
+		return unitType.getUnitScales().stream()
+				.filter((unitScale) -> NamesManipulator.getName(unitScale).equals(scaleName))
+				.count() != 0;
 	}
 
 	private static void validateUnitTypeTestSuite(

@@ -37,8 +37,10 @@ public class DocsGenerator extends LanguageUnitsGenerator{
 	protected void generateSchemaFiles(
 			UnitsSchemaInterface schema,
 			Map<String, Path> directoriesMap) throws IOException {
-		Path outputPath = Paths.get(directoriesMap.get(root).toString(), "supported_units.md");
-		generateSupportedUnits((DocsSchema)schema, outputPath);
+		Path outputDirectory = directoriesMap.get(root);
+		DocsSchema docsSchema = (DocsSchema)schema; 
+		generateSupportedUnits(docsSchema, outputDirectory);
+		generateConversions(docsSchema, outputDirectory);
 	}
 	
 	@Override
@@ -59,10 +61,19 @@ public class DocsGenerator extends LanguageUnitsGenerator{
 			Map<String, Path> directoriesMap) throws IOException {
 	};
 	
-	public void generateSupportedUnits(
+	private void generateSupportedUnits(
 			DocsSchema schema,
-			Path outputPath) throws IOException{
+			Path outputDirectory) throws IOException{
+		Path outputPath = Paths.get(outputDirectory.toString(), "supported_units.md");
 		logger.info("Generatating supported units to " + outputPath + "...");
 		writeStringTemplate("supported_units", "schema", schema, outputPath);
+	}
+	
+	private void generateConversions(
+			DocsSchema schema,
+			Path outputDirectory) throws IOException{
+		Path outputPath = Paths.get(outputDirectory.toString(), "conversions.md");
+		logger.info("Generatating supported units to " + outputPath + "...");
+		writeStringTemplate("conversions", "schema", schema, outputPath);
 	}
 }

@@ -20,7 +20,9 @@ Our secondary goals are:
 How do we do this? learn how by reading the README.md file in the most suitable language file for you:
 * [C++](units_cpp/README.md)
 
-Look [here](supported_units.md) to see in which units do we support.
+Look [here](docs/supported_units.md) to see in which units do we support.
+
+Look [here](docs/conversions.md) to see the units conversion table.
 
 For more details about our libraries, go [here](https://github.com/saroad2/units/wiki).
 

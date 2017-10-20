@@ -28,9 +28,9 @@ task copyGeneratedJava(type: Copy) {
     description = "Copy java generated files into units_java project"
 }
 
-task copyGeneratedSupportedUnits(type: Copy) {
+task copyGeneratedDocs(type: Copy) {
 	doLast {
-		println "Copied general files"
+		println "Copied docs files"
 	}
 	
     from 'units_generator/generated/docs/'
@@ -44,7 +44,7 @@ task generate {
 		rootProject.project('units_generator').run.execute()
 		copyGeneratedCpp.execute()
 		copyGeneratedJava.execute()
-		copyGeneratedSupportedUnits.execute()
+		copyGeneratedDocs.execute()
 	}
 	
 	doLast {

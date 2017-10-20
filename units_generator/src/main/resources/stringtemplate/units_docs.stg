@@ -52,3 +52,22 @@ Those are the supported units in the *units* library:
 
 \</table\>
 >>
+
+conversions(schema) ::= <<
+# Conversions
+
+<declaration()>
+
+<schema.testSuites : { testSuite |
+## <testSuite.unitType>
+\<table\>
+	\<tr\>\<td\>From\To\</td\><testSuite.unitScaleNames: { scaleName | \<th\><scaleName>\</th\>}>\</tr\>
+	<testSuite.rows: { row |
+	\<tr\>
+		\<th\><row.from>\</th\>
+		<row.values: { value | \<td\><value>\</td\>}>
+	\</tr\>
+	}>
+\</table\>
+}>
+>>

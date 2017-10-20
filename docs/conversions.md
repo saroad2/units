@@ -21,6 +21,7 @@ DO NOT EDIT IT MANUALY!
 		</tr>
 		
 </table>
+
 ## angular speed
 <table>
 	<tr><td>From\To</td><th>radians per second</th><th>degrees per second</th><th>mils per second</th></tr>
@@ -38,6 +39,7 @@ DO NOT EDIT IT MANUALY!
 		</tr>
 		
 </table>
+
 ## area
 <table>
 	<tr><td>From\To</td><th>square meters</th><th>dunams</th><th>square feet</th><th>square kilometers</th><th>square yards</th></tr>
@@ -63,6 +65,7 @@ DO NOT EDIT IT MANUALY!
 		</tr>
 		
 </table>
+
 ## duration
 <table>
 	<tr><td>From\To</td><th>milliseconds</th><th>hours</th><th>seconds</th><th>minutes</th><th>days</th><th>microseconds</th><th>years</th></tr>
@@ -96,6 +99,7 @@ DO NOT EDIT IT MANUALY!
 		</tr>
 		
 </table>
+
 ## temperature
 <table>
 	<tr><td>From\To</td><th>rankines</th><th>kelvins</th></tr>
@@ -109,14 +113,17 @@ DO NOT EDIT IT MANUALY!
 		</tr>
 		
 </table>
+
 ## electric current
 <table>
 	<tr><td>From\To</td></tr>
 </table>
+
 ## electric charge
 <table>
 	<tr><td>From\To</td></tr>
 </table>
+
 ## energy
 <table>
 	<tr><td>From\To</td><th>kilojoules</th><th>megajoules</th><th>kilocalories</th><th>calories</th><th>joules</th></tr>
@@ -142,6 +149,7 @@ DO NOT EDIT IT MANUALY!
 		</tr>
 		
 </table>
+
 ## force
 <table>
 	<tr><td>From\To</td><th>newtons</th><th>dynes</th></tr>
@@ -155,6 +163,7 @@ DO NOT EDIT IT MANUALY!
 		</tr>
 		
 </table>
+
 ## frequency
 <table>
 	<tr><td>From\To</td><th>hertz</th><th>megahertz</th><th>kilohertz</th></tr>
@@ -172,6 +181,7 @@ DO NOT EDIT IT MANUALY!
 		</tr>
 		
 </table>
+
 ## length
 <table>
 	<tr><td>From\To</td><th>feet</th><th>inches</th><th>centimeters</th><th>millimeters</th><th>kilometers</th><th>statute miles</th><th>micrometers</th><th>nautical miles</th><th>degrees of latitude</th><th>geographical miles</th><th>meters</th><th>yards</th></tr>
@@ -225,6 +235,7 @@ DO NOT EDIT IT MANUALY!
 		</tr>
 		
 </table>
+
 ## mass
 <table>
 	<tr><td>From\To</td><th>pounds</th><th>kilograms</th><th>milligrams</th><th>tonnes</th><th>grams</th></tr>
@@ -250,6 +261,7 @@ DO NOT EDIT IT MANUALY!
 		</tr>
 		
 </table>
+
 ## speed
 <table>
 	<tr><td>From\To</td><th>feet per second</th><th>yards per second</th><th>kilometers per hour</th><th>knots</th><th>meters per second</th></tr>
@@ -275,6 +287,7 @@ DO NOT EDIT IT MANUALY!
 		</tr>
 		
 </table>
+
 ## volume
 <table>
 	<tr><td>From\To</td><th>cubic feet</th><th>liters</th><th>milliliters</th><th>cubic meters</th><th>cubic yards</th><th>cubic kilometers</th></tr>
@@ -304,7 +317,9 @@ DO NOT EDIT IT MANUALY!
 		</tr>
 		
 </table>
+
 ## acceleration
 <table>
 	<tr><td>From\To</td></tr>
 </table>
+

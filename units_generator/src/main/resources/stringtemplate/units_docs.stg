@@ -2,7 +2,7 @@ group units;
 
 declaration() ::= <<
 This file is auto generated.
-DO NOT EDIT IT MANUALY!
+DO NOT EDIT IT MANUALLY!
 
 >>
 
@@ -62,8 +62,7 @@ conversions(schema) ::= <<
 ## <testSuite.unitType>
 \<table\>
 	\<tr\>\<td\>From\To\</td\><testSuite.unitScaleNames: { scaleName | \<th\><scaleName>\</th\>}>\</tr\>
-	<testSuite.rows: { row |
-	\<tr\>
+	<testSuite.rows: { row | \<tr\>
 		\<th\><row.from>\</th\>
 		<row.values: { value | \<td\><value>\</td\>}>
 	\</tr\>

@@ -39,7 +39,7 @@ public abstract class LanguageUnitsGenerator {
 	public void generate(
 			UnitsSchemaInterface schema,
 			Path rootDirectory) throws IOException{
-		logger.info("Generatating files...");
+		logger.info("Generating files...");
 		Map<String, Path> directoriesMap = getDirectoriesMap(schema, rootDirectory);
 		generateSchemaFiles(schema, directoriesMap);
 		for (UnitTypeInterface unitType : schema.getUnitTypes()) {

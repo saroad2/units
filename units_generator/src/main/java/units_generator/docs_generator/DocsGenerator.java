@@ -65,7 +65,7 @@ public class DocsGenerator extends LanguageUnitsGenerator{
 			DocsSchema schema,
 			Path outputDirectory) throws IOException{
 		Path outputPath = Paths.get(outputDirectory.toString(), "supported_units.md");
-		logger.info("Generatating supported units to " + outputPath + "...");
+		logger.info("Generating supported units to " + outputPath + "...");
 		writeStringTemplate("supported_units", "schema", schema, outputPath);
 	}
 	
@@ -73,7 +73,7 @@ public class DocsGenerator extends LanguageUnitsGenerator{
 			DocsSchema schema,
 			Path outputDirectory) throws IOException{
 		Path outputPath = Paths.get(outputDirectory.toString(), "conversions.md");
-		logger.info("Generatating supported units to " + outputPath + "...");
+		logger.info("Generating supported units to " + outputPath + "...");
 		writeStringTemplate("conversions", "schema", schema, outputPath);
 	}
 }

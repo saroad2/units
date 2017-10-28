@@ -1,7 +1,7 @@
 # Supported Units
 
 This file is auto generated.
-DO NOT EDIT IT MANUALY!
+DO NOT EDIT IT MANUALLY!
 
 
 Those are the supported units in the *units* library:

@@ -24,6 +24,7 @@
 
 
 #define LENGTH_UNITS() \
+
 	units::length::Meters, \
 	units::length::Inches, \
 	units::length::Feet, \
@@ -39,12 +40,14 @@
 
 
 #define ANGLE_UNITS() \
+
 	units::angle::Degrees, \
 	units::angle::Mils, \
 	units::angle::Radians
 
 
 #define MASS_UNITS() \
+
 	units::mass::Grams, \
 	units::mass::Pounds, \
 	units::mass::Milligrams, \
@@ -53,6 +56,7 @@
 
 
 #define DURATION_UNITS() \
+
 	units::duration::Seconds, \
 	units::duration::Minutes, \
 	units::duration::Hours, \
@@ -63,19 +67,23 @@
 
 
 #define TEMPERATURE_UNITS() \
+
 	units::temperature::Kelvins, \
 	units::temperature::Rankines
 
 
 #define ELECTRIC_CURRENT_UNITS() \
+
 	units::electric_current::Amperes
 
 
 #define ELECTRIC_CHARGE_UNITS() \
+
 	units::electric_charge::Coulombs
 
 
 #define SPEED_UNITS() \
+
 	units::speed::FeetPerSecond, \
 	units::speed::YardsPerSecond, \
 	units::speed::MetersPerSecond, \
@@ -84,12 +92,14 @@
 
 
 #define ANGULAR_SPEED_UNITS() \
+
 	units::angular_speed::DegreesPerSecond, \
 	units::angular_speed::RadiansPerSecond, \
 	units::angular_speed::MilsPerSecond
 
 
 #define AREA_UNITS() \
+
 	units::area::SquareFeet, \
 	units::area::SquareYards, \
 	units::area::SquareMeters, \
@@ -98,6 +108,7 @@
 
 
 #define VOLUME_UNITS() \
+
 	units::volume::CubicFeet, \
 	units::volume::CubicYards, \
 	units::volume::CubicMeters, \
@@ -107,11 +118,13 @@
 
 
 #define FORCE_UNITS() \
+
 	units::force::Newtons, \
 	units::force::Dynes
 
 
 #define ENERGY_UNITS() \
+
 	units::energy::Joules, \
 	units::energy::Calories, \
 	units::energy::Kilocalories, \
@@ -120,17 +133,20 @@
 
 
 #define FREQUENCY_UNITS() \
+
 	units::frequency::Hertz, \
 	units::frequency::Kilohertz, \
 	units::frequency::Megahertz
 
 
 #define ACCELERATION_UNITS() \
+
 	units::acceleration::MetersPerSquareSeconds
 
 
 
 #define ALL_UNITS() \
+
 	LENGTH_UNITS(), \
 	ANGLE_UNITS(), \
 	MASS_UNITS(), \

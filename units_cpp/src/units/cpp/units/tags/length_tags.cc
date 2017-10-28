@@ -1,5 +1,5 @@
 /* This file is auto generated.
- * DO NOT EDIT IT MANUALY!
+ * DO NOT EDIT IT MANUALLY!
  */
 
 #include <units/tags/length_tags.h>

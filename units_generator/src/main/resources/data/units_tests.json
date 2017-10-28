@@ -1601,6 +1601,21 @@
         {
             "unit_type": "acceleration",
             "test_cases": []
-        }    
+        },
+        {
+            "unit_type": "density",
+            "test_cases": [
+                {
+                    "from": "kilograms per liter",
+                    "to": "kilograms per cubic meter",
+                    "value": 1000.0
+                },
+                {
+                    "from": "kilograms per cubic meter",
+                    "to": "kilograms per liter",
+                    "value": 0.001
+                }
+            ]
+        }        
     ]
 }

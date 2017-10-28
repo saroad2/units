@@ -526,6 +526,29 @@
 					}
 				}
 			]
+		},
+		{
+			"type_name" : "density",
+			"ratio" : {
+				"numerators" : ["mass"],
+				"denominators" : ["volume"]
+			},
+			"unit_scales" : [
+				{
+					"singular_name" : "kilogram per cubic meter",
+					"plural_name" : "kilograms per cubic meter",
+					"ratio" : {
+						"numerators" : ["kilograms"],
+						"denominators" : ["cubic meters"]
+					}
+				},
+				{
+					"singular_name" : "kilogram per liter",
+					"plural_name" : "kilograms per liter",
+					"multiplyer_string" : "kilo",
+					"relative_to" : "kilograms per cubic meter"
+				}
+			]
 		}
 	]
 }

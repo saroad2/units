@@ -17,6 +17,7 @@
 #include <units/energy_units.h>
 #include <units/frequency_units.h>
 #include <units/acceleration_units.h>
+#include <units/density_units.h>
 
 
 #ifndef UNIT_TESTS_ALL_UNITS_H_
@@ -144,6 +145,12 @@
 	units::acceleration::MetersPerSquareSeconds
 
 
+#define DENSITY_UNITS() \
+
+	units::density::KilogramsPerCubicMeter, \
+	units::density::KilogramsPerLiter
+
+
 
 #define ALL_UNITS() \
 
@@ -161,6 +168,7 @@
 	FORCE_UNITS(), \
 	ENERGY_UNITS(), \
 	FREQUENCY_UNITS(), \
-	ACCELERATION_UNITS()
+	ACCELERATION_UNITS(), \
+	DENSITY_UNITS()
 
 #endif /* UNIT_TESTS_ALL_UNITS_H_ */

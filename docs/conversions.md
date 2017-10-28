@@ -338,3 +338,18 @@ DO NOT EDIT IT MANUALLY!
 	<tr><td>From\To</td></tr>
 </table>
 
+
+## density
+<table>
+	<tr><td>From\To</td><th>kilograms per cubic meter</th><th>kilograms per liter</th></tr>
+	<tr>
+			<th>kilograms per cubic meter</th>
+			<td>1</td><td>0.001</td>
+		</tr>
+		<tr>
+			<th>kilograms per liter</th>
+			<td>1000.0</td><td>1</td>
+		</tr>
+		
+</table>
+

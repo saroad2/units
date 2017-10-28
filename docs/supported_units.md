@@ -343,6 +343,19 @@ Those are the supported units in the *units* library:
 		<td>V</td>
 		<td>V</td>
 	</tr>
+	<tr>
+		<td rowspan=2 style="text-align:center; vertical-align:middle;font-weight:bold">
+			density
+		</td>
+		<td>kilograms per cubic meter</td>
+		<td>kilograms / cubic meters</td>
+		<td>V</td>
+		<td>V</td>
+	</tr>
+	<tr><td>kilograms per liter</td>
+	<td>kilo * kilograms per cubic meter</td>
+	<td>V</td>
+	<td>V</td></tr>
 
 
 </table>

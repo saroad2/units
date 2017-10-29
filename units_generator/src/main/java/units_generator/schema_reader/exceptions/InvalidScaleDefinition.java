@@ -11,8 +11,8 @@ public class InvalidScaleDefinition extends InvalidSchema {
 		super(
 			scaleName + " scale must match EXACTLY ONE of the followings:\n" +
 			"\t * has \"is basic\" to be true\n" +
-			"\t * has \"multiplyer string\" and \"relative to\"\n" +
-			"\t * has \"multiplyer number\" and \"relative to\"\n" +
+			"\t * has \"multiplier string\" and \"relative to\"\n" +
+			"\t * has \"multiplier number\" and \"relative to\"\n" +
 			"\t * has \"ratio\"\n");
 	}
 }

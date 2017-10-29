@@ -4,13 +4,13 @@
 package com.units.energy;
 
 import com.units.internal.*;
-import com.units.internal.Multiplyers;
+import com.units.internal.Multipliers;
 
 
 public class Megajoules extends NumericValue implements Energy{
 
 	public static final double _scale =
-		Multiplyers.mega * Joules._scale;
+		Multipliers.mega * Joules._scale;
 	
 	public Megajoules(double value) {
 		super(value);

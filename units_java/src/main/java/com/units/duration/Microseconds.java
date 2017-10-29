@@ -4,13 +4,13 @@
 package com.units.duration;
 
 import com.units.internal.*;
-import com.units.internal.Multiplyers;
+import com.units.internal.Multipliers;
 
 
 public class Microseconds extends NumericValue implements Duration{
 
 	public static final double _scale =
-		Multiplyers.micro * Seconds._scale;
+		Multipliers.micro * Seconds._scale;
 	
 	public Microseconds(double value) {
 		super(value);

@@ -11,7 +11,7 @@ public class CppUnitScale implements UnitScaleInterface{
 
 	private CppSchema schema;
 	private String scale;
-	private boolean stringMultiplyer;
+	private boolean stringMultiplier;
 	private String namespace;
 	private String name;
 	private String singularName;
@@ -55,8 +55,8 @@ public class CppUnitScale implements UnitScaleInterface{
 		return userDefinedLiteral;
 	}
 	
-	public boolean isStringMultiplyer() {
-		return stringMultiplyer;
+	public boolean isStringMultiplier() {
+		return stringMultiplier;
 	}
 	
 	public String getNamespace() {
@@ -98,7 +98,7 @@ public class CppUnitScale implements UnitScaleInterface{
 	
 	public void initializeBasicScale() {
 		scale = "1";
-		stringMultiplyer = false;
+		stringMultiplier = false;
 	}
 	
 	public void initializeRatioScale(UnitScale unitScale) {
@@ -106,7 +106,7 @@ public class CppUnitScale implements UnitScaleInterface{
 		List<String> denominators = unitScale.getRatio().getDenominators();
 
 		scale = getScaleFromNumeratorsAndDenominators(numerators, denominators);
-		stringMultiplyer = false;
+		stringMultiplier = false;
 	}
 	
 
@@ -159,16 +159,16 @@ public class CppUnitScale implements UnitScaleInterface{
 	
 	private void initializeRelativeScale(UnitScale unitScale) {
 		String relativeToTagName = CppNamesFormatter.formatTagName(unitScale.getRelativeTo());
-		if (unitScale.getMultiplyerNumber() != null) {
-			scale = unitScale.getMultiplyerNumber() + 
+		if (unitScale.getMultiplierNumber() != null) {
+			scale = unitScale.getMultiplierNumber() + 
 					" * " + relativeToTagName + "::scale";
-			stringMultiplyer = false;
+			stringMultiplier = false;
 			return;
 		}
 		scale = "multiplyBy<std::" +
-				unitScale.getMultiplyerString() +
+				unitScale.getMultiplierString() +
 				">(" + relativeToTagName + "::scale)";
-		stringMultiplyer = true;
+		stringMultiplier = true;
 	}
 	
 	public String toString() {

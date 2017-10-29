@@ -4,13 +4,13 @@
 package com.units.density;
 
 import com.units.internal.*;
-import com.units.internal.Multiplyers;
+import com.units.internal.Multipliers;
 
 
 public class KilogramsPerLiter extends NumericValue implements Density{
 
 	public static final double _scale =
-		Multiplyers.kilo * KilogramsPerCubicMeter._scale;
+		Multipliers.kilo * KilogramsPerCubicMeter._scale;
 	
 	public KilogramsPerLiter(double value) {
 		super(value);

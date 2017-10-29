@@ -9,7 +9,7 @@
 #include <string>
 #include <units/internal/units_multiply_type.h>
 #include <units/tags/length_tags.h>
-#include <units/internal/multiplyer_scales.h>
+#include <units/internal/multiplier_scales.h>
 
 
 namespace units {

@@ -4,13 +4,13 @@
 package com.units.energy;
 
 import com.units.internal.*;
-import com.units.internal.Multiplyers;
+import com.units.internal.Multipliers;
 
 
 public class Kilojoules extends NumericValue implements Energy{
 
 	public static final double _scale =
-		Multiplyers.kilo * Joules._scale;
+		Multipliers.kilo * Joules._scale;
 	
 	public Kilojoules(double value) {
 		super(value);

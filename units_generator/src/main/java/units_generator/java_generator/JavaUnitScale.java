@@ -35,8 +35,8 @@ public class JavaUnitScale implements UnitScaleInterface {
 
 	private void initializeImports(UnitScale unitScale) {
 		this.imports = new TreeSet<>();
-		if (unitScale.getMultiplyerString() != null)
-			this.imports.add("com.units.internal.Multiplyers");
+		if (unitScale.getMultiplierString() != null)
+			this.imports.add("com.units.internal.Multipliers");
 		initializeImportsFromRatio(unitScale.getRatio());
 	}
 	

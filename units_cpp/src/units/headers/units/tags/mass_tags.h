@@ -7,7 +7,7 @@
 
 #include <ratio>
 #include <string>
-#include <units/internal/multiplyer_scales.h>
+#include <units/internal/multiplier_scales.h>
 
 
 namespace units {

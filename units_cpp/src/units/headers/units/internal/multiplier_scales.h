@@ -1,5 +1,5 @@
 /*
- * multiplyer_scales.h
+ * multiplier_scales.h
  *
  *  Created on: Jun 28, 2017
  *      Author: sagis
@@ -11,10 +11,10 @@
 namespace units
 {
 
-template<class Multiplyer>
+template<class Multiplier>
 constexpr double multiplyBy(double scale)
 {
-	return scale * Multiplyer::num / Multiplyer::den;
+	return scale * Multiplier::num / Multiplier::den;
 }
 
 }

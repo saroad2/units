@@ -4,13 +4,13 @@
 package com.units.mass;
 
 import com.units.internal.*;
-import com.units.internal.Multiplyers;
+import com.units.internal.Multipliers;
 
 
 public class Tonnes extends NumericValue implements Mass{
 
 	public static final double _scale =
-		Multiplyers.mega * Grams._scale;
+		Multipliers.mega * Grams._scale;
 	
 	public Tonnes(double value) {
 		super(value);

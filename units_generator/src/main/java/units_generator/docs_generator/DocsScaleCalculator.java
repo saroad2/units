@@ -12,7 +12,7 @@ public class DocsScaleCalculator {
 			return "basic";
 		if (unitScale.getRatio() != null)
 			return calculateRatioScale(unitScale);
-		return calculateMultiplyerScale(unitScale);
+		return calculateMultiplierScale(unitScale);
 	}
 	
 	public static String calculateRatioScale(UnitScale unitScale) {
@@ -40,11 +40,11 @@ public class DocsScaleCalculator {
 		return combined;
 	}
 	
-	public static String calculateMultiplyerScale(UnitScale unitScale) {
-		if (unitScale.getMultiplyerNumber() != null)
-			return unitScale.getMultiplyerNumber() + " * " + unitScale.getRelativeTo();
-		if (unitScale.getMultiplyerString() != null)
-			return unitScale.getMultiplyerString() + " * " + unitScale.getRelativeTo();
+	public static String calculateMultiplierScale(UnitScale unitScale) {
+		if (unitScale.getMultiplierNumber() != null)
+			return unitScale.getMultiplierNumber() + " * " + unitScale.getRelativeTo();
+		if (unitScale.getMultiplierString() != null)
+			return unitScale.getMultiplierString() + " * " + unitScale.getRelativeTo();
 		return "";
 	}
 }

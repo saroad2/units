@@ -4,13 +4,13 @@
 package com.units.mass;
 
 import com.units.internal.*;
-import com.units.internal.Multiplyers;
+import com.units.internal.Multipliers;
 
 
 public class Kilograms extends NumericValue implements Mass{
 
 	public static final double _scale =
-		Multiplyers.kilo * Grams._scale;
+		Multipliers.kilo * Grams._scale;
 	
 	public Kilograms(double value) {
 		super(value);

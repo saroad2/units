@@ -11,67 +11,67 @@
 				{
 					"singular_name" : "inch",
 					"plural_name" : "inches",
-					"multiplyer_number" : 0.0254,
+					"multiplier_number" : 0.0254,
 					"relative_to" : "meters"
 				},
 				{
 					"singular_name" : "foot",
 					"plural_name" : "feet",
-					"multiplyer_number" : 12,
+					"multiplier_number" : 12,
 					"relative_to" : "inches"
 				},
 				{
 					"singular_name" : "yard",
 					"plural_name" : "yards",
-					"multiplyer_number" : 3,
+					"multiplier_number" : 3,
 					"relative_to" : "feet"
 				},
 				{
 					"singular_name" : "statute mile",
 					"plural_name" : "statute miles",
-					"multiplyer_number" :  621.371192237,
+					"multiplier_number" :  621.371192237,
 					"relative_to" : "meters"
 				},
 				{
 					"singular_name" : "nautical mile",
 					"plural_name" : "nautical miles",
-					"multiplyer_number" : 1852,
+					"multiplier_number" : 1852,
 					"relative_to" : "meters"
 				},
 				{
 					"singular_name" : "geographical mile",
 					"plural_name" : "geographical miles",
-					"multiplyer_number" : 1855.3248,
+					"multiplier_number" : 1855.3248,
 					"relative_to" : "meters"
 				},
 				{
 					"singular_name" : "degree of latitude",
 					"plural_name" : "degrees of latitude",
-					"multiplyer_number" : 60,
+					"multiplier_number" : 60,
 					"relative_to" : "geographical miles"
 				},
 				{
 					"singular_name" : "micrometer",
 					"plural_name" : "micrometers",
-					"multiplyer_string" : "micro",
+					"multiplier_string" : "micro",
 					"relative_to" : "meters"
 				},
 				{
 					"singular_name" : "millimeter",
 					"plural_name" : "millimeters",
-					"multiplyer_string" : "milli",
+					"multiplier_string" : "milli",
 					"relative_to" : "meters"
 				},
 				{
 					"singular_name" : "centimeter",
 					"plural_name" : "centimeters",
-					"multiplyer_string" : "centi",
+					"multiplier_string" : "centi",
 					"relative_to" : "meters"
 				},
 				{
 					"singular_name" : "kilometer",
 					"plural_name" : "kilometers",
-					"multiplyer_string" : "kilo",
+					"multiplier_string" : "kilo",
 					"relative_to" : "meters"
 				}
 			]
@@ -87,13 +87,13 @@
 				{
 					"singular_name" : "mil",
 					"plural_name" : "mils",
-					"multiplyer_number" : 0.05625,
+					"multiplier_number" : 0.05625,
 					"relative_to" : "degrees"
 				},
 				{
 					"singular_name" : "radian",
 					"plural_name" : "radians",
-					"multiplyer_number" : 57.2957795131,
+					"multiplier_number" : 57.2957795131,
 					"relative_to" : "degrees"
 				}
 			]
@@ -109,25 +109,25 @@
 				{
 					"singular_name" : "pound",
 					"plural_name" : "pounds",
-					"multiplyer_number" : 453.592333346094,
+					"multiplier_number" : 453.592333346094,
 					"relative_to" : "grams"
 				},
 				{
 					"singular_name" : "milligram",
 					"plural_name" : "milligrams",
-					"multiplyer_string" : "milli",
+					"multiplier_string" : "milli",
 					"relative_to" : "grams"
 				},
 				{
 					"singular_name" : "kilogram",
 					"plural_name" : "kilograms",
-					"multiplyer_string" : "kilo",
+					"multiplier_string" : "kilo",
 					"relative_to" : "grams"
 				},
 				{
 					"singular_name" : "tonne",
 					"plural_name" : "tonnes",
-					"multiplyer_string" : "mega",
+					"multiplier_string" : "mega",
 					"relative_to" : "grams"
 				}
 			]
@@ -144,37 +144,37 @@
 				{
 					"singular_name" : "minute",
 					"plural_name" : "minutes",
-					"multiplyer_number" : 60,
+					"multiplier_number" : 60,
 					"relative_to" : "seconds"
 				},
 				{
 					"singular_name" : "hour",
 					"plural_name" : "hours",
-					"multiplyer_number" : 60,
+					"multiplier_number" : 60,
 					"relative_to" : "minutes"
 				},
 				{
 					"singular_name" : "day",
 					"plural_name" : "days",
-					"multiplyer_number" : 24,
+					"multiplier_number" : 24,
 					"relative_to" : "hours"
 				},
 				{
 					"singular_name" : "year",
 					"plural_name" : "years",
-					"multiplyer_number" : 365,
+					"multiplier_number" : 365,
 					"relative_to" : "days"
 				},
 				{
 					"singular_name" : "microsecond",
 					"plural_name" : "microseconds",
-					"multiplyer_string" : "micro",
+					"multiplier_string" : "micro",
 					"relative_to" : "seconds"
 				},
 				{
 					"singular_name" : "millisecond",
 					"plural_name" : "milliseconds",
-					"multiplyer_string" : "milli",
+					"multiplier_string" : "milli",
 					"relative_to" : "seconds"
 				}
 			]
@@ -190,7 +190,7 @@
 				{
 					"singular_name" : "rankine",
 					"plural_name" : "rankines",
-					"multiplyer_number" : 0.5555555555,
+					"multiplier_number" : 0.5555555555,
 					"relative_to" : "kelvins"
 				}
 			]
@@ -268,7 +268,7 @@
 				{
 					"singular_name" : "knot",
 					"plural_name" : "knots",
-					"multiplyer_number" : 0.514444773689,
+					"multiplier_number" : 0.514444773689,
 					"relative_to" : "meters per second"
 				}
 			]
@@ -355,7 +355,7 @@
 				{
 					"singular_name" : "dunam",
 					"plural_name" : "dunams",
-					"multiplyer_string" : "kilo",
+					"multiplier_string" : "kilo",
 					"relative_to" : "square meters"
 				}
 			]
@@ -406,13 +406,13 @@
 				{
 					"singular_name" : "liter",
 					"plural_name" : "liters",
-					"multiplyer_string" : "milli",
+					"multiplier_string" : "milli",
 					"relative_to" : "cubic meters"
 				},
 				{
 					"singular_name" : "milliliter",
 					"plural_name" : "milliliters",
-					"multiplyer_string" : "milli",
+					"multiplier_string" : "milli",
 					"relative_to" : "liters"
 				}
 			]
@@ -435,7 +435,7 @@
 				{
 					"singular_name" : "dyne",
 					"plural_name" : "dynes",
-					"multiplyer_number" : 1e-5,
+					"multiplier_number" : 1e-5,
 					"relative_to" : "newtons"
 				}
 			]
@@ -458,25 +458,25 @@
 				{
 					"singular_name" : "calorie",
 					"plural_name" : "calories",
-					"multiplyer_number" : 4.184,
+					"multiplier_number" : 4.184,
 					"relative_to" : "joules"
 				},
 				{
 					"singular_name" : "kilocalorie",
 					"plural_name" : "kilocalories",
-					"multiplyer_string" : "kilo",
+					"multiplier_string" : "kilo",
 					"relative_to" : "calories"
 				},
 				{
 					"singular_name" : "kilojoule",
 					"plural_name" : "kilojoules",
-					"multiplyer_string" : "kilo",
+					"multiplier_string" : "kilo",
 					"relative_to" : "joules"
 				},
 				{
 					"singular_name" : "megajoule",
 					"plural_name" : "megajoules",
-					"multiplyer_string" : "mega",
+					"multiplier_string" : "mega",
 					"relative_to" : "joules"
 				}
 			]
@@ -499,13 +499,13 @@
 				{
 					"singular_name" : "kilohertz",
 					"plural_name" : "kilohertz",
-					"multiplyer_string" : "kilo",
+					"multiplier_string" : "kilo",
 					"relative_to" : "hertz"
 				},
 				{
 					"singular_name" : "megahertz",
 					"plural_name" : "megahertz",
-					"multiplyer_string" : "mega",
+					"multiplier_string" : "mega",
 					"relative_to" : "hertz"
 				}
 			]
@@ -545,7 +545,7 @@
 				{
 					"singular_name" : "kilogram per liter",
 					"plural_name" : "kilograms per liter",
-					"multiplyer_string" : "kilo",
+					"multiplier_string" : "kilo",
 					"relative_to" : "kilograms per cubic meter"
 				}
 			]

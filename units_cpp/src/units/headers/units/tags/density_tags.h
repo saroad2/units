@@ -10,7 +10,7 @@
 #include <units/internal/units_ratio_type.h>
 #include <units/tags/mass_tags.h>
 #include <units/tags/volume_tags.h>
-#include <units/internal/multiplyer_scales.h>
+#include <units/internal/multiplier_scales.h>
 
 
 namespace units {

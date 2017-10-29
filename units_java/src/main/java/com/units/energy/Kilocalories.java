@@ -4,13 +4,13 @@
 package com.units.energy;
 
 import com.units.internal.*;
-import com.units.internal.Multiplyers;
+import com.units.internal.Multipliers;
 
 
 public class Kilocalories extends NumericValue implements Energy{
 
 	public static final double _scale =
-		Multiplyers.kilo * Calories._scale;
+		Multipliers.kilo * Calories._scale;
 	
 	public Kilocalories(double value) {
 		super(value);

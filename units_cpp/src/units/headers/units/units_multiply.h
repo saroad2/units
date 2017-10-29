@@ -15,19 +15,19 @@ namespace units
 {
 
 template<class Unit1, class... Units>
-struct ValuesMultiplyer
+struct ValuesMultiplier
 {
-	ValuesMultiplyer(const Unit1& unit1, const Units&... units)
-	: value{unit1.value() * ValuesMultiplyer<Units...>{units...}.value}
+	ValuesMultiplier(const Unit1& unit1, const Units&... units)
+	: value{unit1.value() * ValuesMultiplier<Units...>{units...}.value}
 	{
 	}
 	double value;
 };
 
 template<class Unit1>
-struct ValuesMultiplyer<Unit1>
+struct ValuesMultiplier<Unit1>
 {
-	ValuesMultiplyer(const Unit1& unit1)
+	ValuesMultiplier(const Unit1& unit1)
 	: value{unit1.value()}
 	{
 	}
@@ -37,7 +37,7 @@ struct ValuesMultiplyer<Unit1>
 template<class... Units>
 constexpr auto auto_units_multiply(const Units&... units)
 {
-	return Multiply<Units...>{ValuesMultiplyer<Units...>{units...}.value};
+	return Multiply<Units...>{ValuesMultiplier<Units...>{units...}.value};
 }
 
 template<class ResultUnit, class... Units>

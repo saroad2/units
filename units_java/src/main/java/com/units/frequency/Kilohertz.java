@@ -4,13 +4,13 @@
 package com.units.frequency;
 
 import com.units.internal.*;
-import com.units.internal.Multiplyers;
+import com.units.internal.Multipliers;
 
 
 public class Kilohertz extends NumericValue implements Frequency{
 
 	public static final double _scale =
-		Multiplyers.kilo * Hertz._scale;
+		Multipliers.kilo * Hertz._scale;
 	
 	public Kilohertz(double value) {
 		super(value);

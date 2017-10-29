@@ -9,7 +9,7 @@
 #define INCLUDE_DURATION_UNITS_H_
 
 #include <units/internal/duration.h>
-#include <units/internal/multiplyer_scales.h>
+#include <units/internal/multiplier_scales.h>
 #include <units/internal/utils.h>
 #include <units/tags/duration_tags.h>
 

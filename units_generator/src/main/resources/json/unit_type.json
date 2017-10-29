@@ -22,8 +22,8 @@
 					"type" : "boolean",
 					"default" : "false"
 				},
-				"multiplyer_number" : { "type" : "number" },
-				"multiplyer_string" : { "type" : "string" },
+				"multiplier_number" : { "type" : "number" },
+				"multiplier_string" : { "type" : "string" },
 				"relative_to" : { "type" : "string" },
 				"ratio" : { "$ref" : "#/definitions/ratio" },
 				"name" : { "type" : "string" },

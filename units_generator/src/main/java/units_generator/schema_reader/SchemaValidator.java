@@ -140,17 +140,17 @@ public class SchemaValidator {
 			UnitScale scale) throws InvalidSchema {
 		boolean isBasic = scale.getIsBasic();
 		boolean isRatio = scale.getRatio() != null;
-		boolean isStringMultiplyer = 
+		boolean isStringMultiplier = 
 				NamesManipulator.isValidName(scale.getRelativeTo()) &&
-				NamesManipulator.isValidName(scale.getMultiplyerString());
-		boolean isNumberMultiplyer = 
+				NamesManipulator.isValidName(scale.getMultiplierString());
+		boolean isNumberMultiplier = 
 				NamesManipulator.isValidName(scale.getRelativeTo()) &&
-				scale.getMultiplyerNumber() != null;
+				scale.getMultiplierNumber() != null;
 		if (!BooleanChecker.exactlyOne(
 				isBasic,
 				isRatio,
-				isStringMultiplyer,
-				isNumberMultiplyer)) {
+				isStringMultiplier,
+				isNumberMultiplier)) {
 			throw new InvalidScaleDefinition(NamesManipulator.getName(scale));
 		}
 	}

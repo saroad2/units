@@ -52,9 +52,9 @@ public class JavaScaleCalculator {
 	
 	private static String calculateRelativeScale(UnitScale unitScale) {
 		String relativeToScale = JavaNamesFormatter.formatClassName(unitScale.getRelativeTo()) + "._scale";
-		if (unitScale.getMultiplyerNumber() != null)
-			return unitScale.getMultiplyerNumber() + " * " + relativeToScale;
-		return "Multiplyers." + unitScale.getMultiplyerString() + " * " + relativeToScale;
+		if (unitScale.getMultiplierNumber() != null)
+			return unitScale.getMultiplierNumber() + " * " + relativeToScale;
+		return "Multipliers." + unitScale.getMultiplierString() + " * " + relativeToScale;
 	}
 	
 	private static String addBracketsIfNeeaded(int listSize, String str) {

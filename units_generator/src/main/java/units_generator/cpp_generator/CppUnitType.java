@@ -27,7 +27,7 @@ public class CppUnitType implements UnitTypeInterface{
 	private String tagsSourceFileName;
 	private boolean tagsOnly;
 
-	private boolean hasMultiplyers;
+	private boolean hasMultipliers;
 
 	private static CppSupportChecker supportChecker = new CppSupportChecker();
 
@@ -133,7 +133,7 @@ public class CppUnitType implements UnitTypeInterface{
 
 	private void initializeScales(UnitType unitType) {
 		unitScales = new ArrayList<UnitScaleInterface>();
-		hasMultiplyers = false;
+		hasMultipliers = false;
 		for (UnitScale unitScale : unitType.getUnitScales()) {
 			if (!supportChecker.isSupported(unitScale))
 				continue;
@@ -143,9 +143,9 @@ public class CppUnitType implements UnitTypeInterface{
 
 	private void addScale(UnitScale unitScale) {
 		CppUnitScale scale = new CppUnitScale(schema, typeName, unitScale);
-		if (scale.isStringMultiplyer() && !hasMultiplyers) {
-			tagIncludes.add("<units/internal/multiplyer_scales.h>");
-			hasMultiplyers = true;
+		if (scale.isStringMultiplier() && !hasMultipliers) {
+			tagIncludes.add("<units/internal/multiplier_scales.h>");
+			hasMultipliers = true;
 		}
 		addToUnitScales(scale);
 	}

@@ -1,5 +1,5 @@
 /* This file is auto generated.
- * DO NOT EDIT IT MANUALY!
+ * DO NOT EDIT IT MANUALLY!
  */
 package com.units.energy;
 

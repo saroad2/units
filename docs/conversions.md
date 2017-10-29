@@ -4,7 +4,6 @@ This file is auto generated.
 DO NOT EDIT IT MANUALLY!
 
 
-
 ## angle
 <table>
 	<tr><td>From\To</td><th>mils</th><th>radians</th><th>degrees</th></tr>
@@ -23,7 +22,6 @@ DO NOT EDIT IT MANUALLY!
 		
 </table>
 
-
 ## angular speed
 <table>
 	<tr><td>From\To</td><th>radians per second</th><th>degrees per second</th><th>mils per second</th></tr>
@@ -41,7 +39,6 @@ DO NOT EDIT IT MANUALLY!
 		</tr>
 		
 </table>
-
 
 ## area
 <table>
@@ -68,7 +65,6 @@ DO NOT EDIT IT MANUALLY!
 		</tr>
 		
 </table>
-
 
 ## duration
 <table>
@@ -104,7 +100,6 @@ DO NOT EDIT IT MANUALLY!
 		
 </table>
 
-
 ## temperature
 <table>
 	<tr><td>From\To</td><th>rankines</th><th>kelvins</th></tr>
@@ -119,18 +114,15 @@ DO NOT EDIT IT MANUALLY!
 		
 </table>
 
-
 ## electric current
 <table>
 	<tr><td>From\To</td></tr>
 </table>
 
-
 ## electric charge
 <table>
 	<tr><td>From\To</td></tr>
 </table>
-
 
 ## energy
 <table>
@@ -158,7 +150,6 @@ DO NOT EDIT IT MANUALLY!
 		
 </table>
 
-
 ## force
 <table>
 	<tr><td>From\To</td><th>newtons</th><th>dynes</th></tr>
@@ -172,7 +163,6 @@ DO NOT EDIT IT MANUALLY!
 		</tr>
 		
 </table>
-
 
 ## frequency
 <table>
@@ -191,7 +181,6 @@ DO NOT EDIT IT MANUALLY!
 		</tr>
 		
 </table>
-
 
 ## length
 <table>
@@ -247,7 +236,6 @@ DO NOT EDIT IT MANUALLY!
 		
 </table>
 
-
 ## mass
 <table>
 	<tr><td>From\To</td><th>pounds</th><th>kilograms</th><th>milligrams</th><th>tonnes</th><th>grams</th></tr>
@@ -274,7 +262,6 @@ DO NOT EDIT IT MANUALLY!
 		
 </table>
 
-
 ## speed
 <table>
 	<tr><td>From\To</td><th>feet per second</th><th>yards per second</th><th>kilometers per hour</th><th>knots</th><th>meters per second</th></tr>
@@ -300,7 +287,6 @@ DO NOT EDIT IT MANUALLY!
 		</tr>
 		
 </table>
-
 
 ## volume
 <table>
@@ -332,12 +318,10 @@ DO NOT EDIT IT MANUALLY!
 		
 </table>
 
-
 ## acceleration
 <table>
 	<tr><td>From\To</td></tr>
 </table>
-
 
 ## density
 <table>

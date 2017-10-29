@@ -58,8 +58,7 @@ conversions(schema) ::= <<
 
 <declaration()>
 
-<schema.testSuites : { testSuite |
-## <testSuite.unitType>
+<schema.testSuites : { testSuite |## <testSuite.unitType>
 \<table\>
 	\<tr\>\<td\>From\To\</td\><testSuite.unitScaleNames: { scaleName | \<th\><scaleName>\</th\>}>\</tr\>
 	<testSuite.rows: { row | \<tr\>

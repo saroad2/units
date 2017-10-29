@@ -10,7 +10,6 @@
 #include <units/internal/units_ratio_type.h>
 #include <units/tags/mass_tags.h>
 #include <units/tags/volume_tags.h>
-#include <units/internal/multiplier_scales.h>
 
 
 namespace units {
@@ -30,7 +29,7 @@ struct kilograms_per_cubic_meter_tag
 struct kilograms_per_liter_tag
 {
 	using typeCode = density_code;
-	static constexpr double scale = multiplyBy<std::kilo>(kilograms_per_cubic_meter_tag::scale);
+	static constexpr double scale = ratio_scale_tag<mass::tags::kilograms_tag, volume::tags::liters_tag>::scale;
 	static std::string singularName();
 	static std::string pluralName();
 };

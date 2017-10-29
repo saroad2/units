@@ -545,8 +545,10 @@
 				{
 					"singular_name" : "kilogram per liter",
 					"plural_name" : "kilograms per liter",
-					"multiplier_string" : "kilo",
-					"relative_to" : "kilograms per cubic meter"
+					"ratio" : {
+						"numerators" : ["kilograms"],
+						"denominators" : ["liters"]
+					}
 				}
 			]
 		}

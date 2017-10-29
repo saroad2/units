@@ -353,7 +353,7 @@ Those are the supported units in the *units* library:
 		<td>V</td>
 	</tr>
 	<tr><td>kilograms per liter</td>
-	<td>kilo * kilograms per cubic meter</td>
+	<td>kilograms / liters</td>
 	<td>V</td>
 	<td>V</td></tr>
 

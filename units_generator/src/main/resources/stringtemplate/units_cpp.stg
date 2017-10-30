@@ -112,7 +112,7 @@ all_units(schema) ::= <<
 #ifndef UNIT_TESTS_ALL_UNITS_H_
 #define UNIT_TESTS_ALL_UNITS_H_
 
-<schema.unitTypes: {unitType | #define <unitType.upperCaseName>_UNITS() \
+<schema.unitTypes:{unitType|#define <unitType.upperCaseName>_UNITS() \
 <first(unitType.unitScales): {scale|<\t><full_scale_declaration(scale)>}><rest(unitType.unitScales): {scale |, \\<\n><\t><full_scale_declaration(scale)>}>
 
 }>

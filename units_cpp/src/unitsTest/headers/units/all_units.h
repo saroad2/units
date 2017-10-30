@@ -18,6 +18,7 @@
 #include <units/frequency_units.h>
 #include <units/acceleration_units.h>
 #include <units/density_units.h>
+#include <units/pressure_units.h>
 
 
 #ifndef UNIT_TESTS_ALL_UNITS_H_
@@ -118,6 +119,9 @@
 	units::density::KilogramsPerCubicMeter, \
 	units::density::KilogramsPerLiter
 
+#define PRESSURE_UNITS() \
+	units::pressure::Pascals
+
 
 #define ALL_UNITS() \
 	LENGTH_UNITS(), \
@@ -135,6 +139,7 @@
 	ENERGY_UNITS(), \
 	FREQUENCY_UNITS(), \
 	ACCELERATION_UNITS(), \
-	DENSITY_UNITS()
+	DENSITY_UNITS(), \
+	PRESSURE_UNITS()
 
 #endif /* UNIT_TESTS_ALL_UNITS_H_ */

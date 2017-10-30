@@ -356,6 +356,15 @@ Those are the supported units in the *units* library:
 	<td>kilograms / liters</td>
 	<td>V</td>
 	<td>V</td></tr>
+	<tr>
+		<td rowspan=1 style="text-align:center; vertical-align:middle;font-weight:bold">
+			pressure
+		</td>
+		<td>pascals</td>
+		<td>kilograms / (meters * seconds * seconds)</td>
+		<td>V</td>
+		<td>V</td>
+	</tr>
 
 
 </table>

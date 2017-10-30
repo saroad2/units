@@ -551,6 +551,23 @@
 					}
 				}
 			]
+		},
+		{
+			"type_name" : "pressure",
+			"ratio" : {
+				"numerators" : ["mass"],
+				"denominators" : ["length", "duration", "duration"]
+			},
+			"unit_scales" : [
+				{
+					"singular_name" : "pascal",
+					"plural_name" : "pascals",
+					"ratio" : {
+						"numerators" : ["kilograms"],
+						"denominators" : ["meters", "seconds", "seconds"]
+					}
+				}
+			]
 		}
 	]
 }

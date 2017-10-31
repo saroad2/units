@@ -57,4 +57,20 @@ public class DegreesOfLatitude extends NumericValue implements Length{
 			return false;
 		return almostEqualsValue(other.value());
 	}
+	
+	public boolean lessThan(DegreesOfLatitude other) {
+		return value() < other.value();
+	}
+	
+	public boolean lessThanOrEquals(DegreesOfLatitude other) {
+		return !other.lessThan(this);
+	}
+	
+	public boolean greaterThan(DegreesOfLatitude other) {
+		return other.lessThan(this);
+	}
+	
+	public boolean greaterThanOrEquals(DegreesOfLatitude other) {
+		return !lessThan(other);
+	}
 }

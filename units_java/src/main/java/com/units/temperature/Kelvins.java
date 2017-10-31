@@ -57,4 +57,20 @@ public class Kelvins extends NumericValue implements Temperature{
 			return false;
 		return almostEqualsValue(other.value());
 	}
+	
+	public boolean lessThan(Kelvins other) {
+		return value() < other.value();
+	}
+	
+	public boolean lessThanOrEquals(Kelvins other) {
+		return !other.lessThan(this);
+	}
+	
+	public boolean greaterThan(Kelvins other) {
+		return other.lessThan(this);
+	}
+	
+	public boolean greaterThanOrEquals(Kelvins other) {
+		return !lessThan(other);
+	}
 }

@@ -59,4 +59,20 @@ public class Kilojoules extends NumericValue implements Energy{
 			return false;
 		return almostEqualsValue(other.value());
 	}
+	
+	public boolean lessThan(Kilojoules other) {
+		return value() < other.value();
+	}
+	
+	public boolean lessThanOrEquals(Kilojoules other) {
+		return !other.lessThan(this);
+	}
+	
+	public boolean greaterThan(Kilojoules other) {
+		return other.lessThan(this);
+	}
+	
+	public boolean greaterThanOrEquals(Kilojoules other) {
+		return !lessThan(other);
+	}
 }

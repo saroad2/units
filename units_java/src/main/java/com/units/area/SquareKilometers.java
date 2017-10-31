@@ -59,4 +59,20 @@ public class SquareKilometers extends NumericValue implements Area{
 			return false;
 		return almostEqualsValue(other.value());
 	}
+	
+	public boolean lessThan(SquareKilometers other) {
+		return value() < other.value();
+	}
+	
+	public boolean lessThanOrEquals(SquareKilometers other) {
+		return !other.lessThan(this);
+	}
+	
+	public boolean greaterThan(SquareKilometers other) {
+		return other.lessThan(this);
+	}
+	
+	public boolean greaterThanOrEquals(SquareKilometers other) {
+		return !lessThan(other);
+	}
 }

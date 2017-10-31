@@ -59,4 +59,20 @@ public class Tonnes extends NumericValue implements Mass{
 			return false;
 		return almostEqualsValue(other.value());
 	}
+	
+	public boolean lessThan(Tonnes other) {
+		return value() < other.value();
+	}
+	
+	public boolean lessThanOrEquals(Tonnes other) {
+		return !other.lessThan(this);
+	}
+	
+	public boolean greaterThan(Tonnes other) {
+		return other.lessThan(this);
+	}
+	
+	public boolean greaterThanOrEquals(Tonnes other) {
+		return !lessThan(other);
+	}
 }

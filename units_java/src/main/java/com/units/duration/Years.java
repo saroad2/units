@@ -57,4 +57,20 @@ public class Years extends NumericValue implements Duration{
 			return false;
 		return almostEqualsValue(other.value());
 	}
+	
+	public boolean lessThan(Years other) {
+		return value() < other.value();
+	}
+	
+	public boolean lessThanOrEquals(Years other) {
+		return !other.lessThan(this);
+	}
+	
+	public boolean greaterThan(Years other) {
+		return other.lessThan(this);
+	}
+	
+	public boolean greaterThanOrEquals(Years other) {
+		return !lessThan(other);
+	}
 }

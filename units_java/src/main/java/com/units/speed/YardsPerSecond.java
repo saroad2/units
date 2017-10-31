@@ -60,4 +60,20 @@ public class YardsPerSecond extends NumericValue implements Speed{
 			return false;
 		return almostEqualsValue(other.value());
 	}
+	
+	public boolean lessThan(YardsPerSecond other) {
+		return value() < other.value();
+	}
+	
+	public boolean lessThanOrEquals(YardsPerSecond other) {
+		return !other.lessThan(this);
+	}
+	
+	public boolean greaterThan(YardsPerSecond other) {
+		return other.lessThan(this);
+	}
+	
+	public boolean greaterThanOrEquals(YardsPerSecond other) {
+		return !lessThan(other);
+	}
 }

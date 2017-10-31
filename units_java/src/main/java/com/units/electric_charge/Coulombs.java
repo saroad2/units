@@ -60,4 +60,20 @@ public class Coulombs extends NumericValue implements ElectricCharge{
 			return false;
 		return almostEqualsValue(other.value());
 	}
+	
+	public boolean lessThan(Coulombs other) {
+		return value() < other.value();
+	}
+	
+	public boolean lessThanOrEquals(Coulombs other) {
+		return !other.lessThan(this);
+	}
+	
+	public boolean greaterThan(Coulombs other) {
+		return other.lessThan(this);
+	}
+	
+	public boolean greaterThanOrEquals(Coulombs other) {
+		return !lessThan(other);
+	}
 }

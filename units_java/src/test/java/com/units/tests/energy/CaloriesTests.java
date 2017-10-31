@@ -35,24 +35,43 @@ public class CaloriesTests {
 	}
 
 	@Test
-	public void testEqualsSuccess() {
-		double actualValue = 3.1;
-		assertTrue("two units are not equal, even though thet have the same value",
-				new Calories(actualValue).equals(new Calories(actualValue)));
+	public void testComparisonToSmallerValue() {
+		Calories unit = new Calories(3.1);
+		Calories comparedUnit = new Calories(3.0);
+		assertFalse(unit.lessThan(comparedUnit));
+		assertFalse(unit.lessThanOrEquals(comparedUnit));
+		assertFalse(unit.equals(comparedUnit));
+		assertTrue(unit.greaterThan(comparedUnit));
+		assertTrue(unit.greaterThanOrEquals(comparedUnit));
+	}
+	
+	@Test
+	public void testComparisonToEqualValue() {
+		Calories unit = new Calories(3.1);
+		Calories comparedUnit = new Calories(3.1);
+		assertFalse(unit.lessThan(comparedUnit));
+		assertTrue(unit.lessThanOrEquals(comparedUnit));
+		assertTrue(unit.equals(comparedUnit));
+		assertFalse(unit.greaterThan(comparedUnit));
+		assertTrue(unit.greaterThanOrEquals(comparedUnit));
+	}
+	
+	@Test
+	public void testComparisonToBiggerValue() {
+		Calories unit = new Calories(3.1);
+		Calories comparedUnit = new Calories(3.2);
+		assertTrue(unit.lessThan(comparedUnit));
+		assertTrue(unit.lessThanOrEquals(comparedUnit));
+		assertFalse(unit.equals(comparedUnit));
+		assertFalse(unit.greaterThan(comparedUnit));
+		assertFalse(unit.greaterThanOrEquals(comparedUnit));
 	}
 
 	@Test
 	public void testEqualsNullFails() {
 		double actualValue = 3.1;
-		assertFalse("two units are equal, even though one of the is null", new Calories(actualValue).equals(null));
-	}
-
-	@Test
-	public void testEqualsOtherWithDifferemtValueFail() {
-		double value1 = 3.1;
-		double value2 = 3.0;
-		assertFalse("two units are equal, even though thet have the different values",
-				new Calories(value1).equals(new Calories(value2)));
+		assertFalse("two units are equal, even though one of the is null",
+					new Calories(actualValue).equals(null));
 	}
 
 	@Test
@@ -86,7 +105,7 @@ public class CaloriesTests {
 	}
 
 	@Test
-	public void testopposite() {
+	public void testOpposite() {
 		double value = 3.1;
 
 		Calories unit = new Calories(value);

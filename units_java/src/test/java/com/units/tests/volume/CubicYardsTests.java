@@ -35,24 +35,43 @@ public class CubicYardsTests {
 	}
 
 	@Test
-	public void testEqualsSuccess() {
-		double actualValue = 3.1;
-		assertTrue("two units are not equal, even though thet have the same value",
-				new CubicYards(actualValue).equals(new CubicYards(actualValue)));
+	public void testComparisonToSmallerValue() {
+		CubicYards unit = new CubicYards(3.1);
+		CubicYards comparedUnit = new CubicYards(3.0);
+		assertFalse(unit.lessThan(comparedUnit));
+		assertFalse(unit.lessThanOrEquals(comparedUnit));
+		assertFalse(unit.equals(comparedUnit));
+		assertTrue(unit.greaterThan(comparedUnit));
+		assertTrue(unit.greaterThanOrEquals(comparedUnit));
+	}
+	
+	@Test
+	public void testComparisonToEqualValue() {
+		CubicYards unit = new CubicYards(3.1);
+		CubicYards comparedUnit = new CubicYards(3.1);
+		assertFalse(unit.lessThan(comparedUnit));
+		assertTrue(unit.lessThanOrEquals(comparedUnit));
+		assertTrue(unit.equals(comparedUnit));
+		assertFalse(unit.greaterThan(comparedUnit));
+		assertTrue(unit.greaterThanOrEquals(comparedUnit));
+	}
+	
+	@Test
+	public void testComparisonToBiggerValue() {
+		CubicYards unit = new CubicYards(3.1);
+		CubicYards comparedUnit = new CubicYards(3.2);
+		assertTrue(unit.lessThan(comparedUnit));
+		assertTrue(unit.lessThanOrEquals(comparedUnit));
+		assertFalse(unit.equals(comparedUnit));
+		assertFalse(unit.greaterThan(comparedUnit));
+		assertFalse(unit.greaterThanOrEquals(comparedUnit));
 	}
 
 	@Test
 	public void testEqualsNullFails() {
 		double actualValue = 3.1;
-		assertFalse("two units are equal, even though one of the is null", new CubicYards(actualValue).equals(null));
-	}
-
-	@Test
-	public void testEqualsOtherWithDifferemtValueFail() {
-		double value1 = 3.1;
-		double value2 = 3.0;
-		assertFalse("two units are equal, even though thet have the different values",
-				new CubicYards(value1).equals(new CubicYards(value2)));
+		assertFalse("two units are equal, even though one of the is null",
+					new CubicYards(actualValue).equals(null));
 	}
 
 	@Test
@@ -86,7 +105,7 @@ public class CubicYardsTests {
 	}
 
 	@Test
-	public void testopposite() {
+	public void testOpposite() {
 		double value = 3.1;
 
 		CubicYards unit = new CubicYards(value);

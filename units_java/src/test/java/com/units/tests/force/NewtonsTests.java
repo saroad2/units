@@ -35,24 +35,43 @@ public class NewtonsTests {
 	}
 
 	@Test
-	public void testEqualsSuccess() {
-		double actualValue = 3.1;
-		assertTrue("two units are not equal, even though thet have the same value",
-				new Newtons(actualValue).equals(new Newtons(actualValue)));
+	public void testComparisonToSmallerValue() {
+		Newtons unit = new Newtons(3.1);
+		Newtons comparedUnit = new Newtons(3.0);
+		assertFalse(unit.lessThan(comparedUnit));
+		assertFalse(unit.lessThanOrEquals(comparedUnit));
+		assertFalse(unit.equals(comparedUnit));
+		assertTrue(unit.greaterThan(comparedUnit));
+		assertTrue(unit.greaterThanOrEquals(comparedUnit));
+	}
+	
+	@Test
+	public void testComparisonToEqualValue() {
+		Newtons unit = new Newtons(3.1);
+		Newtons comparedUnit = new Newtons(3.1);
+		assertFalse(unit.lessThan(comparedUnit));
+		assertTrue(unit.lessThanOrEquals(comparedUnit));
+		assertTrue(unit.equals(comparedUnit));
+		assertFalse(unit.greaterThan(comparedUnit));
+		assertTrue(unit.greaterThanOrEquals(comparedUnit));
+	}
+	
+	@Test
+	public void testComparisonToBiggerValue() {
+		Newtons unit = new Newtons(3.1);
+		Newtons comparedUnit = new Newtons(3.2);
+		assertTrue(unit.lessThan(comparedUnit));
+		assertTrue(unit.lessThanOrEquals(comparedUnit));
+		assertFalse(unit.equals(comparedUnit));
+		assertFalse(unit.greaterThan(comparedUnit));
+		assertFalse(unit.greaterThanOrEquals(comparedUnit));
 	}
 
 	@Test
 	public void testEqualsNullFails() {
 		double actualValue = 3.1;
-		assertFalse("two units are equal, even though one of the is null", new Newtons(actualValue).equals(null));
-	}
-
-	@Test
-	public void testEqualsOtherWithDifferemtValueFail() {
-		double value1 = 3.1;
-		double value2 = 3.0;
-		assertFalse("two units are equal, even though thet have the different values",
-				new Newtons(value1).equals(new Newtons(value2)));
+		assertFalse("two units are equal, even though one of the is null",
+					new Newtons(actualValue).equals(null));
 	}
 
 	@Test
@@ -86,7 +105,7 @@ public class NewtonsTests {
 	}
 
 	@Test
-	public void testopposite() {
+	public void testOpposite() {
 		double value = 3.1;
 
 		Newtons unit = new Newtons(value);

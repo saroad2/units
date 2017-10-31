@@ -60,4 +60,20 @@ public class MilsPerSecond extends NumericValue implements AngularSpeed{
 			return false;
 		return almostEqualsValue(other.value());
 	}
+	
+	public boolean lessThan(MilsPerSecond other) {
+		return value() < other.value();
+	}
+	
+	public boolean lessThanOrEquals(MilsPerSecond other) {
+		return !other.lessThan(this);
+	}
+	
+	public boolean greaterThan(MilsPerSecond other) {
+		return other.lessThan(this);
+	}
+	
+	public boolean greaterThanOrEquals(MilsPerSecond other) {
+		return !lessThan(other);
+	}
 }

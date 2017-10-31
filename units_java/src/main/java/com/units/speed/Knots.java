@@ -57,4 +57,20 @@ public class Knots extends NumericValue implements Speed{
 			return false;
 		return almostEqualsValue(other.value());
 	}
+	
+	public boolean lessThan(Knots other) {
+		return value() < other.value();
+	}
+	
+	public boolean lessThanOrEquals(Knots other) {
+		return !other.lessThan(this);
+	}
+	
+	public boolean greaterThan(Knots other) {
+		return other.lessThan(this);
+	}
+	
+	public boolean greaterThanOrEquals(Knots other) {
+		return !lessThan(other);
+	}
 }

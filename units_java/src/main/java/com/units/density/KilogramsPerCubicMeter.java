@@ -60,4 +60,20 @@ public class KilogramsPerCubicMeter extends NumericValue implements Density{
 			return false;
 		return almostEqualsValue(other.value());
 	}
+	
+	public boolean lessThan(KilogramsPerCubicMeter other) {
+		return value() < other.value();
+	}
+	
+	public boolean lessThanOrEquals(KilogramsPerCubicMeter other) {
+		return !other.lessThan(this);
+	}
+	
+	public boolean greaterThan(KilogramsPerCubicMeter other) {
+		return other.lessThan(this);
+	}
+	
+	public boolean greaterThanOrEquals(KilogramsPerCubicMeter other) {
+		return !lessThan(other);
+	}
 }

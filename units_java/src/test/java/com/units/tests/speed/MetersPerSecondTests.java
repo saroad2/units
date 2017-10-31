@@ -35,24 +35,43 @@ public class MetersPerSecondTests {
 	}
 
 	@Test
-	public void testEqualsSuccess() {
-		double actualValue = 3.1;
-		assertTrue("two units are not equal, even though thet have the same value",
-				new MetersPerSecond(actualValue).equals(new MetersPerSecond(actualValue)));
+	public void testComparisonToSmallerValue() {
+		MetersPerSecond unit = new MetersPerSecond(3.1);
+		MetersPerSecond comparedUnit = new MetersPerSecond(3.0);
+		assertFalse(unit.lessThan(comparedUnit));
+		assertFalse(unit.lessThanOrEquals(comparedUnit));
+		assertFalse(unit.equals(comparedUnit));
+		assertTrue(unit.greaterThan(comparedUnit));
+		assertTrue(unit.greaterThanOrEquals(comparedUnit));
+	}
+	
+	@Test
+	public void testComparisonToEqualValue() {
+		MetersPerSecond unit = new MetersPerSecond(3.1);
+		MetersPerSecond comparedUnit = new MetersPerSecond(3.1);
+		assertFalse(unit.lessThan(comparedUnit));
+		assertTrue(unit.lessThanOrEquals(comparedUnit));
+		assertTrue(unit.equals(comparedUnit));
+		assertFalse(unit.greaterThan(comparedUnit));
+		assertTrue(unit.greaterThanOrEquals(comparedUnit));
+	}
+	
+	@Test
+	public void testComparisonToBiggerValue() {
+		MetersPerSecond unit = new MetersPerSecond(3.1);
+		MetersPerSecond comparedUnit = new MetersPerSecond(3.2);
+		assertTrue(unit.lessThan(comparedUnit));
+		assertTrue(unit.lessThanOrEquals(comparedUnit));
+		assertFalse(unit.equals(comparedUnit));
+		assertFalse(unit.greaterThan(comparedUnit));
+		assertFalse(unit.greaterThanOrEquals(comparedUnit));
 	}
 
 	@Test
 	public void testEqualsNullFails() {
 		double actualValue = 3.1;
-		assertFalse("two units are equal, even though one of the is null", new MetersPerSecond(actualValue).equals(null));
-	}
-
-	@Test
-	public void testEqualsOtherWithDifferemtValueFail() {
-		double value1 = 3.1;
-		double value2 = 3.0;
-		assertFalse("two units are equal, even though thet have the different values",
-				new MetersPerSecond(value1).equals(new MetersPerSecond(value2)));
+		assertFalse("two units are equal, even though one of the is null",
+					new MetersPerSecond(actualValue).equals(null));
 	}
 
 	@Test
@@ -86,7 +105,7 @@ public class MetersPerSecondTests {
 	}
 
 	@Test
-	public void testopposite() {
+	public void testOpposite() {
 		double value = 3.1;
 
 		MetersPerSecond unit = new MetersPerSecond(value);

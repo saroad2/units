@@ -60,4 +60,20 @@ public class RadiansPerSecond extends NumericValue implements AngularSpeed{
 			return false;
 		return almostEqualsValue(other.value());
 	}
+	
+	public boolean lessThan(RadiansPerSecond other) {
+		return value() < other.value();
+	}
+	
+	public boolean lessThanOrEquals(RadiansPerSecond other) {
+		return !other.lessThan(this);
+	}
+	
+	public boolean greaterThan(RadiansPerSecond other) {
+		return other.lessThan(this);
+	}
+	
+	public boolean greaterThanOrEquals(RadiansPerSecond other) {
+		return !lessThan(other);
+	}
 }

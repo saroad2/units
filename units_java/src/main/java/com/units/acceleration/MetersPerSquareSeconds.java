@@ -61,4 +61,20 @@ public class MetersPerSquareSeconds extends NumericValue implements Acceleration
 			return false;
 		return almostEqualsValue(other.value());
 	}
+	
+	public boolean lessThan(MetersPerSquareSeconds other) {
+		return value() < other.value();
+	}
+	
+	public boolean lessThanOrEquals(MetersPerSquareSeconds other) {
+		return !other.lessThan(this);
+	}
+	
+	public boolean greaterThan(MetersPerSquareSeconds other) {
+		return other.lessThan(this);
+	}
+	
+	public boolean greaterThanOrEquals(MetersPerSquareSeconds other) {
+		return !lessThan(other);
+	}
 }

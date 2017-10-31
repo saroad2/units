@@ -57,4 +57,20 @@ public class Pounds extends NumericValue implements Mass{
 			return false;
 		return almostEqualsValue(other.value());
 	}
+	
+	public boolean lessThan(Pounds other) {
+		return value() < other.value();
+	}
+	
+	public boolean lessThanOrEquals(Pounds other) {
+		return !other.lessThan(this);
+	}
+	
+	public boolean greaterThan(Pounds other) {
+		return other.lessThan(this);
+	}
+	
+	public boolean greaterThanOrEquals(Pounds other) {
+		return !lessThan(other);
+	}
 }

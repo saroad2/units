@@ -59,4 +59,20 @@ public class Dunams extends NumericValue implements Area{
 			return false;
 		return almostEqualsValue(other.value());
 	}
+	
+	public boolean lessThan(Dunams other) {
+		return value() < other.value();
+	}
+	
+	public boolean lessThanOrEquals(Dunams other) {
+		return !other.lessThan(this);
+	}
+	
+	public boolean greaterThan(Dunams other) {
+		return other.lessThan(this);
+	}
+	
+	public boolean greaterThanOrEquals(Dunams other) {
+		return !lessThan(other);
+	}
 }

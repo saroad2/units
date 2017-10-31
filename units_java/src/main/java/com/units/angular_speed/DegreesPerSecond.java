@@ -60,4 +60,20 @@ public class DegreesPerSecond extends NumericValue implements AngularSpeed{
 			return false;
 		return almostEqualsValue(other.value());
 	}
+	
+	public boolean lessThan(DegreesPerSecond other) {
+		return value() < other.value();
+	}
+	
+	public boolean lessThanOrEquals(DegreesPerSecond other) {
+		return !other.lessThan(this);
+	}
+	
+	public boolean greaterThan(DegreesPerSecond other) {
+		return other.lessThan(this);
+	}
+	
+	public boolean greaterThanOrEquals(DegreesPerSecond other) {
+		return !lessThan(other);
+	}
 }

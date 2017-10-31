@@ -59,4 +59,20 @@ public class CubicMeters extends NumericValue implements Volume{
 			return false;
 		return almostEqualsValue(other.value());
 	}
+	
+	public boolean lessThan(CubicMeters other) {
+		return value() < other.value();
+	}
+	
+	public boolean lessThanOrEquals(CubicMeters other) {
+		return !other.lessThan(this);
+	}
+	
+	public boolean greaterThan(CubicMeters other) {
+		return other.lessThan(this);
+	}
+	
+	public boolean greaterThanOrEquals(CubicMeters other) {
+		return !lessThan(other);
+	}
 }

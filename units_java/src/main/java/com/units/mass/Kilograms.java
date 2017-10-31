@@ -59,4 +59,20 @@ public class Kilograms extends NumericValue implements Mass{
 			return false;
 		return almostEqualsValue(other.value());
 	}
+	
+	public boolean lessThan(Kilograms other) {
+		return value() < other.value();
+	}
+	
+	public boolean lessThanOrEquals(Kilograms other) {
+		return !other.lessThan(this);
+	}
+	
+	public boolean greaterThan(Kilograms other) {
+		return other.lessThan(this);
+	}
+	
+	public boolean greaterThanOrEquals(Kilograms other) {
+		return !lessThan(other);
+	}
 }

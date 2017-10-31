@@ -57,4 +57,20 @@ public class Grams extends NumericValue implements Mass{
 			return false;
 		return almostEqualsValue(other.value());
 	}
+	
+	public boolean lessThan(Grams other) {
+		return value() < other.value();
+	}
+	
+	public boolean lessThanOrEquals(Grams other) {
+		return !other.lessThan(this);
+	}
+	
+	public boolean greaterThan(Grams other) {
+		return other.lessThan(this);
+	}
+	
+	public boolean greaterThanOrEquals(Grams other) {
+		return !lessThan(other);
+	}
 }

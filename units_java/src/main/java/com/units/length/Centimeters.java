@@ -59,4 +59,20 @@ public class Centimeters extends NumericValue implements Length{
 			return false;
 		return almostEqualsValue(other.value());
 	}
+	
+	public boolean lessThan(Centimeters other) {
+		return value() < other.value();
+	}
+	
+	public boolean lessThanOrEquals(Centimeters other) {
+		return !other.lessThan(this);
+	}
+	
+	public boolean greaterThan(Centimeters other) {
+		return other.lessThan(this);
+	}
+	
+	public boolean greaterThanOrEquals(Centimeters other) {
+		return !lessThan(other);
+	}
 }

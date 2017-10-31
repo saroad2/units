@@ -62,4 +62,20 @@ public class Joules extends NumericValue implements Energy{
 			return false;
 		return almostEqualsValue(other.value());
 	}
+	
+	public boolean lessThan(Joules other) {
+		return value() < other.value();
+	}
+	
+	public boolean lessThanOrEquals(Joules other) {
+		return !other.lessThan(this);
+	}
+	
+	public boolean greaterThan(Joules other) {
+		return other.lessThan(this);
+	}
+	
+	public boolean greaterThanOrEquals(Joules other) {
+		return !lessThan(other);
+	}
 }

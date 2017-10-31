@@ -57,4 +57,20 @@ public class Hours extends NumericValue implements Duration{
 			return false;
 		return almostEqualsValue(other.value());
 	}
+	
+	public boolean lessThan(Hours other) {
+		return value() < other.value();
+	}
+	
+	public boolean lessThanOrEquals(Hours other) {
+		return !other.lessThan(this);
+	}
+	
+	public boolean greaterThan(Hours other) {
+		return other.lessThan(this);
+	}
+	
+	public boolean greaterThanOrEquals(Hours other) {
+		return !lessThan(other);
+	}
 }

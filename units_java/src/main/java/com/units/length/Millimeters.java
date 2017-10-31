@@ -59,4 +59,20 @@ public class Millimeters extends NumericValue implements Length{
 			return false;
 		return almostEqualsValue(other.value());
 	}
+	
+	public boolean lessThan(Millimeters other) {
+		return value() < other.value();
+	}
+	
+	public boolean lessThanOrEquals(Millimeters other) {
+		return !other.lessThan(this);
+	}
+	
+	public boolean greaterThan(Millimeters other) {
+		return other.lessThan(this);
+	}
+	
+	public boolean greaterThanOrEquals(Millimeters other) {
+		return !lessThan(other);
+	}
 }

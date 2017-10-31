@@ -60,4 +60,20 @@ public class FeetPerSecond extends NumericValue implements Speed{
 			return false;
 		return almostEqualsValue(other.value());
 	}
+	
+	public boolean lessThan(FeetPerSecond other) {
+		return value() < other.value();
+	}
+	
+	public boolean lessThanOrEquals(FeetPerSecond other) {
+		return !other.lessThan(this);
+	}
+	
+	public boolean greaterThan(FeetPerSecond other) {
+		return other.lessThan(this);
+	}
+	
+	public boolean greaterThanOrEquals(FeetPerSecond other) {
+		return !lessThan(other);
+	}
 }

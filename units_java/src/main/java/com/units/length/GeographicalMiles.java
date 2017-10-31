@@ -57,4 +57,20 @@ public class GeographicalMiles extends NumericValue implements Length{
 			return false;
 		return almostEqualsValue(other.value());
 	}
+	
+	public boolean lessThan(GeographicalMiles other) {
+		return value() < other.value();
+	}
+	
+	public boolean lessThanOrEquals(GeographicalMiles other) {
+		return !other.lessThan(this);
+	}
+	
+	public boolean greaterThan(GeographicalMiles other) {
+		return other.lessThan(this);
+	}
+	
+	public boolean greaterThanOrEquals(GeographicalMiles other) {
+		return !lessThan(other);
+	}
 }

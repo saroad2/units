@@ -59,4 +59,20 @@ public class Kilocalories extends NumericValue implements Energy{
 			return false;
 		return almostEqualsValue(other.value());
 	}
+	
+	public boolean lessThan(Kilocalories other) {
+		return value() < other.value();
+	}
+	
+	public boolean lessThanOrEquals(Kilocalories other) {
+		return !other.lessThan(this);
+	}
+	
+	public boolean greaterThan(Kilocalories other) {
+		return other.lessThan(this);
+	}
+	
+	public boolean greaterThanOrEquals(Kilocalories other) {
+		return !lessThan(other);
+	}
 }

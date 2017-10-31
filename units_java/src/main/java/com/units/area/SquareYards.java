@@ -59,4 +59,20 @@ public class SquareYards extends NumericValue implements Area{
 			return false;
 		return almostEqualsValue(other.value());
 	}
+	
+	public boolean lessThan(SquareYards other) {
+		return value() < other.value();
+	}
+	
+	public boolean lessThanOrEquals(SquareYards other) {
+		return !other.lessThan(this);
+	}
+	
+	public boolean greaterThan(SquareYards other) {
+		return other.lessThan(this);
+	}
+	
+	public boolean greaterThanOrEquals(SquareYards other) {
+		return !lessThan(other);
+	}
 }

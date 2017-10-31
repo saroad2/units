@@ -59,4 +59,20 @@ public class Milliliters extends NumericValue implements Volume{
 			return false;
 		return almostEqualsValue(other.value());
 	}
+	
+	public boolean lessThan(Milliliters other) {
+		return value() < other.value();
+	}
+	
+	public boolean lessThanOrEquals(Milliliters other) {
+		return !other.lessThan(this);
+	}
+	
+	public boolean greaterThan(Milliliters other) {
+		return other.lessThan(this);
+	}
+	
+	public boolean greaterThanOrEquals(Milliliters other) {
+		return !lessThan(other);
+	}
 }

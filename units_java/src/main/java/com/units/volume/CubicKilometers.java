@@ -59,4 +59,20 @@ public class CubicKilometers extends NumericValue implements Volume{
 			return false;
 		return almostEqualsValue(other.value());
 	}
+	
+	public boolean lessThan(CubicKilometers other) {
+		return value() < other.value();
+	}
+	
+	public boolean lessThanOrEquals(CubicKilometers other) {
+		return !other.lessThan(this);
+	}
+	
+	public boolean greaterThan(CubicKilometers other) {
+		return other.lessThan(this);
+	}
+	
+	public boolean greaterThanOrEquals(CubicKilometers other) {
+		return !lessThan(other);
+	}
 }

@@ -59,4 +59,20 @@ public class Megahertz extends NumericValue implements Frequency{
 			return false;
 		return almostEqualsValue(other.value());
 	}
+	
+	public boolean lessThan(Megahertz other) {
+		return value() < other.value();
+	}
+	
+	public boolean lessThanOrEquals(Megahertz other) {
+		return !other.lessThan(this);
+	}
+	
+	public boolean greaterThan(Megahertz other) {
+		return other.lessThan(this);
+	}
+	
+	public boolean greaterThanOrEquals(Megahertz other) {
+		return !lessThan(other);
+	}
 }

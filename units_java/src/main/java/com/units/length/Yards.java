@@ -57,4 +57,20 @@ public class Yards extends NumericValue implements Length{
 			return false;
 		return almostEqualsValue(other.value());
 	}
+	
+	public boolean lessThan(Yards other) {
+		return value() < other.value();
+	}
+	
+	public boolean lessThanOrEquals(Yards other) {
+		return !other.lessThan(this);
+	}
+	
+	public boolean greaterThan(Yards other) {
+		return other.lessThan(this);
+	}
+	
+	public boolean greaterThanOrEquals(Yards other) {
+		return !lessThan(other);
+	}
 }

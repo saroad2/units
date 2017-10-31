@@ -57,4 +57,20 @@ public class Meters extends NumericValue implements Length{
 			return false;
 		return almostEqualsValue(other.value());
 	}
+	
+	public boolean lessThan(Meters other) {
+		return value() < other.value();
+	}
+	
+	public boolean lessThanOrEquals(Meters other) {
+		return !other.lessThan(this);
+	}
+	
+	public boolean greaterThan(Meters other) {
+		return other.lessThan(this);
+	}
+	
+	public boolean greaterThanOrEquals(Meters other) {
+		return !lessThan(other);
+	}
 }

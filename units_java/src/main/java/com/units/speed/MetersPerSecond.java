@@ -60,4 +60,20 @@ public class MetersPerSecond extends NumericValue implements Speed{
 			return false;
 		return almostEqualsValue(other.value());
 	}
+	
+	public boolean lessThan(MetersPerSecond other) {
+		return value() < other.value();
+	}
+	
+	public boolean lessThanOrEquals(MetersPerSecond other) {
+		return !other.lessThan(this);
+	}
+	
+	public boolean greaterThan(MetersPerSecond other) {
+		return other.lessThan(this);
+	}
+	
+	public boolean greaterThanOrEquals(MetersPerSecond other) {
+		return !lessThan(other);
+	}
 }

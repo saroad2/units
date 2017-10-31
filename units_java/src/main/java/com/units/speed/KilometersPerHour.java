@@ -60,4 +60,20 @@ public class KilometersPerHour extends NumericValue implements Speed{
 			return false;
 		return almostEqualsValue(other.value());
 	}
+	
+	public boolean lessThan(KilometersPerHour other) {
+		return value() < other.value();
+	}
+	
+	public boolean lessThanOrEquals(KilometersPerHour other) {
+		return !other.lessThan(this);
+	}
+	
+	public boolean greaterThan(KilometersPerHour other) {
+		return other.lessThan(this);
+	}
+	
+	public boolean greaterThanOrEquals(KilometersPerHour other) {
+		return !lessThan(other);
+	}
 }

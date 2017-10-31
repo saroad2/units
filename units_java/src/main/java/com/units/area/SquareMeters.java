@@ -59,4 +59,20 @@ public class SquareMeters extends NumericValue implements Area{
 			return false;
 		return almostEqualsValue(other.value());
 	}
+	
+	public boolean lessThan(SquareMeters other) {
+		return value() < other.value();
+	}
+	
+	public boolean lessThanOrEquals(SquareMeters other) {
+		return !other.lessThan(this);
+	}
+	
+	public boolean greaterThan(SquareMeters other) {
+		return other.lessThan(this);
+	}
+	
+	public boolean greaterThanOrEquals(SquareMeters other) {
+		return !lessThan(other);
+	}
 }

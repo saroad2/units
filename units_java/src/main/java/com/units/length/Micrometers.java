@@ -59,4 +59,20 @@ public class Micrometers extends NumericValue implements Length{
 			return false;
 		return almostEqualsValue(other.value());
 	}
+	
+	public boolean lessThan(Micrometers other) {
+		return value() < other.value();
+	}
+	
+	public boolean lessThanOrEquals(Micrometers other) {
+		return !other.lessThan(this);
+	}
+	
+	public boolean greaterThan(Micrometers other) {
+		return other.lessThan(this);
+	}
+	
+	public boolean greaterThanOrEquals(Micrometers other) {
+		return !lessThan(other);
+	}
 }

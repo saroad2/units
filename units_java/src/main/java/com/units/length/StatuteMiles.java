@@ -57,4 +57,20 @@ public class StatuteMiles extends NumericValue implements Length{
 			return false;
 		return almostEqualsValue(other.value());
 	}
+	
+	public boolean lessThan(StatuteMiles other) {
+		return value() < other.value();
+	}
+	
+	public boolean lessThanOrEquals(StatuteMiles other) {
+		return !other.lessThan(this);
+	}
+	
+	public boolean greaterThan(StatuteMiles other) {
+		return other.lessThan(this);
+	}
+	
+	public boolean greaterThanOrEquals(StatuteMiles other) {
+		return !lessThan(other);
+	}
 }

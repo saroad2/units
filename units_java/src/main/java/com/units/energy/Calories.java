@@ -57,4 +57,20 @@ public class Calories extends NumericValue implements Energy{
 			return false;
 		return almostEqualsValue(other.value());
 	}
+	
+	public boolean lessThan(Calories other) {
+		return value() < other.value();
+	}
+	
+	public boolean lessThanOrEquals(Calories other) {
+		return !other.lessThan(this);
+	}
+	
+	public boolean greaterThan(Calories other) {
+		return other.lessThan(this);
+	}
+	
+	public boolean greaterThanOrEquals(Calories other) {
+		return !lessThan(other);
+	}
 }

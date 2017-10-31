@@ -57,4 +57,20 @@ public class Amperes extends NumericValue implements ElectricCurrent{
 			return false;
 		return almostEqualsValue(other.value());
 	}
+	
+	public boolean lessThan(Amperes other) {
+		return value() < other.value();
+	}
+	
+	public boolean lessThanOrEquals(Amperes other) {
+		return !other.lessThan(this);
+	}
+	
+	public boolean greaterThan(Amperes other) {
+		return other.lessThan(this);
+	}
+	
+	public boolean greaterThanOrEquals(Amperes other) {
+		return !lessThan(other);
+	}
 }

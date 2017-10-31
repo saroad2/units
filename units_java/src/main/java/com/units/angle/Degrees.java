@@ -57,4 +57,20 @@ public class Degrees extends NumericValue implements Angle{
 			return false;
 		return almostEqualsValue(other.value());
 	}
+	
+	public boolean lessThan(Degrees other) {
+		return value() < other.value();
+	}
+	
+	public boolean lessThanOrEquals(Degrees other) {
+		return !other.lessThan(this);
+	}
+	
+	public boolean greaterThan(Degrees other) {
+		return other.lessThan(this);
+	}
+	
+	public boolean greaterThanOrEquals(Degrees other) {
+		return !lessThan(other);
+	}
 }

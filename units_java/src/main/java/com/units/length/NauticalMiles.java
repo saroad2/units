@@ -57,4 +57,20 @@ public class NauticalMiles extends NumericValue implements Length{
 			return false;
 		return almostEqualsValue(other.value());
 	}
+	
+	public boolean lessThan(NauticalMiles other) {
+		return value() < other.value();
+	}
+	
+	public boolean lessThanOrEquals(NauticalMiles other) {
+		return !other.lessThan(this);
+	}
+	
+	public boolean greaterThan(NauticalMiles other) {
+		return other.lessThan(this);
+	}
+	
+	public boolean greaterThanOrEquals(NauticalMiles other) {
+		return !lessThan(other);
+	}
 }

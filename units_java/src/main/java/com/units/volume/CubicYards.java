@@ -59,4 +59,20 @@ public class CubicYards extends NumericValue implements Volume{
 			return false;
 		return almostEqualsValue(other.value());
 	}
+	
+	public boolean lessThan(CubicYards other) {
+		return value() < other.value();
+	}
+	
+	public boolean lessThanOrEquals(CubicYards other) {
+		return !other.lessThan(this);
+	}
+	
+	public boolean greaterThan(CubicYards other) {
+		return other.lessThan(this);
+	}
+	
+	public boolean greaterThanOrEquals(CubicYards other) {
+		return !lessThan(other);
+	}
 }

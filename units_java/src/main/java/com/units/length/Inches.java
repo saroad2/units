@@ -57,4 +57,20 @@ public class Inches extends NumericValue implements Length{
 			return false;
 		return almostEqualsValue(other.value());
 	}
+	
+	public boolean lessThan(Inches other) {
+		return value() < other.value();
+	}
+	
+	public boolean lessThanOrEquals(Inches other) {
+		return !other.lessThan(this);
+	}
+	
+	public boolean greaterThan(Inches other) {
+		return other.lessThan(this);
+	}
+	
+	public boolean greaterThanOrEquals(Inches other) {
+		return !lessThan(other);
+	}
 }

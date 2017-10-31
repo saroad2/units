@@ -57,4 +57,20 @@ public class Rankines extends NumericValue implements Temperature{
 			return false;
 		return almostEqualsValue(other.value());
 	}
+	
+	public boolean lessThan(Rankines other) {
+		return value() < other.value();
+	}
+	
+	public boolean lessThanOrEquals(Rankines other) {
+		return !other.lessThan(this);
+	}
+	
+	public boolean greaterThan(Rankines other) {
+		return other.lessThan(this);
+	}
+	
+	public boolean greaterThanOrEquals(Rankines other) {
+		return !lessThan(other);
+	}
 }

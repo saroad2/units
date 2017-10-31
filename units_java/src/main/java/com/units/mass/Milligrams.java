@@ -59,4 +59,20 @@ public class Milligrams extends NumericValue implements Mass{
 			return false;
 		return almostEqualsValue(other.value());
 	}
+	
+	public boolean lessThan(Milligrams other) {
+		return value() < other.value();
+	}
+	
+	public boolean lessThanOrEquals(Milligrams other) {
+		return !other.lessThan(this);
+	}
+	
+	public boolean greaterThan(Milligrams other) {
+		return other.lessThan(this);
+	}
+	
+	public boolean greaterThanOrEquals(Milligrams other) {
+		return !lessThan(other);
+	}
 }

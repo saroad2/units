@@ -57,4 +57,20 @@ public class Days extends NumericValue implements Duration{
 			return false;
 		return almostEqualsValue(other.value());
 	}
+	
+	public boolean lessThan(Days other) {
+		return value() < other.value();
+	}
+	
+	public boolean lessThanOrEquals(Days other) {
+		return !other.lessThan(this);
+	}
+	
+	public boolean greaterThan(Days other) {
+		return other.lessThan(this);
+	}
+	
+	public boolean greaterThanOrEquals(Days other) {
+		return !lessThan(other);
+	}
 }

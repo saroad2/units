@@ -59,4 +59,20 @@ public class Microseconds extends NumericValue implements Duration{
 			return false;
 		return almostEqualsValue(other.value());
 	}
+	
+	public boolean lessThan(Microseconds other) {
+		return value() < other.value();
+	}
+	
+	public boolean lessThanOrEquals(Microseconds other) {
+		return !other.lessThan(this);
+	}
+	
+	public boolean greaterThan(Microseconds other) {
+		return other.lessThan(this);
+	}
+	
+	public boolean greaterThanOrEquals(Microseconds other) {
+		return !lessThan(other);
+	}
 }

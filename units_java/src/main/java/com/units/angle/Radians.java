@@ -57,4 +57,20 @@ public class Radians extends NumericValue implements Angle{
 			return false;
 		return almostEqualsValue(other.value());
 	}
+	
+	public boolean lessThan(Radians other) {
+		return value() < other.value();
+	}
+	
+	public boolean lessThanOrEquals(Radians other) {
+		return !other.lessThan(this);
+	}
+	
+	public boolean greaterThan(Radians other) {
+		return other.lessThan(this);
+	}
+	
+	public boolean greaterThanOrEquals(Radians other) {
+		return !lessThan(other);
+	}
 }

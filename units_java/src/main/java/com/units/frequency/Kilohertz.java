@@ -59,4 +59,20 @@ public class Kilohertz extends NumericValue implements Frequency{
 			return false;
 		return almostEqualsValue(other.value());
 	}
+	
+	public boolean lessThan(Kilohertz other) {
+		return value() < other.value();
+	}
+	
+	public boolean lessThanOrEquals(Kilohertz other) {
+		return !other.lessThan(this);
+	}
+	
+	public boolean greaterThan(Kilohertz other) {
+		return other.lessThan(this);
+	}
+	
+	public boolean greaterThanOrEquals(Kilohertz other) {
+		return !lessThan(other);
+	}
 }

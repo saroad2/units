@@ -59,4 +59,20 @@ public class SquareFeet extends NumericValue implements Area{
 			return false;
 		return almostEqualsValue(other.value());
 	}
+	
+	public boolean lessThan(SquareFeet other) {
+		return value() < other.value();
+	}
+	
+	public boolean lessThanOrEquals(SquareFeet other) {
+		return !other.lessThan(this);
+	}
+	
+	public boolean greaterThan(SquareFeet other) {
+		return other.lessThan(this);
+	}
+	
+	public boolean greaterThanOrEquals(SquareFeet other) {
+		return !lessThan(other);
+	}
 }

@@ -57,4 +57,20 @@ public class Feet extends NumericValue implements Length{
 			return false;
 		return almostEqualsValue(other.value());
 	}
+	
+	public boolean lessThan(Feet other) {
+		return value() < other.value();
+	}
+	
+	public boolean lessThanOrEquals(Feet other) {
+		return !other.lessThan(this);
+	}
+	
+	public boolean greaterThan(Feet other) {
+		return other.lessThan(this);
+	}
+	
+	public boolean greaterThanOrEquals(Feet other) {
+		return !lessThan(other);
+	}
 }

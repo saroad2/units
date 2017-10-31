@@ -57,4 +57,20 @@ public class Dynes extends NumericValue implements Force{
 			return false;
 		return almostEqualsValue(other.value());
 	}
+	
+	public boolean lessThan(Dynes other) {
+		return value() < other.value();
+	}
+	
+	public boolean lessThanOrEquals(Dynes other) {
+		return !other.lessThan(this);
+	}
+	
+	public boolean greaterThan(Dynes other) {
+		return other.lessThan(this);
+	}
+	
+	public boolean greaterThanOrEquals(Dynes other) {
+		return !lessThan(other);
+	}
 }

@@ -57,4 +57,20 @@ public class Seconds extends NumericValue implements Duration{
 			return false;
 		return almostEqualsValue(other.value());
 	}
+	
+	public boolean lessThan(Seconds other) {
+		return value() < other.value();
+	}
+	
+	public boolean lessThanOrEquals(Seconds other) {
+		return !other.lessThan(this);
+	}
+	
+	public boolean greaterThan(Seconds other) {
+		return other.lessThan(this);
+	}
+	
+	public boolean greaterThanOrEquals(Seconds other) {
+		return !lessThan(other);
+	}
 }

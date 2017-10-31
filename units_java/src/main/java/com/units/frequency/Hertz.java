@@ -59,4 +59,20 @@ public class Hertz extends NumericValue implements Frequency{
 			return false;
 		return almostEqualsValue(other.value());
 	}
+	
+	public boolean lessThan(Hertz other) {
+		return value() < other.value();
+	}
+	
+	public boolean lessThanOrEquals(Hertz other) {
+		return !other.lessThan(this);
+	}
+	
+	public boolean greaterThan(Hertz other) {
+		return other.lessThan(this);
+	}
+	
+	public boolean greaterThanOrEquals(Hertz other) {
+		return !lessThan(other);
+	}
 }

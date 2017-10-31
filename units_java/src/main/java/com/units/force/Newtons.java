@@ -62,4 +62,20 @@ public class Newtons extends NumericValue implements Force{
 			return false;
 		return almostEqualsValue(other.value());
 	}
+	
+	public boolean lessThan(Newtons other) {
+		return value() < other.value();
+	}
+	
+	public boolean lessThanOrEquals(Newtons other) {
+		return !other.lessThan(this);
+	}
+	
+	public boolean greaterThan(Newtons other) {
+		return other.lessThan(this);
+	}
+	
+	public boolean greaterThanOrEquals(Newtons other) {
+		return !lessThan(other);
+	}
 }

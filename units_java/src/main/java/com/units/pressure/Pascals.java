@@ -62,4 +62,20 @@ public class Pascals extends NumericValue implements Pressure{
 			return false;
 		return almostEqualsValue(other.value());
 	}
+	
+	public boolean lessThan(Pascals other) {
+		return value() < other.value();
+	}
+	
+	public boolean lessThanOrEquals(Pascals other) {
+		return !other.lessThan(this);
+	}
+	
+	public boolean greaterThan(Pascals other) {
+		return other.lessThan(this);
+	}
+	
+	public boolean greaterThanOrEquals(Pascals other) {
+		return !lessThan(other);
+	}
 }

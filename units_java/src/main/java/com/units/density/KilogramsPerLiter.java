@@ -60,4 +60,20 @@ public class KilogramsPerLiter extends NumericValue implements Density{
 			return false;
 		return almostEqualsValue(other.value());
 	}
+	
+	public boolean lessThan(KilogramsPerLiter other) {
+		return value() < other.value();
+	}
+	
+	public boolean lessThanOrEquals(KilogramsPerLiter other) {
+		return !other.lessThan(this);
+	}
+	
+	public boolean greaterThan(KilogramsPerLiter other) {
+		return other.lessThan(this);
+	}
+	
+	public boolean greaterThanOrEquals(KilogramsPerLiter other) {
+		return !lessThan(other);
+	}
 }

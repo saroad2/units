@@ -59,4 +59,20 @@ public class Liters extends NumericValue implements Volume{
 			return false;
 		return almostEqualsValue(other.value());
 	}
+	
+	public boolean lessThan(Liters other) {
+		return value() < other.value();
+	}
+	
+	public boolean lessThanOrEquals(Liters other) {
+		return !other.lessThan(this);
+	}
+	
+	public boolean greaterThan(Liters other) {
+		return other.lessThan(this);
+	}
+	
+	public boolean greaterThanOrEquals(Liters other) {
+		return !lessThan(other);
+	}
 }

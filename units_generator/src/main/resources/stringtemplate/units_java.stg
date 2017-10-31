@@ -97,6 +97,22 @@ public class <unitScale.className> extends NumericValue implements <unitScale.ty
 			return false;
 		return almostEqualsValue(other.value());
 	}
+	
+	public boolean lessThan(<unitScale.className> other) {
+		return value() \< other.value();
+	}
+	
+	public boolean lessThanOrEquals(<unitScale.className> other) {
+		return !other.lessThan(this);
+	}
+	
+	public boolean greaterThan(<unitScale.className> other) {
+		return other.lessThan(this);
+	}
+	
+	public boolean greaterThanOrEquals(<unitScale.className> other) {
+		return !lessThan(other);
+	}
 }
 >>
 
@@ -136,24 +152,43 @@ public class <unitScale.className>Tests {
 	}
 
 	@Test
-	public void testEqualsSuccess() {
-		double actualValue = 3.1;
-		assertTrue("two units are not equal, even though thet have the same value",
-				new <unitScale.className>(actualValue).equals(new <unitScale.className>(actualValue)));
+	public void testComparisonToSmallerValue() {
+		<unitScale.className> unit = new <unitScale.className>(3.1);
+		<unitScale.className> comparedUnit = new <unitScale.className>(3.0);
+		assertFalse(unit.lessThan(comparedUnit));
+		assertFalse(unit.lessThanOrEquals(comparedUnit));
+		assertFalse(unit.equals(comparedUnit));
+		assertTrue(unit.greaterThan(comparedUnit));
+		assertTrue(unit.greaterThanOrEquals(comparedUnit));
+	}
+	
+	@Test
+	public void testComparisonToEqualValue() {
+		<unitScale.className> unit = new <unitScale.className>(3.1);
+		<unitScale.className> comparedUnit = new <unitScale.className>(3.1);
+		assertFalse(unit.lessThan(comparedUnit));
+		assertTrue(unit.lessThanOrEquals(comparedUnit));
+		assertTrue(unit.equals(comparedUnit));
+		assertFalse(unit.greaterThan(comparedUnit));
+		assertTrue(unit.greaterThanOrEquals(comparedUnit));
+	}
+	
+	@Test
+	public void testComparisonToBiggerValue() {
+		<unitScale.className> unit = new <unitScale.className>(3.1);
+		<unitScale.className> comparedUnit = new <unitScale.className>(3.2);
+		assertTrue(unit.lessThan(comparedUnit));
+		assertTrue(unit.lessThanOrEquals(comparedUnit));
+		assertFalse(unit.equals(comparedUnit));
+		assertFalse(unit.greaterThan(comparedUnit));
+		assertFalse(unit.greaterThanOrEquals(comparedUnit));
 	}
 
 	@Test
 	public void testEqualsNullFails() {
 		double actualValue = 3.1;
-		assertFalse("two units are equal, even though one of the is null", new <unitScale.className>(actualValue).equals(null));
-	}
-
-	@Test
-	public void testEqualsOtherWithDifferemtValueFail() {
-		double value1 = 3.1;
-		double value2 = 3.0;
-		assertFalse("two units are equal, even though thet have the different values",
-				new <unitScale.className>(value1).equals(new <unitScale.className>(value2)));
+		assertFalse("two units are equal, even though one of the is null",
+					new <unitScale.className>(actualValue).equals(null));
 	}
 
 	@Test
@@ -187,7 +222,7 @@ public class <unitScale.className>Tests {
 	}
 
 	@Test
-	public void testopposite() {
+	public void testOpposite() {
 		double value = 3.1;
 
 		<unitScale.className> unit = new <unitScale.className>(value);

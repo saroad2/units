@@ -59,4 +59,20 @@ public class Kilometers extends NumericValue implements Length{
 			return false;
 		return almostEqualsValue(other.value());
 	}
+	
+	public boolean lessThan(Kilometers other) {
+		return value() < other.value();
+	}
+	
+	public boolean lessThanOrEquals(Kilometers other) {
+		return !other.lessThan(this);
+	}
+	
+	public boolean greaterThan(Kilometers other) {
+		return other.lessThan(this);
+	}
+	
+	public boolean greaterThanOrEquals(Kilometers other) {
+		return !lessThan(other);
+	}
 }

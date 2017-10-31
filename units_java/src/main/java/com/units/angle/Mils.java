@@ -57,4 +57,20 @@ public class Mils extends NumericValue implements Angle{
 			return false;
 		return almostEqualsValue(other.value());
 	}
+	
+	public boolean lessThan(Mils other) {
+		return value() < other.value();
+	}
+	
+	public boolean lessThanOrEquals(Mils other) {
+		return !other.lessThan(this);
+	}
+	
+	public boolean greaterThan(Mils other) {
+		return other.lessThan(this);
+	}
+	
+	public boolean greaterThanOrEquals(Mils other) {
+		return !lessThan(other);
+	}
 }

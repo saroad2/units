@@ -1,30 +1,32 @@
-/*
- * test_angular_speed.cc
- *
- *  Created on: Jul 1, 2017
- *      Author: sagis
+/* This file is auto generated.
+ * DO NOT EDIT IT MANUALLY!
  */
 
 #include <units/cases.h>
 #include <units/angular_speed_units.h>
 
-#include <math.h>
+#include <gtest/gtest.h>
 
+using namespace testing;
 using namespace units::angular_speed;
 
 class TestAngularSpeedUnitsPrintings : public TestUnitsPrintings
 {
 };
 
-TEST_F(TestAngularSpeedUnitsPrintings, print_radians_per_second)
-{
-	check_print<RadiansPerSecond>("radians/second");
-}
-
 TEST_F(TestAngularSpeedUnitsPrintings, print_degrees_per_second)
 {
 	check_print<DegreesPerSecond>("degrees/second");
 }
+TEST_F(TestAngularSpeedUnitsPrintings, print_radians_per_second)
+{
+	check_print<RadiansPerSecond>("radians/second");
+}
+TEST_F(TestAngularSpeedUnitsPrintings, print_mils_per_second)
+{
+	check_print<MilsPerSecond>("mils/second");
+}
+
 
 // ============================================================
 
@@ -33,3 +35,4 @@ TEST_F(TestAngularSpeedUnitsPrintings, print_degrees_per_second)
 
 TEST_ANGULAR_SPEED_USER_DEFINE_LITERALS(DegreesPerSecond, degrees_per_second);
 TEST_ANGULAR_SPEED_USER_DEFINE_LITERALS(RadiansPerSecond, radians_per_second);
+TEST_ANGULAR_SPEED_USER_DEFINE_LITERALS(MilsPerSecond, mils_per_second);

@@ -1,8 +1,5 @@
-/*
- * test_acceleration_units.cc
- *
- *  Created on: Oct 18, 2017
- *      Author: oriash93
+/* This file is auto generated.
+ * DO NOT EDIT IT MANUALLY!
  */
 
 #include <units/cases.h>
@@ -21,6 +18,7 @@ TEST_F(TestAccelerationUnitsPrintings, print_meters_per_square_seconds)
 {
 	check_print<MetersPerSquareSeconds>("meters per square seconds");
 }
+
 
 // ============================================================
 

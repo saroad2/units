@@ -1,13 +1,13 @@
-/*
- * test_volume_units.cc
- *
- *  Created on: Jun 30, 2017
- *      Author: sagis
+/* This file is auto generated.
+ * DO NOT EDIT IT MANUALLY!
  */
 
 #include <units/cases.h>
 #include <units/volume_units.h>
 
+#include <gtest/gtest.h>
+
+using namespace testing;
 using namespace units::volume;
 
 class TestVolumeUnitsPrintings : public TestUnitsPrintings
@@ -18,31 +18,27 @@ TEST_F(TestVolumeUnitsPrintings, print_cubic_feet)
 {
 	check_print<CubicFeet>("feet^3");
 }
-
 TEST_F(TestVolumeUnitsPrintings, print_cubic_yards)
 {
 	check_print<CubicYards>("yards^3");
 }
-
 TEST_F(TestVolumeUnitsPrintings, print_cubic_meters)
 {
 	check_print<CubicMeters>("meters^3");
 }
-
 TEST_F(TestVolumeUnitsPrintings, print_cubic_kilometers)
 {
 	check_print<CubicKilometers>("kilometers^3");
 }
-
 TEST_F(TestVolumeUnitsPrintings, print_liters)
 {
 	check_print<Liters>("liters");
 }
-
 TEST_F(TestVolumeUnitsPrintings, print_milliliters)
 {
 	check_print<Milliliters>("milliliters");
 }
+
 
 // ============================================================
 

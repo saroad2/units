@@ -16,6 +16,7 @@ public class CppUnitScale implements UnitScaleInterface{
 	private String name;
 	private String singularName;
 	private String pluralName;
+	private String lowerUnderscoreName;
 	private String tagName;
 	private String typeCodeName;
 	private String className;
@@ -39,6 +40,10 @@ public class CppUnitScale implements UnitScaleInterface{
 		return pluralName;
 	}
 	
+	public String getLowerUnderscoreName() {
+		return lowerUnderscoreName;
+	}
+
 	public String getTagName() {
 		return tagName;
 	}
@@ -71,6 +76,7 @@ public class CppUnitScale implements UnitScaleInterface{
 		this.schema = schema;
 		initializeScale(unitScale);
 		initializeNames(unitScale);
+		lowerUnderscoreName = CppNamesFormatter.toLowerUnderscore(name);
 		tagName = CppNamesFormatter.formatTagName(name);
 		namespace = CppNamesFormatter.formatNamespaceName(unitTypeName);
 		typeCodeName = CppNamesFormatter.formatCodeName(unitTypeName);

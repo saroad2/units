@@ -1,13 +1,13 @@
-/*
- * test_power_units.cc
- *
- *  Created on: Jul 4, 2017
- *      Author: sagis
+/* This file is auto generated.
+ * DO NOT EDIT IT MANUALLY!
  */
 
 #include <units/cases.h>
 #include <units/force_units.h>
 
+#include <gtest/gtest.h>
+
+using namespace testing;
 using namespace units::force;
 
 class TestForceUnitsPrintings : public TestUnitsPrintings
@@ -18,11 +18,11 @@ TEST_F(TestForceUnitsPrintings, print_newtons)
 {
 	check_print<Newtons>("newtons");
 }
-
 TEST_F(TestForceUnitsPrintings, print_dynes)
 {
 	check_print<Dynes>("dynes");
 }
+
 
 // ============================================================
 

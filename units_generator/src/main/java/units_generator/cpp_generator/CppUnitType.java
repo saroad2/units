@@ -14,6 +14,7 @@ public class CppUnitType implements UnitTypeInterface{
 	private CppSchema schema;
 	private String typeName;
 	private String upperCaseName;
+	private String camelCaseName;
 	private String namespace;
 	private String codeName;
 	private List<String> tagIncludes;
@@ -38,6 +39,10 @@ public class CppUnitType implements UnitTypeInterface{
 
 	public String getUpperCaseName() {
 		return upperCaseName;
+	}
+
+	public String getCamelCaseName() {
+		return camelCaseName;
 	}
 
 	public String getNamespace() {
@@ -94,6 +99,7 @@ public class CppUnitType implements UnitTypeInterface{
 		typeName = NamesManipulator.getName(unitType);
 		namespace = CppNamesFormatter.formatNamespaceName(typeName); 
 		upperCaseName = namespace.toUpperCase();
+		camelCaseName = CppNamesFormatter.formatClassName(typeName);
 		codeName = CppNamesFormatter.formatCodeName(typeName);
 		initializeIncludes();
 		initializeCode(unitType);

@@ -1,8 +1,5 @@
-/*
- * test_angle_units.cc
- *
- *  Created on: Jun 28, 2017
- *      Author: sagis
+/* This file is auto generated.
+ * DO NOT EDIT IT MANUALLY!
  */
 
 #include <units/cases.h>
@@ -21,6 +18,7 @@ TEST_F(TestElectricCurrentUnitsPrintings, print_amperes)
 {
 	check_print<Amperes>("amperes");
 }
+
 
 // ============================================================
 

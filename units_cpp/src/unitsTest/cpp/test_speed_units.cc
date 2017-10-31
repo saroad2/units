@@ -1,13 +1,13 @@
-/*
- * test_speed_units.cc
- *
- *  Created on: Jul 1, 2017
- *      Author: sagis
+/* This file is auto generated.
+ * DO NOT EDIT IT MANUALLY!
  */
 
 #include <units/cases.h>
 #include <units/speed_units.h>
 
+#include <gtest/gtest.h>
+
+using namespace testing;
 using namespace units::speed;
 
 class TestSpeedUnitsPrintings : public TestUnitsPrintings
@@ -18,26 +18,24 @@ TEST_F(TestSpeedUnitsPrintings, print_feet_per_second)
 {
 	check_print<FeetPerSecond>("feet/second");
 }
-
 TEST_F(TestSpeedUnitsPrintings, print_yards_per_second)
 {
 	check_print<YardsPerSecond>("yards/second");
 }
-
 TEST_F(TestSpeedUnitsPrintings, print_meters_per_second)
 {
 	check_print<MetersPerSecond>("meters/second");
 }
-
 TEST_F(TestSpeedUnitsPrintings, print_kilometers_per_hour)
 {
 	check_print<KilometersPerHour>("kilometers/hour");
 }
-
 TEST_F(TestSpeedUnitsPrintings, print_knots)
 {
 	check_print<Knots>("knots");
 }
+
+
 // ============================================================
 
 #define TEST_SPEED_USER_DEFINE_LITERALS(Name, name) \

@@ -68,14 +68,13 @@ public class CppUnitsGenerator extends LanguageUnitsGenerator{
 			UnitTypeInterface unitType,
 			Map<String, Path> directoriesMap) throws IOException {
 		CppUnitType cppUnitType = (CppUnitType) unitType;
-		Path tagsPath =Paths.get(directoriesMap.get(tags).toString(), cppUnitType.getTagsHeaderFileName());
-		generateUnitTypeTagsHeaderFile(cppUnitType, tagsPath);
-		if (!cppUnitType.isTagsOnly()) {
-			Path headerPath = Paths.get(directoriesMap.get(headers).toString(), cppUnitType.getHeaderFileName());
-			generateUnitTypeHeaderFile(cppUnitType, headerPath);
+		generateUnitTypeTagsHeaderFile(cppUnitType, directoriesMap);
+		generateUnitTypeSourceFile(cppUnitType, directoriesMap);
+		generateUnitTypeTests(cppUnitType, directoriesMap);
+		if (cppUnitType.isTagsOnly()) {
+			return;
 		}
-		Path sourcePath = Paths.get(directoriesMap.get(source).toString(), cppUnitType.getTagsSourceFileName());
-		generateUnitTypeSourceFile(cppUnitType, sourcePath);
+		generateUnitTypeHeaderFile(cppUnitType, directoriesMap);
 
 	}
 	
@@ -97,7 +96,10 @@ public class CppUnitsGenerator extends LanguageUnitsGenerator{
 
 	private void generateUnitTypeHeaderFile(
 			CppUnitType unitType,
-			Path outputPath) throws IOException {
+			Map<String, Path> directoriesMap) throws IOException {
+		Path outputPath = Paths.get(
+				directoriesMap.get(headers).toString(),
+				unitType.getHeaderFileName());
 		logger.info("Generating " + unitType.getTypeName() + " header file to " + outputPath);
 		writeStringTemplate("unit_type_header", "unitType", unitType, outputPath);
 
@@ -105,16 +107,33 @@ public class CppUnitsGenerator extends LanguageUnitsGenerator{
 	
 	private void generateUnitTypeTagsHeaderFile(
 			CppUnitType unitType,
-			Path outputPath) throws IOException {
+			Map<String, Path> directoriesMap) throws IOException {
+
+		Path outputPath = Paths.get(
+			directoriesMap.get(tags).toString(),
+			unitType.getTagsHeaderFileName());
 		logger.info("Generating " + unitType.getTypeName() + " tags header file to " + outputPath);
 		writeStringTemplate("tags_header", "unitType", unitType, outputPath);
 	}
 
 	private void generateUnitTypeSourceFile(
 			CppUnitType unitType,
-			Path outputPath) throws IOException {
+			Map<String, Path> directoriesMap) throws IOException {
+		Path outputPath = Paths.get(
+			directoriesMap.get(source).toString(),
+			unitType.getTagsSourceFileName());
 		logger.info("Generating " + unitType.getTypeName() + " source file to " + outputPath);
 		writeStringTemplate("tags_src", "unitType", unitType, outputPath);
+	}
+
+	private void generateUnitTypeTests(
+			CppUnitType unitType,
+			Map<String, Path> directoriesMap) throws IOException {
+		Path outputPath = Paths.get(
+			directoriesMap.get(testsSource).toString(),
+			"test_" + unitType.getNamespace() + "_units.cc");
+		logger.info("Generating " + unitType.getTypeName() + " tests to " + outputPath);
+		writeStringTemplate("unit_type_tests", "unitType", unitType, outputPath);
 	}
 
 	private void generateTests(

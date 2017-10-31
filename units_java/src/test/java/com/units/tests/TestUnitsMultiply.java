@@ -1,6 +1,5 @@
 package com.units.tests;
 
-import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 import com.units.angle.Degrees;
@@ -10,13 +9,7 @@ import com.units.length.Meters;
 import com.units.speed.Knots;
 import com.units.speed.MetersPerSecond;
 
-public class TestUnitsMultiply {
-
-	private void checkResult(Meters actual, Meters expected) {
-		assertTrue(
-			actual + " != " + expected,
-			actual.almostEqualsValue(expected.value()));
-	}
+public class TestUnitsMultiply extends OperationTestSuite {
 	
 	@Test
 	public void testMultiplySecondsByMetersPerSecondsToCreateMeters() {

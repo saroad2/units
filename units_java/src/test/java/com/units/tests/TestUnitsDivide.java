@@ -1,6 +1,5 @@
 package com.units.tests;
 
-import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 import com.units.angle.Degrees;
@@ -11,11 +10,7 @@ import com.units.length.Meters;
 import com.units.length.Yards;
 import com.units.speed.MetersPerSecond;
 
-public class TestUnitsDivide {
-
-	private void checkResult(MetersPerSecond actual, MetersPerSecond expected) {
-		assertTrue(actual + " != " + expected, actual.equals(expected));
-	}
+public class TestUnitsDivide extends OperationTestSuite {
 	
 	@Test
 	public void testDivideMetersBySecondsToCreateMetersPerSecond() {

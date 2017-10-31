@@ -71,9 +71,6 @@ public class CppUnitsGenerator extends LanguageUnitsGenerator{
 		generateUnitTypeTagsHeaderFile(cppUnitType, directoriesMap);
 		generateUnitTypeSourceFile(cppUnitType, directoriesMap);
 		generateUnitTypeTests(cppUnitType, directoriesMap);
-		if (cppUnitType.isTagsOnly()) {
-			return;
-		}
 		generateUnitTypeHeaderFile(cppUnitType, directoriesMap);
 
 	}

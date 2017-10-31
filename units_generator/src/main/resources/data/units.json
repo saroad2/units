@@ -134,7 +134,6 @@
 		},
 		{
 			"type_name" : "duration",
-			"tags_only" : "true",
 			"unit_scales" : [
 				{
 					"singular_name" : "second",

@@ -38,10 +38,6 @@
 	"properties" : {
 		"type_name" : { "type" : "string" },
 		"ratio" : {"$ref" : "#/definitions/ratio" },
-		"tags_only" : {
-			"type" : "boolean",
-			"default" : "false"
-		},
 		"unit_scales" : {
 			"type" : "array",
 			"items": { "$ref" : "#/definitions/unit_scale" }

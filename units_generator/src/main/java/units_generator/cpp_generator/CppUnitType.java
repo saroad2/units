@@ -26,7 +26,6 @@ public class CppUnitType implements UnitTypeInterface{
 	private String headerFileName;
 	private String tagsHeaderFileName;
 	private String tagsSourceFileName;
-	private boolean tagsOnly;
 
 	private boolean hasMultipliers;
 
@@ -90,10 +89,6 @@ public class CppUnitType implements UnitTypeInterface{
 		return tagsSourceFileName;
 	}
 	
-	public boolean isTagsOnly() {
-		return tagsOnly;
-	}
-	
 	public CppUnitType(CppSchema schema, UnitType unitType) {
 		this.schema = schema;
 		typeName = NamesManipulator.getName(unitType);
@@ -109,7 +104,6 @@ public class CppUnitType implements UnitTypeInterface{
 		headerFileName = CppNamesFormatter.formatUnitTypeHeaderName(typeName);
 		tagsHeaderFileName = namespace + "_tags.h";
 		tagsSourceFileName = namespace + "_tags.cc";
-		tagsOnly = unitType.getTagsOnly();
 	}
 	
 	private void initializeIncludes()

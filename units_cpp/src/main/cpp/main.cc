@@ -15,6 +15,7 @@
 #include <units/units_cast.h>
 #include <units/units_ratio.h>
 #include <units/units_multiply.h>
+#include <units/cast_from_chrono.h>
 
 #include <iostream>
 #include <chrono>
@@ -77,7 +78,7 @@ int main()
 
 	/* Time units have built-in integration with chrono
 	 * */
-	Seconds s{chrono::seconds{2}};
+	Seconds s = cast_from_chrono(std::chrono::seconds{2});
 	cout << 3.6_seconds - s << endl;
 	cout << endl;
 

@@ -111,5 +111,29 @@ public class RatioTests {
 		Ratio r2 = new Ratio(6, 7);
 		checkRatio(r1.divide(r2), 7, 10);
 	}
+	
+	@Test()
+	public void testPowerOf0() {
+		Ratio r = new Ratio(3, 5);
+		checkRatio(r.pow(0), 1, 1);
+	}
+	
+	@Test()
+	public void testPowerOf1() {
+		Ratio r = new Ratio(3, 5);
+		checkRatio(r.pow(1), 3, 5);
+	}
+
+	@Test()
+	public void testPowerOf2() {
+		Ratio r = new Ratio(3, 5);
+		checkRatio(r.pow(2), 9, 25);
+	}
+
+	@Test()
+	public void testPowerOf3() {
+		Ratio r = new Ratio(3, 5);
+		checkRatio(r.pow(3), 27, 125);
+	}
 
 }

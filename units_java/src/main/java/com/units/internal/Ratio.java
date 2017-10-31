@@ -46,6 +46,12 @@ public class Ratio {
 		return new Ratio(newNumerator, newDenominator);
 	}
 	
+	public Ratio pow(int power) {
+		int newNumerator = (int)Math.pow(getNumerator(), power);
+		int newDenominator = (int)Math.pow(getDenominator(), power);
+		return new Ratio(newNumerator, newDenominator);
+	}
+	
 	public static Ratio one() {
 		return new Ratio(1);
 	}

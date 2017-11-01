@@ -48,7 +48,8 @@
 	units::mass::Pounds, \
 	units::mass::Milligrams, \
 	units::mass::Kilograms, \
-	units::mass::Tonnes
+	units::mass::Tonnes, \
+	units::mass::SolarMasses
 
 #define DURATION_UNITS() \
 	units::duration::Seconds, \

@@ -52,6 +52,13 @@ struct tonnes_tag
 	static std::string singularName();
 	static std::string pluralName();
 };
+struct solar_masses_tag
+{
+	using typeCode = mass_code;
+	static constexpr double scale = 1.98855E30 * kilograms_tag::scale;
+	static std::string singularName();
+	static std::string pluralName();
+};
 
 
 }

@@ -19,6 +19,7 @@ using Pounds = NumericValue<tags::pounds_tag>;
 using Milligrams = NumericValue<tags::milligrams_tag>;
 using Kilograms = NumericValue<tags::kilograms_tag>;
 using Tonnes = NumericValue<tags::tonnes_tag>;
+using SolarMasses = NumericValue<tags::solar_masses_tag>;
 
 
 USER_DEFINED_LITERALS(Grams, grams);
@@ -26,6 +27,7 @@ USER_DEFINED_LITERALS(Pounds, pounds);
 USER_DEFINED_LITERALS(Milligrams, milligrams);
 USER_DEFINED_LITERALS(Kilograms, kilograms);
 USER_DEFINED_LITERALS(Tonnes, tonnes);
+USER_DEFINED_LITERALS(SolarMasses, solar_masses);
 
 
 }

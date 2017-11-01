@@ -26,6 +26,10 @@ TEST_F(TestMassConversions, Grams_to_Pounds)
 {
 	check_conversion<Grams, Pounds>(0.002204622800000002);
 }
+TEST_F(TestMassConversions, Grams_to_SolarMasses)
+{
+	check_conversion<Grams, SolarMasses>(5.028789821729402E-34);
+}
 TEST_F(TestMassConversions, Grams_to_Tonnes)
 {
 	check_conversion<Grams, Tonnes>(1.0E-6);
@@ -41,6 +45,10 @@ TEST_F(TestMassConversions, Kilograms_to_Milligrams)
 TEST_F(TestMassConversions, Kilograms_to_Pounds)
 {
 	check_conversion<Kilograms, Pounds>(2.204622800000002);
+}
+TEST_F(TestMassConversions, Kilograms_to_SolarMasses)
+{
+	check_conversion<Kilograms, SolarMasses>(5.028789821729402E-31);
 }
 TEST_F(TestMassConversions, Kilograms_to_Tonnes)
 {
@@ -58,6 +66,10 @@ TEST_F(TestMassConversions, Milligrams_to_Pounds)
 {
 	check_conversion<Milligrams, Pounds>(2.204622800000002E-6);
 }
+TEST_F(TestMassConversions, Milligrams_to_SolarMasses)
+{
+	check_conversion<Milligrams, SolarMasses>(5.028789821729401E-37);
+}
 TEST_F(TestMassConversions, Milligrams_to_Tonnes)
 {
 	check_conversion<Milligrams, Tonnes>(1.0E-9);
@@ -74,9 +86,33 @@ TEST_F(TestMassConversions, Pounds_to_Milligrams)
 {
 	check_conversion<Pounds, Milligrams>(453592.333346094);
 }
+TEST_F(TestMassConversions, Pounds_to_SolarMasses)
+{
+	check_conversion<Pounds, SolarMasses>(2.2810205091453275E-31);
+}
 TEST_F(TestMassConversions, Pounds_to_Tonnes)
 {
 	check_conversion<Pounds, Tonnes>(4.53592333346094E-4);
+}
+TEST_F(TestMassConversions, SolarMasses_to_Grams)
+{
+	check_conversion<SolarMasses, Grams>(1.98855E33);
+}
+TEST_F(TestMassConversions, SolarMasses_to_Kilograms)
+{
+	check_conversion<SolarMasses, Kilograms>(1.98855E30);
+}
+TEST_F(TestMassConversions, SolarMasses_to_Milligrams)
+{
+	check_conversion<SolarMasses, Milligrams>(1.9885499999999998E36);
+}
+TEST_F(TestMassConversions, SolarMasses_to_Pounds)
+{
+	check_conversion<SolarMasses, Pounds>(4.3840026689400034E30);
+}
+TEST_F(TestMassConversions, SolarMasses_to_Tonnes)
+{
+	check_conversion<SolarMasses, Tonnes>(1.9885499999999998E27);
 }
 TEST_F(TestMassConversions, Tonnes_to_Grams)
 {
@@ -93,5 +129,9 @@ TEST_F(TestMassConversions, Tonnes_to_Milligrams)
 TEST_F(TestMassConversions, Tonnes_to_Pounds)
 {
 	check_conversion<Tonnes, Pounds>(2204.622800000002);
+}
+TEST_F(TestMassConversions, Tonnes_to_SolarMasses)
+{
+	check_conversion<Tonnes, SolarMasses>(5.028789821729402E-28);
 }
 

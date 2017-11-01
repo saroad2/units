@@ -129,6 +129,12 @@
 					"plural_name" : "tonnes",
 					"multiplier_string" : "mega",
 					"relative_to" : "grams"
+				},
+				{
+					"singular_name" : "solar mass",
+					"plural_name" : "solar masses",
+					"multiplier_number" : 1.98855e+30,
+					"relative_to" : "kilograms"
 				}
 			]
 		},

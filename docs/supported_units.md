@@ -95,7 +95,7 @@ Those are the supported units in the *units* library:
 	<td>V</td>
 	<td>V</td></tr>
 	<tr>
-		<td rowspan=5 style="text-align:center; vertical-align:middle;font-weight:bold">
+		<td rowspan=6 style="text-align:center; vertical-align:middle;font-weight:bold">
 			mass
 		</td>
 		<td>grams</td>
@@ -117,6 +117,10 @@ Those are the supported units in the *units* library:
 	<td>V</td></tr>
 	<tr><td>tonnes</td>
 	<td>mega * grams</td>
+	<td>V</td>
+	<td>V</td></tr>
+	<tr><td>solar masses</td>
+	<td>1.98855E30 * kilograms</td>
 	<td>V</td>
 	<td>V</td></tr>
 	<tr>

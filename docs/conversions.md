@@ -238,26 +238,30 @@ DO NOT EDIT IT MANUALLY!
 
 ## mass
 <table>
-	<tr><td>From\To</td><th>pounds</th><th>kilograms</th><th>milligrams</th><th>tonnes</th><th>grams</th></tr>
+	<tr><td>From\To</td><th>pounds</th><th>kilograms</th><th>solar masses</th><th>milligrams</th><th>tonnes</th><th>grams</th></tr>
 	<tr>
 			<th>pounds</th>
-			<td>1</td><td>0.453592333346094</td><td>453592.333346094</td><td>4.53592333346094E-4</td><td>453.592333346094</td>
+			<td>1</td><td>0.453592333346094</td><td>2.2810205091453275E-31</td><td>453592.333346094</td><td>4.53592333346094E-4</td><td>453.592333346094</td>
 		</tr>
 		<tr>
 			<th>kilograms</th>
-			<td>2.204622800000002</td><td>1</td><td>1000000.0</td><td>0.001</td><td>1000.0</td>
+			<td>2.204622800000002</td><td>1</td><td>5.028789821729402E-31</td><td>1000000.0</td><td>0.001</td><td>1000.0</td>
+		</tr>
+		<tr>
+			<th>solar masses</th>
+			<td>4.3840026689400034E30</td><td>1.98855E30</td><td>1</td><td>1.9885499999999998E36</td><td>1.9885499999999998E27</td><td>1.98855E33</td>
 		</tr>
 		<tr>
 			<th>milligrams</th>
-			<td>2.204622800000002E-6</td><td>1.0E-6</td><td>1</td><td>1.0E-9</td><td>0.001</td>
+			<td>2.204622800000002E-6</td><td>1.0E-6</td><td>5.028789821729401E-37</td><td>1</td><td>1.0E-9</td><td>0.001</td>
 		</tr>
 		<tr>
 			<th>tonnes</th>
-			<td>2204.622800000002</td><td>1000.0</td><td>1.0E9</td><td>1</td><td>1000000.0</td>
+			<td>2204.622800000002</td><td>1000.0</td><td>5.028789821729402E-28</td><td>1.0E9</td><td>1</td><td>1000000.0</td>
 		</tr>
 		<tr>
 			<th>grams</th>
-			<td>0.002204622800000002</td><td>0.001</td><td>1000.0</td><td>1.0E-6</td><td>1</td>
+			<td>0.002204622800000002</td><td>0.001</td><td>5.028789821729402E-34</td><td>1000.0</td><td>1.0E-6</td><td>1</td>
 		</tr>
 		
 </table>

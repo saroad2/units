@@ -26,6 +26,9 @@ string kilograms_tag::pluralName() { return "kilograms"; }
 string tonnes_tag::singularName() { return "tonne"; }
 string tonnes_tag::pluralName() { return "tonnes"; }
 
+string solar_masses_tag::singularName() { return "solar mass"; }
+string solar_masses_tag::pluralName() { return "solar masses"; }
+
 
 
 }

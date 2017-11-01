@@ -34,6 +34,10 @@ TEST_F(TestMassUnitsPrintings, print_tonnes)
 {
 	check_print<Tonnes>("tonnes");
 }
+TEST_F(TestMassUnitsPrintings, print_solar_masses)
+{
+	check_print<SolarMasses>("solar masses");
+}
 
 
 // ============================================================
@@ -46,3 +50,4 @@ TEST_MASS_USER_DEFINE_LITERALS(Pounds, pounds);
 TEST_MASS_USER_DEFINE_LITERALS(Milligrams, milligrams);
 TEST_MASS_USER_DEFINE_LITERALS(Kilograms, kilograms);
 TEST_MASS_USER_DEFINE_LITERALS(Tonnes, tonnes);
+TEST_MASS_USER_DEFINE_LITERALS(SolarMasses, solar_masses);

@@ -1253,6 +1253,11 @@
                 },
                 {
                     "from": "grams",
+                    "to": "solar masses",
+                    "value": 5.02878982172940158790197529015e-34
+                },
+                {
+                    "from": "grams",
                     "to": "tonnes",
                     "value": 1e-06
                 },
@@ -1270,6 +1275,11 @@
                     "from": "kilograms",
                     "to": "pounds",
                     "value": 2.204622800000002
+                },
+                {
+                    "from": "kilograms",
+                    "to": "solar masses",
+                    "value": 5.02878982172940158790197529015e-31
                 },
                 {
                     "from": "kilograms",
@@ -1293,6 +1303,11 @@
                 },
                 {
                     "from": "milligrams",
+                    "to": "solar masses",
+                    "value": 5.02878982172940158790197529015e-37
+                },
+                {
+                    "from": "milligrams",
                     "to": "tonnes",
                     "value": 1e-09
                 },
@@ -1313,8 +1328,38 @@
                 },
                 {
                     "from": "pounds",
+                    "to": "solar masses",
+                    "value": 2.28102050914532750169883001945e-31
+                },
+                {
+                    "from": "pounds",
                     "to": "tonnes",
                     "value": 0.000453592333346094
+                },
+                {
+                    "from": "solar masses",
+                    "to": "grams",
+                    "value": 1.98855e+33
+                },
+                {
+                    "from": "solar masses",
+                    "to": "kilograms",
+                    "value": 1.98855e+30
+                },
+                {
+                    "from": "solar masses",
+                    "to": "milligrams",
+                    "value": 1.98854999999999977656794423144e+36
+                },
+                {
+                    "from": "solar masses",
+                    "to": "pounds",
+                    "value": 4.38400266894000338555174807142e+30
+                },
+                {
+                    "from": "solar masses",
+                    "to": "tonnes",
+                    "value":1.98854999999999977656794423144e+27
                 },
                 {
                     "from": "tonnes",
@@ -1335,6 +1380,11 @@
                     "from": "tonnes",
                     "to": "pounds",
                     "value": 2204.622800000002
+                },
+                {
+                    "from": "tonnes",
+                    "to": "solar masses",
+                    "value": 5.02878982172940158790197529015e-28
                 }
             ]
         },

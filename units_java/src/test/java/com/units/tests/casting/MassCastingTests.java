@@ -24,6 +24,11 @@ public class MassCastingTests extends CastingTestsBase{
 	}
 
 	@Test
+	public void testCastFromGramsToSolarmasses() {
+		checkCastedValue(Grams.one().castTo(SolarMasses.class).value(), 5.028789821729402E-34);
+	}
+
+	@Test
 	public void testCastFromGramsToTonnes() {
 		checkCastedValue(Grams.one().castTo(Tonnes.class).value(), 1.0E-6);
 	}
@@ -41,6 +46,11 @@ public class MassCastingTests extends CastingTestsBase{
 	@Test
 	public void testCastFromKilogramsToPounds() {
 		checkCastedValue(Kilograms.one().castTo(Pounds.class).value(), 2.204622800000002);
+	}
+
+	@Test
+	public void testCastFromKilogramsToSolarmasses() {
+		checkCastedValue(Kilograms.one().castTo(SolarMasses.class).value(), 5.028789821729402E-31);
 	}
 
 	@Test
@@ -64,6 +74,11 @@ public class MassCastingTests extends CastingTestsBase{
 	}
 
 	@Test
+	public void testCastFromMilligramsToSolarmasses() {
+		checkCastedValue(Milligrams.one().castTo(SolarMasses.class).value(), 5.028789821729401E-37);
+	}
+
+	@Test
 	public void testCastFromMilligramsToTonnes() {
 		checkCastedValue(Milligrams.one().castTo(Tonnes.class).value(), 1.0E-9);
 	}
@@ -84,8 +99,38 @@ public class MassCastingTests extends CastingTestsBase{
 	}
 
 	@Test
+	public void testCastFromPoundsToSolarmasses() {
+		checkCastedValue(Pounds.one().castTo(SolarMasses.class).value(), 2.2810205091453275E-31);
+	}
+
+	@Test
 	public void testCastFromPoundsToTonnes() {
 		checkCastedValue(Pounds.one().castTo(Tonnes.class).value(), 4.53592333346094E-4);
+	}
+
+	@Test
+	public void testCastFromSolarmassesToGrams() {
+		checkCastedValue(SolarMasses.one().castTo(Grams.class).value(), 1.98855E33);
+	}
+
+	@Test
+	public void testCastFromSolarmassesToKilograms() {
+		checkCastedValue(SolarMasses.one().castTo(Kilograms.class).value(), 1.98855E30);
+	}
+
+	@Test
+	public void testCastFromSolarmassesToMilligrams() {
+		checkCastedValue(SolarMasses.one().castTo(Milligrams.class).value(), 1.9885499999999998E36);
+	}
+
+	@Test
+	public void testCastFromSolarmassesToPounds() {
+		checkCastedValue(SolarMasses.one().castTo(Pounds.class).value(), 4.3840026689400034E30);
+	}
+
+	@Test
+	public void testCastFromSolarmassesToTonnes() {
+		checkCastedValue(SolarMasses.one().castTo(Tonnes.class).value(), 1.9885499999999998E27);
 	}
 
 	@Test
@@ -106,6 +151,11 @@ public class MassCastingTests extends CastingTestsBase{
 	@Test
 	public void testCastFromTonnesToPounds() {
 		checkCastedValue(Tonnes.one().castTo(Pounds.class).value(), 2204.622800000002);
+	}
+
+	@Test
+	public void testCastFromTonnesToSolarmasses() {
+		checkCastedValue(Tonnes.one().castTo(SolarMasses.class).value(), 5.028789821729402E-28);
 	}
 
 

@@ -8,6 +8,9 @@
         },
         "tests" : {
         	 "$ref" : "tests.json" 
+        },
+        "constants" : {
+            "$ref" : "constants.json" 
         }
     }
 }

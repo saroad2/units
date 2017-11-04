@@ -1,0 +1,38 @@
+{	
+
+	"definitions" : {
+		"constant" : {
+			"type" : "object",
+			"properties" : {
+				"name" : { "type" : "string"},
+				"unit_scale" : { "type" : "string"},
+				"value" : { "type" : "number"}, 
+				"description" : { "type" : "string"}
+			}
+		},
+		
+		"constants_group" : {
+			"type" : "object",
+			"properties" : {
+				"group_name" : { "type" : "string"},
+				"constants" : {
+					"type" : "array",
+					"items" : {
+						"$ref" : "#/definitions/constant"
+					}
+				}
+			}
+		}
+	},
+	
+    "title": "Constants",
+    "type": "object",
+    "properties": {
+		"constants_groups" : {
+			"type" : "array",
+			"items" : {
+				"$ref" : "#/definitions/constants_group"
+			}
+		}
+    }
+}

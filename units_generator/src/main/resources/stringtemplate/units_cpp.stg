@@ -188,8 +188,10 @@ namespace units {
 namespace <constantsGroup.lowerUnderscoreName>
 {
 
-<constantsGroup.constants:{constant|constexpr <constant.unitScale> <constant.name>{<constant.value>};<\n>}>
+<constantsGroup.constants:{constant|//<constant.description>
+constexpr <constant.unitScale> <constant.name>{<constant.value>};
 
+}>
 }
 }
 

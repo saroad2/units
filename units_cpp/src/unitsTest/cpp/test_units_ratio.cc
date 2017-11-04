@@ -15,8 +15,11 @@
 #include <units/angular_speed_units.h>
 
 #include <gtest/gtest.h>
+#include <sstream>
 
 using units::units_ratio;
+using units::Ratio;
+using units::Inverse;
 using namespace units::length;
 using namespace units::area;
 using namespace units::volume;
@@ -26,6 +29,7 @@ using namespace units::angle;
 using namespace units::angular_speed;
 
 using namespace testing;
+using namespace std;
 
 class TestUnitsRatio : public Test
 {
@@ -104,4 +108,20 @@ TEST_F(TestUnitsRatio, ratio_degrees_from_degrees_per_second_when_result_type_is
 TEST_F(TestUnitsRatio, ratio_radians_from_minutes_when_result_type_is_degrees_per_second)
 {
 	checkRatio(0.57295779513082323_degrees_per_second, 3_radians, 5_minutes);
+}
+
+TEST_F(TestUnitsRatio, print_ratio_class)
+{
+	auto unit = Ratio<Meters, Degrees>{3.5};
+	stringstream stream;
+	stream << unit;
+	ASSERT_EQ(stream.str(), "3.5 meters/degrees");
+}
+
+TEST_F(TestUnitsRatio, print_inverse_class)
+{
+	auto unit = Inverse<Meters>{3.5};
+	stringstream stream;
+	stream << unit;
+	ASSERT_EQ(stream.str(), "3.5 meters^-1");
 }

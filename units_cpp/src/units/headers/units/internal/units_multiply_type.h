@@ -13,6 +13,7 @@
 
 #include <string>
 #include <ratio>
+#include <sstream>
 
 namespace units
 {
@@ -36,12 +37,42 @@ constexpr double multiplyScaleCalculator()
 }
 
 template<typename scale1 = none_scale_tag, typename... scales>
+std::string singularNameStringCombiner(
+		const std::string& delimeter)
+{
+	std::stringstream stream;
+	stream << scale1::singularName();
+	if (sizeof...(scales) != 0)
+		stream << delimeter << singularNameStringCombiner<scales...>(delimeter);
+	return stream.str();
+}
+
+template<typename scale1 = none_scale_tag, typename... scales>
+std::string pluralNameStringCombiner(
+		const std::string& delimeter)
+{
+	std::stringstream stream;
+	stream << scale1::pluralName();
+	if (sizeof...(scales) != 0)
+		stream << delimeter << pluralNameStringCombiner<scales...>(delimeter);
+	return stream.str();
+}
+
+template<typename scale1 = none_scale_tag, typename... scales>
 struct multiply_scale_tag
 {
 	using typeCode = typename multiply_type_code<
 			typename scale1::typeCode,
 			typename scales::typeCode...>::code;
 	static constexpr double scale = multiplyScaleCalculator<scale1, scales...>();
+	static std::string singularName()
+	{
+		return singularNameStringCombiner<scale1, scales...>("*");
+	}
+	static std::string pluralName()
+	{
+		return pluralNameStringCombiner<scale1, scales...>("*");
+	}
 };
 
 template<class... Units>

@@ -14,10 +14,13 @@
 #include <units/angle_units.h>
 #include <units/angular_speed_units.h>
 #include <units/frequency_units.h>
+#include <units/mass_units.h>
 
 #include <gtest/gtest.h>
+#include <sstream>
 
 using units::units_multiply;
+using units::Multiply;
 using namespace units::length;
 using namespace units::area;
 using namespace units::volume;
@@ -26,8 +29,10 @@ using namespace units::speed;
 using namespace units::angle;
 using namespace units::angular_speed;
 using namespace units::frequency;
+using namespace units::mass;
 
 using namespace testing;
+using namespace std;
 
 class TestUnitsMultiply : public Test
 {
@@ -111,4 +116,20 @@ TEST_F(TestUnitsMultiply, multiply_kilohertz_with_meters_when_return_type_is_mer
 TEST_F(TestUnitsMultiply, multiply_megahertz_with_meters_when_return_type_is_merters_per_second)
 {
 	checkMultiplication(15000000_meters_per_second, 5_megahertz, 3_meters);
+}
+
+TEST_F(TestUnitsMultiply, print_multiplication_class_with_2_variables)
+{
+	auto unit = Multiply<Meters, Degrees>{3.5};
+	stringstream stream;
+	stream << unit;
+	ASSERT_EQ(stream.str(), "3.5 meters*degrees");
+}
+
+TEST_F(TestUnitsMultiply, print_multiplication_class_with_3_variables)
+{
+	auto unit = Multiply<Meters, Degrees, Kilograms>{3.5};
+	stringstream stream;
+	stream << unit;
+	ASSERT_EQ(stream.str(), "3.5 meters*degrees*kilograms");
 }

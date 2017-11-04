@@ -14,6 +14,7 @@
 
 #include <string>
 #include <ratio>
+#include <sstream>
 
 namespace units
 {
@@ -34,10 +35,38 @@ struct ratio_scale_tag
 			typename scale1::typeCode,
 			typename scale2::typeCode>::code;
 	static constexpr double scale = scale1::scale / scale2::scale;
+	static std::string singularName()
+	{
+		std::stringstream stream;
+		stream << scale1::singularName() << "/" << scale2::pluralName();
+		return stream.str();
+	}
+	static std::string pluralName()
+	{
+		std::stringstream stream;
+		stream << scale1::pluralName() << "/" << scale2::pluralName();
+		return stream.str();
+	}
 };
 
-template<typename scale>
-using inverse_scale_tag = ratio_scale_tag<none_scale_tag, scale>;
+template<typename scaleTag>
+struct inverse_scale_tag
+{
+	using typeCode = typename inverse_type_code<typename scaleTag::typeCode>::code;
+	static constexpr double scale = 1 / scaleTag::scale;
+	static std::string singularName()
+	{
+		std::stringstream stream;
+		stream << scaleTag::singularName() << "^-1";
+		return stream.str();
+	}
+	static std::string pluralName()
+	{
+		std::stringstream stream;
+		stream << scaleTag::pluralName() << "^-1";
+		return stream.str();
+	}
+};
 
 template<class Unit1, class Unit2>
 struct ratio_builder

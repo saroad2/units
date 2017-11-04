@@ -14,9 +14,11 @@ namespace units {
 namespace wgs84
 {
 
-constexpr length::Kilometers semiMajorAxis{6378.1370};
-constexpr length::Kilometers semiMinorAxis{6356.752314245};
-constexpr double flattening{0.0033640898210047098};
+constexpr length::Meters semiMajorAxis{6378137};
+constexpr length::Meters semiMinorAxis{6356752.3142};
+constexpr double flattening{0.00335281066};
+constexpr double firstEccentricity{0.081819190842622};
+constexpr double secondEccentricity{0.082094437949696};
 
 }
 }

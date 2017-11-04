@@ -60,6 +60,65 @@
 			]
 		},
 		{
+			"group_name" : "planetary_rotation periods",
+			"constants" : [
+				{
+					"name" : "sun rotation period",
+					"unit_scale" : "seconds",
+					"value" : 2192831.6,
+					"description" : "the time it takes the sun to make a whole spin around itself"
+				},
+				{
+					"name" : "mercury rotation period",
+					"unit_scale" : "seconds",
+					"value" : 5067030,
+					"description" : "the time it takes mercury to make a whole spin around itself"
+				},
+				{
+					"name" : "venus rotation period",
+					"unit_scale" : "seconds",
+					"value" : -20996760,
+					"description" : "the time it takes venus to make a whole spin around itself"
+				},
+				{
+					"name" : "earth rotation period",
+					"unit_scale" : "seconds",
+					"value" : 86164.091,
+					"description" : "the time it takes earth to make a whole spin around itself"
+				},
+				{
+					"name" : "mars rotation period",
+					"unit_scale" : "seconds",
+					"value" : 88642.663,
+					"description" : "the time it takes mars to make a whole spin around itself"
+				},
+				{
+					"name" : "jupiter rotation period",
+					"unit_scale" : "seconds",
+					"value" : 35730,
+					"description" : "the time it takes jupiter to make a whole spin around itself"
+				},
+				{
+					"name" : "saturn rotation period",
+					"unit_scale" : "seconds",
+					"value" : 36840,
+					"description" : "the time it takes saturn to make a whole spin around itself"
+				},
+				{
+					"name" : "uranus rotation period",
+					"unit_scale" : "seconds",
+					"value" : -62064,
+					"description" : "the time it takes uranus to make a whole spin around itself"
+				},
+				{
+					"name" : "neptune rotation period",
+					"unit_scale" : "seconds",
+					"value" : 57996,
+					"description" : "the time it takes neptune to make a whole spin around itself"
+				}
+			]
+		},
+		{
 			"group_name" : "wgs84",
 			"constants" : [
 				{

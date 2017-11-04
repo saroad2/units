@@ -8,7 +8,7 @@
 #ifndef SRC_UNITS_HEADERS_UNITS_CONSTANTS_PLANETARY_ROTATION_PERIODS_H_
 #define SRC_UNITS_HEADERS_UNITS_CONSTANTS_PLANETARY_ROTATION_PERIODS_H_
 
-#include <units/duration.h>
+#include <units/duration_units.h>
 
 namespace units {
 namespace planetary_rotation_periods

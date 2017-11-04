@@ -5,55 +5,55 @@
 			"constants" : [
 				{
 					"name" : "sun mass",
-					"unit_scale" : "solar mass",
+					"unit_scale" : "solar masses",
 					"value" : 1,
 					"description" : "the mass of the sun"
 				},
 				{
 					"name" : "mercury mass",
-					"unit_scale" : "solar mass",
+					"unit_scale" : "solar masses",
 					"value" : 1.6601e-7,
 					"description" : "the mass of mercury"
 				},
 				{
 					"name" : "venus mass",
-					"unit_scale" : "solar mass",
+					"unit_scale" : "solar masses",
 					"value" : 2.4478383e-6,
 					"description" : "the mass of venus"
 				},
 				{
 					"name" : "earth mass",
-					"unit_scale" : "solar mass",
+					"unit_scale" : "solar masses",
 					"value" : 3.00348959632e-6,
 					"description" : "the mass of earth"
 				},
 				{
 					"name" : "mars mass",
-					"unit_scale" : "solar mass",
+					"unit_scale" : "solar masses",
 					"value" : 3.227151e-7,
 					"description" : "the mass of mars"
 				},
 				{
 					"name" : "jupiter mass",
-					"unit_scale" : "solar mass",
+					"unit_scale" : "solar masses",
 					"value" : 954.79194e-6,
 					"description" : "the mass of jupiter"
 				},
 				{
 					"name" : "saturn mass",
-					"unit_scale" : "solar mass",
+					"unit_scale" : "solar masses",
 					"value" : 285.8860e-6,
 					"description" : "the mass of saturn"
 				},
 				{
 					"name" : "uranus mass",
-					"unit_scale" : "solar mass",
+					"unit_scale" : "solar masses",
 					"value" : 43.66244e-6,
 					"description" : "the mass of uranus"
 				},
 				{
 					"name" : "neptune mass",
-					"unit_scale" : "solar mass",
+					"unit_scale" : "solar masses",
 					"value" : 51.51389e-6,
 					"description" : "the mass of neptune"
 				}

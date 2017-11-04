@@ -1,5 +1,7 @@
 package units_generator.schema_reader;
 
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import units_generator.schema_reader.exceptions.InvalidSchema;
@@ -9,6 +11,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.logging.Logger;
 
+import units_schema.Constants;
 import units_schema.Schema;
 import units_schema.Tests;
 
@@ -29,13 +32,26 @@ public class SchemaReader {
 		ObjectMapper mapper = new ObjectMapper();
 		Path unitsJsonFilePath = Paths.get(dataDirectoryPath, "units.json");
 		Schema schema = mapper.readValue(unitsJsonFilePath.toFile(), Schema.class);
-		Path testsPath = Paths.get(dataDirectoryPath, "units_tests.json");
-		Tests tests = mapper.readValue(testsPath.toFile(), Tests.class);
-		schema.setTests(tests);
+		readTestsFromDataDirectory(schema, mapper, dataDirectoryPath);
+		readConstantsFromDataDirectory(schema, mapper, dataDirectoryPath);
 		logger.info("Reading schema succeded!");
 		return schema;
 	}
+
+	private void readTestsFromDataDirectory(Schema schema, ObjectMapper mapper, String dataDirectoryPath)
+			throws IOException, JsonParseException, JsonMappingException {
+		Path testsPath = Paths.get(dataDirectoryPath, "units_tests.json");
+		Tests tests = mapper.readValue(testsPath.toFile(), Tests.class);
+		schema.setTests(tests);
+	}	
 	
+	private void readConstantsFromDataDirectory(Schema schema, ObjectMapper mapper, String dataDirectoryPath)
+			throws IOException, JsonParseException, JsonMappingException {
+		Path constantsPath = Paths.get(dataDirectoryPath, "constants.json");
+		Constants constants = mapper.readValue(constantsPath.toFile(), Constants.class);
+		schema.setConstants(constants);
+	}
+
 	private void validateSchema(Schema schema) throws InvalidSchema {
 		logger.info("Validating schema...");
 		SchemaValidator.validateSchema(schema);

@@ -3,6 +3,7 @@ package units_generator.docs_generator;
 import java.util.ArrayList;
 import java.util.List;
 
+import units_generator.internal.ConstantsGroupInterface;
 import units_generator.internal.UnitTypeInterface;
 import units_generator.internal.UnitsSchemaInterface;
 import units_generator.internal.UnitsTestSuiteInterface;
@@ -34,5 +35,10 @@ public class DocsSchema implements UnitsSchemaInterface {
 	@Override
 	public List<UnitsTestSuiteInterface> getTestSuites() {
 		return testSuites;
+	}
+	
+	@Override
+	public List<ConstantsGroupInterface> getConstantsGroups() {
+		return null;
 	}
 }

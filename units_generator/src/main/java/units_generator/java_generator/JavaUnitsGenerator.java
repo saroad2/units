@@ -6,6 +6,7 @@ import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 
+import units_generator.internal.ConstantsGroupInterface;
 import units_generator.internal.LanguageUnitsGenerator;
 import units_generator.internal.UnitScaleInterface;
 import units_generator.internal.UnitTypeInterface;
@@ -99,6 +100,14 @@ public class JavaUnitsGenerator extends LanguageUnitsGenerator {
 				directoriesMap.get(conversionTests).toString(),
 				javaTestSuite.getName() + ".java");
 		writeStringTemplate("conversion_test_suite", "testSuite", javaTestSuite, outputPath);
+	};
+	
+	@Override
+	protected void generateConstantsGroup(
+			ConstantsGroupInterface constantsGroup,
+			Map<String, Path> directoriesMap) throws IOException
+	{
+		
 	};
 
 	private void generateUnitScaleClass(

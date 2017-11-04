@@ -176,3 +176,23 @@ class <testSuite.testSuiteName> : public TestUnitsConversions
 
 >>
 
+constants_group(constantsGroup) ::= <<
+<declaration()>
+
+#ifndef _<constantsGroup.shoutyUnderscoreName>_
+#define _<constantsGroup.shoutyUnderscoreName>_
+
+<constantsGroup.includes: {includePath|#include \<<includePath>\><\n>}>
+
+namespace units {
+namespace <constantsGroup.lowerUnderscoreName>
+{
+
+<constantsGroup.constants:{constant|constexpr <constant.namespace>::<constant.unitScale> <constant.name>{<constant.value>};<\n>}>
+
+}
+}
+
+#endif /* _<constantsGroup.shoutyUnderscoreName>_ */
+>>
+

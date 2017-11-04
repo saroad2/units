@@ -33,4 +33,14 @@ public class CppNamesFormatter {
 	static String toLowerUnderscore(String name) {
 		return name.toLowerCase().replace(" ", "_");
 	}
+
+	static String toLowerCamelCase(String name) {
+		return CaseFormat.LOWER_UNDERSCORE.to(
+				CaseFormat.LOWER_CAMEL,
+				toLowerUnderscore(name));
+	}
+	
+	static String toShoutyUnderscore(String name) {
+		return name.toUpperCase().replace(" ", "_");
+	}
 }

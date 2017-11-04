@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Logger;
 
+import units_generator.internal.ConstantsGroupInterface;
 import units_generator.internal.LanguageUnitsGenerator;
 import units_generator.internal.UnitScaleInterface;
 import units_generator.internal.UnitTypeInterface;
@@ -25,6 +26,7 @@ public class CppUnitsGenerator extends LanguageUnitsGenerator{
 	private final static String source = "source";
 	private final static String testsHeaders = "tests_headers";
 	private final static String testsSource = "tests_source";
+	private final static String constants = "constants";
 	
 	public CppUnitsGenerator(StringTemplateGroup group) {
 		super(CppUnitsGenerator.class.getSimpleName(), group);
@@ -52,6 +54,10 @@ public class CppUnitsGenerator extends LanguageUnitsGenerator{
 				directoriesMap,
 				testsSource,
 				Paths.get(testsPath.toString(), "cpp"));
+		addToDirectoriesMap(
+				directoriesMap,
+				constants,
+				Paths.get(headersDirectory.toString(), "constants"));
 		return directoriesMap;
 	}
 	
@@ -89,6 +95,17 @@ public class CppUnitsGenerator extends LanguageUnitsGenerator{
 		String fileName = "test_" + cppUnitsTestSuite.getUnitType().replace(" ", "_") + "_conversions.cc";
 		Path outputPath = Paths.get(directoriesMap.get(testsSource).toString(), fileName);
 		writeStringTemplate("conversion_test_suite", "testSuite", cppUnitsTestSuite, outputPath);
+	};
+	
+	@Override
+	protected void generateConstantsGroup(
+			ConstantsGroupInterface constantsGroup,
+			Map<String, Path> directoriesMap) throws IOException
+	{
+		CppConstantsGroup cppGroup = (CppConstantsGroup)constantsGroup;
+		String fileName = cppGroup.getLowerUnderscoreName() + ".h";
+		Path outputPath = Paths.get(directoriesMap.get(constants).toString(), fileName);
+		writeStringTemplate("constants_group", "constantsGroup", cppGroup, outputPath);
 	};
 
 	private void generateUnitTypeHeaderFile(

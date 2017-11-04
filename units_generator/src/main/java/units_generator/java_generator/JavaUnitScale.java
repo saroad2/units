@@ -51,7 +51,7 @@ public class JavaUnitScale implements UnitScaleInterface {
 		if (unitScalesList == null)
 			return;
 		for (String unitScaleName : unitScalesList) {
-			String unitTypeName = schema.getUnitTypeOfScale(unitScaleName);
+			String unitTypeName = schema.getUnitTypeOfScale(unitScaleName).getTypeName();
 			imports.add(
 					"com.units." +
 					JavaNamesFormatter.formatPackageName(unitTypeName) + "." +

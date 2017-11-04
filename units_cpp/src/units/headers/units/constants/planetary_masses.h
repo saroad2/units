@@ -1,30 +1,29 @@
-/*
- * planetary_masses.h
- *
- *  Created on: Nov 1, 2017
- *      Author: sagis
+/* This file is auto generated.
+ * DO NOT EDIT IT MANUALLY!
  */
 
-#ifndef SRC_UNITS_HEADERS_UNITS_CONSTANTS_PLANETARY_MASSES_H_
-#define SRC_UNITS_HEADERS_UNITS_CONSTANTS_PLANETARY_MASSES_H_
+#ifndef _PLANETARY_MASSES_
+#define _PLANETARY_MASSES_
 
 #include <units/mass_units.h>
+
 
 namespace units {
 namespace planetary_masses
 {
 
-constexpr mass::SolarMasses sunMass{1};
-constexpr mass::SolarMasses mercuryMass{1.6601e-7};
-constexpr mass::SolarMasses venusMass{2.4478383e-6};
-constexpr mass::SolarMasses earthMass{3.00348959632e-6};
-constexpr mass::SolarMasses marsMass{3.227151e-7};
-constexpr mass::SolarMasses jupiterMass{954.79194e-6};
-constexpr mass::SolarMasses saturnMass{285.8860e-6};
-constexpr mass::SolarMasses uranusMass{43.66244e-6};
-constexpr mass::SolarMasses neptuneMass{51.51389e-6};
+constexpr mass::SolarMasses sunMass{1.0};
+constexpr mass::SolarMasses mercuryMass{1.6601E-7};
+constexpr mass::SolarMasses venusMass{2.4478383E-6};
+constexpr mass::SolarMasses earthMass{3.00348959632E-6};
+constexpr mass::SolarMasses marsMass{3.227151E-7};
+constexpr mass::SolarMasses jupiterMass{9.5479194E-4};
+constexpr mass::SolarMasses saturnMass{2.85886E-4};
+constexpr mass::SolarMasses uranusMass{4.366244E-5};
+constexpr mass::SolarMasses neptuneMass{5.151389E-5};
+
 
 }
 }
 
-#endif /* SRC_UNITS_HEADERS_UNITS_CONSTANTS_PLANETARY_MASSES_H_ */
+#endif /* _PLANETARY_MASSES_ */

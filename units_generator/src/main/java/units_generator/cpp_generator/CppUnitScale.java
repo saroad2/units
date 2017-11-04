@@ -129,7 +129,7 @@ public class CppUnitScale implements UnitScaleInterface{
 	private String toTag(List<String> unitScalenames) {
 		List<String> tagsList = new ArrayList<String>();
 		for (String unitScaleName : unitScalenames) {
-			String unitTypeName = schema.getUnitTypeOfScale(unitScaleName);
+			String unitTypeName = schema.getUnitTypeOfScale(unitScaleName).getTypeName();
 			tagsList.add(
 				CppNamesFormatter.formatNamespaceName(unitTypeName) +
 				"::tags::" +

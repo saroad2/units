@@ -9,6 +9,7 @@ import java.util.logging.Logger;
 
 import org.antlr.stringtemplate.StringTemplateGroup;
 
+import units_generator.internal.ConstantsGroupInterface;
 import units_generator.internal.LanguageUnitsGenerator;
 import units_generator.internal.UnitScaleInterface;
 import units_generator.internal.UnitTypeInterface;
@@ -59,6 +60,14 @@ public class DocsGenerator extends LanguageUnitsGenerator{
 	protected void generateTestSuiteFiles(
 			UnitsTestSuiteInterface testSuite,
 			Map<String, Path> directoriesMap) throws IOException {
+	};
+	
+	@Override
+	protected void generateConstantsGroup(
+			ConstantsGroupInterface constantsGroup,
+			Map<String, Path> directoriesMap) throws IOException
+	{
+		
 	};
 	
 	private void generateSupportedUnits(

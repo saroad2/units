@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import units_generator.internal.ConstantsGroupInterface;
 import units_generator.internal.NamesManipulator;
 import units_generator.internal.UnitTypeInterface;
 import units_generator.internal.UnitsSchemaInterface;
@@ -42,5 +43,10 @@ public class JavaUnitsSchema implements UnitsSchemaInterface {
 	@Override
 	public List<UnitsTestSuiteInterface> getTestSuites() {
 		return testSuites;
+	}
+	
+	@Override
+	public List<ConstantsGroupInterface> getConstantsGroups() {
+		return null;
 	}
 }

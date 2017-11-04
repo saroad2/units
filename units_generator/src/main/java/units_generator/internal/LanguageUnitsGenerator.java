@@ -13,14 +13,16 @@ import java.util.logging.Logger;
 
 public abstract class LanguageUnitsGenerator {
 
+	private String name;
 	private Logger logger;
 	private StringTemplateGroup group;
 	
 	public LanguageUnitsGenerator(String name, StringTemplateGroup group) {
+		this.name = name;
 		this.logger = Logger.getLogger(name);
 		this.group = group;
 	}
-
+	
 	protected abstract Map<String, Path> getDirectoriesMap(
 			UnitsSchemaInterface schema, Path rootDirectory) throws IOException;
 	protected abstract void generateSchemaFiles(
@@ -35,11 +37,14 @@ public abstract class LanguageUnitsGenerator {
 	protected abstract void generateTestSuiteFiles(
 			UnitsTestSuiteInterface testSuite,
 			Map<String, Path> directoriesMap) throws IOException;
+	protected abstract void generateConstantsGroup(
+			ConstantsGroupInterface constantsGroup,
+			Map<String, Path> directoriesMap) throws IOException;
 	
 	public void generate(
 			UnitsSchemaInterface schema,
 			Path rootDirectory) throws IOException{
-		logger.info("Generating files...");
+		logger.info(name + ": Generating files...");
 		Map<String, Path> directoriesMap = getDirectoriesMap(schema, rootDirectory);
 		generateSchemaFiles(schema, directoriesMap);
 		for (UnitTypeInterface unitType : schema.getUnitTypes()) {
@@ -53,7 +58,12 @@ public abstract class LanguageUnitsGenerator {
 				generateTestSuiteFiles(testSuite, directoriesMap);
 			}
 		}
-		logger.info("Generating files succeded!");
+		if (schema.getConstantsGroups() != null) {
+			for (ConstantsGroupInterface constantsGroup : schema.getConstantsGroups()) {
+				generateConstantsGroup(constantsGroup, directoriesMap);
+			}
+		}
+		logger.info(name + ": Generating files succeded!");
 	}
 
 	protected void addToDirectoriesMap(

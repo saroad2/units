@@ -1,5 +1,6 @@
 package units_generator.cpp_generator;
 
+import units_schema.ConstantsGroup;
 import units_schema.Schema;
 import units_schema.TestSuite;
 import units_schema.UnitType;
@@ -9,6 +10,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import units_generator.cpp_generator.CppUnitType;
+import units_generator.internal.ConstantsGroupInterface;
 import units_generator.internal.UnitTypeInterface;
 import units_generator.internal.UnitsSchemaInterface;
 import units_generator.internal.UnitsTestSuiteInterface;
@@ -17,6 +19,7 @@ public class CppSchema implements UnitsSchemaInterface {
 	
 	private List<UnitTypeInterface> unitTypes;
 	private List<UnitsTestSuiteInterface> testSuites;
+	private List<ConstantsGroupInterface> constantsGroups;
 	
 	private static CppSupportChecker supportChecker = new CppSupportChecker();
 	
@@ -29,10 +32,16 @@ public class CppSchema implements UnitsSchemaInterface {
 	public List<UnitsTestSuiteInterface> getTestSuites() {
 		return testSuites;
 	}
+	
+	@Override
+	public List<ConstantsGroupInterface> getConstantsGroups() {
+		return constantsGroups;
+	}
 
 	public CppSchema (Schema schema) {
 		unitTypes = new ArrayList<UnitTypeInterface>();
 		testSuites = new ArrayList<>();
+		constantsGroups = new ArrayList<>();
 		for (UnitType unitType : schema.getUnitTypes()) {
 			if (!supportChecker.isSupported(unitType))
 				continue;
@@ -42,6 +51,9 @@ public class CppSchema implements UnitsSchemaInterface {
 					.filter((someTestSuite) -> someTestSuite.getUnitType().equals(unitType.getTypeName()))
 					.collect(Collectors.toList()).get(0);			
 			testSuites.add(new CppUnitsTestSuite(testSuite));
+		}
+		for (ConstantsGroup group : schema.getConstants().getConstantsGroups()) {
+			constantsGroups.add(new CppConstantsGroup(this, group));
 		}
 	}
 

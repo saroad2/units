@@ -1,20 +1,6 @@
 {
 	"definitions" : {
 	
-		"ratio" : {
-			"type" : "object",
-			"properties" : {
-				"numerators" : { 
-					"type" : "array",
-					 "items" : {"type" : "string"}
-				},
-				"denominators" : { 
-					"type" : "array",
-					 "items" : {"type" : "string"}
-				}
-			}
-		},
-	
 		"unit_scale" : {
 			"type" : "object",
 			"properties" : {
@@ -25,7 +11,7 @@
 				"multiplier_number" : { "type" : "number" },
 				"multiplier_string" : { "type" : "string" },
 				"relative_to" : { "type" : "string" },
-				"ratio" : { "$ref" : "#/definitions/ratio" },
+				"ratio" : { "$ref" : "ratio.json" },
 				"name" : { "type" : "string" },
 				"singular_name" : { "type" : "string" },
 				"plural_name" : { "type" : "string" }
@@ -37,7 +23,7 @@
 	"type" : "object",
 	"properties" : {
 		"type_name" : { "type" : "string" },
-		"ratio" : {"$ref" : "#/definitions/ratio" },
+		"ratio" : {"$ref" : "ratio.json" },
 		"unit_scales" : {
 			"type" : "array",
 			"items": { "$ref" : "#/definitions/unit_scale" }

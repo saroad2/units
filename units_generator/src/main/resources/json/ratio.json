@@ -1,0 +1,14 @@
+{
+	"title" : "Ratio",
+	"type" : "object",
+	"properties" : {
+		"numerators" : { 
+			"type" : "array",
+			 "items" : {"type" : "string"}
+		},
+		"denominators" : { 
+			"type" : "array",
+			 "items" : {"type" : "string"}
+		}
+	}
+}

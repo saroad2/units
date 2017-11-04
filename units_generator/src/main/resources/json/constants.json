@@ -4,10 +4,11 @@
 		"constant" : {
 			"type" : "object",
 			"properties" : {
-				"name" : { "type" : "string"},
-				"unit_scale" : { "type" : "string"},
-				"value" : { "type" : "number"}, 
-				"description" : { "type" : "string"}
+				"name" : { "type" : "string" },
+				"unit_scale" : { "type" : "string" },
+				"ratio" : { "$ref" : "ratio.json" },
+				"value" : { "type" : "number" }, 
+				"description" : { "type" : "string" }
 			}
 		},
 		

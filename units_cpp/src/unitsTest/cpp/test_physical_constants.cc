@@ -22,5 +22,5 @@ protected:
 
 TEST_F(TestPhysicalConstants, testPlankConstantToReducedPlankConstantRelation)
 {
-	ASSERT_NEAR(plankConstant.value(), 2 * M_PI * reducedPlankConstant.value(), error);
+	ASSERT_NEAR(planckConstant.value(), 2 * M_PI * reducedPlanckConstant.value(), error);
 }

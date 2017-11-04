@@ -1,35 +1,34 @@
-/*
- * physical_constants.h
- *
- *  Created on: Nov 3, 2017
- *      Author: sagis
+/* This file is auto generated.
+ * DO NOT EDIT IT MANUALLY!
  */
 
-#ifndef SRC_UNITS_HEADERS_UNITS_CONSTANTS_PHYSICAL_CONSTANTS_H_
-#define SRC_UNITS_HEADERS_UNITS_CONSTANTS_PHYSICAL_CONSTANTS_H_
+#ifndef _PHYSICAL_CONSTANTS_
+#define _PHYSICAL_CONSTANTS_
 
-#include <units/length_units.h>
-#include <units/speed_units.h>
-#include <units/force_units.h>
-#include <units/energy_units.h>
 #include <units/electric_charge_units.h>
-#include <units/duration_units.h>
-#include <units/internal/units_multiply_type.h>
 #include <units/internal/units_ratio_type.h>
+#include <units/energy_units.h>
+#include <units/force_units.h>
+#include <units/duration_units.h>
+#include <units/length_units.h>
+#include <units/internal/units_multiply_type.h>
+#include <units/speed_units.h>
+
 
 namespace units {
 namespace physical_constants
 {
 
-constexpr speed::MetersPerSecond speedOfLight{299792458};
-constexpr Multiply<energy::Joules, duration::Seconds> plankConstant{6.626070040e-34};
-constexpr Multiply<energy::Joules, duration::Seconds> reducedPlankConstant{1.054571800e-34};
+constexpr speed::MetersPerSecond speedOfLight{2.99792458E8};
+constexpr Multiply<energy::Joules, duration::Seconds> planckConstant{6.62607004E-34};
+constexpr Multiply<energy::Joules, duration::Seconds> reducedPlanckConstant{1.0545718E-34};
 constexpr Ratio<
 	Multiply<force::Newtons, length::Meters, length::Meters>,
-	Multiply<duration::Seconds, duration::Seconds>> gravitationalConstant{6.67408};
-constexpr electric_charge::Coulombs elementaryCharge{1.6021766208e-19};
+	Multiply<duration::Seconds, duration::Seconds>> gravitationalConstant{6.67408E-11};
+constexpr electric_charge::Coulombs elementaryCharge{1.6021766208E-19};
+
 
 }
 }
 
-#endif /* SRC_UNITS_HEADERS_UNITS_CONSTANTS_PHYSICAL_CONSTANTS_H_ */
+#endif /* _PHYSICAL_CONSTANTS_ */

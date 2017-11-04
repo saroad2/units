@@ -90,6 +90,50 @@
 					"description" : "the second eccentricity of the earth modeled by the wgs84."
 				}
 			]
+		},
+		{
+			"group_name" : "physical constants",
+			"constants" : [
+				{
+					"name" : "speed of light",
+					"unit_scale" : "meters per second",
+					"value" : 299792458,
+					"description" : "the speed of light in vaccum."
+				},
+				{
+					"name" : "planck constant",
+					"ratio" : {
+						"numerators" : ["joules", "seconds"],
+						"denominators" : []
+					},
+					"value" : 6.626070040e-34,
+					"description" : "the quantum of action."
+				},
+				{
+					"name" : "reduced planck constant",
+					"ratio" : {
+						"numerators" : ["joules", "seconds"],
+						"denominators" : []
+					},
+					"value" : 1.054571800e-34,
+					"description" : "planck constant divided by 2 pi."
+				},
+				{
+					"name" : "gravitational constant",
+					"ratio" : {
+						"numerators" : ["newtons", "meters", "meters"],
+						"denominators" : ["seconds", "seconds"]
+					},
+					"value" : 6.67408e-11,
+					"description" : "a constant reguarding the force between to objects, depending on their masses and distance"
+				},
+				{
+					"name" : "elementary charge",
+					"unit_scale" : "coulombs",
+					"value" : 1.6021766208e-19,
+					"description" : "the electric charge of a single proton"
+				}
+			]
 		}
 	]
 }

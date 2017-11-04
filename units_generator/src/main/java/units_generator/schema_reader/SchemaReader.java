@@ -47,7 +47,7 @@ public class SchemaReader {
 	
 	private void readConstantsFromDataDirectory(Schema schema, ObjectMapper mapper, String dataDirectoryPath)
 			throws IOException, JsonParseException, JsonMappingException {
-		Path constantsPath = Paths.get(dataDirectoryPath, "constants.json");
+		Path constantsPath = Paths.get(dataDirectoryPath, "units_constants.json");
 		Constants constants = mapper.readValue(constantsPath.toFile(), Constants.class);
 		schema.setConstants(constants);
 	}

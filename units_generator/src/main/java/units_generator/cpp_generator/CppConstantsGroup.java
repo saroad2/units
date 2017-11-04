@@ -27,7 +27,7 @@ public class CppConstantsGroup implements ConstantsGroupInterface {
 		for (Constant constant : group.getConstants()) {
 			CppConstant cppConstant = new CppConstant(schema, constant); 
 			constants.add(cppConstant);
-			includes.add(cppConstant.getIncludeNeeded());
+			includes.addAll(cppConstant.getIncludeNeeded());
 		}
 	}
 	@Override

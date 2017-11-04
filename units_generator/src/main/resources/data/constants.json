@@ -58,6 +58,38 @@
 					"description" : "the mass of neptune"
 				}
 			]
+		},
+		{
+			"group_name" : "wgs84",
+			"constants" : [
+				{
+					"name" : "semi major axis",
+					"unit_scale" : "meters",
+					"value" : 6378137,
+					"description" : "the semi major axis of the earth modeled by the wgs84."
+				},
+				{
+					"name" : "semi minor axis",
+					"unit_scale" : "meters",
+					"value" : 6356752.3142,
+					"description" : "the semi minor axis of the earth modeled by the wgs84."
+				},
+				{
+					"name" : "flattening",
+					"value" : 0.00335281066,
+					"description" : "the flattening of the earth modeled by the wgs84."
+				},
+				{
+					"name" : "first eccentricity",
+					"value" : 0.081819190842622,
+					"description" : "the first eccentricity of the earth modeled by the wgs84."
+				},
+				{
+					"name" : "second eccentricity",
+					"value" : 0.082094437949696,
+					"description" : "the second eccentricity of the earth modeled by the wgs84."
+				}
+			]
 		}
 	]
 }

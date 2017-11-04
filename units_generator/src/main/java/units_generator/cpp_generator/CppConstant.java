@@ -1,5 +1,8 @@
 package units_generator.cpp_generator;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import units_generator.internal.ConstantInterface;
 import units_schema.Constant;
 
@@ -9,17 +12,24 @@ public class CppConstant implements ConstantInterface {
 	private String unitScale;
 	private double value;
 	private String description;
-	private String namespace;
-	private String includeNeeded;
+	private Set<String> includeNeeded;
 	
 	public CppConstant(CppSchema schema, Constant constant) {
 		name = CppNamesFormatter.toLowerCamelCase(constant.getName());
-		unitScale = CppNamesFormatter.formatClassName(constant.getUnitScale());
+		initializeUnitScaleAndIncludes(schema, constant);
 		value = constant.getValue();
 		description = constant.getDescription();
-		CppUnitType unitType = (CppUnitType)schema.getUnitTypeOfScale(constant.getUnitScale());
-		namespace = unitType.getNamespace();
-		includeNeeded = "units/" + unitType.getHeaderFileName();
+	}
+
+	private void initializeUnitScaleAndIncludes(CppSchema schema, Constant constant) {
+		includeNeeded = new HashSet<>();
+		if (constant.getUnitScale() == null) {
+			this.unitScale = "double";
+			return;
+		}
+		CppUnitType unitType = (CppUnitType)schema.getUnitTypeOfScale(constant.getUnitScale());		
+		unitScale = unitType.getNamespace() + "::" + CppNamesFormatter.formatClassName(constant.getUnitScale());
+		includeNeeded.add("units/" + unitType.getHeaderFileName());
 	}
 	
 	@Override
@@ -42,11 +52,7 @@ public class CppConstant implements ConstantInterface {
 		return description;
 	}
 
-	public String getNamespace() {
-		return namespace;
-	}
-
-	public String getIncludeNeeded() {
+	public Set<String> getIncludeNeeded() {
 		return includeNeeded;
 	}
 

@@ -60,7 +60,7 @@
 			]
 		},
 		{
-			"group_name" : "planetary_rotation periods",
+			"group_name" : "planetary_rotation_periods",
 			"constants" : [
 				{
 					"name" : "sun rotation period",
@@ -119,6 +119,65 @@
 			]
 		},
 		{
+			"group_name" : "planetary_densities",
+			"constants" : [
+				{
+					"name" : "sun density",
+					"unit_scale" : "kilograms per liter",
+					"value" : 1.4,
+					"description" : "the ratio of the mass of the sun to the volume of space it takes up"
+				},
+				{
+					"name" : "mercury density",
+					"unit_scale" : "kilograms per liter",
+					"value" : 5.4,
+					"description" : "the ratio of the mass of mercury to the volume of space it takes up"
+				},
+				{
+					"name" : "venus density",
+					"unit_scale" : "kilograms per liter",
+					"value" : 5.2,
+					"description" : "the ratio of the mass of venus to the volume of space it takes up"
+				},
+				{
+					"name" : "earth density",
+					"unit_scale" : "kilograms per liter",
+					"value" : 5.5,
+					"description" : "the ratio of the mass of earth to the volume of space it takes up"
+				},
+				{
+					"name" : "mars density",
+					"unit_scale" : "kilograms per liter",
+					"value" : 3.9,
+					"description" : "the ratio of the mass of mars to the volume of space it takes up"
+				},
+				{
+					"name" : "jupiter density",
+					"unit_scale" : "kilograms per liter",
+					"value" : 1.3,
+					"description" : "the ratio of the mass of jupiter to the volume of space it takes up"
+				},
+				{
+					"name" : "saturn density",
+					"unit_scale" : "kilograms per liter",
+					"value" : 0.7,
+					"description" : "the ratio of the mass of saturn to the volume of space it takes up"
+				},
+				{
+					"name" : "uranus density",
+					"unit_scale" : "kilograms per liter",
+					"value" : 1.3,
+					"description" : "the ratio of the mass of uranus to the volume of space it takes up"
+				},
+				{
+					"name" : "neptune density",
+					"unit_scale" : "kilograms per liter",
+					"value" : 1.6,
+					"description" : "the ratio of the mass of neptune to the volume of space it takes up"
+				}
+			]
+		},
+		{
 			"group_name" : "wgs84",
 			"constants" : [
 				{
@@ -157,7 +216,7 @@
 					"name" : "speed of light",
 					"unit_scale" : "meters per second",
 					"value" : 299792458,
-					"description" : "the speed of light in vaccum."
+					"description" : "the speed of light in vacuum."
 				},
 				{
 					"name" : "planck constant",
@@ -184,7 +243,7 @@
 						"denominators" : ["seconds", "seconds"]
 					},
 					"value" : 6.67408e-11,
-					"description" : "a constant reguarding the force between to objects, depending on their masses and distance"
+					"description" : "a constant regarding the force between to objects, depending on their masses and distance"
 				},
 				{
 					"name" : "elementary charge",

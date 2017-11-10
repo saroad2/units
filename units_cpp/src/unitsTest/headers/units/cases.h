@@ -30,22 +30,15 @@ protected:
 	{
 		auto expected = Unit2{unit1InUnit2};
 		auto actual= units::units_cast<Unit2>(Unit1{1});
-		int count = 0;
-		while (actual < Unit2{1})
-		{
-			actual *= 10;
-			expected *= 10;
-			++count;
-		}
-		auto diff = actual - expected;
-		EXPECT_NEAR(diff.value(), 0, maxError)
+		auto error = (actual.value() / expected.value() - 1) * 100;
+		EXPECT_NEAR(error, 0, maxErrorPercent)
 			<< std::setprecision(30)
-			<< expected.value() << "e-" << count
-			<< " != "
-			<< actual.value() << "e-" << count << std::fixed;
+			<< expected << " != " << actual.value()
+			<< "(" << error << "% error)"
+			<< std::fixed;
 	}
 
-	static constexpr double maxError = 1e-6;
+	static constexpr double maxErrorPercent = 1e-8;
 };
 
 class TestUnitsPrintings : public ::testing::Test

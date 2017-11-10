@@ -11,17 +11,17 @@ public class RatioValidator {
 			Schema schema,
 			Ratio ratio) throws InvalidSchema{
 		for (String unitTypeName : ratio.getNumerators())
-			UnitsExistanceValidator.validateUnitTypeExistance(schema, unitTypeName);
+			UnitsExistanceValidator.validateUnitTypeExistanceCount(schema, unitTypeName);
 		for (String unitTypeName : ratio.getDenominators())
-			UnitsExistanceValidator.validateUnitTypeExistance(schema, unitTypeName);
+			UnitsExistanceValidator.validateUnitTypeExistanceCount(schema, unitTypeName);
 	}
 	
 	public static void validateUnitScalesRatio(
 			Schema schema,
 			Ratio ratio) throws InvalidSchema{
 		for (String unitTypeName : ratio.getNumerators())
-			UnitsExistanceValidator.validateUnitScaleExistance(schema, unitTypeName);
+			UnitsExistanceValidator.validateUnitScaleExistanceCount(schema, unitTypeName);
 		for (String unitTypeName : ratio.getDenominators())
-			UnitsExistanceValidator.validateUnitScaleExistance(schema, unitTypeName);
+			UnitsExistanceValidator.validateUnitScaleExistanceCount(schema, unitTypeName);
 	}
 }

@@ -20,7 +20,7 @@ public class UnitTypeValidator {
 			UnitType unitType) throws InvalidSchema{
 		String unitTypeName = NamesManipulator.getName(unitType);
 		NamesValidator.validateName(unitTypeName);
-		UnitsExistanceValidator.validateUnitTypeExistance(schema, unitTypeName);
+		UnitsExistanceValidator.validateUnitTypeExistanceCount(schema, unitTypeName);
 		if (unitType.getRatio() != null)
 			RatioValidator.validateUnitTypesRatio(schema, unitType.getRatio());
 		for (UnitScale scale : unitType.getUnitScales()) {

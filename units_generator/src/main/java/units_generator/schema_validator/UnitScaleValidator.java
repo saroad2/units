@@ -16,7 +16,7 @@ public class UnitScaleValidator {
 		NamesValidator.validatePrintedName(unitScale.getPluralName());
 		String unitScaleName = NamesManipulator.getName(unitScale);
 		NamesValidator.validateName(unitScaleName);
-		UnitsExistanceValidator.validateUnitScaleExistance(schema, unitScaleName);
+		UnitsExistanceValidator.validateUnitScaleExistanceCount(schema, unitScaleName);
 		validateUnitScaleDefinition(unitScale);
 		if (unitScale.getRatio() != null)
 			RatioValidator.validateUnitScalesRatio(schema, unitScale.getRatio());

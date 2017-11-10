@@ -12,7 +12,7 @@ public class TestSuiteValidator {
 	public static void validate(
 			Schema schema,
 			TestSuite testSuite) throws InvalidSchema {
-		UnitsExistanceValidator.validateUnitTypeExistance(schema, testSuite.getUnitType());
+		UnitsExistanceValidator.validateUnitTypeExistanceCount(schema, testSuite.getUnitType());
 		UnitType unitType = UnitsExtractor.getUnitType(schema, testSuite.getUnitType());
 		for (TestCase testCase : testSuite.getTestCases()) {
 			validateTestCase(testCase, unitType);
@@ -22,10 +22,10 @@ public class TestSuiteValidator {
 	private static void validateTestCase(
 			TestCase testCase,
 			UnitType unitType) throws InvalidSchema {
-		UnitsExistanceValidator.validateUnitScaleExistance(
+		UnitsExistanceValidator.validateUnitScaleExistanceCount(
 				unitType,
 				testCase.getFrom());
-		UnitsExistanceValidator.validateUnitScaleExistance(
+		UnitsExistanceValidator.validateUnitScaleExistanceCount(
 				unitType, 
 				testCase.getTo());
 	}

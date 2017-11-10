@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import units_generator.internal.NamesManipulator;
+import units_generator.internal.UnitsExtractor;
 import units_generator.schema_validator.exceptions.*;
 import units_schema.Schema;
 import units_schema.TestCase;
@@ -122,21 +123,12 @@ public class SchemaValidator {
 			throw new InvalidConversionTest(testCaseCount, from, to);
 		}
 	}
-	
-	private static UnitType getUnitType(Schema schema, TestSuite testSuite) {
-		List<UnitType> filteredUnitTypes = schema.getUnitTypes().stream()
-				.filter((unitType) -> NamesManipulator.getName(unitType).equals(testSuite.getUnitType()))
-				.collect(Collectors.toList());
-		if (filteredUnitTypes.size() != 1)
-			return null;
-		return filteredUnitTypes.get(0);
-	}
 
 	private static void validateTestSuite(
 			TestSuite testSuite,
 			Schema schema) throws InvalidSchema {
 		UnitsExistanceValidator.validateUnitTypeExistance(schema, testSuite.getUnitType());
-		UnitType unitType = getUnitType(schema, testSuite);
+		UnitType unitType = UnitsExtractor.getUnitType(schema, testSuite.getUnitType());
 		for (TestCase testCase : testSuite.getTestCases()) {
 			validateTestCase(testCase, unitType);
 		}

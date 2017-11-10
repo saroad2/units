@@ -4,7 +4,8 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import units_generator.schema_reader.exceptions.InvalidSchema;
+import units_generator.schema_validator.SchemaValidator;
+import units_generator.schema_validator.exceptions.InvalidSchema;
 
 import java.io.IOException;
 import java.nio.file.Path;

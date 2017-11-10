@@ -1,4 +1,4 @@
-package units_generator.schema_reader.exceptions;
+package units_generator.schema_validator.exceptions;
 
 public class NoneExitingUnitScale extends InvalidSchema {
 

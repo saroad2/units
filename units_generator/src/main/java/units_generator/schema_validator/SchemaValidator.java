@@ -1,10 +1,10 @@
-package units_generator.schema_reader;
+package units_generator.schema_validator;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 import units_generator.internal.NamesManipulator;
-import units_generator.schema_reader.exceptions.*;
+import units_generator.schema_validator.exceptions.*;
 import units_schema.Ratio;
 import units_schema.Schema;
 import units_schema.TestCase;

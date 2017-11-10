@@ -1,4 +1,4 @@
-package units_generator.schema_reader;
+package units_generator.schema_validator;
 
 import java.util.Arrays;
 

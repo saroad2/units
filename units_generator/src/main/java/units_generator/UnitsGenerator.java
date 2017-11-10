@@ -12,7 +12,7 @@ import units_generator.docs_generator.DocsSchema;
 import units_generator.java_generator.JavaUnitsGenerator;
 import units_generator.java_generator.JavaUnitsSchema;
 import units_generator.schema_reader.SchemaReader;
-import units_generator.schema_reader.exceptions.InvalidSchema;
+import units_generator.schema_validator.exceptions.InvalidSchema;
 
 import java.io.File;
 import java.io.FileNotFoundException;

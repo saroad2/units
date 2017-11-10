@@ -10,12 +10,12 @@ public class ForceCastingTests extends CastingTestsBase{
 
 	@Test
 	public void testCastFromDynesToNewtons() {
-		checkCastedValue(Dynes.one().castTo(Newtons.class).value(), 1.0E-5);
+		checkCastedValue(Dynes.one().castTo(Newtons.class), new Newtons(1.0E-5));
 	}
 
 	@Test
 	public void testCastFromNewtonsToDynes() {
-		checkCastedValue(Newtons.one().castTo(Dynes.class).value(), 100000.0);
+		checkCastedValue(Newtons.one().castTo(Dynes.class), new Dynes(100000.0));
 	}
 
 

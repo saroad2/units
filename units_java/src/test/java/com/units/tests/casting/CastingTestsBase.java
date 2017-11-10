@@ -2,19 +2,20 @@ package com.units.tests.casting;
 
 import static org.junit.Assert.assertTrue;
 
+import com.units.Unit;
+
 public class CastingTestsBase {
 
-	private static final double epsilon = 1e-06;
+	private static final double maxErrorPercent = 1e-8;
 	
-	private double calculateError(double value1, double value2) {
-		return Math.abs(value1 - value2); 
+	private double calculateErrorPercent(double castedValue, double expectedValue) {
+		return (castedValue / expectedValue - 1) * 100; 
 	}
 	
-	protected void checkCastedValue(double castedValue, double expectedValue) {
-		double error = calculateError(castedValue, expectedValue); 
+	protected <E extends Unit> void checkCastedValue(E actual, E expected) {
+		double error = calculateErrorPercent(actual.value(), expected.value()); 
 		assertTrue(
-			"value after casting is " + castedValue + " instead of " + expectedValue
-			+ ". error is " + error,
-			error < epsilon);
+			actual + " != " + expected + "(" + error + "% error)",
+			error < maxErrorPercent);
 	}
 }

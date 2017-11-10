@@ -273,7 +273,7 @@ public class <unitScale.className>Tests {
 conversion_test_case(testCase) ::= <<
 @Test
 public void <testCase.name>() {
-	checkCastedValue(<testCase.from>.one().castTo(<testCase.to>.class).value(), <testCase.value>);
+	checkCastedValue(<testCase.from>.one().castTo(<testCase.to>.class), new <testCase.to>(<testCase.value>));
 }
 <\n>
 >>

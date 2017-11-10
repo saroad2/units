@@ -10,12 +10,12 @@ public class TemperatureCastingTests extends CastingTestsBase{
 
 	@Test
 	public void testCastFromKelvinsToRankines() {
-		checkCastedValue(Kelvins.one().castTo(Rankines.class).value(), 1.8);
+		checkCastedValue(Kelvins.one().castTo(Rankines.class), new Rankines(1.8));
 	}
 
 	@Test
 	public void testCastFromRankinesToKelvins() {
-		checkCastedValue(Rankines.one().castTo(Kelvins.class).value(), 0.5555555555);
+		checkCastedValue(Rankines.one().castTo(Kelvins.class), new Kelvins(0.5555555555));
 	}
 
 

@@ -10,12 +10,12 @@ public class DensityCastingTests extends CastingTestsBase{
 
 	@Test
 	public void testCastFromKilogramsperliterToKilogramspercubicmeter() {
-		checkCastedValue(KilogramsPerLiter.one().castTo(KilogramsPerCubicMeter.class).value(), 1000.0);
+		checkCastedValue(KilogramsPerLiter.one().castTo(KilogramsPerCubicMeter.class), new KilogramsPerCubicMeter(1000.0));
 	}
 
 	@Test
 	public void testCastFromKilogramspercubicmeterToKilogramsperliter() {
-		checkCastedValue(KilogramsPerCubicMeter.one().castTo(KilogramsPerLiter.class).value(), 0.001);
+		checkCastedValue(KilogramsPerCubicMeter.one().castTo(KilogramsPerLiter.class), new KilogramsPerLiter(0.001));
 	}
 
 

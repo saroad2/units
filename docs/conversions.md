@@ -249,7 +249,7 @@ DO NOT EDIT IT MANUALLY!
 		</tr>
 		<tr>
 			<th>solar masses</th>
-			<td>4.3840026689400034E30</td><td>1.98855E30</td><td>1</td><td>1.9885499999999998E36</td><td>1.9885499999999998E27</td><td>1.98855E33</td>
+			<td>4.3840026689400034E30</td><td>1.98855E30</td><td>1</td><td>1.9885499999999998E36</td><td>1.98855E27</td><td>1.98855E33</td>
 		</tr>
 		<tr>
 			<th>milligrams</th>

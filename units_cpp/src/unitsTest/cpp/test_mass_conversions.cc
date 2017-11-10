@@ -112,7 +112,7 @@ TEST_F(TestMassConversions, SolarMasses_to_Pounds)
 }
 TEST_F(TestMassConversions, SolarMasses_to_Tonnes)
 {
-	check_conversion<SolarMasses, Tonnes>(1.9885499999999998E27);
+	check_conversion<SolarMasses, Tonnes>(1.98855E27);
 }
 TEST_F(TestMassConversions, Tonnes_to_Grams)
 {

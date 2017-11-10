@@ -130,7 +130,7 @@ public class MassCastingTests extends CastingTestsBase{
 
 	@Test
 	public void testCastFromSolarmassesToTonnes() {
-		checkCastedValue(SolarMasses.one().castTo(Tonnes.class), new Tonnes(1.9885499999999998E27));
+		checkCastedValue(SolarMasses.one().castTo(Tonnes.class), new Tonnes(1.98855E27));
 	}
 
 	@Test

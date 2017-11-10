@@ -9,19 +9,33 @@ public class RatioValidator {
 	/* Validation Functions*/
 	public static void validateUnitTypesRatio(
 			Schema schema,
-			Ratio ratio) throws InvalidSchema{
+			Ratio ratio,
+			String context) throws InvalidSchema{
 		for (String unitTypeName : ratio.getNumerators())
-			UnitsExistanceValidator.validateUnitTypeExistanceCount(schema, unitTypeName);
+			UnitsExistanceValidator.validateUnitTypeExistanceCount(
+					schema,
+					unitTypeName,
+					context);
 		for (String unitTypeName : ratio.getDenominators())
-			UnitsExistanceValidator.validateUnitTypeExistanceCount(schema, unitTypeName);
+			UnitsExistanceValidator.validateUnitTypeExistanceCount(
+					schema,
+					unitTypeName,
+					context);
 	}
 	
 	public static void validateUnitScalesRatio(
 			Schema schema,
-			Ratio ratio) throws InvalidSchema{
+			Ratio ratio,
+			String context) throws InvalidSchema{
 		for (String unitTypeName : ratio.getNumerators())
-			UnitsExistanceValidator.validateUnitScaleExistanceCount(schema, unitTypeName);
+			UnitsExistanceValidator.validateUnitScaleExistanceCount(
+					schema,
+					unitTypeName,
+					context);
 		for (String unitTypeName : ratio.getDenominators())
-			UnitsExistanceValidator.validateUnitScaleExistanceCount(schema, unitTypeName);
+			UnitsExistanceValidator.validateUnitScaleExistanceCount(
+					schema, 
+					unitTypeName,
+					context);
 	}
 }

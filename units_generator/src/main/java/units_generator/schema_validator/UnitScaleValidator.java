@@ -5,39 +5,61 @@ import units_generator.schema_validator.exceptions.InvalidScaleDefinition;
 import units_generator.schema_validator.exceptions.InvalidSchema;
 import units_schema.Schema;
 import units_schema.UnitScale;
+import units_schema.UnitType;
 
 public class UnitScaleValidator {
 
 	/*Validation Functions*/
 	public static void validateUnitScale(
 			Schema schema,
+			UnitType unitType,
 			UnitScale unitScale)  throws InvalidSchema {
-		NamesValidator.validatePrintedName(unitScale.getSingularName());
-		NamesValidator.validatePrintedName(unitScale.getPluralName());
+		String context = getAnonymousUnitScaleContext(unitType, unitScale);
+		NamesValidator.validatePrintedName(unitScale.getSingularName(), context);
+		NamesValidator.validatePrintedName(unitScale.getPluralName(), context);
 		String unitScaleName = NamesManipulator.getName(unitScale);
-		NamesValidator.validateName(unitScaleName);
-		UnitsExistanceValidator.validateUnitScaleExistanceCount(schema, unitScaleName);
-		validateUnitScaleDefinition(unitScale);
-		if (unitScale.getRatio() != null)
-			RatioValidator.validateUnitScalesRatio(schema, unitScale.getRatio());
+		NamesValidator.validateName(unitScaleName, context);
+		UnitsExistanceValidator.validateUnitScaleExistanceCount(schema, unitScaleName, context);
+		validateUnitScaleDefinition(schema, unitScale);
 	}
 
 	private static void validateUnitScaleDefinition(
-			UnitScale scale) throws InvalidSchema {
-		boolean isBasic = scale.getIsBasic();
-		boolean isRatio = scale.getRatio() != null;
+			Schema schema,
+			UnitScale unitScale) throws InvalidSchema {
+		String context = getContext(unitScale);
+		boolean isBasic = unitScale.getIsBasic();
+		boolean isRatio = unitScale.getRatio() != null;
 		boolean isStringMultiplier = 
-				NamesManipulator.isValidName(scale.getRelativeTo()) &&
-				NamesManipulator.isValidName(scale.getMultiplierString());
+				NamesManipulator.isValidName(unitScale.getRelativeTo()) &&
+				NamesManipulator.isValidName(unitScale.getMultiplierString());
 		boolean isNumberMultiplier = 
-				NamesManipulator.isValidName(scale.getRelativeTo()) &&
-				scale.getMultiplierNumber() != null;
+				NamesManipulator.isValidName(unitScale.getRelativeTo()) &&
+				unitScale.getMultiplierNumber() != null;
 		if (!BooleanChecker.exactlyOne(
 				isBasic,
 				isRatio,
 				isStringMultiplier,
 				isNumberMultiplier)) {
-			throw new InvalidScaleDefinition(NamesManipulator.getName(scale));
+			throw new InvalidScaleDefinition(NamesManipulator.getName(unitScale), context);
 		}
+		if (unitScale.getRatio() != null)
+			RatioValidator.validateUnitScalesRatio(schema, unitScale.getRatio(), context);
+	}
+	
+	/*Contexts*/
+	private static String getAnonymousUnitScaleContext(
+			UnitType unitType,
+			UnitScale unitScale)
+	{
+		int unitScaleIndex = unitType.getUnitScales().indexOf(unitScale) + 1;
+		String unitTypeName = NamesManipulator.getName(unitType);
+		return "in unit scale number " + unitScaleIndex + " of \"" + unitTypeName + "\"";
+	}
+	
+	/*Contexts*/
+	private static String getContext(UnitScale unitScale)
+	{
+		String unitScaleName = NamesManipulator.getName(unitScale);
+		return "in \"" + unitScaleName + "\" definition";
 	}
 }

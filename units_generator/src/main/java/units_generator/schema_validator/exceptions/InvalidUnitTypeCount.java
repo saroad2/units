@@ -7,8 +7,8 @@ public class InvalidUnitTypeCount extends InvalidSchema {
 	 */
 	private static final long serialVersionUID = 3880236362226475719L;
 
-	public InvalidUnitTypeCount(String unitTypeName, long count) {
+	public InvalidUnitTypeCount(String unitTypeName, long count, String context) {
 		super("\"" + unitTypeName + "\" unit type found " + count
-				+ " times in schema, but there should be only one");
+				+ " times in schema, but there should be only one", context);
 	}
 }

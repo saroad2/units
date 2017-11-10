@@ -1,13 +1,15 @@
 package units_generator.internal;
 
 import units_schema.UnitType;
-
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import units_schema.UnitScale;
 
+import java.util.regex.Pattern;
+
 public class NamesManipulator {
+
+	private static final Pattern namePattern =
+		Pattern.compile("[a-z][a-z ]*[a-z]"); 
+
 	public static String normalize(String name) {
 		if(name == null)
 			return null;
@@ -15,7 +17,7 @@ public class NamesManipulator {
 	}
 	
 	public static String getName(UnitType unitType) {
-		if (!isValidString(unitType.getTypeName()))
+		if (!isValidPrintName(unitType.getTypeName()))
 			return null;
 		return normalize(unitType.getTypeName());
 	}
@@ -28,15 +30,11 @@ public class NamesManipulator {
 		return null;
 	}
 	
-	public static boolean isValidString(String s) {
-		return s != null && !s.isEmpty();
+	public static boolean isValidPrintName(String name) {
+		return name != null && !name.isEmpty();
 	}
 	
-	public static boolean isValidName(String s) {
-		if (s == null)
-			return false;
-		Pattern namePattern = Pattern.compile("^[ A-Za-z]+$");
-		Matcher matcher = namePattern.matcher(s);
-		return matcher.matches();
+	public static boolean isValidName(String name) {
+		return isValidPrintName(name) && namePattern.matcher(name).matches();
 	}
 }

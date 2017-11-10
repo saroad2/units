@@ -26,10 +26,9 @@ public class SchemaValidator {
 	public static void validateUnitType(
 			Schema schema,
 			UnitType unitType) throws InvalidSchema {
-		int thisTypeIndex = schema.getUnitTypes().indexOf(unitType) + 1;
-		String typeName = NamesManipulator.getName(unitType);
-		validateUnitTypeName(typeName, thisTypeIndex);
-		UnitsExistanceValidator.validateUnitTypeExistance(schema, typeName);
+		String unitTypeName = NamesManipulator.getName(unitType);
+		NamesValidator.validateName(unitTypeName);
+		UnitsExistanceValidator.validateUnitTypeExistance(schema, unitTypeName);
 		if (unitType.getRatio() != null)
 			RatioValidator.validateUnitTypesRatio(schema, unitType.getRatio());
 		for (UnitScale scale : unitType.getUnitScales()) {
@@ -37,47 +36,24 @@ public class SchemaValidator {
 		}
 		validateUnitTypeTestSuite(schema, unitType);
 	}
-
-	private static void validateUnitTypeName(
-			String name,
-			int thisTypeIndex) throws InvalidSchema {
-		if(name == null) {
-			throw new InvalidUnitTypeName(thisTypeIndex);
-		}
-	}
 	
 	public static void validateUnitScale(
 			Schema schema,
 			UnitType unitType,
-			UnitScale scale) throws InvalidSchema {
-		String typeName = NamesManipulator.getName(unitType);
-		int thisScaleIndex = unitType.getUnitScales().indexOf(scale) + 1;
-		validateUnitScalePrintNames(scale, thisScaleIndex, typeName);
-		String scaleName = NamesManipulator.getName(scale);
-		validateUnitScaleName(scaleName, thisScaleIndex, typeName);
-		UnitsExistanceValidator.validateUnitScaleExistance(schema, scaleName);
-		validateUnitScaleDefinition(scale);
-		if (scale.getRatio() != null)
-			RatioValidator.validateUnitScalesRatio(schema, scale.getRatio());
+			UnitScale unitScale) throws InvalidSchema {
+		validateUnitScalePrintNames(unitScale);
+		String unitScaleName = NamesManipulator.getName(unitScale);
+		NamesValidator.validateName(unitScaleName);
+		UnitsExistanceValidator.validateUnitScaleExistance(schema, unitScaleName);
+		validateUnitScaleDefinition(unitScale);
+		if (unitScale.getRatio() != null)
+			RatioValidator.validateUnitScalesRatio(schema, unitScale.getRatio());
 	}
 
 	public static void validateUnitScalePrintNames(
-			UnitScale scale,
-			int index,
-			String typeName) throws InvalidSchema {
-		if (!NamesManipulator.isValidString(scale.getPluralName()))
-			throw new InvalidPluralName(index, typeName);
-		if (!NamesManipulator.isValidString(scale.getSingularName()))
-			throw new InvalidSingularName(index, typeName);
-	}
-	
-	private static void validateUnitScaleName(
-			String scaleName,
-			int thisScaleIndex,
-			String typeName) throws InvalidSchema {
-		if (scaleName == null) {
-			throw new InvalidUnitScaleName(thisScaleIndex, typeName);
-		}
+			UnitScale scale) throws InvalidSchema {
+		NamesValidator.validatePrintedName(scale.getSingularName());
+		NamesValidator.validatePrintedName(scale.getPluralName());
 	}
 
 	private static void validateUnitScaleDefinition(

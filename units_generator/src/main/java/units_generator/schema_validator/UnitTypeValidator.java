@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 import units_generator.internal.NamesManipulator;
 import units_generator.schema_validator.exceptions.InvalidConversionTest;
 import units_generator.schema_validator.exceptions.InvalidSchema;
-import units_generator.schema_validator.exceptions.InvalidTestSuite;
+import units_generator.schema_validator.exceptions.InvalidTestSuiteCount;
 import units_schema.Schema;
 import units_schema.TestSuite;
 import units_schema.UnitScale;
@@ -34,7 +34,6 @@ public class UnitTypeValidator {
 			UnitType unitType) throws InvalidSchema {
 		String typeName = NamesManipulator.getName(unitType);
 		TestSuite testSuite = getTestSuite(schema, typeName);
-		validateTestSuiteExistance(testSuite, typeName);
 		for (int i=1; i < unitType.getUnitScales().size(); ++i) {
 			for (int j=0; j < i; ++j) {
 				String unitScale1 = NamesManipulator.getName(unitType.getUnitScales().get(i));
@@ -47,20 +46,13 @@ public class UnitTypeValidator {
 	
 	private static TestSuite getTestSuite(
 			Schema schema,
-			String typeName) {
+			String typeName) throws InvalidSchema{
 		List<TestSuite> unitTypeTestSuites = schema.getTests().getTestSuites().stream()
 				.filter((testSuite) -> typeName.equals(testSuite.getUnitType()))
 				.collect(Collectors.toList());
 		if (unitTypeTestSuites.size() != 1)
-			return null;
+			throw new InvalidTestSuiteCount(typeName, unitTypeTestSuites.size());
 		return unitTypeTestSuites.get(0);
-	}
-	
-	private static void validateTestSuiteExistance(
-			TestSuite testSuite,
-			String typeName) throws InvalidSchema {
-		if (testSuite == null)
-			throw new InvalidTestSuite(typeName);
 	}
 
 	private static void validateTestCaseExistance(

@@ -28,7 +28,7 @@ constexpr Multiply<energy::Joules, duration::Seconds> planckConstant{6.62607004E
 //planck constant divided by 2 pi.
 constexpr Multiply<energy::Joules, duration::Seconds> reducedPlanckConstant{1.0545718E-34};
 
-//a constant regarding the force between to objects, depending on their masses and distance
+//a constant regarding the force between two objects, depending on their masses and distance
 constexpr Ratio<
 	Multiply<force::Newtons, length::Meters, length::Meters>,
 	Multiply<duration::Seconds, duration::Seconds>> gravitationalConstant{6.67408E-11};

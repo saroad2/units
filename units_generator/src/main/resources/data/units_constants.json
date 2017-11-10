@@ -243,7 +243,7 @@
 						"denominators" : ["seconds", "seconds"]
 					},
 					"value" : 6.67408e-11,
-					"description" : "a constant regarding the force between to objects, depending on their masses and distance"
+					"description" : "a constant regarding the force between two objects, depending on their masses and distance"
 				},
 				{
 					"name" : "elementary charge",

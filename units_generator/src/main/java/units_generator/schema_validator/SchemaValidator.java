@@ -5,7 +5,6 @@ import java.util.stream.Collectors;
 
 import units_generator.internal.NamesManipulator;
 import units_generator.schema_validator.exceptions.*;
-import units_schema.Ratio;
 import units_schema.Schema;
 import units_schema.TestCase;
 import units_schema.TestSuite;
@@ -32,7 +31,7 @@ public class SchemaValidator {
 		validateUnitTypeName(typeName, thisTypeIndex);
 		UnitsExistanceValidator.validateUnitTypeExistance(schema, typeName);
 		if (unitType.getRatio() != null)
-			validateRatioType(schema, typeName, unitType.getRatio());
+			RatioValidator.validateUnitTypesRatio(schema, unitType.getRatio());
 		for (UnitScale scale : unitType.getUnitScales()) {
 			validateUnitScale(schema, unitType, scale);
 		}
@@ -44,33 +43,6 @@ public class SchemaValidator {
 			int thisTypeIndex) throws InvalidSchema {
 		if(name == null) {
 			throw new InvalidUnitTypeName(thisTypeIndex);
-		}
-	}
-	
-	private static void validateRatioType(
-			Schema schema,
-			String typeName,
-			Ratio ratio
-			) throws InvalidSchema {
-		validateRatio(typeName, ratio);
-		validateUnitTypesList(schema, ratio.getNumerators());
-		validateUnitTypesList(schema, ratio.getDenominators());
-	}
-	
-	private static void validateRatio(
-			String definedUnit,
-			Ratio ratio) throws InvalidSchema {
-		if (ratio.getNumerators() == null)
-			throw new InvalidNumeratorsInRatio(definedUnit);
-		if (ratio.getDenominators() == null)
-			throw new InvalidDenominatorsInRatio(definedUnit);
-	}
-	
-	private static void validateUnitTypesList(
-			Schema schema,
-			List<String> unitTypesList) throws InvalidSchema {
-		for (String unitTypeName : unitTypesList) {
-			UnitsExistanceValidator.validateUnitTypeExistance(schema, unitTypeName);
 		}
 	}
 	
@@ -86,7 +58,7 @@ public class SchemaValidator {
 		UnitsExistanceValidator.validateUnitScaleExistance(schema, scaleName);
 		validateUnitScaleDefinition(scale);
 		if (scale.getRatio() != null)
-			validateRatioScale(schema, scaleName, scale.getRatio());
+			RatioValidator.validateUnitScalesRatio(schema, scale.getRatio());
 	}
 
 	public static void validateUnitScalePrintNames(
@@ -124,24 +96,6 @@ public class SchemaValidator {
 				isStringMultiplier,
 				isNumberMultiplier)) {
 			throw new InvalidScaleDefinition(NamesManipulator.getName(scale));
-		}
-	}
-	
-	private static void validateRatioScale(
-			Schema schema,
-			String scaleName,
-			Ratio ratio
-			) throws InvalidSchema {
-		validateRatio(scaleName, ratio);
-		validateUnitScalesList(schema, ratio.getNumerators());
-		validateUnitScalesList(schema, ratio.getDenominators());
-	}
-	
-	private static void validateUnitScalesList(
-			Schema schema,
-			List<String> unitScalesList) throws InvalidSchema {
-		for (String unitScaleName : unitScalesList) {
-			UnitsExistanceValidator.validateUnitScaleExistance(schema, unitScaleName);;
 		}
 	}
 

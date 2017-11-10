@@ -33,47 +33,9 @@ public class SchemaValidator {
 		if (unitType.getRatio() != null)
 			RatioValidator.validateUnitTypesRatio(schema, unitType.getRatio());
 		for (UnitScale scale : unitType.getUnitScales()) {
-			validateUnitScale(schema, unitType, scale);
+			UnitScaleValidator.validateUnitScale(schema, scale);
 		}
 		validateUnitTypeTestSuite(schema, unitType);
-	}
-	
-	public static void validateUnitScale(
-			Schema schema,
-			UnitType unitType,
-			UnitScale unitScale) throws InvalidSchema {
-		validateUnitScalePrintNames(unitScale);
-		String unitScaleName = NamesManipulator.getName(unitScale);
-		NamesValidator.validateName(unitScaleName);
-		UnitsExistanceValidator.validateUnitScaleExistance(schema, unitScaleName);
-		validateUnitScaleDefinition(unitScale);
-		if (unitScale.getRatio() != null)
-			RatioValidator.validateUnitScalesRatio(schema, unitScale.getRatio());
-	}
-
-	public static void validateUnitScalePrintNames(
-			UnitScale scale) throws InvalidSchema {
-		NamesValidator.validatePrintedName(scale.getSingularName());
-		NamesValidator.validatePrintedName(scale.getPluralName());
-	}
-
-	private static void validateUnitScaleDefinition(
-			UnitScale scale) throws InvalidSchema {
-		boolean isBasic = scale.getIsBasic();
-		boolean isRatio = scale.getRatio() != null;
-		boolean isStringMultiplier = 
-				NamesManipulator.isValidName(scale.getRelativeTo()) &&
-				NamesManipulator.isValidName(scale.getMultiplierString());
-		boolean isNumberMultiplier = 
-				NamesManipulator.isValidName(scale.getRelativeTo()) &&
-				scale.getMultiplierNumber() != null;
-		if (!BooleanChecker.exactlyOne(
-				isBasic,
-				isRatio,
-				isStringMultiplier,
-				isNumberMultiplier)) {
-			throw new InvalidScaleDefinition(NamesManipulator.getName(scale));
-		}
 	}
 
 	private static void validateUnitTypeTestSuite(

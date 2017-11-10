@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import units_generator.internal.NamesManipulator;
-import units_generator.schema_validator.exceptions.InvalidConversionTest;
+import units_generator.schema_validator.exceptions.InvalidConversionTestCount;
 import units_generator.schema_validator.exceptions.InvalidSchema;
 import units_generator.schema_validator.exceptions.InvalidTestSuiteCount;
 import units_schema.Schema;
@@ -65,7 +65,7 @@ public class UnitTypeValidator {
 				to.equals(testCase.getTo()))
 			.count();
 		if (testCaseCount != 1) {
-			throw new InvalidConversionTest(testCaseCount, from, to);
+			throw new InvalidConversionTestCount(from, to, testCaseCount);
 		}
 	}
 }

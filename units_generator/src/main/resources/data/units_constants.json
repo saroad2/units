@@ -1,7 +1,7 @@
 {
 	"constants_groups" : [
 		{
-			"group_name" : "planetary_masses",
+			"group_name" : "planetary masses",
 			"constants" : [
 				{
 					"name" : "sun mass",
@@ -60,7 +60,7 @@
 			]
 		},
 		{
-			"group_name" : "planetary_rotation_periods",
+			"group_name" : "planetary rotation periods",
 			"constants" : [
 				{
 					"name" : "sun rotation period",
@@ -119,7 +119,7 @@
 			]
 		},
 		{
-			"group_name" : "planetary_densities",
+			"group_name" : "planetary densities",
 			"constants" : [
 				{
 					"name" : "sun density",

@@ -30,10 +30,10 @@ public class UnitScaleValidator {
 		boolean isBasic = unitScale.getIsBasic();
 		boolean isRatio = unitScale.getRatio() != null;
 		boolean isStringMultiplier = 
-				NamesManipulator.isValidName(unitScale.getRelativeTo()) &&
-				NamesManipulator.isValidName(unitScale.getMultiplierString());
+				NamesValidator.isValidName(unitScale.getRelativeTo()) &&
+				NamesValidator.isValidName(unitScale.getMultiplierString());
 		boolean isNumberMultiplier = 
-				NamesManipulator.isValidName(unitScale.getRelativeTo()) &&
+				NamesValidator.isValidName(unitScale.getRelativeTo()) &&
 				unitScale.getMultiplierNumber() != null;
 		if (!BooleanChecker.exactlyOne(
 				isBasic,

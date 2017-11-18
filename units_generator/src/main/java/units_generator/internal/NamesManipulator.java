@@ -3,12 +3,9 @@ package units_generator.internal;
 import units_schema.UnitType;
 import units_schema.UnitScale;
 
-import java.util.regex.Pattern;
+import units_generator.schema_validator.NamesValidator;
 
 public class NamesManipulator {
-
-	private static final Pattern namePattern =
-		Pattern.compile("[a-z][a-z ]*[a-z]"); 
 
 	public static String normalize(String name) {
 		if(name == null)
@@ -17,24 +14,16 @@ public class NamesManipulator {
 	}
 	
 	public static String getName(UnitType unitType) {
-		if (!isValidPrintName(unitType.getTypeName()))
+		if (!NamesValidator.isValidPrintName(unitType.getTypeName()))
 			return null;
 		return normalize(unitType.getTypeName());
 	}
 	
 	public static String getName(UnitScale scale) {
-		if (isValidName(scale.getName()))
+		if (NamesValidator.isValidName(scale.getName()))
 			return normalize(scale.getName());
-		if (isValidName(scale.getPluralName()))
+		if (NamesValidator.isValidName(scale.getPluralName()))
 			return normalize(scale.getPluralName());
 		return null;
-	}
-	
-	public static boolean isValidPrintName(String name) {
-		return name != null && !name.isEmpty();
-	}
-	
-	public static boolean isValidName(String name) {
-		return isValidPrintName(name) && namePattern.matcher(name).matches();
 	}
 }

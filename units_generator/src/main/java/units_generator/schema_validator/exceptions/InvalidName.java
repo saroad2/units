@@ -9,6 +9,7 @@ public class InvalidName extends InvalidSchema {
 
 	public InvalidName(String name, String context) {
 		super("\"" + name + "\" name is invalid. name must contain only" +
-				" lowercase letters and no trailing spaces", context);
+				" lowercase letters and numbers, start with a letter and" +
+				" have no trailing spaces", context);
 	}
 }

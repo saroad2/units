@@ -9,6 +9,6 @@ public class InvalidUnitTypeCount extends InvalidSchema {
 
 	public InvalidUnitTypeCount(String unitTypeName, long count, String context) {
 		super("\"" + unitTypeName + "\" unit type found " + count
-				+ " times in schema, but there should be only one", context);
+				+ " times in schema, but there should be exactly one", context);
 	}
 }

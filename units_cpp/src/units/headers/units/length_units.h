@@ -6,7 +6,6 @@
 #define INCLUDE_LENGTH_UNITS_H_
 
 #include <units/internal/numeric_value.h>
-#include <units/internal/utils.h>
 
 #include <units/tags/length_tags.h>
 
@@ -28,18 +27,102 @@ using Centimeters = NumericValue<tags::centimeters_tag>;
 using Kilometers = NumericValue<tags::kilometers_tag>;
 
 
-USER_DEFINED_LITERALS(Meters, meters);
-USER_DEFINED_LITERALS(Inches, inches);
-USER_DEFINED_LITERALS(Feet, feet);
-USER_DEFINED_LITERALS(Yards, yards);
-USER_DEFINED_LITERALS(StatuteMiles, statute_miles);
-USER_DEFINED_LITERALS(NauticalMiles, nautical_miles);
-USER_DEFINED_LITERALS(GeographicalMiles, geographical_miles);
-USER_DEFINED_LITERALS(DegreesOfLatitude, degrees_of_latitude);
-USER_DEFINED_LITERALS(Micrometers, micrometers);
-USER_DEFINED_LITERALS(Millimeters, millimeters);
-USER_DEFINED_LITERALS(Centimeters, centimeters);
-USER_DEFINED_LITERALS(Kilometers, kilometers);
+constexpr auto operator"" _meters(unsigned long long int value)
+{
+	return Meters{(double)value};
+}
+constexpr auto operator"" _meters(long double value)
+{
+	return Meters{(double)value};
+}
+constexpr auto operator"" _inches(unsigned long long int value)
+{
+	return Inches{(double)value};
+}
+constexpr auto operator"" _inches(long double value)
+{
+	return Inches{(double)value};
+}
+constexpr auto operator"" _feet(unsigned long long int value)
+{
+	return Feet{(double)value};
+}
+constexpr auto operator"" _feet(long double value)
+{
+	return Feet{(double)value};
+}
+constexpr auto operator"" _yards(unsigned long long int value)
+{
+	return Yards{(double)value};
+}
+constexpr auto operator"" _yards(long double value)
+{
+	return Yards{(double)value};
+}
+constexpr auto operator"" _statute_miles(unsigned long long int value)
+{
+	return StatuteMiles{(double)value};
+}
+constexpr auto operator"" _statute_miles(long double value)
+{
+	return StatuteMiles{(double)value};
+}
+constexpr auto operator"" _nautical_miles(unsigned long long int value)
+{
+	return NauticalMiles{(double)value};
+}
+constexpr auto operator"" _nautical_miles(long double value)
+{
+	return NauticalMiles{(double)value};
+}
+constexpr auto operator"" _geographical_miles(unsigned long long int value)
+{
+	return GeographicalMiles{(double)value};
+}
+constexpr auto operator"" _geographical_miles(long double value)
+{
+	return GeographicalMiles{(double)value};
+}
+constexpr auto operator"" _degrees_of_latitude(unsigned long long int value)
+{
+	return DegreesOfLatitude{(double)value};
+}
+constexpr auto operator"" _degrees_of_latitude(long double value)
+{
+	return DegreesOfLatitude{(double)value};
+}
+constexpr auto operator"" _micrometers(unsigned long long int value)
+{
+	return Micrometers{(double)value};
+}
+constexpr auto operator"" _micrometers(long double value)
+{
+	return Micrometers{(double)value};
+}
+constexpr auto operator"" _millimeters(unsigned long long int value)
+{
+	return Millimeters{(double)value};
+}
+constexpr auto operator"" _millimeters(long double value)
+{
+	return Millimeters{(double)value};
+}
+constexpr auto operator"" _centimeters(unsigned long long int value)
+{
+	return Centimeters{(double)value};
+}
+constexpr auto operator"" _centimeters(long double value)
+{
+	return Centimeters{(double)value};
+}
+constexpr auto operator"" _kilometers(unsigned long long int value)
+{
+	return Kilometers{(double)value};
+}
+constexpr auto operator"" _kilometers(long double value)
+{
+	return Kilometers{(double)value};
+}
 
 
 }

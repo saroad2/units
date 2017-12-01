@@ -6,7 +6,6 @@
 #define INCLUDE_AREA_UNITS_H_
 
 #include <units/internal/numeric_value.h>
-#include <units/internal/utils.h>
 #include <units/length_units.h>
 
 #include <units/tags/area_tags.h>
@@ -22,11 +21,46 @@ using SquareKilometers = NumericValue<tags::square_kilometers_tag>;
 using Dunams = NumericValue<tags::dunams_tag>;
 
 
-USER_DEFINED_LITERALS(SquareFeet, square_feet);
-USER_DEFINED_LITERALS(SquareYards, square_yards);
-USER_DEFINED_LITERALS(SquareMeters, square_meters);
-USER_DEFINED_LITERALS(SquareKilometers, square_kilometers);
-USER_DEFINED_LITERALS(Dunams, dunams);
+constexpr auto operator"" _square_feet(unsigned long long int value)
+{
+	return SquareFeet{(double)value};
+}
+constexpr auto operator"" _square_feet(long double value)
+{
+	return SquareFeet{(double)value};
+}
+constexpr auto operator"" _square_yards(unsigned long long int value)
+{
+	return SquareYards{(double)value};
+}
+constexpr auto operator"" _square_yards(long double value)
+{
+	return SquareYards{(double)value};
+}
+constexpr auto operator"" _square_meters(unsigned long long int value)
+{
+	return SquareMeters{(double)value};
+}
+constexpr auto operator"" _square_meters(long double value)
+{
+	return SquareMeters{(double)value};
+}
+constexpr auto operator"" _square_kilometers(unsigned long long int value)
+{
+	return SquareKilometers{(double)value};
+}
+constexpr auto operator"" _square_kilometers(long double value)
+{
+	return SquareKilometers{(double)value};
+}
+constexpr auto operator"" _dunams(unsigned long long int value)
+{
+	return Dunams{(double)value};
+}
+constexpr auto operator"" _dunams(long double value)
+{
+	return Dunams{(double)value};
+}
 
 
 }

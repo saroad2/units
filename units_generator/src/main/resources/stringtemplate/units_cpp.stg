@@ -14,10 +14,6 @@ scale_class(scale) ::= <<
 using <scale.className> = NumericValue\<tags::<scale.tagName>\>;<\n>
 >>
 
-scale_user_defined_literal(scale) ::= <<
-USER_DEFINED_LITERALS(<scale.className>, <scale.userDefinedLiteral>);<\n>
->>
-
 scale_names_declarations(scale) ::= <<
 string <scale.tagName>::singularName() { return "<scale.singularName>"; }
 string <scale.tagName>::pluralName() { return "<scale.pluralName>"; }<\n><\n>
@@ -96,7 +92,16 @@ namespace <unitType.namespace>
 
 <unitType.unitScales:{scale | <scale_class(scale)>}>
 
-<unitType.unitScales:{scale | <scale_user_defined_literal(scale)>}>
+<unitType.unitScales:{scale |
+constexpr auto operator"" _<scale.userDefinedLiteral>(unsigned long long int value)
+{
+	return <scale.className>{(double)value};
+}
+constexpr auto operator"" _<scale.userDefinedLiteral>(long double value)
+{
+	return <scale.className>{(double)value};
+}
+}>
 
 }
 }

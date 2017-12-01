@@ -6,7 +6,6 @@
 #define INCLUDE_ANGULAR_SPEED_UNITS_H_
 
 #include <units/internal/numeric_value.h>
-#include <units/internal/utils.h>
 #include <units/angle_units.h>
 #include <units/duration_units.h>
 
@@ -21,9 +20,30 @@ using RadiansPerSecond = NumericValue<tags::radians_per_second_tag>;
 using MilsPerSecond = NumericValue<tags::mils_per_second_tag>;
 
 
-USER_DEFINED_LITERALS(DegreesPerSecond, degrees_per_second);
-USER_DEFINED_LITERALS(RadiansPerSecond, radians_per_second);
-USER_DEFINED_LITERALS(MilsPerSecond, mils_per_second);
+constexpr auto operator"" _degrees_per_second(unsigned long long int value)
+{
+	return DegreesPerSecond{(double)value};
+}
+constexpr auto operator"" _degrees_per_second(long double value)
+{
+	return DegreesPerSecond{(double)value};
+}
+constexpr auto operator"" _radians_per_second(unsigned long long int value)
+{
+	return RadiansPerSecond{(double)value};
+}
+constexpr auto operator"" _radians_per_second(long double value)
+{
+	return RadiansPerSecond{(double)value};
+}
+constexpr auto operator"" _mils_per_second(unsigned long long int value)
+{
+	return MilsPerSecond{(double)value};
+}
+constexpr auto operator"" _mils_per_second(long double value)
+{
+	return MilsPerSecond{(double)value};
+}
 
 
 }

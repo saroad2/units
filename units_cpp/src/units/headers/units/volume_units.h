@@ -6,7 +6,6 @@
 #define INCLUDE_VOLUME_UNITS_H_
 
 #include <units/internal/numeric_value.h>
-#include <units/internal/utils.h>
 #include <units/length_units.h>
 
 #include <units/tags/volume_tags.h>
@@ -23,12 +22,54 @@ using Liters = NumericValue<tags::liters_tag>;
 using Milliliters = NumericValue<tags::milliliters_tag>;
 
 
-USER_DEFINED_LITERALS(CubicFeet, cubic_feet);
-USER_DEFINED_LITERALS(CubicYards, cubic_yards);
-USER_DEFINED_LITERALS(CubicMeters, cubic_meters);
-USER_DEFINED_LITERALS(CubicKilometers, cubic_kilometers);
-USER_DEFINED_LITERALS(Liters, liters);
-USER_DEFINED_LITERALS(Milliliters, milliliters);
+constexpr auto operator"" _cubic_feet(unsigned long long int value)
+{
+	return CubicFeet{(double)value};
+}
+constexpr auto operator"" _cubic_feet(long double value)
+{
+	return CubicFeet{(double)value};
+}
+constexpr auto operator"" _cubic_yards(unsigned long long int value)
+{
+	return CubicYards{(double)value};
+}
+constexpr auto operator"" _cubic_yards(long double value)
+{
+	return CubicYards{(double)value};
+}
+constexpr auto operator"" _cubic_meters(unsigned long long int value)
+{
+	return CubicMeters{(double)value};
+}
+constexpr auto operator"" _cubic_meters(long double value)
+{
+	return CubicMeters{(double)value};
+}
+constexpr auto operator"" _cubic_kilometers(unsigned long long int value)
+{
+	return CubicKilometers{(double)value};
+}
+constexpr auto operator"" _cubic_kilometers(long double value)
+{
+	return CubicKilometers{(double)value};
+}
+constexpr auto operator"" _liters(unsigned long long int value)
+{
+	return Liters{(double)value};
+}
+constexpr auto operator"" _liters(long double value)
+{
+	return Liters{(double)value};
+}
+constexpr auto operator"" _milliliters(unsigned long long int value)
+{
+	return Milliliters{(double)value};
+}
+constexpr auto operator"" _milliliters(long double value)
+{
+	return Milliliters{(double)value};
+}
 
 
 }

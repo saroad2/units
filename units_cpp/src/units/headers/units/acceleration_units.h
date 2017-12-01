@@ -6,7 +6,6 @@
 #define INCLUDE_ACCELERATION_UNITS_H_
 
 #include <units/internal/numeric_value.h>
-#include <units/internal/utils.h>
 #include <units/length_units.h>
 #include <units/duration_units.h>
 
@@ -19,7 +18,14 @@ namespace acceleration
 using MetersPerSquareSeconds = NumericValue<tags::meters_per_square_seconds_tag>;
 
 
-USER_DEFINED_LITERALS(MetersPerSquareSeconds, meters_per_square_seconds);
+constexpr auto operator"" _meters_per_square_seconds(unsigned long long int value)
+{
+	return MetersPerSquareSeconds{(double)value};
+}
+constexpr auto operator"" _meters_per_square_seconds(long double value)
+{
+	return MetersPerSquareSeconds{(double)value};
+}
 
 
 }

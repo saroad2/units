@@ -6,7 +6,6 @@
 #define INCLUDE_SPEED_UNITS_H_
 
 #include <units/internal/numeric_value.h>
-#include <units/internal/utils.h>
 #include <units/length_units.h>
 #include <units/duration_units.h>
 
@@ -23,11 +22,46 @@ using KilometersPerHour = NumericValue<tags::kilometers_per_hour_tag>;
 using Knots = NumericValue<tags::knots_tag>;
 
 
-USER_DEFINED_LITERALS(FeetPerSecond, feet_per_second);
-USER_DEFINED_LITERALS(YardsPerSecond, yards_per_second);
-USER_DEFINED_LITERALS(MetersPerSecond, meters_per_second);
-USER_DEFINED_LITERALS(KilometersPerHour, kilometers_per_hour);
-USER_DEFINED_LITERALS(Knots, knots);
+constexpr auto operator"" _feet_per_second(unsigned long long int value)
+{
+	return FeetPerSecond{(double)value};
+}
+constexpr auto operator"" _feet_per_second(long double value)
+{
+	return FeetPerSecond{(double)value};
+}
+constexpr auto operator"" _yards_per_second(unsigned long long int value)
+{
+	return YardsPerSecond{(double)value};
+}
+constexpr auto operator"" _yards_per_second(long double value)
+{
+	return YardsPerSecond{(double)value};
+}
+constexpr auto operator"" _meters_per_second(unsigned long long int value)
+{
+	return MetersPerSecond{(double)value};
+}
+constexpr auto operator"" _meters_per_second(long double value)
+{
+	return MetersPerSecond{(double)value};
+}
+constexpr auto operator"" _kilometers_per_hour(unsigned long long int value)
+{
+	return KilometersPerHour{(double)value};
+}
+constexpr auto operator"" _kilometers_per_hour(long double value)
+{
+	return KilometersPerHour{(double)value};
+}
+constexpr auto operator"" _knots(unsigned long long int value)
+{
+	return Knots{(double)value};
+}
+constexpr auto operator"" _knots(long double value)
+{
+	return Knots{(double)value};
+}
 
 
 }

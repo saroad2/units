@@ -6,7 +6,6 @@
 #define INCLUDE_PRESSURE_UNITS_H_
 
 #include <units/internal/numeric_value.h>
-#include <units/internal/utils.h>
 #include <units/mass_units.h>
 #include <units/duration_units.h>
 #include <units/length_units.h>
@@ -20,7 +19,14 @@ namespace pressure
 using Pascals = NumericValue<tags::pascals_tag>;
 
 
-USER_DEFINED_LITERALS(Pascals, pascals);
+constexpr auto operator"" _pascals(unsigned long long int value)
+{
+	return Pascals{(double)value};
+}
+constexpr auto operator"" _pascals(long double value)
+{
+	return Pascals{(double)value};
+}
 
 
 }

@@ -6,7 +6,6 @@
 #define INCLUDE_TEMPERATURE_UNITS_H_
 
 #include <units/internal/numeric_value.h>
-#include <units/internal/utils.h>
 
 #include <units/tags/temperature_tags.h>
 
@@ -18,8 +17,22 @@ using Kelvins = NumericValue<tags::kelvins_tag>;
 using Rankines = NumericValue<tags::rankines_tag>;
 
 
-USER_DEFINED_LITERALS(Kelvins, kelvins);
-USER_DEFINED_LITERALS(Rankines, rankines);
+constexpr auto operator"" _kelvins(unsigned long long int value)
+{
+	return Kelvins{(double)value};
+}
+constexpr auto operator"" _kelvins(long double value)
+{
+	return Kelvins{(double)value};
+}
+constexpr auto operator"" _rankines(unsigned long long int value)
+{
+	return Rankines{(double)value};
+}
+constexpr auto operator"" _rankines(long double value)
+{
+	return Rankines{(double)value};
+}
 
 
 }

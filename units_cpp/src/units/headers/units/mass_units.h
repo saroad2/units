@@ -6,7 +6,6 @@
 #define INCLUDE_MASS_UNITS_H_
 
 #include <units/internal/numeric_value.h>
-#include <units/internal/utils.h>
 
 #include <units/tags/mass_tags.h>
 
@@ -22,12 +21,54 @@ using Tonnes = NumericValue<tags::tonnes_tag>;
 using SolarMasses = NumericValue<tags::solar_masses_tag>;
 
 
-USER_DEFINED_LITERALS(Grams, grams);
-USER_DEFINED_LITERALS(Pounds, pounds);
-USER_DEFINED_LITERALS(Milligrams, milligrams);
-USER_DEFINED_LITERALS(Kilograms, kilograms);
-USER_DEFINED_LITERALS(Tonnes, tonnes);
-USER_DEFINED_LITERALS(SolarMasses, solar_masses);
+constexpr auto operator"" _grams(unsigned long long int value)
+{
+	return Grams{(double)value};
+}
+constexpr auto operator"" _grams(long double value)
+{
+	return Grams{(double)value};
+}
+constexpr auto operator"" _pounds(unsigned long long int value)
+{
+	return Pounds{(double)value};
+}
+constexpr auto operator"" _pounds(long double value)
+{
+	return Pounds{(double)value};
+}
+constexpr auto operator"" _milligrams(unsigned long long int value)
+{
+	return Milligrams{(double)value};
+}
+constexpr auto operator"" _milligrams(long double value)
+{
+	return Milligrams{(double)value};
+}
+constexpr auto operator"" _kilograms(unsigned long long int value)
+{
+	return Kilograms{(double)value};
+}
+constexpr auto operator"" _kilograms(long double value)
+{
+	return Kilograms{(double)value};
+}
+constexpr auto operator"" _tonnes(unsigned long long int value)
+{
+	return Tonnes{(double)value};
+}
+constexpr auto operator"" _tonnes(long double value)
+{
+	return Tonnes{(double)value};
+}
+constexpr auto operator"" _solar_masses(unsigned long long int value)
+{
+	return SolarMasses{(double)value};
+}
+constexpr auto operator"" _solar_masses(long double value)
+{
+	return SolarMasses{(double)value};
+}
 
 
 }

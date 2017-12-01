@@ -115,7 +115,6 @@ public class CppUnitType implements UnitTypeInterface{
 	private void initializeUnitIncludes() {
 		unitIncludes = new ArrayList<>();
 		unitIncludes.add("<units/internal/numeric_value.h>");
-		unitIncludes.add("<units/internal/utils.h>");
 	}
 
 	private void initializeTagIncludes() {

@@ -6,7 +6,6 @@
 #define INCLUDE_ANGLE_UNITS_H_
 
 #include <units/internal/numeric_value.h>
-#include <units/internal/utils.h>
 
 #include <units/tags/angle_tags.h>
 
@@ -19,9 +18,30 @@ using Mils = NumericValue<tags::mils_tag>;
 using Radians = NumericValue<tags::radians_tag>;
 
 
-USER_DEFINED_LITERALS(Degrees, degrees);
-USER_DEFINED_LITERALS(Mils, mils);
-USER_DEFINED_LITERALS(Radians, radians);
+constexpr auto operator"" _degrees(unsigned long long int value)
+{
+	return Degrees{(double)value};
+}
+constexpr auto operator"" _degrees(long double value)
+{
+	return Degrees{(double)value};
+}
+constexpr auto operator"" _mils(unsigned long long int value)
+{
+	return Mils{(double)value};
+}
+constexpr auto operator"" _mils(long double value)
+{
+	return Mils{(double)value};
+}
+constexpr auto operator"" _radians(unsigned long long int value)
+{
+	return Radians{(double)value};
+}
+constexpr auto operator"" _radians(long double value)
+{
+	return Radians{(double)value};
+}
 
 
 }

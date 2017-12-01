@@ -6,7 +6,6 @@
 #define INCLUDE_DENSITY_UNITS_H_
 
 #include <units/internal/numeric_value.h>
-#include <units/internal/utils.h>
 #include <units/mass_units.h>
 #include <units/volume_units.h>
 
@@ -20,8 +19,22 @@ using KilogramsPerCubicMeter = NumericValue<tags::kilograms_per_cubic_meter_tag>
 using KilogramsPerLiter = NumericValue<tags::kilograms_per_liter_tag>;
 
 
-USER_DEFINED_LITERALS(KilogramsPerCubicMeter, kilograms_per_cubic_meter);
-USER_DEFINED_LITERALS(KilogramsPerLiter, kilograms_per_liter);
+constexpr auto operator"" _kilograms_per_cubic_meter(unsigned long long int value)
+{
+	return KilogramsPerCubicMeter{(double)value};
+}
+constexpr auto operator"" _kilograms_per_cubic_meter(long double value)
+{
+	return KilogramsPerCubicMeter{(double)value};
+}
+constexpr auto operator"" _kilograms_per_liter(unsigned long long int value)
+{
+	return KilogramsPerLiter{(double)value};
+}
+constexpr auto operator"" _kilograms_per_liter(long double value)
+{
+	return KilogramsPerLiter{(double)value};
+}
 
 
 }

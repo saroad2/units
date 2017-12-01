@@ -6,7 +6,6 @@
 #define INCLUDE_DURATION_UNITS_H_
 
 #include <units/internal/numeric_value.h>
-#include <units/internal/utils.h>
 
 #include <units/tags/duration_tags.h>
 
@@ -23,13 +22,62 @@ using Microseconds = NumericValue<tags::microseconds_tag>;
 using Milliseconds = NumericValue<tags::milliseconds_tag>;
 
 
-USER_DEFINED_LITERALS(Seconds, seconds);
-USER_DEFINED_LITERALS(Minutes, minutes);
-USER_DEFINED_LITERALS(Hours, hours);
-USER_DEFINED_LITERALS(Days, days);
-USER_DEFINED_LITERALS(Years, years);
-USER_DEFINED_LITERALS(Microseconds, microseconds);
-USER_DEFINED_LITERALS(Milliseconds, milliseconds);
+constexpr auto operator"" _seconds(unsigned long long int value)
+{
+	return Seconds{(double)value};
+}
+constexpr auto operator"" _seconds(long double value)
+{
+	return Seconds{(double)value};
+}
+constexpr auto operator"" _minutes(unsigned long long int value)
+{
+	return Minutes{(double)value};
+}
+constexpr auto operator"" _minutes(long double value)
+{
+	return Minutes{(double)value};
+}
+constexpr auto operator"" _hours(unsigned long long int value)
+{
+	return Hours{(double)value};
+}
+constexpr auto operator"" _hours(long double value)
+{
+	return Hours{(double)value};
+}
+constexpr auto operator"" _days(unsigned long long int value)
+{
+	return Days{(double)value};
+}
+constexpr auto operator"" _days(long double value)
+{
+	return Days{(double)value};
+}
+constexpr auto operator"" _years(unsigned long long int value)
+{
+	return Years{(double)value};
+}
+constexpr auto operator"" _years(long double value)
+{
+	return Years{(double)value};
+}
+constexpr auto operator"" _microseconds(unsigned long long int value)
+{
+	return Microseconds{(double)value};
+}
+constexpr auto operator"" _microseconds(long double value)
+{
+	return Microseconds{(double)value};
+}
+constexpr auto operator"" _milliseconds(unsigned long long int value)
+{
+	return Milliseconds{(double)value};
+}
+constexpr auto operator"" _milliseconds(long double value)
+{
+	return Milliseconds{(double)value};
+}
 
 
 }

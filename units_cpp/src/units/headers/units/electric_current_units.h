@@ -6,7 +6,6 @@
 #define INCLUDE_ELECTRIC_CURRENT_UNITS_H_
 
 #include <units/internal/numeric_value.h>
-#include <units/internal/utils.h>
 
 #include <units/tags/electric_current_tags.h>
 
@@ -17,7 +16,14 @@ namespace electric_current
 using Amperes = NumericValue<tags::amperes_tag>;
 
 
-USER_DEFINED_LITERALS(Amperes, amperes);
+constexpr auto operator"" _amperes(unsigned long long int value)
+{
+	return Amperes{(double)value};
+}
+constexpr auto operator"" _amperes(long double value)
+{
+	return Amperes{(double)value};
+}
 
 
 }

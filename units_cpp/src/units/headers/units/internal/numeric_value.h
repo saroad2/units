@@ -69,7 +69,7 @@ public:
 	}
 	constexpr NumericValue(const _selfType& Other) = default;
 	constexpr NumericValue(_selfType&& Other) = default;
-	constexpr _selfType& operator=(const _selfType& other) = default;
+	_selfType& operator=(const _selfType& other) = default;
 
 	constexpr double value() const {return _value;}
 	explicit constexpr operator double() const {return value();}

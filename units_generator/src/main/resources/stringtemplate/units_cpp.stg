@@ -6,32 +6,8 @@ declaration() ::= <<
  */
 >>
 
-include(header) ::= <<
-#include <header><\n>
->>
-
-scale_class(scale) ::= <<
-using <scale.className> = NumericValue\<tags::<scale.tagName>\>;<\n>
->>
-
-scale_names_declarations(scale) ::= <<
-string <scale.tagName>::singularName() { return "<scale.singularName>"; }
-string <scale.tagName>::pluralName() { return "<scale.pluralName>"; }<\n><\n>
->>
-
-scale_tag(scale) ::= <<
-struct <scale.tagName>
-{
-<\t>using typeCode = <scale.typeCodeName>;
-<\t>static constexpr double scale = <scale.scale>;
-<\t>static std::string singularName();
-<\t>static std::string pluralName();
-};<\n>
->>
-
-
 full_scale_declaration(scale) ::= <<
-units::<scale.namespace>::<scale.className>
+<\t>units::<scale.namespace>::<scale.className>
 >>
 
 tags_header(unitType) ::= <<
@@ -40,7 +16,7 @@ tags_header(unitType) ::= <<
 #ifndef <unitType.tagsHeaderIncludeGurad>
 #define <unitType.tagsHeaderIncludeGurad>
 
-<unitType.tagIncludes:{header | <include(header)>}>
+<unitType.tagIncludes:{header | #include <header><\n>}>
 
 namespace units {
 namespace <unitType.namespace> {
@@ -49,7 +25,14 @@ namespace tags
 
 using <unitType.codeName>  = <unitType.code>;
 
-<unitType.unitScales:{scale | <scale_tag(scale)>}>
+<unitType.unitScales:{scale | struct <scale.tagName>
+{
+<\t>using typeCode = <scale.typeCodeName>;
+<\t>static constexpr double scale = <scale.scale>;
+<\t>static std::string singularName();
+<\t>static std::string pluralName();
+};
+}>
 
 }
 }
@@ -70,7 +53,10 @@ namespace tags
 
 using std::string;
 
-<unitType.unitScales:{scale | <scale_names_declarations(scale)>}>
+<unitType.unitScales:{scale | string <scale.tagName>::singularName() { return "<scale.singularName>"; }
+string <scale.tagName>::pluralName() { return "<scale.pluralName>"; }
+
+}>
 
 }
 }
@@ -83,14 +69,15 @@ unit_type_header(unitType) ::= <<
 #ifndef <unitType.headerIncludeGurad>
 #define <unitType.headerIncludeGurad>
 
-<unitType.unitIncludes:{header | <include(header)>}>
+<unitType.unitIncludes:{header | #include <header><\n>}>
 #include \<units/tags/<unitType.tagsHeaderFileName>\>
 
 namespace units {
 namespace <unitType.namespace>
 {
 
-<unitType.unitScales:{scale | <scale_class(scale)>}>
+<unitType.unitScales:{scale |
+using <scale.className> = NumericValue\<tags::<scale.tagName>\>;<\n>}>
 
 <unitType.unitScales:{scale |
 constexpr auto operator"" _<scale.userDefinedLiteral>(unsigned long long int value)
@@ -447,21 +434,13 @@ all_units(schema) ::= <<
 #define UNIT_TESTS_ALL_UNITS_H_
 
 <schema.unitTypes:{unitType|#define <unitType.upperCaseName>_UNITS() \
-<first(unitType.unitScales): {scale|<\t><full_scale_declaration(scale)>}><rest(unitType.unitScales): {scale |, \\<\n><\t><full_scale_declaration(scale)>}>
+<first(unitType.unitScales): {scale|<full_scale_declaration(scale)>}><rest(unitType.unitScales): {scale |, \\<\n><full_scale_declaration(scale)>}>
 
 }>
 #define ALL_UNITS() \
 <first(schema.unitTypes): {unitType|<\t><unitType.upperCaseName>_UNITS()}><rest(schema.unitTypes): {unitType |, \\<\n><\t><unitType.upperCaseName>_UNITS()}>
 
 #endif /* UNIT_TESTS_ALL_UNITS_H_ */
->>
-
-write_test_case(testCase) ::= <<
-TEST_F(<testSuite.testSuiteName>, <testCase.testName>)
-{
-	check_conversion\<<testCase.from>, <testCase.to>\>(<testCase.value>);
-}
-
 >>
 
 conversion_test_suite(testSuite) ::= <<
@@ -474,7 +453,11 @@ class <testSuite.testSuiteName> : public TestUnitsConversions
 {
 };
 
-<testSuite.testCases:write_test_case()>
+<testSuite.testCases: {testCase|TEST_F(<testSuite.testSuiteName>, <testCase.testName>)
+{
+	check_conversion\<<testCase.from>, <testCase.to>\>(<testCase.value>);
+}
+}>
 
 >>
 

@@ -3,6 +3,8 @@ package units_generator.docs_generator;
 import java.util.List;
 import java.util.StringJoiner;
 
+import units_schema.Constant;
+import units_schema.Ratio;
 import units_schema.UnitScale;
 
 public class DocsScaleCalculator {
@@ -11,13 +13,21 @@ public class DocsScaleCalculator {
 		if (unitScale.getIsBasic())
 			return "basic";
 		if (unitScale.getRatio() != null)
-			return calculateRatioScale(unitScale);
+			return calculateRatioScale(unitScale.getRatio());
 		return calculateMultiplierScale(unitScale);
 	}
 	
-	public static String calculateRatioScale(UnitScale unitScale) {
-		List<String> numerators = unitScale.getRatio().getNumerators();
-		List<String> denominators = unitScale.getRatio().getDenominators();
+	public static String calculateConstantScale(Constant constant) {
+		if (constant.getUnitScale() != null)
+			return constant.getUnitScale();
+		if (constant.getRatio() != null)
+			return calculateRatioScale(constant.getRatio());
+		return "";
+	}
+	
+	public static String calculateRatioScale(Ratio ratio) {
+		List<String> numerators = ratio.getNumerators();
+		List<String> denominators = ratio.getDenominators();
 		if (numerators.size() == 0)
 			return combineWithBrackets(denominators) + "^(-1)";
 		if (denominators.size() == 0)

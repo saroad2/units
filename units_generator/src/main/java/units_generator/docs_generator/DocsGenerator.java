@@ -16,7 +16,7 @@ import units_generator.internal.AbstractUnitType;
 import units_generator.internal.AbstractUnitsSchema;
 import units_generator.internal.UnitsTestSuiteInterface;
 
-public class DocsGenerator extends LanguageUnitsGenerator{
+public class DocsGenerator extends LanguageUnitsGenerator {
 
 	private final static Logger logger =
 			Logger.getLogger(DocsGenerator.class.getName());
@@ -42,6 +42,7 @@ public class DocsGenerator extends LanguageUnitsGenerator{
 		DocsSchema docsSchema = (DocsSchema)schema; 
 		generateSupportedUnits(docsSchema, outputDirectory);
 		generateConversions(docsSchema, outputDirectory);
+		generateConstants(docsSchema, outputDirectory);
 	}
 	
 	@Override
@@ -82,7 +83,15 @@ public class DocsGenerator extends LanguageUnitsGenerator{
 			DocsSchema schema,
 			Path outputDirectory) throws IOException{
 		Path outputPath = Paths.get(outputDirectory.toString(), "conversions.md");
-		logger.info("Generating supported units to " + outputPath + "...");
+		logger.info("Generating conversions " + outputPath + "...");
 		writeStringTemplate("conversions", "schema", schema, outputPath);
+	}
+	
+	private void generateConstants(
+			DocsSchema schema,
+			Path outputDirectory) throws IOException{
+		Path outputPath = Paths.get(outputDirectory.toString(), "constants.md");
+		logger.info("Generating constants to " + outputPath + "...");
+		writeStringTemplate("constants", "schema", schema, outputPath);
 	}
 }

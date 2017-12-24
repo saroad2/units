@@ -70,3 +70,45 @@ conversions(schema) ::= <<
 
 }>
 >>
+
+constants(schema) ::= <<
+# Constants
+
+<declaration()>
+Those are the constants in the *units* library:
+
+<schema.constantsGroups : { constantsGroup |## <constantsGroup.groupName>
+
+\<table\>
+	\<tr\>
+		\<th\>
+			Constant Name
+		\</th\>
+		\<th\>
+			Unit Scale
+		\</th\>
+		\<th\>
+			Value
+		\</th\>
+		\<th\>
+			Description
+		\</th\>
+		\<th\>
+			Is C++ Supported?
+		\</th\>
+		\<th\>
+			Is Java Supported?
+		\</th\>
+	\</tr\>
+	<constantsGroup.constants : { constant | \<tr\>
+		\<td\><constant.name>\</td\>
+		\<td\><constant.unitScale>\</td\>
+		\<td\><constant.value>\</td\>
+		\<td\><constant.description>\</td\>
+		\<td\><if(constant.isCppSupported)>V<else>X<endif>\</td\>
+		\<td\><if(constant.isJavaSupported)>V<else>X<endif>\</td\>
+	\</tr\>}>
+\</table\>
+}>
+
+>>

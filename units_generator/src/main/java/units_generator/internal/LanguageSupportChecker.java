@@ -8,5 +8,5 @@ public interface LanguageSupportChecker {
 	
 	public boolean isSupported(UnitScale unitScale);
 	public boolean isSupported(UnitType unitType);
-	public boolean isSupported(Constant unitType);
+	public boolean isSupported(Constant cnstant);
 }

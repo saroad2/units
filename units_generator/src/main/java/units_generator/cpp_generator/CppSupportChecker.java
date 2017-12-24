@@ -18,7 +18,7 @@ public class CppSupportChecker implements LanguageSupportChecker{
 	}
 
 	@Override
-	public boolean isSupported(Constant unitType) {
+	public boolean isSupported(Constant constant) {
 		return true;
 	}
 }

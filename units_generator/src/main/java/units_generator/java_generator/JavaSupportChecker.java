@@ -18,7 +18,7 @@ public class JavaSupportChecker implements LanguageSupportChecker{
 	}
 
 	@Override
-	public boolean isSupported(Constant unitType) {
+	public boolean isSupported(Constant constant) {
 		return false;
 	}
 }

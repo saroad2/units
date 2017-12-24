@@ -24,6 +24,8 @@ Look [here](docs/supported_units.md) to see in which units do we support.
 
 Look [here](docs/conversions.md) to see the units conversion table.
 
+Look [here](docs/constants.md) to see the constants included in our libraries.
+
 For more details about our libraries, go [here](https://github.com/saroad2/units/wiki).
 
 ## Future Supported Languages and Platforms

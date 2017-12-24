@@ -109,6 +109,7 @@ Those are the constants in the *units* library:
 		\<td\><if(constant.isJavaSupported)>V<else>X<endif>\</td\>
 	\</tr\>}>
 \</table\>
+
 }>
 
 >>

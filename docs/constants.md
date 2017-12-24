@@ -93,6 +93,7 @@ Those are the constants in the *units* library:
 			<td>V</td>
 		</tr>
 </table>
+
 ## planetary rotation periods
 
 <table>
@@ -181,6 +182,7 @@ Those are the constants in the *units* library:
 			<td>V</td>
 		</tr>
 </table>
+
 ## planetary densities
 
 <table>
@@ -269,6 +271,7 @@ Those are the constants in the *units* library:
 			<td>V</td>
 		</tr>
 </table>
+
 ## wgs84
 
 <table>
@@ -329,6 +332,7 @@ Those are the constants in the *units* library:
 			<td>V</td>
 		</tr>
 </table>
+
 ## physical constants
 
 <table>
@@ -389,4 +393,5 @@ Those are the constants in the *units* library:
 			<td>V</td>
 		</tr>
 </table>
+
 

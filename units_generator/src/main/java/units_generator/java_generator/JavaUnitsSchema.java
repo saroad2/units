@@ -9,6 +9,7 @@ import units_generator.internal.NamesManipulator;
 import units_generator.internal.AbstractUnitType;
 import units_generator.internal.AbstractUnitsSchema;
 import units_generator.internal.UnitsTestSuiteInterface;
+import units_schema.ConstantsGroup;
 import units_schema.Schema;
 import units_schema.TestSuite;
 import units_schema.UnitType;
@@ -17,6 +18,7 @@ public class JavaUnitsSchema extends AbstractUnitsSchema {
 
 	private List<AbstractUnitType> unitTypes;
 	private List<UnitsTestSuiteInterface> testSuites;
+	private List<ConstantsGroupInterface> constantsGroups;
 	
 	private static JavaSupportChecker supportChecker = new JavaSupportChecker();
 	
@@ -33,6 +35,9 @@ public class JavaUnitsSchema extends AbstractUnitsSchema {
 					.collect(Collectors.toList()).get(0);
 			testSuites.add(new JavaTestSuite(testSuite));
 		}
+		constantsGroups = new ArrayList<>();
+		for (ConstantsGroup group : schema.getConstants().getConstantsGroups())
+			constantsGroups.add(new JavaConstantsGroup(this, group));
 	}
 	
 	@Override
@@ -47,6 +52,6 @@ public class JavaUnitsSchema extends AbstractUnitsSchema {
 	
 	@Override
 	public List<ConstantsGroupInterface> getConstantsGroups() {
-		return null;
+		return constantsGroups;
 	}
 }

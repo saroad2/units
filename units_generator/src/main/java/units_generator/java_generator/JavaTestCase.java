@@ -11,10 +11,10 @@ public class JavaTestCase implements UnitsTestCaseInterface {
 	private String name;
 	
 	public JavaTestCase(TestCase testCase) {
-		from = JavaNamesFormatter.formatClassName(testCase.getFrom());
-		to = JavaNamesFormatter.formatClassName(testCase.getTo());
+		from = JavaNamesFormatter.toUpperCamelCase(testCase.getFrom());
+		to = JavaNamesFormatter.toUpperCamelCase(testCase.getTo());
 		value = testCase.getValue();
-		name = JavaNamesFormatter.formatFunctionName("test cast from " + from + " to " + to);
+		name = JavaNamesFormatter.toLowerCamelCase("test cast from " + from + " to " + to);
 	}
 	
 	@Override

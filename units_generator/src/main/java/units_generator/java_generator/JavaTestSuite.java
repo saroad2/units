@@ -21,8 +21,8 @@ public class JavaTestSuite implements UnitsTestSuiteInterface {
 		for (TestCase testCase : testSuite.getTestCases()) {
 			testCases.add(new JavaTestCase(testCase));
 		}
-		name = JavaNamesFormatter.formatClassName( unitType + " casting tests");
-		packageName = JavaNamesFormatter.formatPackageName(unitType);
+		name = JavaNamesFormatter.toUpperCamelCase( unitType + " casting tests");
+		packageName = JavaNamesFormatter.toLowerUnderscore(unitType);
 	}
 	
 	@Override

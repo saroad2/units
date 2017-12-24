@@ -21,6 +21,7 @@ public class JavaUnitsGenerator extends LanguageUnitsGenerator {
 	private static final String library = "libary";
 	private static final String tests = "tests";
 	private static final String conversionTests = "conversion_tests";
+	private static final String constants = "constants";
 	
 	public JavaUnitsGenerator(StringTemplateGroup group) {
 		super(JavaUnitsGenerator.class.getSimpleName(), group);
@@ -53,6 +54,10 @@ public class JavaUnitsGenerator extends LanguageUnitsGenerator {
 				directoriesMap,
 				conversionTests,
 				Paths.get(testsPath.toString(), "casting"));
+		addToDirectoriesMap(
+				directoriesMap,
+				constants,
+				Paths.get(libraryPath.toString(), "constants"));
 		return directoriesMap;
 	}
 	
@@ -107,7 +112,11 @@ public class JavaUnitsGenerator extends LanguageUnitsGenerator {
 			ConstantsGroupInterface constantsGroup,
 			Map<String, Path> directoriesMap) throws IOException
 	{
-		
+		JavaConstantsGroup javaConstantsGroup = (JavaConstantsGroup)constantsGroup;
+		Path outputPath = Paths.get(
+				directoriesMap.get(constants).toString(),
+				javaConstantsGroup.getClassName() + ".java");
+		writeStringTemplate("constants_group", "constantsGroup", javaConstantsGroup, outputPath);
 	};
 
 	private void generateUnitScaleClass(

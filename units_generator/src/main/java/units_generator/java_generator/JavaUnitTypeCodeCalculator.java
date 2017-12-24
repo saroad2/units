@@ -38,6 +38,6 @@ public class JavaUnitTypeCodeCalculator {
 	}
 	
 	public static String unitTypeToCode(String unitTypeName) {
-		return JavaNamesFormatter.formatClassName(unitTypeName) + "._typeCode";
+		return JavaNamesFormatter.toUpperCamelCase(unitTypeName) + "._typeCode";
 	}
 }

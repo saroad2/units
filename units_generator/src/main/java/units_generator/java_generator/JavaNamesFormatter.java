@@ -4,19 +4,19 @@ import com.google.common.base.CaseFormat;
 
 public class JavaNamesFormatter {
 
-	static String formatClassName(String unitName) {
+	static String toUpperCamelCase(String unitName) {
 		return CaseFormat.LOWER_UNDERSCORE.to(
 				CaseFormat.UPPER_CAMEL,
-				unitName.replace(" ", "_"));
+				toLowerUnderscore(unitName));
 	}
 	
-	static String formatFunctionName(String unitName) {
+	static String toLowerCamelCase(String unitName) {
 		return CaseFormat.LOWER_UNDERSCORE.to(
 				CaseFormat.LOWER_CAMEL,
-				unitName.replace(" ", "_"));
+				toLowerUnderscore(unitName));
 	}
 	
-	static String formatPackageName(String unitType) {
+	static String toLowerUnderscore(String unitType) {
 		return unitType.toLowerCase().replace(" ", "_");
 	};
 }

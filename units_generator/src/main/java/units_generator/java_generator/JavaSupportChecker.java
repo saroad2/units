@@ -19,6 +19,6 @@ public class JavaSupportChecker implements LanguageSupportChecker{
 
 	@Override
 	public boolean isSupported(Constant constant) {
-		return false;
+		return constant.getRatio() == null;
 	}
 }

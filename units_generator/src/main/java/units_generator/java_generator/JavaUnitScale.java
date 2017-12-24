@@ -26,7 +26,7 @@ public class JavaUnitScale implements UnitScaleInterface {
 		this.unitType = unitType;
 		this.packageName = unitType.getPackageName();
 		this.name = NamesManipulator.getName(unitScale);
-		this.className = JavaNamesFormatter.formatClassName(name);
+		this.className = JavaNamesFormatter.toUpperCamelCase(name);
 		this.pluralName = unitScale.getPluralName();
 		this.typeInterfaceName = unitType.getClassName();
 		this.scale = JavaScaleCalculator.calculateScale(unitScale);
@@ -54,8 +54,8 @@ public class JavaUnitScale implements UnitScaleInterface {
 			String unitTypeName = schema.getUnitTypeOfScale(unitScaleName).getTypeName();
 			imports.add(
 					"com.units." +
-					JavaNamesFormatter.formatPackageName(unitTypeName) + "." +
-					JavaNamesFormatter.formatClassName(unitScaleName));
+					JavaNamesFormatter.toLowerUnderscore(unitTypeName) + "." +
+					JavaNamesFormatter.toUpperCamelCase(unitScaleName));
 		}
 	}
 	

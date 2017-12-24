@@ -290,3 +290,18 @@ public class <testSuite.name> extends CastingTestsBase{
 	<testSuite.testCases:conversion_test_case()>
 }
 >>
+
+constants_group(constantsGroup) ::= <<
+<declaration()>
+package com.units.constants;
+
+<constantsGroup.imports: {importPath |import <importPath>;}>
+
+public class <constantsGroup.className> {
+	<constantsGroup.constants: { constant | // <constant.description>
+static public final <constant.unitScale> <constant.variableName> = <if(constant.isDouble)><constant.value><else>new <constant.unitScale>(<constant.value>)<endif>;
+
+}>
+}
+
+>>

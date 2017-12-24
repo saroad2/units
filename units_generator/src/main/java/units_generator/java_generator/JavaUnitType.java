@@ -28,8 +28,8 @@ public class JavaUnitType extends AbstractUnitType {
 	public JavaUnitType(JavaUnitsSchema schema, UnitType unitType) {
 		this.schema = schema;
 		typeName = NamesManipulator.getName(unitType);
-		packageName = JavaNamesFormatter.formatPackageName(typeName);
-		className = JavaNamesFormatter.formatClassName(typeName);
+		packageName = JavaNamesFormatter.toLowerUnderscore(typeName);
+		className = JavaNamesFormatter.toUpperCamelCase(typeName);
 		code = JavaUnitTypeCodeCalculator.getCode(unitType);
 		initializeImports(unitType);
 		initializeUnitScales(unitType);
@@ -50,8 +50,8 @@ public class JavaUnitType extends AbstractUnitType {
 		for (String unitTypeName : unitTypesList) {
 			imports.add(
 					"com.units." +
-					JavaNamesFormatter.formatPackageName(unitTypeName) + "." +
-					JavaNamesFormatter.formatClassName(unitTypeName));
+					JavaNamesFormatter.toLowerUnderscore(unitTypeName) + "." +
+					JavaNamesFormatter.toUpperCamelCase(unitTypeName));
 		}
 	}
 

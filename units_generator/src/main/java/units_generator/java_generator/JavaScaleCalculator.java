@@ -47,11 +47,11 @@ public class JavaScaleCalculator {
 	}
 	
 	private static String unitScaleNameToScale(String unitScaleName) {
-		return JavaNamesFormatter.formatClassName(unitScaleName) + "._scale";
+		return JavaNamesFormatter.toUpperCamelCase(unitScaleName) + "._scale";
 	}
 	
 	private static String calculateRelativeScale(UnitScale unitScale) {
-		String relativeToScale = JavaNamesFormatter.formatClassName(unitScale.getRelativeTo()) + "._scale";
+		String relativeToScale = JavaNamesFormatter.toUpperCamelCase(unitScale.getRelativeTo()) + "._scale";
 		if (unitScale.getMultiplierNumber() != null)
 			return unitScale.getMultiplierNumber() + " * " + relativeToScale;
 		return "Multipliers." + unitScale.getMultiplierString() + " * " + relativeToScale;

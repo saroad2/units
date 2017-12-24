@@ -13,7 +13,7 @@ import units_generator.internal.ConstantsGroupInterface;
 import units_generator.internal.LanguageUnitsGenerator;
 import units_generator.internal.UnitScaleInterface;
 import units_generator.internal.UnitTypeInterface;
-import units_generator.internal.UnitsSchemaInterface;
+import units_generator.internal.AbstractUnitsSchema;
 import units_generator.internal.UnitsTestSuiteInterface;
 
 public class CppUnitsGenerator extends LanguageUnitsGenerator{	
@@ -34,7 +34,7 @@ public class CppUnitsGenerator extends LanguageUnitsGenerator{
 	
 	@Override
 	public Map<String, Path> getDirectoriesMap(
-			UnitsSchemaInterface schema,
+			AbstractUnitsSchema schema,
 			Path rootDirectory) throws IOException {
 		Map<String, Path> directoriesMap = new HashMap<>();
 		addToDirectoriesMap(directoriesMap, root, rootDirectory);
@@ -63,7 +63,7 @@ public class CppUnitsGenerator extends LanguageUnitsGenerator{
 	
 	@Override
 	protected void generateSchemaFiles(
-			UnitsSchemaInterface schema,
+			AbstractUnitsSchema schema,
 			Map<String, Path> directoriesMap) throws IOException {
 		Path allUnitsPath = Paths.get(directoriesMap.get(testsHeaders).toString(), "all_units.h");
 		generateTests((CppSchema)schema, allUnitsPath);

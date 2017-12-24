@@ -7,13 +7,13 @@ import java.util.stream.Collectors;
 import units_generator.internal.ConstantsGroupInterface;
 import units_generator.internal.NamesManipulator;
 import units_generator.internal.UnitTypeInterface;
-import units_generator.internal.UnitsSchemaInterface;
+import units_generator.internal.AbstractUnitsSchema;
 import units_generator.internal.UnitsTestSuiteInterface;
 import units_schema.Schema;
 import units_schema.TestSuite;
 import units_schema.UnitType;
 
-public class JavaUnitsSchema implements UnitsSchemaInterface {
+public class JavaUnitsSchema extends AbstractUnitsSchema {
 
 	private List<UnitTypeInterface> unitTypes;
 	private List<UnitsTestSuiteInterface> testSuites;

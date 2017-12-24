@@ -12,10 +12,10 @@ import java.util.stream.Collectors;
 import units_generator.cpp_generator.CppUnitType;
 import units_generator.internal.ConstantsGroupInterface;
 import units_generator.internal.UnitTypeInterface;
-import units_generator.internal.UnitsSchemaInterface;
+import units_generator.internal.AbstractUnitsSchema;
 import units_generator.internal.UnitsTestSuiteInterface;
 
-public class CppSchema implements UnitsSchemaInterface {
+public class CppSchema extends AbstractUnitsSchema {
 	
 	private List<UnitTypeInterface> unitTypes;
 	private List<UnitsTestSuiteInterface> testSuites;

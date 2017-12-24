@@ -24,9 +24,9 @@ public abstract class LanguageUnitsGenerator {
 	}
 	
 	protected abstract Map<String, Path> getDirectoriesMap(
-			UnitsSchemaInterface schema, Path rootDirectory) throws IOException;
+			AbstractUnitsSchema schema, Path rootDirectory) throws IOException;
 	protected abstract void generateSchemaFiles(
-			UnitsSchemaInterface schema,
+			AbstractUnitsSchema schema,
 			Map<String, Path> directoriesMap) throws IOException;
 	protected abstract void generateUnitTypeFiles(
 			UnitTypeInterface unitType,
@@ -42,7 +42,7 @@ public abstract class LanguageUnitsGenerator {
 			Map<String, Path> directoriesMap) throws IOException;
 	
 	public void generate(
-			UnitsSchemaInterface schema,
+			AbstractUnitsSchema schema,
 			Path rootDirectory) throws IOException{
 		logger.info(name + ": Generating files...");
 		Map<String, Path> directoriesMap = getDirectoriesMap(schema, rootDirectory);

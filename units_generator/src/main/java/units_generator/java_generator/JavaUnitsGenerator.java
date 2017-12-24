@@ -10,7 +10,7 @@ import units_generator.internal.ConstantsGroupInterface;
 import units_generator.internal.LanguageUnitsGenerator;
 import units_generator.internal.UnitScaleInterface;
 import units_generator.internal.UnitTypeInterface;
-import units_generator.internal.UnitsSchemaInterface;
+import units_generator.internal.AbstractUnitsSchema;
 import units_generator.internal.UnitsTestSuiteInterface;
 
 import org.antlr.stringtemplate.StringTemplateGroup;
@@ -28,7 +28,7 @@ public class JavaUnitsGenerator extends LanguageUnitsGenerator {
 	
 	@Override
 	protected Map<String, Path> getDirectoriesMap(
-			UnitsSchemaInterface schema, 
+			AbstractUnitsSchema schema, 
 			Path rootDirectory) throws IOException {
 		Map<String, Path> directoriesMap = new HashMap<>();
 		addToDirectoriesMap(directoriesMap, root, rootDirectory);
@@ -67,7 +67,7 @@ public class JavaUnitsGenerator extends LanguageUnitsGenerator {
 
 	@Override
 	protected void generateSchemaFiles(
-			UnitsSchemaInterface schema,
+			AbstractUnitsSchema schema,
 			Map<String, Path> directoriesMap) throws IOException {
 	}
 

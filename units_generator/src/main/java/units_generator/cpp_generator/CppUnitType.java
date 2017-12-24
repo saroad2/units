@@ -7,11 +7,11 @@ import java.util.TreeSet;
 
 import units_generator.internal.NamesManipulator;
 import units_generator.internal.UnitScaleInterface;
-import units_generator.internal.UnitTypeInterface;
+import units_generator.internal.AbstractUnitType;
 import units_schema.UnitScale;
 import units_schema.UnitType;
 
-public class CppUnitType implements UnitTypeInterface{
+public class CppUnitType extends AbstractUnitType {
 	
 	private CppSchema schema;
 	private String typeName;

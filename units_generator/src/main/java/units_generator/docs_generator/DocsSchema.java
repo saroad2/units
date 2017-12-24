@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import units_generator.internal.ConstantsGroupInterface;
-import units_generator.internal.UnitTypeInterface;
+import units_generator.internal.AbstractUnitType;
 import units_generator.internal.AbstractUnitsSchema;
 import units_generator.internal.UnitsTestSuiteInterface;
 import units_schema.Schema;
@@ -13,11 +13,11 @@ import units_schema.UnitType;
 
 public class DocsSchema extends AbstractUnitsSchema {
 	
-	private List<UnitTypeInterface> unitTypes;
+	private List<AbstractUnitType> unitTypes;
 	private List<UnitsTestSuiteInterface> testSuites;
 	
 	public DocsSchema(Schema schema) {
-		unitTypes = new ArrayList<UnitTypeInterface>();
+		unitTypes = new ArrayList<AbstractUnitType>();
 		for (UnitType unitType : schema.getUnitTypes()) {
 			unitTypes.add(new DocsUnitType(unitType));
 		}
@@ -28,7 +28,7 @@ public class DocsSchema extends AbstractUnitsSchema {
 	}
 	
 	@Override
-	public List<UnitTypeInterface> getUnitTypes() {
+	public List<AbstractUnitType> getUnitTypes() {
 		return unitTypes;
 	}
 	

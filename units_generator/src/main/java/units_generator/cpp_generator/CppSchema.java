@@ -11,20 +11,20 @@ import java.util.stream.Collectors;
 
 import units_generator.cpp_generator.CppUnitType;
 import units_generator.internal.ConstantsGroupInterface;
-import units_generator.internal.UnitTypeInterface;
+import units_generator.internal.AbstractUnitType;
 import units_generator.internal.AbstractUnitsSchema;
 import units_generator.internal.UnitsTestSuiteInterface;
 
 public class CppSchema extends AbstractUnitsSchema {
 	
-	private List<UnitTypeInterface> unitTypes;
+	private List<AbstractUnitType> unitTypes;
 	private List<UnitsTestSuiteInterface> testSuites;
 	private List<ConstantsGroupInterface> constantsGroups;
 	
 	private static CppSupportChecker supportChecker = new CppSupportChecker();
 	
 	@Override
-	public List<UnitTypeInterface> getUnitTypes() {
+	public List<AbstractUnitType> getUnitTypes() {
 		return unitTypes;
 	}
 	
@@ -39,7 +39,7 @@ public class CppSchema extends AbstractUnitsSchema {
 	}
 
 	public CppSchema (Schema schema) {
-		unitTypes = new ArrayList<UnitTypeInterface>();
+		unitTypes = new ArrayList<AbstractUnitType>();
 		testSuites = new ArrayList<>();
 		constantsGroups = new ArrayList<>();
 		for (UnitType unitType : schema.getUnitTypes()) {

@@ -9,7 +9,7 @@ import java.util.Map;
 import units_generator.internal.ConstantsGroupInterface;
 import units_generator.internal.LanguageUnitsGenerator;
 import units_generator.internal.UnitScaleInterface;
-import units_generator.internal.UnitTypeInterface;
+import units_generator.internal.AbstractUnitType;
 import units_generator.internal.AbstractUnitsSchema;
 import units_generator.internal.UnitsTestSuiteInterface;
 
@@ -36,7 +36,7 @@ public class JavaUnitsGenerator extends LanguageUnitsGenerator {
 		addToDirectoriesMap(directoriesMap, library, libraryPath);
 		Path testsPath = Paths.get(rootDirectory.toString(), "test", "java", "com", "units", "tests");
 		addToDirectoriesMap(directoriesMap, tests, testsPath);
-		for (UnitTypeInterface unitType : schema.getUnitTypes()) {
+		for (AbstractUnitType unitType : schema.getUnitTypes()) {
 			JavaUnitType javaUnitType = (JavaUnitType)unitType;
 			Path unitTypePackagePath = Paths.get(libraryPath.toString(), javaUnitType.getPackageName());
 			Path unitTypeTestsPackagePath = Paths.get(testsPath.toString(), javaUnitType.getPackageName());
@@ -73,7 +73,7 @@ public class JavaUnitsGenerator extends LanguageUnitsGenerator {
 
 	@Override
 	protected void generateUnitTypeFiles(
-			UnitTypeInterface unitType,
+			AbstractUnitType unitType,
 			Map<String, Path> directoriesMap) throws IOException {
 		JavaUnitType javaUnitType = (JavaUnitType)unitType; 
 		Path outputPath = Paths.get(

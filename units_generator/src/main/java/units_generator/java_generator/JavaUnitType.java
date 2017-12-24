@@ -7,13 +7,13 @@ import java.util.TreeSet;
 
 import units_generator.internal.NamesManipulator;
 import units_generator.internal.UnitScaleInterface;
-import units_generator.internal.UnitTypeInterface;
+import units_generator.internal.AbstractUnitType;
 
 import units_schema.UnitType;
 import units_schema.Ratio;
 import units_schema.UnitScale;
 
-public class JavaUnitType implements UnitTypeInterface {
+public class JavaUnitType extends AbstractUnitType {
 
 	private JavaUnitsSchema schema;
 	private String typeName;

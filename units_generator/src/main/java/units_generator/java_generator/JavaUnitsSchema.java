@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 import units_generator.internal.ConstantsGroupInterface;
 import units_generator.internal.NamesManipulator;
-import units_generator.internal.UnitTypeInterface;
+import units_generator.internal.AbstractUnitType;
 import units_generator.internal.AbstractUnitsSchema;
 import units_generator.internal.UnitsTestSuiteInterface;
 import units_schema.Schema;
@@ -15,7 +15,7 @@ import units_schema.UnitType;
 
 public class JavaUnitsSchema extends AbstractUnitsSchema {
 
-	private List<UnitTypeInterface> unitTypes;
+	private List<AbstractUnitType> unitTypes;
 	private List<UnitsTestSuiteInterface> testSuites;
 	
 	private static JavaSupportChecker supportChecker = new JavaSupportChecker();
@@ -36,7 +36,7 @@ public class JavaUnitsSchema extends AbstractUnitsSchema {
 	}
 	
 	@Override
-	public List<UnitTypeInterface> getUnitTypes() {
+	public List<AbstractUnitType> getUnitTypes() {
 		return unitTypes;
 	}
 	

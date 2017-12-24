@@ -7,9 +7,9 @@ import units_schema.UnitType;
 import units_schema.UnitScale;
 import units_generator.internal.NamesManipulator;
 import units_generator.internal.UnitScaleInterface;
-import units_generator.internal.UnitTypeInterface;
+import units_generator.internal.AbstractUnitType;
 
-public class DocsUnitType implements UnitTypeInterface {
+public class DocsUnitType extends AbstractUnitType {
 	
 	private String name;
 	private List<UnitScaleInterface> unitScales;

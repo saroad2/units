@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 import units_generator.internal.ConstantsGroupInterface;
 import units_generator.internal.LanguageUnitsGenerator;
 import units_generator.internal.UnitScaleInterface;
-import units_generator.internal.UnitTypeInterface;
+import units_generator.internal.AbstractUnitType;
 import units_generator.internal.AbstractUnitsSchema;
 import units_generator.internal.UnitsTestSuiteInterface;
 
@@ -71,7 +71,7 @@ public class CppUnitsGenerator extends LanguageUnitsGenerator{
 	
 	@Override
 	protected void generateUnitTypeFiles(
-			UnitTypeInterface unitType,
+			AbstractUnitType unitType,
 			Map<String, Path> directoriesMap) throws IOException {
 		CppUnitType cppUnitType = (CppUnitType) unitType;
 		generateUnitTypeTagsHeaderFile(cppUnitType, directoriesMap);

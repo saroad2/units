@@ -2,9 +2,9 @@
  * DO NOT EDIT IT MANUALLY!
  */
 
-#include <units/cases.h>
 #include <gtest/gtest.h>
 #include <units/angle_units.h>
+#include <units/cases.h>
 
 using namespace testing;
 using namespace units::angle;

@@ -5,8 +5,8 @@
 #ifndef INCLUDE_FREQUENCY_UNITS_H_
 #define INCLUDE_FREQUENCY_UNITS_H_
 
-#include <units/internal/numeric_value.h>
 #include <units/duration_units.h>
+#include <units/internal/numeric_value.h>
 
 #include <units/tags/frequency_tags.h>
 

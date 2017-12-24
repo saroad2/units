@@ -5,9 +5,9 @@
 #ifndef INCLUDE_ANGULAR_SPEED_UNITS_H_
 #define INCLUDE_ANGULAR_SPEED_UNITS_H_
 
-#include <units/internal/numeric_value.h>
 #include <units/angle_units.h>
 #include <units/duration_units.h>
+#include <units/internal/numeric_value.h>
 
 #include <units/tags/angular_speed_tags.h>
 

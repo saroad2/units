@@ -1,7 +1,7 @@
 package units_generator.cpp_generator;
 
 import java.util.ArrayList;
-import java.util.HashSet;
+import java.util.TreeSet;
 import java.util.List;
 import java.util.Set;
 
@@ -14,13 +14,13 @@ public class CppTypeCodeCalculator {
 	
 	public static class Result {
 		public String code;
-		public List<String> tagIncludes;
-		public List<String> unitIncludes;
+		public Set<String> tagIncludes;
+		public Set<String> unitIncludes;
 		
 		public Result() {
 			code = "";
-			tagIncludes = new ArrayList<String>();
-			unitIncludes = new ArrayList<String>();
+			tagIncludes = new TreeSet<>();
+			unitIncludes = new TreeSet<>();
 		}
 	}
 	
@@ -107,7 +107,7 @@ public class CppTypeCodeCalculator {
 	private static void addUnitTypesInclude(
 			Result result,
 			List<String> unitTypesNamesList) {
-		Set<String> unitTypesNamesSet = new HashSet<String>(unitTypesNamesList);
+		Set<String> unitTypesNamesSet = new TreeSet<String>(unitTypesNamesList);
 		for (String unitTypeName : unitTypesNamesSet) {
 			result.tagIncludes.add(
 					"<units/tags/" +

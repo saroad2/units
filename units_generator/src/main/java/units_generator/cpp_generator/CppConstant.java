@@ -1,6 +1,6 @@
 package units_generator.cpp_generator;
 
-import java.util.HashSet;
+import java.util.TreeSet;
 import java.util.List;
 import java.util.Set;
 
@@ -24,7 +24,7 @@ public class CppConstant implements ConstantInterface {
 	}
 
 	private void initializeUnitScaleAndIncludes(CppSchema schema, Constant constant) {
-		includeNeeded = new HashSet<>();
+		includeNeeded = new TreeSet<>();
 		unitScale = "";
 		if (constant.getUnitScale() != null) {
 			insertUnitScale(schema, constant.getUnitScale());

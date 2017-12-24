@@ -2,6 +2,8 @@ package units_generator.cpp_generator;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 import units_generator.internal.UnitsTestCaseInterface;
 import units_generator.internal.UnitsTestSuiteInterface;
@@ -12,8 +14,8 @@ public class CppUnitsTestSuite implements UnitsTestSuiteInterface {
 
 	private String unitType;
 	private List<UnitsTestCaseInterface> testCases;
-	private List<String> includes;
-	private List<String> namespaces;
+	private Set<String> includes;
+	private Set<String> namespaces;
 	private String testSuiteName;
 	
 	public CppUnitsTestSuite(TestSuite testSuite) {
@@ -28,14 +30,14 @@ public class CppUnitsTestSuite implements UnitsTestSuiteInterface {
 	}
 
 	private void buildIncludes() {
-		includes = new ArrayList<>();
+		includes = new TreeSet<>();
 		includes.add("<units/cases.h>");
 		includes.add("<gtest/gtest.h>");
 		includes.add("<units/" + CppNamesFormatter.formatUnitTypeHeaderName(unitType) + ">");
 	}
 	
 	private void buildNamespaces() {
-		namespaces = new ArrayList<>();
+		namespaces = new TreeSet<>();
 		namespaces.add("testing");
 		namespaces.add("units::" + CppNamesFormatter.formatNamespaceName(unitType));
 	}
@@ -50,11 +52,11 @@ public class CppUnitsTestSuite implements UnitsTestSuiteInterface {
 		return testCases;
 	}
 
-	public List<String> getIncludes() {
+	public Set<String> getIncludes() {
 		return includes;
 	}
 
-	public List<String> getNamespaces() {
+	public Set<String> getNamespaces() {
 		return namespaces;
 	}
 

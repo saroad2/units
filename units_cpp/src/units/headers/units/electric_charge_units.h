@@ -5,9 +5,9 @@
 #ifndef INCLUDE_ELECTRIC_CHARGE_UNITS_H_
 #define INCLUDE_ELECTRIC_CHARGE_UNITS_H_
 
-#include <units/internal/numeric_value.h>
 #include <units/duration_units.h>
 #include <units/electric_current_units.h>
+#include <units/internal/numeric_value.h>
 
 #include <units/tags/electric_charge_tags.h>
 

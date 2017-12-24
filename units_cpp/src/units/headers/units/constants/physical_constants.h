@@ -5,13 +5,13 @@
 #ifndef _PHYSICAL_CONSTANTS_
 #define _PHYSICAL_CONSTANTS_
 
+#include <units/duration_units.h>
 #include <units/electric_charge_units.h>
-#include <units/internal/units_ratio_type.h>
 #include <units/energy_units.h>
 #include <units/force_units.h>
-#include <units/duration_units.h>
-#include <units/length_units.h>
 #include <units/internal/units_multiply_type.h>
+#include <units/internal/units_ratio_type.h>
+#include <units/length_units.h>
 #include <units/speed_units.h>
 
 

@@ -5,9 +5,9 @@
 #ifndef INCLUDE_ACCELERATION_UNITS_H_
 #define INCLUDE_ACCELERATION_UNITS_H_
 
+#include <units/duration_units.h>
 #include <units/internal/numeric_value.h>
 #include <units/length_units.h>
-#include <units/duration_units.h>
 
 #include <units/tags/acceleration_tags.h>
 

@@ -2,8 +2,8 @@
  * DO NOT EDIT IT MANUALLY!
  */
 
-#include <units/cases.h>
 #include <gtest/gtest.h>
+#include <units/cases.h>
 #include <units/electric_current_units.h>
 
 using namespace testing;

@@ -5,10 +5,10 @@
 #ifndef INCLUDE_PRESSURE_UNITS_H_
 #define INCLUDE_PRESSURE_UNITS_H_
 
-#include <units/internal/numeric_value.h>
-#include <units/mass_units.h>
 #include <units/duration_units.h>
+#include <units/internal/numeric_value.h>
 #include <units/length_units.h>
+#include <units/mass_units.h>
 
 #include <units/tags/pressure_tags.h>
 

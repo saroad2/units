@@ -2,6 +2,8 @@ package units_generator.cpp_generator;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 import units_generator.internal.NamesManipulator;
 import units_generator.internal.UnitScaleInterface;
@@ -17,8 +19,8 @@ public class CppUnitType implements UnitTypeInterface{
 	private String camelCaseName;
 	private String namespace;
 	private String codeName;
-	private List<String> tagIncludes;
-	private List<String> unitIncludes;
+	private Set<String> tagIncludes;
+	private Set<String> unitIncludes;
 	private String code;
 	private String headerIncludeGurad;
 	private String tagsHeaderIncludeGurad;
@@ -52,11 +54,11 @@ public class CppUnitType implements UnitTypeInterface{
 		return codeName;
 	}
 	
-	public List<String> getTagIncludes() {
+	public Set<String> getTagIncludes() {
 		return tagIncludes;
 	}
 	
-	public List<String> getUnitIncludes() {
+	public Set<String> getUnitIncludes() {
 		return unitIncludes;
 	}
 
@@ -113,12 +115,12 @@ public class CppUnitType implements UnitTypeInterface{
 	}
 
 	private void initializeUnitIncludes() {
-		unitIncludes = new ArrayList<>();
+		unitIncludes = new TreeSet<>();
 		unitIncludes.add("<units/internal/numeric_value.h>");
 	}
 
 	private void initializeTagIncludes() {
-		tagIncludes = new ArrayList<>();
+		tagIncludes = new TreeSet<>();
 		tagIncludes.add("<ratio>");
 		tagIncludes.add("<string>");
 	}

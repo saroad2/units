@@ -1,7 +1,7 @@
 package units_generator.cpp_generator;
 
 import java.util.ArrayList;
-import java.util.HashSet;
+import java.util.TreeSet;
 import java.util.List;
 import java.util.Set;
 
@@ -23,7 +23,7 @@ public class CppConstantsGroup implements ConstantsGroupInterface {
 		lowerUnderscoreName = CppNamesFormatter.toLowerUnderscore(groupName);
 		shoutyUnderscoreName = CppNamesFormatter.toShoutyUnderscore(groupName);
 		constants = new ArrayList<>();
-		includes = new HashSet<>();
+		includes = new TreeSet<>();
 		for (Constant constant : group.getConstants()) {
 			CppConstant cppConstant = new CppConstant(schema, constant); 
 			constants.add(cppConstant);

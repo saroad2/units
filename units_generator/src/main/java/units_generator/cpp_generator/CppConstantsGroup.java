@@ -18,6 +18,8 @@ public class CppConstantsGroup implements ConstantsGroupInterface {
 	private List<ConstantInterface> constants;
 	private Set<String> includes;
 	
+	private static CppSupportChecker supportChecker = new CppSupportChecker();
+	
 	public CppConstantsGroup(CppSchema schema, ConstantsGroup group) {
 		groupName = group.getGroupName();
 		lowerUnderscoreName = CppNamesFormatter.toLowerUnderscore(groupName);
@@ -25,6 +27,8 @@ public class CppConstantsGroup implements ConstantsGroupInterface {
 		constants = new ArrayList<>();
 		includes = new TreeSet<>();
 		for (Constant constant : group.getConstants()) {
+			if (!supportChecker.isSupported(constant))
+				continue;
 			CppConstant cppConstant = new CppConstant(schema, constant); 
 			constants.add(cppConstant);
 			includes.addAll(cppConstant.getIncludeNeeded());

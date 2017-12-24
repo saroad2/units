@@ -379,7 +379,7 @@ Those are the constants in the *units* library:
 			<td>V</td>
 		</tr><tr>
 			<td>gravitational constant</td>
-			<td>(newtons * meters * meters) / (seconds * seconds)</td>
+			<td>(newtons * meters * meters) / (kilograms * kilograms)</td>
 			<td>6.67408E-11</td>
 			<td>a constant regarding the force between two objects, depending on their masses and distance</td>
 			<td>V</td>

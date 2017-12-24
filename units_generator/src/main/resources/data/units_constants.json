@@ -240,7 +240,7 @@
 					"name" : "gravitational constant",
 					"ratio" : {
 						"numerators" : ["newtons", "meters", "meters"],
-						"denominators" : ["seconds", "seconds"]
+						"denominators" : ["kilograms", "kilograms"]
 					},
 					"value" : 6.67408e-11,
 					"description" : "a constant regarding the force between two objects, depending on their masses and distance"

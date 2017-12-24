@@ -9,6 +9,7 @@ import com.units.energy.Joules;
 import com.units.force.Newtons;
 import com.units.internal.AnonymousUnit;
 import com.units.length.Meters;
+import com.units.mass.Kilograms;
 import com.units.speed.MetersPerSecond;
 
 
@@ -27,7 +28,7 @@ public class PhysicalConstants {
 	// a constant regarding the force between two objects, depending on their masses and distance
 	static public final AnonymousUnit gravitationalConstant = new Newtons(6.67408E-11)
 			.multiply(Meters.one()).multiply(Meters.one())
-			.divide(Seconds.one()).divide(Seconds.one());
+			.divide(Kilograms.one()).divide(Kilograms.one());
 
 	// the electric charge of a single proton
 	static public final Coulombs elementaryCharge = new Coulombs(1.6021766208E-19);

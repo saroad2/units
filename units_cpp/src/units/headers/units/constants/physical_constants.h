@@ -12,6 +12,7 @@
 #include <units/internal/units_multiply_type.h>
 #include <units/internal/units_ratio_type.h>
 #include <units/length_units.h>
+#include <units/mass_units.h>
 #include <units/speed_units.h>
 
 
@@ -31,7 +32,7 @@ constexpr Multiply<energy::Joules, duration::Seconds> reducedPlanckConstant{1.05
 //a constant regarding the force between two objects, depending on their masses and distance
 constexpr Ratio<
 	Multiply<force::Newtons, length::Meters, length::Meters>,
-	Multiply<duration::Seconds, duration::Seconds>> gravitationalConstant{6.67408E-11};
+	Multiply<mass::Kilograms, mass::Kilograms>> gravitationalConstant{6.67408E-11};
 
 //the electric charge of a single proton
 constexpr electric_charge::Coulombs elementaryCharge{1.6021766208E-19};

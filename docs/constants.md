@@ -369,21 +369,21 @@ Those are the constants in the *units* library:
 			<td>6.62607004E-34</td>
 			<td>the quantum of action.</td>
 			<td>V</td>
-			<td>X</td>
+			<td>V</td>
 		</tr><tr>
 			<td>reduced planck constant</td>
 			<td>joules * seconds</td>
 			<td>1.0545718E-34</td>
 			<td>planck constant divided by 2 pi.</td>
 			<td>V</td>
-			<td>X</td>
+			<td>V</td>
 		</tr><tr>
 			<td>gravitational constant</td>
 			<td>(newtons * meters * meters) / (seconds * seconds)</td>
 			<td>6.67408E-11</td>
 			<td>a constant regarding the force between two objects, depending on their masses and distance</td>
 			<td>V</td>
-			<td>X</td>
+			<td>V</td>
 		</tr><tr>
 			<td>elementary charge</td>
 			<td>coulombs</td>

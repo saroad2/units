@@ -5,6 +5,7 @@ package com.units.constants;
 
 import com.units.mass.SolarMasses;
 
+
 public class PlanetaryMasses {
 	// the mass of the sun
 	static public final SolarMasses sunMass = new SolarMasses(1.0);

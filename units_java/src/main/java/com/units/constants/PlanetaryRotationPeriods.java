@@ -5,6 +5,7 @@ package com.units.constants;
 
 import com.units.duration.Seconds;
 
+
 public class PlanetaryRotationPeriods {
 	// the time it takes the sun to make a whole spin around itself
 	static public final Seconds sunRotationPeriod = new Seconds(2192831.6);

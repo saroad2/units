@@ -5,6 +5,7 @@ package com.units.constants;
 
 import com.units.density.KilogramsPerLiter;
 
+
 public class PlanetaryDensities {
 	// the ratio of the mass of the sun to the volume of space it takes up
 	static public final KilogramsPerLiter sunDensity = new KilogramsPerLiter(1.4);

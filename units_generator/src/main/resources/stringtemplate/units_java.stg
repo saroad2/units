@@ -295,7 +295,7 @@ constants_group(constantsGroup) ::= <<
 <declaration()>
 package com.units.constants;
 
-<constantsGroup.imports: {importPath |import <importPath>;}>
+<constantsGroup.imports: {importPath |import <importPath>;<\n>}>
 
 public class <constantsGroup.className> {
 	<constantsGroup.constants: { constant | // <constant.description>

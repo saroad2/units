@@ -5,6 +5,7 @@ package com.units.constants;
 
 import com.units.length.Meters;
 
+
 public class Wgs84 {
 	// the semi major axis of the earth modeled by the wgs84.
 	static public final Meters semiMajorAxis = new Meters(6378137.0);

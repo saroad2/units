@@ -11,16 +11,16 @@ public class JavaConstant implements ConstantInterface {
 	private String name;
 	private String variableName;
 	private String unitScale;
-	private boolean isDouble;
 	private double value;
+	private String valueAsString;
 	private String description;
 	private Set<String> neededImports;
 	
 	public JavaConstant(JavaUnitsSchema schema, Constant constant) {
 		name = constant.getName();
 		variableName = JavaNamesFormatter.toLowerCamelCase(name);
-		initializeUnitScale(schema, constant);
 		value = constant.getValue();
+		initializeUnitScale(schema, constant);
 		description = constant.getDescription();
 	}
 	
@@ -28,12 +28,12 @@ public class JavaConstant implements ConstantInterface {
 		neededImports = new TreeSet<>();
 		if (constant.getUnitScale() == null) {
 			unitScale = "double";
-			isDouble = true;
+			valueAsString = String.valueOf(value);
 			return;
 		}
 		JavaUnitScale javaUnitScale = (JavaUnitScale)schema.getUnitScale(constant.getUnitScale());
 		unitScale = javaUnitScale.getClassName();
-		isDouble = false;
+		valueAsString = "new " + unitScale + "(" + value + ")"; 
 		neededImports.add("com.units." + javaUnitScale.getPackageName() + "." +javaUnitScale.getClassName());
 	}
 	
@@ -51,8 +51,8 @@ public class JavaConstant implements ConstantInterface {
 		return unitScale;
 	}
 
-	public boolean getIsDouble() {
-		return isDouble;
+	public String getValueAsString() {
+		return valueAsString;
 	}
 
 	@Override

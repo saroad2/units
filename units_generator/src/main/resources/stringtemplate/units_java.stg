@@ -299,7 +299,7 @@ package com.units.constants;
 
 public class <constantsGroup.className> {
 	<constantsGroup.constants: { constant | // <constant.description>
-static public final <constant.unitScale> <constant.variableName> = <if(constant.isDouble)><constant.value><else>new <constant.unitScale>(<constant.value>)<endif>;
+static public final <constant.unitScale> <constant.variableName> = <constant.valueAsString>;
 
 }>
 }

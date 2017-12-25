@@ -33,7 +33,7 @@ public class JavaUnitsGenerator extends LanguageUnitsGenerator {
 			Path rootDirectory) throws IOException {
 		Map<String, Path> directoriesMap = new HashMap<>();
 		addToDirectoriesMap(directoriesMap, root, rootDirectory);
-		Path libraryPath = Paths.get(rootDirectory.toString(), "main", "java", "com", "units");
+		Path libraryPath = Paths.get(rootDirectory.toString(), "unitsLib", "java", "com", "units");
 		addToDirectoriesMap(directoriesMap, library, libraryPath);
 		Path testsPath = Paths.get(rootDirectory.toString(), "test", "java", "com", "units", "tests");
 		addToDirectoriesMap(directoriesMap, tests, testsPath);

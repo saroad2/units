@@ -2,6 +2,7 @@ package com.units;
 
 import com.units.angle.Radians;
 import com.units.angular_speed.DegreesPerSecond;
+import com.units.area.SquareMeters;
 import com.units.duration.Seconds;
 import com.units.length.Centimeters;
 import com.units.length.Feet;
@@ -71,6 +72,20 @@ public class MainExample {
 		 * 
 		 * This will not compile since Radians is an angle unit and not a speed unit
 		 * */
+		System.out.println();
+		
+		TraingleAreaCalculator<?> calculator = new TraingleAreaCalculator<>(SquareMeters.class);
+		Yards y = new Yards(2);
+		System.out.println(calculator.calculate(m2, m));
+		System.out.println(calculator.calculate(m, m3));
+		System.out.println(calculator.calculate(m, y));
+		
+		/* System.out.println(calculator.calculate(m, new Knots(3)));
+		 *
+		 * This will not compile since the calculate function expects only
+		 * length units.
+		 * */
+		
 		System.out.println();
 	}
 

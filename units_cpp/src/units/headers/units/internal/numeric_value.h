@@ -110,6 +110,11 @@ public:
 		return *this;
 	}
 
+	constexpr double scalarRatio(const _selfType& other) const
+	{
+		return value() / other.value();
+	}
+
 	//Class friends declarations
 	template<class Unit1, class Unit2>
 	friend struct is_from_the_same_type;

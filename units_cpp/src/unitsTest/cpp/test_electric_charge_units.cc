@@ -283,6 +283,7 @@ TYPED_TEST(TestElectricChargeBasicUsage, test_multiply_by_scalar_from_the_left)
 	auto unit2 = scalar * unit1;
 	EXPECT_EQ(unit1.value(), value);
 	EXPECT_EQ(unit2.value(), scalar * value);
+	EXPECT_EQ(unit2.scalarRatio(unit1), scalar);
 }
 
 TYPED_TEST(TestElectricChargeBasicUsage, test_multiply_by_scalar_from_the_right)
@@ -293,6 +294,7 @@ TYPED_TEST(TestElectricChargeBasicUsage, test_multiply_by_scalar_from_the_right)
 	auto unit2 = unit1 * scalar;
 	EXPECT_EQ(unit1.value(), value);
 	EXPECT_EQ(unit2.value(), scalar * value);
+	EXPECT_EQ(unit2.scalarRatio(unit1), scalar);
 }
 
 TYPED_TEST(TestElectricChargeBasicUsage, test_divide_by_scalar)

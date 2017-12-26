@@ -30,6 +30,9 @@ struct multiply_builder;
 template <class Unit, int power>
 struct pow_builder;
 
+template <class Unit>
+struct sqrt_builder;
+
 template<class Unit1, class Unit2>
 struct ratio_builder;
 
@@ -127,6 +130,9 @@ public:
 
 	template <class Unit, int power>
 	friend struct pow_builder;
+
+	template <class Unit>
+	friend struct sqrt_builder;
 
 	template<class Unit1, class Unit2>
 	friend struct ratio_builder;

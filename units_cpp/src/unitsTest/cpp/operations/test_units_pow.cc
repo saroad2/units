@@ -6,7 +6,9 @@
  */
 
 #include <units/units_pow.h>
+#include <units/units_sqrt.h>
 #include <units/units_cast.h>
+
 #include <units/length_units.h>
 #include <units/area_units.h>
 #include <units/volume_units.h>
@@ -14,17 +16,11 @@
 #include <gtest/gtest.h>
 #include <cmath>
 
-using units::units_pow;
-using units::auto_units_sqr;
-using units::units_sqr;
-using units::auto_units_cube;
-using units::units_cube;
-using units::units_cast;
+using namespace testing;
+using namespace units;
 using namespace units::length;
 using namespace units::area;
 using namespace units::volume;
-
-using namespace testing;
 
 static constexpr double maxPercentageError{1e-10};
 
@@ -46,11 +42,13 @@ protected:
 		checkValue(expectedResult, units_cast<ResultUnit>(units_pow<power>(unit)));
 	}
 
-	template<class ResultUnit, class Unit>
-	void checkSqr(const ResultUnit& squareUnit, const Unit& unit)
+	template<class SquareUnit, class Unit>
+	void checkSqr(const SquareUnit& squareUnit, const Unit& unit)
 	{
-		checkValue(squareUnit, units_cast<ResultUnit>(auto_units_sqr(unit)));
-		checkValue(squareUnit, units_sqr<ResultUnit>(unit));
+		checkValue(squareUnit, units_cast<SquareUnit>(auto_units_sqr(unit)));
+		checkValue(squareUnit, units_sqr<SquareUnit>(unit));
+		checkValue(unit, units_cast<Unit>(auto_units_sqrt(squareUnit)));
+		checkValue(unit, units_sqrt<Unit>(squareUnit));
 	}
 
 	template<class ResultUnit, class Unit>

@@ -53,6 +53,9 @@ struct pow_builder
 template <class Unit, int power>
 using Pow = typename pow_builder<Unit, power>::result;
 
+template <class Unit>
+using Square = Pow<Unit, 2>;
+
 }
 
 #endif /* INCLUDE_UNITS_POW_TYPE_H_ */

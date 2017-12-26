@@ -49,6 +49,19 @@ public abstract class AbstractUnit implements Unit {
 	public AnonymousUnit cube() {
 		return pow(3);
 	}
+	
+	@Override
+	public AnonymousUnit sqrt() {
+		try {
+			Ratio newCode = typeCode().sqrt();
+			double newScale = Math.sqrt(scale());
+			double newValue = Math.sqrt(value());
+			return new AnonymousUnit(newCode, newScale, newValue);
+		}
+		catch(IllegalArgumentException e) {
+			throw new IllegalArgumentException("This unit has no square root");
+		}
+	}
 
 	public boolean almostEqualsValue(double otherValue) {
 		return Math.abs(value() - otherValue) < error;

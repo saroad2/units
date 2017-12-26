@@ -3,6 +3,7 @@ package com.units.tests;
 import org.junit.Test;
 
 import com.units.area.Dunams;
+import com.units.area.SquareMeters;
 import com.units.exceptions.IllegalUnitsCasting;
 import com.units.length.Kilometers;
 import com.units.length.Meters;
@@ -63,6 +64,18 @@ public class TestUnitsPow extends OperationTestSuite{
 	@Test(expected = IllegalUnitsCasting.class)
 	public void testMetersCubeFailedCasting() {
 		new Meters(3).cube().castTo(Meters.class);
+	}
+
+	@Test
+	public void testMetersSqrtSucess() {
+		checkResult(
+				new SquareMeters(25).sqrt().castTo(Meters.class),
+				new Meters(5));
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void testMetersSqrtFailure() {
+		new Meters(25).sqrt();
 	}
 
 }

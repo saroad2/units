@@ -14,4 +14,5 @@ public interface Unit {
 	public AnonymousUnit pow(int power);
 	public AnonymousUnit sqr();
 	public AnonymousUnit cube();
+	public AnonymousUnit sqrt();
 }

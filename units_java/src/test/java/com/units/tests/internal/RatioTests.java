@@ -131,6 +131,18 @@ public class RatioTests {
 	}
 
 	@Test()
+	public void testSqrtSuccess() {
+		Ratio r = new Ratio(9, 25);
+		checkRatio(r.sqrt(), 3, 5);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void testSqrtFailure() {
+		Ratio r = new Ratio(10, 25);
+		r.sqrt();
+	}
+
+	@Test()
 	public void testPowerOf3() {
 		Ratio r = new Ratio(3, 5);
 		checkRatio(r.pow(3), 27, 125);

@@ -52,6 +52,19 @@ public class Ratio {
 		return new Ratio(newNumerator, newDenominator);
 	}
 	
+	public Ratio sqr() {
+		return pow(2);
+	}
+	
+	public Ratio sqrt() {
+		int newNumerator = (int)Math.sqrt(getNumerator());
+		int newDenominator = (int)Math.sqrt(getDenominator());
+		Ratio result = new Ratio(newNumerator, newDenominator);
+		if (!result.sqr().equals(this))
+			throw new IllegalArgumentException("This ratio has no square root");
+		return result;
+	}
+	
 	public static Ratio one() {
 		return new Ratio(1);
 	}

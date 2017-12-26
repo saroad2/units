@@ -3,12 +3,11 @@
  */
 package com.units.angular_speed;
 
-import com.units.internal.*;
 import com.units.angle.Mils;
 import com.units.duration.Seconds;
 
 
-public class MilsPerSecond extends NumericValue implements AngularSpeed{
+public class MilsPerSecond extends AngularSpeed {
 
 	public static final double _scale =
 		Mils._scale / Seconds._scale;

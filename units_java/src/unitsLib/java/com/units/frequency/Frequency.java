@@ -3,19 +3,23 @@
  */
 package com.units.frequency;
 
-import com.units.Unit;
 import com.units.exceptions.IllegalUnitsCasting;
+import com.units.internal.AbstractUnit;
 import com.units.internal.Ratio;
 import com.units.duration.Duration;
 
 
-public interface Frequency extends Unit {
+public abstract class Frequency extends AbstractUnit {
 
 	public static final Ratio _typeCode =
 		Ratio.one()
 		.divide(Duration._typeCode);
+	
+	public Frequency(double value) {
+		super(value);
+	}
 
-	default public <E extends Frequency> E castTo(Class<E> toClass) {
+	public <E extends Frequency> E castTo(Class<E> toClass) {
 		try {
 			double toScale = (double)toClass.getField("_scale").get(null);
 			double newValue = value() * scale() / toScale;
@@ -27,7 +31,7 @@ public interface Frequency extends Unit {
 	}
 
 	@Override
-	default public Ratio typeCode() {
+	public Ratio typeCode() {
 		return _typeCode;
 	};
 }

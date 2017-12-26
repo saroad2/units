@@ -3,9 +3,8 @@
  */
 package com.units.length;
 
-import com.units.internal.*;
 
-public class StatuteMiles extends NumericValue implements Length{
+public class StatuteMiles extends Length {
 
 	public static final double _scale =
 		621.371192237 * Meters._scale;

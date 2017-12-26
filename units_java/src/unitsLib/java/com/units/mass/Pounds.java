@@ -3,9 +3,8 @@
  */
 package com.units.mass;
 
-import com.units.internal.*;
 
-public class Pounds extends NumericValue implements Mass{
+public class Pounds extends Mass {
 
 	public static final double _scale =
 		453.592333346094 * Grams._scale;

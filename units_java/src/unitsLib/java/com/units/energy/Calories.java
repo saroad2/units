@@ -3,9 +3,8 @@
  */
 package com.units.energy;
 
-import com.units.internal.*;
 
-public class Calories extends NumericValue implements Energy{
+public class Calories extends Energy {
 
 	public static final double _scale =
 		4.184 * Joules._scale;

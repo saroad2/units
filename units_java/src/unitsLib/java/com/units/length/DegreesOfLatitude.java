@@ -3,9 +3,8 @@
  */
 package com.units.length;
 
-import com.units.internal.*;
 
-public class DegreesOfLatitude extends NumericValue implements Length{
+public class DegreesOfLatitude extends Length {
 
 	public static final double _scale =
 		60.0 * GeographicalMiles._scale;

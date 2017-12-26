@@ -3,9 +3,8 @@
  */
 package com.units.duration;
 
-import com.units.internal.*;
 
-public class Days extends NumericValue implements Duration{
+public class Days extends Duration {
 
 	public static final double _scale =
 		24.0 * Hours._scale;

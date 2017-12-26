@@ -3,11 +3,10 @@
  */
 package com.units.length;
 
-import com.units.internal.*;
 import com.units.internal.Multipliers;
 
 
-public class Centimeters extends NumericValue implements Length{
+public class Centimeters extends Length {
 
 	public static final double _scale =
 		Multipliers.centi * Meters._scale;

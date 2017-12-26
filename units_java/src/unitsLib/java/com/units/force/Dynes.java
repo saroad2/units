@@ -3,9 +3,8 @@
  */
 package com.units.force;
 
-import com.units.internal.*;
 
-public class Dynes extends NumericValue implements Force{
+public class Dynes extends Force {
 
 	public static final double _scale =
 		1.0E-5 * Newtons._scale;

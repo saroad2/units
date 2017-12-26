@@ -3,11 +3,10 @@
  */
 package com.units.volume;
 
-import com.units.internal.*;
 import com.units.length.Yards;
 
 
-public class CubicYards extends NumericValue implements Volume{
+public class CubicYards extends Volume {
 
 	public static final double _scale =
 		Yards._scale * Yards._scale * Yards._scale;

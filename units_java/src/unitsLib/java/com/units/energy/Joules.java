@@ -3,13 +3,12 @@
  */
 package com.units.energy;
 
-import com.units.internal.*;
 import com.units.duration.Seconds;
 import com.units.length.Meters;
 import com.units.mass.Kilograms;
 
 
-public class Joules extends NumericValue implements Energy{
+public class Joules extends Energy {
 
 	public static final double _scale =
 		(Kilograms._scale * Meters._scale * Meters._scale)

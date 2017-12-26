@@ -3,12 +3,11 @@
  */
 package com.units.electric_charge;
 
-import com.units.internal.*;
 import com.units.duration.Seconds;
 import com.units.electric_current.Amperes;
 
 
-public class Coulombs extends NumericValue implements ElectricCharge{
+public class Coulombs extends ElectricCharge {
 
 	public static final double _scale =
 		Amperes._scale * Seconds._scale;

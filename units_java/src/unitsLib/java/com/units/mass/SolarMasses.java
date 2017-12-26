@@ -3,9 +3,8 @@
  */
 package com.units.mass;
 
-import com.units.internal.*;
 
-public class SolarMasses extends NumericValue implements Mass{
+public class SolarMasses extends Mass {
 
 	public static final double _scale =
 		1.98855E30 * Kilograms._scale;

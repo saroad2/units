@@ -3,15 +3,15 @@
  */
 package com.units.energy;
 
-import com.units.Unit;
 import com.units.exceptions.IllegalUnitsCasting;
+import com.units.internal.AbstractUnit;
 import com.units.internal.Ratio;
 import com.units.duration.Duration;
 import com.units.length.Length;
 import com.units.mass.Mass;
 
 
-public interface Energy extends Unit {
+public abstract class Energy extends AbstractUnit {
 
 	public static final Ratio _typeCode =
 		Mass._typeCode
@@ -19,8 +19,12 @@ public interface Energy extends Unit {
 		.multiply(Length._typeCode)
 		.divide(Duration._typeCode)
 		.divide(Duration._typeCode);
+	
+	public Energy(double value) {
+		super(value);
+	}
 
-	default public <E extends Energy> E castTo(Class<E> toClass) {
+	public <E extends Energy> E castTo(Class<E> toClass) {
 		try {
 			double toScale = (double)toClass.getField("_scale").get(null);
 			double newValue = value() * scale() / toScale;
@@ -32,7 +36,7 @@ public interface Energy extends Unit {
 	}
 
 	@Override
-	default public Ratio typeCode() {
+	public Ratio typeCode() {
 		return _typeCode;
 	};
 }

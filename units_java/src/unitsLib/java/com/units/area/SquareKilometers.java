@@ -3,11 +3,10 @@
  */
 package com.units.area;
 
-import com.units.internal.*;
 import com.units.length.Kilometers;
 
 
-public class SquareKilometers extends NumericValue implements Area{
+public class SquareKilometers extends Area {
 
 	public static final double _scale =
 		Kilometers._scale * Kilometers._scale;

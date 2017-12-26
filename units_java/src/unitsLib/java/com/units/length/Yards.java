@@ -3,9 +3,8 @@
  */
 package com.units.length;
 
-import com.units.internal.*;
 
-public class Yards extends NumericValue implements Length{
+public class Yards extends Length {
 
 	public static final double _scale =
 		3.0 * Feet._scale;

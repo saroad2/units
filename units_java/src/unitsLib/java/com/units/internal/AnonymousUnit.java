@@ -3,7 +3,7 @@ package com.units.internal;
 import com.units.Unit;
 import com.units.exceptions.IllegalUnitsCasting;
 
-public class AnonymousUnit extends NumericValue implements Unit {
+public class AnonymousUnit extends AbstractUnit {
 
 	private final Ratio _typeCode;
 	private final double _scale;

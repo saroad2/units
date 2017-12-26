@@ -3,20 +3,24 @@
  */
 package com.units.density;
 
-import com.units.Unit;
 import com.units.exceptions.IllegalUnitsCasting;
+import com.units.internal.AbstractUnit;
 import com.units.internal.Ratio;
 import com.units.mass.Mass;
 import com.units.volume.Volume;
 
 
-public interface Density extends Unit {
+public abstract class Density extends AbstractUnit {
 
 	public static final Ratio _typeCode =
 		Mass._typeCode
 		.divide(Volume._typeCode);
+	
+	public Density(double value) {
+		super(value);
+	}
 
-	default public <E extends Density> E castTo(Class<E> toClass) {
+	public <E extends Density> E castTo(Class<E> toClass) {
 		try {
 			double toScale = (double)toClass.getField("_scale").get(null);
 			double newValue = value() * scale() / toScale;
@@ -28,7 +32,7 @@ public interface Density extends Unit {
 	}
 
 	@Override
-	default public Ratio typeCode() {
+	public Ratio typeCode() {
 		return _typeCode;
 	};
 }

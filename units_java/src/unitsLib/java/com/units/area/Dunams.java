@@ -3,11 +3,10 @@
  */
 package com.units.area;
 
-import com.units.internal.*;
 import com.units.internal.Multipliers;
 
 
-public class Dunams extends NumericValue implements Area{
+public class Dunams extends Area {
 
 	public static final double _scale =
 		Multipliers.kilo * SquareMeters._scale;

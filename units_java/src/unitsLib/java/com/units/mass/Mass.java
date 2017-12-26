@@ -3,16 +3,20 @@
  */
 package com.units.mass;
 
-import com.units.Unit;
 import com.units.exceptions.IllegalUnitsCasting;
+import com.units.internal.AbstractUnit;
 import com.units.internal.Ratio;
 
-public interface Mass extends Unit {
+public abstract class Mass extends AbstractUnit {
 
 	public static final Ratio _typeCode =
 		new Ratio(5);
+	
+	public Mass(double value) {
+		super(value);
+	}
 
-	default public <E extends Mass> E castTo(Class<E> toClass) {
+	public <E extends Mass> E castTo(Class<E> toClass) {
 		try {
 			double toScale = (double)toClass.getField("_scale").get(null);
 			double newValue = value() * scale() / toScale;
@@ -24,7 +28,7 @@ public interface Mass extends Unit {
 	}
 
 	@Override
-	default public Ratio typeCode() {
+	public Ratio typeCode() {
 		return _typeCode;
 	};
 }

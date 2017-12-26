@@ -3,9 +3,8 @@
  */
 package com.units.temperature;
 
-import com.units.internal.*;
 
-public class Kelvins extends NumericValue implements Temperature{
+public class Kelvins extends Temperature {
 
 	public static final double _scale =
 		1;

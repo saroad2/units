@@ -3,9 +3,8 @@
  */
 package com.units.length;
 
-import com.units.internal.*;
 
-public class Meters extends NumericValue implements Length{
+public class Meters extends Length {
 
 	public static final double _scale =
 		1;

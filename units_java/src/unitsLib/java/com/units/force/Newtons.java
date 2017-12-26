@@ -3,13 +3,12 @@
  */
 package com.units.force;
 
-import com.units.internal.*;
 import com.units.duration.Seconds;
 import com.units.length.Meters;
 import com.units.mass.Kilograms;
 
 
-public class Newtons extends NumericValue implements Force{
+public class Newtons extends Force {
 
 	public static final double _scale =
 		(Kilograms._scale * Meters._scale)

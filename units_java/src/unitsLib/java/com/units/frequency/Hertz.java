@@ -3,11 +3,10 @@
  */
 package com.units.frequency;
 
-import com.units.internal.*;
 import com.units.duration.Seconds;
 
 
-public class Hertz extends NumericValue implements Frequency{
+public class Hertz extends Frequency {
 
 	public static final double _scale =
 		1.0 / Seconds._scale;

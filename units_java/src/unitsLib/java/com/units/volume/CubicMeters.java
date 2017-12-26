@@ -3,11 +3,10 @@
  */
 package com.units.volume;
 
-import com.units.internal.*;
 import com.units.length.Meters;
 
 
-public class CubicMeters extends NumericValue implements Volume{
+public class CubicMeters extends Volume {
 
 	public static final double _scale =
 		Meters._scale * Meters._scale * Meters._scale;

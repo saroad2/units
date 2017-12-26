@@ -3,12 +3,11 @@
  */
 package com.units.acceleration;
 
-import com.units.internal.*;
 import com.units.duration.Seconds;
 import com.units.length.Meters;
 
 
-public class MetersPerSquareSecond extends NumericValue implements Acceleration{
+public class MetersPerSquareSecond extends Acceleration {
 
 	public static final double _scale =
 		Meters._scale

@@ -84,7 +84,7 @@ public class JavaUnitsGenerator extends LanguageUnitsGenerator {
 		Path outputPath = Paths.get(
 				directoriesMap.get(unitTypePackageKey(javaUnitType)).toString(),
 				javaUnitType.getClassName() + ".java");
-		writeStringTemplate("unit_type_interface", "unitType", javaUnitType, outputPath);
+		writeStringTemplate("unit_type_class", "unitType", javaUnitType, outputPath);
 	}
 
 	@Override

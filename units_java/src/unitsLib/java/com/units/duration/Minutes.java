@@ -3,9 +3,8 @@
  */
 package com.units.duration;
 
-import com.units.internal.*;
 
-public class Minutes extends NumericValue implements Duration{
+public class Minutes extends Duration {
 
 	public static final double _scale =
 		60.0 * Seconds._scale;

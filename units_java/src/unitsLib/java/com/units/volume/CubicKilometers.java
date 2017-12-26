@@ -3,11 +3,10 @@
  */
 package com.units.volume;
 
-import com.units.internal.*;
 import com.units.length.Kilometers;
 
 
-public class CubicKilometers extends NumericValue implements Volume{
+public class CubicKilometers extends Volume {
 
 	public static final double _scale =
 		Kilometers._scale * Kilometers._scale * Kilometers._scale;

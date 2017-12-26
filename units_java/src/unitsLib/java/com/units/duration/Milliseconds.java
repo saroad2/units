@@ -3,11 +3,10 @@
  */
 package com.units.duration;
 
-import com.units.internal.*;
 import com.units.internal.Multipliers;
 
 
-public class Milliseconds extends NumericValue implements Duration{
+public class Milliseconds extends Duration {
 
 	public static final double _scale =
 		Multipliers.milli * Seconds._scale;

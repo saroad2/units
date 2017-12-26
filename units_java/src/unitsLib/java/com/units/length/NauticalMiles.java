@@ -3,9 +3,8 @@
  */
 package com.units.length;
 
-import com.units.internal.*;
 
-public class NauticalMiles extends NumericValue implements Length{
+public class NauticalMiles extends Length {
 
 	public static final double _scale =
 		1852.0 * Meters._scale;

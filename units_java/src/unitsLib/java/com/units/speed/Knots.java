@@ -3,9 +3,8 @@
  */
 package com.units.speed;
 
-import com.units.internal.*;
 
-public class Knots extends NumericValue implements Speed{
+public class Knots extends Speed {
 
 	public static final double _scale =
 		0.514444773689 * MetersPerSecond._scale;

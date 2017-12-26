@@ -3,9 +3,8 @@
  */
 package com.units.temperature;
 
-import com.units.internal.*;
 
-public class Rankines extends NumericValue implements Temperature{
+public class Rankines extends Temperature {
 
 	public static final double _scale =
 		0.5555555555 * Kelvins._scale;

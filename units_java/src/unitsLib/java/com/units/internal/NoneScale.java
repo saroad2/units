@@ -2,7 +2,7 @@ package com.units.internal;
 
 import com.units.Unit;
 
-public class NoneScale extends NumericValue implements Unit {
+public class NoneScale extends AbstractUnit implements Unit {
 
 	private static final double _scale = 1;
 	private static final Ratio _typeCode = Ratio.one();

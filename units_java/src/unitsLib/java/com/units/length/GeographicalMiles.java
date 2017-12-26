@@ -3,9 +3,8 @@
  */
 package com.units.length;
 
-import com.units.internal.*;
 
-public class GeographicalMiles extends NumericValue implements Length{
+public class GeographicalMiles extends Length {
 
 	public static final double _scale =
 		1855.3248 * Meters._scale;

@@ -3,12 +3,11 @@
  */
 package com.units.speed;
 
-import com.units.internal.*;
 import com.units.duration.Seconds;
 import com.units.length.Yards;
 
 
-public class YardsPerSecond extends NumericValue implements Speed{
+public class YardsPerSecond extends Speed {
 
 	public static final double _scale =
 		Yards._scale / Seconds._scale;

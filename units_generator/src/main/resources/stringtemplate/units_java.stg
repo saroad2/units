@@ -6,21 +6,25 @@ declaration() ::= <<
  */
 >>
 
-unit_type_interface(unitType) ::= <<
+unit_type_class(unitType) ::= <<
 <declaration()>
 package com.units.<unitType.packageName>;
 
-import com.units.Unit;
 import com.units.exceptions.IllegalUnitsCasting;
+import com.units.internal.AbstractUnit;
 import com.units.internal.Ratio;
 <unitType.imports:{module | import <module>;<\n>}>
 
-public interface <unitType.className> extends Unit {
+public abstract class <unitType.className> extends AbstractUnit {
 
 	public static final Ratio _typeCode =
 		<unitType.code>;
+	
+	public <unitType.className>(double value) {
+		super(value);
+	}
 
-	default public \<E extends <unitType.className>\> E castTo(Class\<E\> toClass) {
+	public \<E extends <unitType.className>\> E castTo(Class\<E\> toClass) {
 		try {
 			double toScale = (double)toClass.getField("_scale").get(null);
 			double newValue = value() * scale() / toScale;
@@ -32,7 +36,7 @@ public interface <unitType.className> extends Unit {
 	}
 
 	@Override
-	default public Ratio typeCode() {
+	public Ratio typeCode() {
 		return _typeCode;
 	};
 }
@@ -42,10 +46,9 @@ unit_scale_class(unitScale) ::= <<
 <declaration()>
 package com.units.<unitScale.packageName>;
 
-import com.units.internal.*;
 <unitScale.imports:{module | import <module>;<\n>}>
 
-public class <unitScale.className> extends NumericValue implements <unitScale.typeInterfaceName>{
+public class <unitScale.className> extends <unitScale.typeClassName> {
 
 	public static final double _scale =
 		<unitScale.scale>;

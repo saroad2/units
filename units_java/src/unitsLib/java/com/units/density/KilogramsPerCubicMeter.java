@@ -3,12 +3,11 @@
  */
 package com.units.density;
 
-import com.units.internal.*;
 import com.units.mass.Kilograms;
 import com.units.volume.CubicMeters;
 
 
-public class KilogramsPerCubicMeter extends NumericValue implements Density{
+public class KilogramsPerCubicMeter extends Density {
 
 	public static final double _scale =
 		Kilograms._scale / CubicMeters._scale;

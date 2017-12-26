@@ -3,12 +3,11 @@
  */
 package com.units.density;
 
-import com.units.internal.*;
 import com.units.mass.Kilograms;
 import com.units.volume.Liters;
 
 
-public class KilogramsPerLiter extends NumericValue implements Density{
+public class KilogramsPerLiter extends Density {
 
 	public static final double _scale =
 		Kilograms._scale / Liters._scale;

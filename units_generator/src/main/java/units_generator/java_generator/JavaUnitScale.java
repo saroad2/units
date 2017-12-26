@@ -17,7 +17,7 @@ public class JavaUnitScale implements UnitScaleInterface {
 	private String name;
 	private String className;
 	private String pluralName;
-	private String typeInterfaceName;
+	private String typeClassName;
 	private String scale;
 	private Set<String> imports;
 	
@@ -28,7 +28,7 @@ public class JavaUnitScale implements UnitScaleInterface {
 		this.name = NamesManipulator.getName(unitScale);
 		this.className = JavaNamesFormatter.toUpperCamelCase(name);
 		this.pluralName = unitScale.getPluralName();
-		this.typeInterfaceName = unitType.getClassName();
+		this.typeClassName = unitType.getClassName();
 		this.scale = JavaScaleCalculator.calculateScale(unitScale);
 		initializeImports(unitScale);
 	}
@@ -80,8 +80,8 @@ public class JavaUnitScale implements UnitScaleInterface {
 		return pluralName;
 	}
 
-	public String getTypeInterfaceName() {
-		return typeInterfaceName;
+	public String getTypeClassName() {
+		return typeClassName;
 	}
 
 	@Override

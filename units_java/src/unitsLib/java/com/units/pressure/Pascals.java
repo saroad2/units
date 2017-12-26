@@ -3,13 +3,12 @@
  */
 package com.units.pressure;
 
-import com.units.internal.*;
 import com.units.duration.Seconds;
 import com.units.length.Meters;
 import com.units.mass.Kilograms;
 
 
-public class Pascals extends NumericValue implements Pressure{
+public class Pascals extends Pressure {
 
 	public static final double _scale =
 		Kilograms._scale

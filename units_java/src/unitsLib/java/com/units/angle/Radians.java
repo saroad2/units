@@ -3,9 +3,8 @@
  */
 package com.units.angle;
 
-import com.units.internal.*;
 
-public class Radians extends NumericValue implements Angle{
+public class Radians extends Angle {
 
 	public static final double _scale =
 		57.2957795131 * Degrees._scale;

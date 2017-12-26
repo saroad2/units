@@ -3,12 +3,11 @@
  */
 package com.units.speed;
 
-import com.units.internal.*;
 import com.units.duration.Seconds;
 import com.units.length.Feet;
 
 
-public class FeetPerSecond extends NumericValue implements Speed{
+public class FeetPerSecond extends Speed {
 
 	public static final double _scale =
 		Feet._scale / Seconds._scale;

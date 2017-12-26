@@ -3,11 +3,10 @@
  */
 package com.units.volume;
 
-import com.units.internal.*;
 import com.units.internal.Multipliers;
 
 
-public class Liters extends NumericValue implements Volume{
+public class Liters extends Volume {
 
 	public static final double _scale =
 		Multipliers.milli * CubicMeters._scale;

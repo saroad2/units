@@ -3,11 +3,10 @@
  */
 package com.units.length;
 
-import com.units.internal.*;
 import com.units.internal.Multipliers;
 
 
-public class Micrometers extends NumericValue implements Length{
+public class Micrometers extends Length {
 
 	public static final double _scale =
 		Multipliers.micro * Meters._scale;

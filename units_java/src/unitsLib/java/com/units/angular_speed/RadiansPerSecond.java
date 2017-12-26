@@ -3,12 +3,11 @@
  */
 package com.units.angular_speed;
 
-import com.units.internal.*;
 import com.units.angle.Radians;
 import com.units.duration.Seconds;
 
 
-public class RadiansPerSecond extends NumericValue implements AngularSpeed{
+public class RadiansPerSecond extends AngularSpeed {
 
 	public static final double _scale =
 		Radians._scale / Seconds._scale;

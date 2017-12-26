@@ -3,12 +3,11 @@
  */
 package com.units.speed;
 
-import com.units.internal.*;
 import com.units.duration.Hours;
 import com.units.length.Kilometers;
 
 
-public class KilometersPerHour extends NumericValue implements Speed{
+public class KilometersPerHour extends Speed {
 
 	public static final double _scale =
 		Kilometers._scale / Hours._scale;

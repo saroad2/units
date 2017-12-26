@@ -3,11 +3,10 @@
  */
 package com.units.mass;
 
-import com.units.internal.*;
 import com.units.internal.Multipliers;
 
 
-public class Milligrams extends NumericValue implements Mass{
+public class Milligrams extends Mass {
 
 	public static final double _scale =
 		Multipliers.milli * Grams._scale;

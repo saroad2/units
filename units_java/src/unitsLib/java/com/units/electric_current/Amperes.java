@@ -3,9 +3,8 @@
  */
 package com.units.electric_current;
 
-import com.units.internal.*;
 
-public class Amperes extends NumericValue implements ElectricCurrent{
+public class Amperes extends ElectricCurrent {
 
 	public static final double _scale =
 		1;

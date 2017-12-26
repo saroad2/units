@@ -3,9 +3,8 @@
  */
 package com.units.length;
 
-import com.units.internal.*;
 
-public class Feet extends NumericValue implements Length{
+public class Feet extends Length {
 
 	public static final double _scale =
 		12.0 * Inches._scale;

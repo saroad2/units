@@ -3,11 +3,10 @@
  */
 package com.units.area;
 
-import com.units.internal.*;
 import com.units.length.Feet;
 
 
-public class SquareFeet extends NumericValue implements Area{
+public class SquareFeet extends Area {
 
 	public static final double _scale =
 		Feet._scale * Feet._scale;

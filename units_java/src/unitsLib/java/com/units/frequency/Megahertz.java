@@ -3,11 +3,10 @@
  */
 package com.units.frequency;
 
-import com.units.internal.*;
 import com.units.internal.Multipliers;
 
 
-public class Megahertz extends NumericValue implements Frequency{
+public class Megahertz extends Frequency {
 
 	public static final double _scale =
 		Multipliers.mega * Hertz._scale;

@@ -3,11 +3,10 @@
  */
 package com.units.length;
 
-import com.units.internal.*;
 import com.units.internal.Multipliers;
 
 
-public class Kilometers extends NumericValue implements Length{
+public class Kilometers extends Length {
 
 	public static final double _scale =
 		Multipliers.kilo * Meters._scale;

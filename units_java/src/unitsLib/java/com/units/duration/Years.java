@@ -3,9 +3,8 @@
  */
 package com.units.duration;
 
-import com.units.internal.*;
 
-public class Years extends NumericValue implements Duration{
+public class Years extends Duration {
 
 	public static final double _scale =
 		365.0 * Days._scale;

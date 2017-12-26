@@ -3,9 +3,8 @@
  */
 package com.units.angle;
 
-import com.units.internal.*;
 
-public class Mils extends NumericValue implements Angle{
+public class Mils extends Angle {
 
 	public static final double _scale =
 		0.05625 * Degrees._scale;

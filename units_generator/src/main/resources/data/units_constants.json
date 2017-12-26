@@ -1,179 +1,406 @@
 {
 	"constants_groups" : [
 		{
-			"group_name" : "planetary masses",
+			"group_name" : "sun properties",
 			"constants" : [
 				{
+					"name" : "sun equatorial radius",
+					"unit_scale" : "kilometers",
+					"value" : 695700,
+					"description" : "the equatorail radius (aka semi-major axis) of the sun"
+				},
+				{
+					"name" : "sun escape velocity",
+					"unit_scale" : "meters per second",
+					"value" : 617700,
+					"description" : "the minimum speed needed for an object to escape from the gravitational influence of the sun"
+				},
+				{
 					"name" : "sun mass",
-					"unit_scale" : "solar masses",
-					"value" : 1,
+					"unit_scale" : "kilograms",
+					"value" : 1.98855e30,
 					"description" : "the mass of the sun"
 				},
 				{
-					"name" : "mercury mass",
-					"unit_scale" : "solar masses",
-					"value" : 1.6601e-7,
-					"description" : "the mass of mercury"
+					"name" : "sun mean density",
+					"unit_scale" : "kilograms per liter",
+					"value" : 1.408,
+					"description" : "the mean ratio of the mass of the sun to the volume of space it takes up"
 				},
 				{
-					"name" : "venus mass",
-					"unit_scale" : "solar masses",
-					"value" : 2.4478383e-6,
-					"description" : "the mass of venus"
-				},
-				{
-					"name" : "earth mass",
-					"unit_scale" : "solar masses",
-					"value" : 3.00348959632e-6,
-					"description" : "the mass of earth"
-				},
-				{
-					"name" : "mars mass",
-					"unit_scale" : "solar masses",
-					"value" : 3.227151e-7,
-					"description" : "the mass of mars"
-				},
-				{
-					"name" : "jupiter mass",
-					"unit_scale" : "solar masses",
-					"value" : 954.79194e-6,
-					"description" : "the mass of jupiter"
-				},
-				{
-					"name" : "saturn mass",
-					"unit_scale" : "solar masses",
-					"value" : 285.8860e-6,
-					"description" : "the mass of saturn"
-				},
-				{
-					"name" : "uranus mass",
-					"unit_scale" : "solar masses",
-					"value" : 43.66244e-6,
-					"description" : "the mass of uranus"
-				},
-				{
-					"name" : "neptune mass",
-					"unit_scale" : "solar masses",
-					"value" : 51.51389e-6,
-					"description" : "the mass of neptune"
-				}
-			]
-		},
-		{
-			"group_name" : "planetary rotation periods",
-			"constants" : [
-				{
-					"name" : "sun rotation period",
+					"name" : "sun sidereal rotation period",
 					"unit_scale" : "seconds",
 					"value" : 2192831.6,
 					"description" : "the time it takes the sun to make a whole spin around itself"
 				},
 				{
-					"name" : "mercury rotation period",
+					"name" : "sun surface gravity",
+					"unit_scale" : "meters per square second",
+					"value" : 274.0,
+					"description" : "the gravitational acceleration experienced at the surface of the sun"
+				}
+			]
+		},
+		{
+			"group_name" : "mercury properties",
+			"constants" : [
+				{
+					"name" : "mercury equatorial radius",
+					"unit_scale" : "kilometers",
+					"value" : 2439.7,
+					"description" : "the equatorail radius (aka semi-major axis) of mercury"
+				},
+				{
+					"name" : "mercury escape velocity",
+					"unit_scale" : "meters per second",
+					"value" : 4300,
+					"description" : "the minimum speed needed for an object to escape from the gravitational influence of mercury"
+				},
+				{
+					"name" : "mercury mass",
+					"unit_scale" : "kilograms",
+					"value" : 3.3011e23,
+					"description" : "the mass of mercury"
+				},
+				{
+					"name" : "mercury mean density",
+					"unit_scale" : "kilograms per liter",
+					"value" : 5.427,
+					"description" : "the mean ratio of the mass of mercury to the volume of space it takes up"
+				},
+				{
+					"name" : "mercury sidereal rotation period",
 					"unit_scale" : "seconds",
-					"value" : 5067030,
+					"value" : 5067360,
 					"description" : "the time it takes mercury to make a whole spin around itself"
 				},
 				{
-					"name" : "venus rotation period",
+					"name" : "mercury surface gravity",
+					"unit_scale" : "meters per square second",
+					"value" : 3.70,
+					"description" : "the gravitational acceleration experienced at the surface of mercury"
+				}
+			]
+		},
+		{
+			"group_name" : "venus properties",
+			"constants" : [
+				{
+					"name" : "venus equatorial radius",
+					"unit_scale" : "kilometers",
+					"value" : 6051.8,
+					"description" : "the equatorail radius (aka semi-major axis) of venus"
+				},
+				{
+					"name" : "venus escape velocity",
+					"unit_scale" : "meters per second",
+					"value" : 10360,
+					"description" : "the minimum speed needed for an object to escape from the gravitational influence of venus"
+				},
+				{
+					"name" : "venus mass",
+					"unit_scale" : "kilograms",
+					"value" : 4.8675e24,
+					"description" : "the mass of venus"
+				},
+				{
+					"name" : "venus mean density",
+					"unit_scale" : "kilograms per liter",
+					"value" : 5.243,
+					"description" : "the mean ratio of the mass of venus to the volume of space it takes up"
+				},
+				{
+					"name" : "venus sidereal rotation period",
 					"unit_scale" : "seconds",
-					"value" : -20996760,
+					"value" : -20997360,
 					"description" : "the time it takes venus to make a whole spin around itself"
 				},
 				{
-					"name" : "earth rotation period",
+					"name" : "venus surface gravity",
+					"unit_scale" : "meters per square second",
+					"value" : 8.87,
+					"description" : "the gravitational acceleration experienced at the surface of venus"
+				}
+			]
+		},
+		{
+			"group_name" : "earth properties",
+			"constants" : [
+				{
+					"name" : "earth escape velocity",
+					"unit_scale" : "meters per second",
+					"value" : 11186,
+					"description" : "the minimum speed needed for an object to escape from the gravitational influence of earth"
+				},
+				{
+					"name" : "earth mass",
+					"unit_scale" : "kilograms",
+					"value" : 5.9723e24,
+					"description" : "the mass of earth"
+				},
+				{
+					"name" : "earth mean density",
+					"unit_scale" : "kilograms per liter",
+					"value" : 5.514,
+					"description" : "the mean ratio of the mass of earth to the volume of space it takes up"
+				},
+				{
+					"name" : "earth sidereal rotation period",
 					"unit_scale" : "seconds",
-					"value" : 86164.091,
+					"value" : 86164.2,
 					"description" : "the time it takes earth to make a whole spin around itself"
 				},
 				{
-					"name" : "mars rotation period",
+					"name" : "earth surface gravity",
+					"unit_scale" : "meters per square second",
+					"value" : 9.798,
+					"description" : "the gravitational acceleration experienced at the surface of earth"
+				}
+			]
+		},
+		{
+			"group_name" : "mars properties",
+			"constants" : [
+				{
+					"name" : "mars equatorial radius",
+					"unit_scale" : "kilometers",
+					"value" : 3396.2,
+					"description" : "the equatorail radius (aka semi-major axis) of mars"
+				},
+				{
+					"name" : "mars escape velocity",
+					"unit_scale" : "meters per second",
+					"value" : 5030,
+					"description" : "the minimum speed needed for an object to escape from the gravitational influence of mars"
+				},
+				{
+					"name" : "mars mass",
+					"unit_scale" : "kilograms",
+					"value" : 6.4171e23,
+					"description" : "the mass of mars"
+				},
+				{
+					"name" : "mars mean density",
+					"unit_scale" : "kilograms per liter",
+					"value" : 3.933,
+					"description" : "the mean ratio of the mass of mars to the volume of space it takes up"
+				},
+				{
+					"name" : "mars sidereal rotation period",
 					"unit_scale" : "seconds",
-					"value" : 88642.663,
+					"value" : 88642.44,
 					"description" : "the time it takes mars to make a whole spin around itself"
 				},
 				{
-					"name" : "jupiter rotation period",
+					"name" : "mars surface gravity",
+					"unit_scale" : "meters per square second",
+					"value" : 3.71,
+					"description" : "the gravitational acceleration experienced at the surface of mars"
+				}
+			]
+		},
+		{
+			"group_name" : "jupiter properties",
+			"constants" : [
+				{
+					"name" : "jupiter equatorial radius",
+					"unit_scale" : "kilometers",
+					"value" : 71492,
+					"description" : "the equatorail radius (aka semi-major axis) of jupiter"
+				},
+				{
+					"name" : "jupiter escape velocity",
+					"unit_scale" : "meters per second",
+					"value" : 59500,
+					"description" : "the minimum speed needed for an object to escape from the gravitational influence of jupiter"
+				},
+				{
+					"name" : "jupiter mass",
+					"unit_scale" : "kilograms",
+					"value" : 1.89819e27,
+					"description" : "the mass of jupiter"
+				},
+				{
+					"name" : "jupiter mean density",
+					"unit_scale" : "kilograms per liter",
+					"value" : 1.326,
+					"description" : "the mean ratio of the mass of jupiter to the volume of space it takes up"
+				},
+				{
+					"name" : "jupiter sidereal rotation period",
 					"unit_scale" : "seconds",
 					"value" : 35730,
 					"description" : "the time it takes jupiter to make a whole spin around itself"
 				},
 				{
-					"name" : "saturn rotation period",
+					"name" : "jupiter surface gravity",
+					"unit_scale" : "meters per square second",
+					"value" : 24.79,
+					"description" : "the gravitational acceleration experienced at the surface of jupiter"
+				}
+			]
+		},
+		{
+			"group_name" : "saturn properties",
+			"constants" : [
+				{
+					"name" : "saturn equatorial radius",
+					"unit_scale" : "kilometers",
+					"value" : 60268,
+					"description" : "the equatorail radius (aka semi-major axis) of saturn"
+				},
+				{
+					"name" : "saturn escape velocity",
+					"unit_scale" : "meters per second",
+					"value" : 35500,
+					"description" : "the minimum speed needed for an object to escape from the gravitational influence of saturn"
+				},
+				{
+					"name" : "saturn mass",
+					"unit_scale" : "kilograms",
+					"value" : 5.6834e26,
+					"description" : "the mass of saturn"
+				},
+				{
+					"name" : "saturn mean density",
+					"unit_scale" : "kilograms per liter",
+					"value" : 0.687,
+					"description" : "the mean ratio of the mass of saturn to the volume of space it takes up"
+				},
+				{
+					"name" : "saturn sidereal rotation period",
 					"unit_scale" : "seconds",
-					"value" : 36840,
+					"value" : 38361.6,
 					"description" : "the time it takes saturn to make a whole spin around itself"
 				},
 				{
-					"name" : "uranus rotation period",
+					"name" : "saturn surface gravity",
+					"unit_scale" : "meters per square second",
+					"value" : 10.44,
+					"description" : "the gravitational acceleration experienced at the surface of saturn"
+				}
+			]
+		},
+		{
+			"group_name" : "uranus properties",
+			"constants" : [
+				{
+					"name" : "uranus equatorial radius",
+					"unit_scale" : "kilometers",
+					"value" : 25559,
+					"description" : "the equatorail radius (aka semi-major axis) of uranus"
+				},
+				{
+					"name" : "uranus escape velocity",
+					"unit_scale" : "meters per second",
+					"value" : 21300,
+					"description" : "the minimum speed needed for an object to escape from the gravitational influence of uranus"
+				},
+				{
+					"name" : "uranus mass",
+					"unit_scale" : "kilograms",
+					"value" : 8.6813e25,
+					"description" : "the mass of uranus"
+				},
+				{
+					"name" : "uranus mean density",
+					"unit_scale" : "kilograms per liter",
+					"value" : 1.271,
+					"description" : "the mean ratio of the mass of uranus to the volume of space it takes up"
+				},
+				{
+					"name" : "uranus sidereal rotation period",
 					"unit_scale" : "seconds",
 					"value" : -62064,
 					"description" : "the time it takes uranus to make a whole spin around itself"
 				},
 				{
-					"name" : "neptune rotation period",
-					"unit_scale" : "seconds",
-					"value" : 57996,
-					"description" : "the time it takes neptune to make a whole spin around itself"
+					"name" : "uranus surface gravity",
+					"unit_scale" : "meters per square second",
+					"value" : 8.87,
+					"description" : "the gravitational acceleration experienced at the surface of uranus"
 				}
 			]
 		},
 		{
-			"group_name" : "planetary densities",
+			"group_name" : "neptune properties",
 			"constants" : [
 				{
-					"name" : "sun density",
-					"unit_scale" : "kilograms per liter",
-					"value" : 1.4,
-					"description" : "the ratio of the mass of the sun to the volume of space it takes up"
+					"name" : "neptune equatorial radius",
+					"unit_scale" : "kilometers",
+					"value" : 24764,
+					"description" : "the equatorail radius (aka semi-major axis) of neptune"
 				},
 				{
-					"name" : "mercury density",
-					"unit_scale" : "kilograms per liter",
-					"value" : 5.4,
-					"description" : "the ratio of the mass of mercury to the volume of space it takes up"
+					"name" : "neptune escape velocity",
+					"unit_scale" : "meters per second",
+					"value" : 23500,
+					"description" : "the minimum speed needed for an object to escape from the gravitational influence of neptune"
 				},
 				{
-					"name" : "venus density",
-					"unit_scale" : "kilograms per liter",
-					"value" : 5.2,
-					"description" : "the ratio of the mass of venus to the volume of space it takes up"
+					"name" : "neptune mass",
+					"unit_scale" : "kilograms",
+					"value" : 1.02413e26,
+					"description" : "the mass of neptune"
 				},
 				{
-					"name" : "earth density",
+					"name" : "neptune mean density",
 					"unit_scale" : "kilograms per liter",
-					"value" : 5.5,
-					"description" : "the ratio of the mass of earth to the volume of space it takes up"
+					"value" : 1.638,
+					"description" : "the mean ratio of the mass of neptune to the volume of space it takes up"
 				},
 				{
-					"name" : "mars density",
-					"unit_scale" : "kilograms per liter",
-					"value" : 3.9,
-					"description" : "the ratio of the mass of mars to the volume of space it takes up"
+					"name" : "neptune sidereal rotation period",
+					"unit_scale" : "seconds",
+					"value" : 57996,
+					"description" : "the time it takes neptune to make a whole spin around itself"
 				},
 				{
-					"name" : "jupiter density",
-					"unit_scale" : "kilograms per liter",
-					"value" : 1.3,
-					"description" : "the ratio of the mass of jupiter to the volume of space it takes up"
+					"name" : "neptune surface gravity",
+					"unit_scale" : "meters per square second",
+					"value" : 11.15,
+					"description" : "the gravitational acceleration experienced at the surface of neptune"
+				}
+			]
+		},
+		{
+			"group_name" : "pluto properties",
+			"constants" : [
+				{
+					"name" : "pluto equatorial radius",
+					"unit_scale" : "kilometers",
+					"value" : 1187,
+					"description" : "the equatorail radius (aka semi-major axis) of pluto"
 				},
 				{
-					"name" : "saturn density",
-					"unit_scale" : "kilograms per liter",
-					"value" : 0.7,
-					"description" : "the ratio of the mass of saturn to the volume of space it takes up"
+					"name" : "pluto escape velocity",
+					"unit_scale" : "meters per second",
+					"value" : 1210,
+					"description" : "the minimum speed needed for an object to escape from the gravitational influence of pluto"
 				},
 				{
-					"name" : "uranus density",
-					"unit_scale" : "kilograms per liter",
-					"value" : 1.3,
-					"description" : "the ratio of the mass of uranus to the volume of space it takes up"
+					"name" : "pluto mass",
+					"unit_scale" : "kilograms",
+					"value" : 1.303e22,
+					"description" : "the mass of pluto"
 				},
 				{
-					"name" : "neptune density",
+					"name" : "pluto mean density",
 					"unit_scale" : "kilograms per liter",
-					"value" : 1.6,
-					"description" : "the ratio of the mass of neptune to the volume of space it takes up"
+					"value" : 1.86,
+					"description" : "the mean ratio of the mass of pluto to the volume of space it takes up"
+				},
+				{
+					"name" : "pluto sidereal rotation period",
+					"unit_scale" : "seconds",
+					"value" : -551854.08,
+					"description" : "the time it takes pluto to make a whole spin around itself"
+				},
+				{
+					"name" : "pluto surface gravity",
+					"unit_scale" : "meters per square second",
+					"value" : 0.62,
+					"description" : "the gravitational acceleration experienced at the surface of pluto"
 				}
 			]
 		},
@@ -184,28 +411,28 @@
 					"name" : "semi major axis",
 					"unit_scale" : "meters",
 					"value" : 6378137,
-					"description" : "the semi major axis of the earth modeled by the wgs84."
+					"description" : "the semi major axis of earth modeled by the wgs84."
 				},
 				{
 					"name" : "semi minor axis",
 					"unit_scale" : "meters",
 					"value" : 6356752.3142,
-					"description" : "the semi minor axis of the earth modeled by the wgs84."
+					"description" : "the semi minor axis of earth modeled by the wgs84."
 				},
 				{
 					"name" : "flattening",
 					"value" : 0.00335281066,
-					"description" : "the flattening of the earth modeled by the wgs84."
+					"description" : "the flattening of earth modeled by the wgs84."
 				},
 				{
 					"name" : "first eccentricity",
 					"value" : 0.081819190842622,
-					"description" : "the first eccentricity of the earth modeled by the wgs84."
+					"description" : "the first eccentricity of earth modeled by the wgs84."
 				},
 				{
 					"name" : "second eccentricity",
 					"value" : 0.082094437949696,
-					"description" : "the second eccentricity of the earth modeled by the wgs84."
+					"description" : "the second eccentricity of earth modeled by the wgs84."
 				}
 			]
 		},

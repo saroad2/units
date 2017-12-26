@@ -26,6 +26,8 @@ public class CppUnitsGenerator extends LanguageUnitsGenerator{
 	private final static String source = "source";
 	private final static String testsHeaders = "tests_headers";
 	private final static String testsSource = "tests_source";
+	private final static String basicTests = "basic";
+	private final static String conversionsTests = "conversions";
 	private final static String constants = "constants";
 	
 	public CppUnitsGenerator(StringTemplateGroup group) {
@@ -50,10 +52,19 @@ public class CppUnitsGenerator extends LanguageUnitsGenerator{
 				directoriesMap,
 				testsHeaders,
 				Paths.get(testsPath.toString(), "headers", "units"));
+		Path testsSourcePath = Paths.get(testsPath.toString(), "cpp");
 		addToDirectoriesMap(
 				directoriesMap,
 				testsSource,
-				Paths.get(testsPath.toString(), "cpp"));
+				testsSourcePath);
+		addToDirectoriesMap(
+				directoriesMap,
+				basicTests,
+				Paths.get(testsSourcePath.toString(), "basic_usage"));
+		addToDirectoriesMap(
+				directoriesMap,
+				conversionsTests,
+				Paths.get(testsSourcePath.toString(), "conversions"));
 		addToDirectoriesMap(
 				directoriesMap,
 				constants,
@@ -93,7 +104,7 @@ public class CppUnitsGenerator extends LanguageUnitsGenerator{
 			Map<String, Path> directoriesMap) throws IOException {
 		CppUnitsTestSuite cppUnitsTestSuite = (CppUnitsTestSuite)testSuite;
 		String fileName = "test_" + cppUnitsTestSuite.getUnitType().replace(" ", "_") + "_conversions.cc";
-		Path outputPath = Paths.get(directoriesMap.get(testsSource).toString(), fileName);
+		Path outputPath = Paths.get(directoriesMap.get(conversionsTests).toString(), fileName);
 		writeStringTemplate("conversion_test_suite", "testSuite", cppUnitsTestSuite, outputPath);
 	};
 	
@@ -144,7 +155,7 @@ public class CppUnitsGenerator extends LanguageUnitsGenerator{
 			CppUnitType unitType,
 			Map<String, Path> directoriesMap) throws IOException {
 		Path outputPath = Paths.get(
-			directoriesMap.get(testsSource).toString(),
+			directoriesMap.get(basicTests).toString(),
 			"test_" + unitType.getNamespace() + "_units.cc");
 		logger.info("Generating " + unitType.getTypeName() + " tests to " + outputPath);
 		writeStringTemplate("unit_type_tests", "unitType", unitType, outputPath);

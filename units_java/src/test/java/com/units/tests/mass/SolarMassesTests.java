@@ -142,6 +142,18 @@ public class SolarMassesTests {
 	}
 
 	@Test
+	public void testScalarRatio() {
+		double value1 = 3.1;
+		double value2 = 0.62;
+		double scalar = 5;
+
+		SolarMasses unit1 = new SolarMasses(value1);
+		SolarMasses unit2 = new SolarMasses(value2);
+
+		assertSameValue(unit1.scalarRatio(unit2), scalar);
+	}
+
+	@Test
 	public void testToString() {
 		double value = 3.1;
 		String stringValue = "3.1 solar masses";

@@ -52,6 +52,10 @@ public class Meters extends NumericValue implements Length{
 		return new Meters(value() / scalar);
 	}
 	
+	public double scalarRatio(Meters other) {
+		return value() / other.value();
+	}
+	
 	public boolean equals(Meters other) {
 		if (other == null)
 			return false;

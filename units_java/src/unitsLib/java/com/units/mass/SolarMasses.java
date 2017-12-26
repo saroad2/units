@@ -52,6 +52,10 @@ public class SolarMasses extends NumericValue implements Mass{
 		return new SolarMasses(value() / scalar);
 	}
 	
+	public double scalarRatio(SolarMasses other) {
+		return value() / other.value();
+	}
+	
 	public boolean equals(SolarMasses other) {
 		if (other == null)
 			return false;

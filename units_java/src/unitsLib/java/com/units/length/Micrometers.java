@@ -54,6 +54,10 @@ public class Micrometers extends NumericValue implements Length{
 		return new Micrometers(value() / scalar);
 	}
 	
+	public double scalarRatio(Micrometers other) {
+		return value() / other.value();
+	}
+	
 	public boolean equals(Micrometers other) {
 		if (other == null)
 			return false;

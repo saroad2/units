@@ -54,6 +54,10 @@ public class Kilohertz extends NumericValue implements Frequency{
 		return new Kilohertz(value() / scalar);
 	}
 	
+	public double scalarRatio(Kilohertz other) {
+		return value() / other.value();
+	}
+	
 	public boolean equals(Kilohertz other) {
 		if (other == null)
 			return false;

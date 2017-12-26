@@ -52,6 +52,10 @@ public class Days extends NumericValue implements Duration{
 		return new Days(value() / scalar);
 	}
 	
+	public double scalarRatio(Days other) {
+		return value() / other.value();
+	}
+	
 	public boolean equals(Days other) {
 		if (other == null)
 			return false;

@@ -55,6 +55,10 @@ public class MetersPerSecond extends NumericValue implements Speed{
 		return new MetersPerSecond(value() / scalar);
 	}
 	
+	public double scalarRatio(MetersPerSecond other) {
+		return value() / other.value();
+	}
+	
 	public boolean equals(MetersPerSecond other) {
 		if (other == null)
 			return false;

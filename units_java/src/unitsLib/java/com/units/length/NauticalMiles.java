@@ -52,6 +52,10 @@ public class NauticalMiles extends NumericValue implements Length{
 		return new NauticalMiles(value() / scalar);
 	}
 	
+	public double scalarRatio(NauticalMiles other) {
+		return value() / other.value();
+	}
+	
 	public boolean equals(NauticalMiles other) {
 		if (other == null)
 			return false;

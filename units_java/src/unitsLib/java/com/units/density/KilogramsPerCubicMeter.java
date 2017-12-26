@@ -55,6 +55,10 @@ public class KilogramsPerCubicMeter extends NumericValue implements Density{
 		return new KilogramsPerCubicMeter(value() / scalar);
 	}
 	
+	public double scalarRatio(KilogramsPerCubicMeter other) {
+		return value() / other.value();
+	}
+	
 	public boolean equals(KilogramsPerCubicMeter other) {
 		if (other == null)
 			return false;

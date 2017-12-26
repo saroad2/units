@@ -56,6 +56,10 @@ public class MetersPerSquareSecond extends NumericValue implements Acceleration{
 		return new MetersPerSquareSecond(value() / scalar);
 	}
 	
+	public double scalarRatio(MetersPerSquareSecond other) {
+		return value() / other.value();
+	}
+	
 	public boolean equals(MetersPerSquareSecond other) {
 		if (other == null)
 			return false;

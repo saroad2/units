@@ -52,6 +52,10 @@ public class StatuteMiles extends NumericValue implements Length{
 		return new StatuteMiles(value() / scalar);
 	}
 	
+	public double scalarRatio(StatuteMiles other) {
+		return value() / other.value();
+	}
+	
 	public boolean equals(StatuteMiles other) {
 		if (other == null)
 			return false;

@@ -92,6 +92,10 @@ public class <unitScale.className> extends NumericValue implements <unitScale.ty
 		return new <unitScale.className>(value() / scalar);
 	}
 	
+	public double scalarRatio(<unitScale.className> other) {
+		return value() / other.value();
+	}
+	
 	public boolean equals(<unitScale.className> other) {
 		if (other == null)
 			return false;
@@ -256,6 +260,18 @@ public class <unitScale.className>Tests {
 
 		assertSameValue(unit.value(), value);
 		assertSameValue(result.value(), resultValue);
+	}
+
+	@Test
+	public void testScalarRatio() {
+		double value1 = 3.1;
+		double value2 = 0.62;
+		double scalar = 5;
+
+		<unitScale.className> unit1 = new <unitScale.className>(value1);
+		<unitScale.className> unit2 = new <unitScale.className>(value2);
+
+		assertSameValue(unit1.scalarRatio(unit2), scalar);
 	}
 
 	@Test

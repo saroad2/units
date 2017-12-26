@@ -52,6 +52,10 @@ public class Seconds extends NumericValue implements Duration{
 		return new Seconds(value() / scalar);
 	}
 	
+	public double scalarRatio(Seconds other) {
+		return value() / other.value();
+	}
+	
 	public boolean equals(Seconds other) {
 		if (other == null)
 			return false;

@@ -57,6 +57,10 @@ public class Pascals extends NumericValue implements Pressure{
 		return new Pascals(value() / scalar);
 	}
 	
+	public double scalarRatio(Pascals other) {
+		return value() / other.value();
+	}
+	
 	public boolean equals(Pascals other) {
 		if (other == null)
 			return false;

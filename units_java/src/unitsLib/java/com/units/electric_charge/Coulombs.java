@@ -55,6 +55,10 @@ public class Coulombs extends NumericValue implements ElectricCharge{
 		return new Coulombs(value() / scalar);
 	}
 	
+	public double scalarRatio(Coulombs other) {
+		return value() / other.value();
+	}
+	
 	public boolean equals(Coulombs other) {
 		if (other == null)
 			return false;

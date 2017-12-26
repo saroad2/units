@@ -142,6 +142,18 @@ public class KilojoulesTests {
 	}
 
 	@Test
+	public void testScalarRatio() {
+		double value1 = 3.1;
+		double value2 = 0.62;
+		double scalar = 5;
+
+		Kilojoules unit1 = new Kilojoules(value1);
+		Kilojoules unit2 = new Kilojoules(value2);
+
+		assertSameValue(unit1.scalarRatio(unit2), scalar);
+	}
+
+	@Test
 	public void testToString() {
 		double value = 3.1;
 		String stringValue = "3.1 kilojoules";

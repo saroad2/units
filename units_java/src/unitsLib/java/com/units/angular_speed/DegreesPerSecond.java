@@ -55,6 +55,10 @@ public class DegreesPerSecond extends NumericValue implements AngularSpeed{
 		return new DegreesPerSecond(value() / scalar);
 	}
 	
+	public double scalarRatio(DegreesPerSecond other) {
+		return value() / other.value();
+	}
+	
 	public boolean equals(DegreesPerSecond other) {
 		if (other == null)
 			return false;

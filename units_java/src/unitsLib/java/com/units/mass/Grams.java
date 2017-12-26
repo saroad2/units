@@ -52,6 +52,10 @@ public class Grams extends NumericValue implements Mass{
 		return new Grams(value() / scalar);
 	}
 	
+	public double scalarRatio(Grams other) {
+		return value() / other.value();
+	}
+	
 	public boolean equals(Grams other) {
 		if (other == null)
 			return false;

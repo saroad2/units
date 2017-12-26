@@ -142,6 +142,18 @@ public class KilocaloriesTests {
 	}
 
 	@Test
+	public void testScalarRatio() {
+		double value1 = 3.1;
+		double value2 = 0.62;
+		double scalar = 5;
+
+		Kilocalories unit1 = new Kilocalories(value1);
+		Kilocalories unit2 = new Kilocalories(value2);
+
+		assertSameValue(unit1.scalarRatio(unit2), scalar);
+	}
+
+	@Test
 	public void testToString() {
 		double value = 3.1;
 		String stringValue = "3.1 kilocalories";

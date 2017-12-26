@@ -55,6 +55,10 @@ public class FeetPerSecond extends NumericValue implements Speed{
 		return new FeetPerSecond(value() / scalar);
 	}
 	
+	public double scalarRatio(FeetPerSecond other) {
+		return value() / other.value();
+	}
+	
 	public boolean equals(FeetPerSecond other) {
 		if (other == null)
 			return false;

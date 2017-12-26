@@ -52,6 +52,10 @@ public class Amperes extends NumericValue implements ElectricCurrent{
 		return new Amperes(value() / scalar);
 	}
 	
+	public double scalarRatio(Amperes other) {
+		return value() / other.value();
+	}
+	
 	public boolean equals(Amperes other) {
 		if (other == null)
 			return false;

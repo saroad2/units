@@ -54,6 +54,10 @@ public class CubicKilometers extends NumericValue implements Volume{
 		return new CubicKilometers(value() / scalar);
 	}
 	
+	public double scalarRatio(CubicKilometers other) {
+		return value() / other.value();
+	}
+	
 	public boolean equals(CubicKilometers other) {
 		if (other == null)
 			return false;

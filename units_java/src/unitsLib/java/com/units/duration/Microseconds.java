@@ -54,6 +54,10 @@ public class Microseconds extends NumericValue implements Duration{
 		return new Microseconds(value() / scalar);
 	}
 	
+	public double scalarRatio(Microseconds other) {
+		return value() / other.value();
+	}
+	
 	public boolean equals(Microseconds other) {
 		if (other == null)
 			return false;

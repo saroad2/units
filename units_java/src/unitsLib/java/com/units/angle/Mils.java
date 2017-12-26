@@ -52,6 +52,10 @@ public class Mils extends NumericValue implements Angle{
 		return new Mils(value() / scalar);
 	}
 	
+	public double scalarRatio(Mils other) {
+		return value() / other.value();
+	}
+	
 	public boolean equals(Mils other) {
 		if (other == null)
 			return false;

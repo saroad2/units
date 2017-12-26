@@ -142,6 +142,18 @@ public class MetersPerSquareSecondTests {
 	}
 
 	@Test
+	public void testScalarRatio() {
+		double value1 = 3.1;
+		double value2 = 0.62;
+		double scalar = 5;
+
+		MetersPerSquareSecond unit1 = new MetersPerSquareSecond(value1);
+		MetersPerSquareSecond unit2 = new MetersPerSquareSecond(value2);
+
+		assertSameValue(unit1.scalarRatio(unit2), scalar);
+	}
+
+	@Test
 	public void testToString() {
 		double value = 3.1;
 		String stringValue = "3.1 meters/second^2";

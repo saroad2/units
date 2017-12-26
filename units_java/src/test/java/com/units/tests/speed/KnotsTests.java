@@ -142,6 +142,18 @@ public class KnotsTests {
 	}
 
 	@Test
+	public void testScalarRatio() {
+		double value1 = 3.1;
+		double value2 = 0.62;
+		double scalar = 5;
+
+		Knots unit1 = new Knots(value1);
+		Knots unit2 = new Knots(value2);
+
+		assertSameValue(unit1.scalarRatio(unit2), scalar);
+	}
+
+	@Test
 	public void testToString() {
 		double value = 3.1;
 		String stringValue = "3.1 knots";

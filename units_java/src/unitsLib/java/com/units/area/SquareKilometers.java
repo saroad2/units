@@ -54,6 +54,10 @@ public class SquareKilometers extends NumericValue implements Area{
 		return new SquareKilometers(value() / scalar);
 	}
 	
+	public double scalarRatio(SquareKilometers other) {
+		return value() / other.value();
+	}
+	
 	public boolean equals(SquareKilometers other) {
 		if (other == null)
 			return false;

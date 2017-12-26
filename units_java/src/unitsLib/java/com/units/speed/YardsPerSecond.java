@@ -55,6 +55,10 @@ public class YardsPerSecond extends NumericValue implements Speed{
 		return new YardsPerSecond(value() / scalar);
 	}
 	
+	public double scalarRatio(YardsPerSecond other) {
+		return value() / other.value();
+	}
+	
 	public boolean equals(YardsPerSecond other) {
 		if (other == null)
 			return false;

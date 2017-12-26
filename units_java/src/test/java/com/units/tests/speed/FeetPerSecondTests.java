@@ -142,6 +142,18 @@ public class FeetPerSecondTests {
 	}
 
 	@Test
+	public void testScalarRatio() {
+		double value1 = 3.1;
+		double value2 = 0.62;
+		double scalar = 5;
+
+		FeetPerSecond unit1 = new FeetPerSecond(value1);
+		FeetPerSecond unit2 = new FeetPerSecond(value2);
+
+		assertSameValue(unit1.scalarRatio(unit2), scalar);
+	}
+
+	@Test
 	public void testToString() {
 		double value = 3.1;
 		String stringValue = "3.1 feet/second";

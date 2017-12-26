@@ -52,6 +52,10 @@ public class Feet extends NumericValue implements Length{
 		return new Feet(value() / scalar);
 	}
 	
+	public double scalarRatio(Feet other) {
+		return value() / other.value();
+	}
+	
 	public boolean equals(Feet other) {
 		if (other == null)
 			return false;

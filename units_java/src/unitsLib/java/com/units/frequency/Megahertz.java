@@ -54,6 +54,10 @@ public class Megahertz extends NumericValue implements Frequency{
 		return new Megahertz(value() / scalar);
 	}
 	
+	public double scalarRatio(Megahertz other) {
+		return value() / other.value();
+	}
+	
 	public boolean equals(Megahertz other) {
 		if (other == null)
 			return false;

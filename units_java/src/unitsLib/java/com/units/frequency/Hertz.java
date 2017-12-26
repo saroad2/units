@@ -54,6 +54,10 @@ public class Hertz extends NumericValue implements Frequency{
 		return new Hertz(value() / scalar);
 	}
 	
+	public double scalarRatio(Hertz other) {
+		return value() / other.value();
+	}
+	
 	public boolean equals(Hertz other) {
 		if (other == null)
 			return false;

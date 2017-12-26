@@ -54,6 +54,10 @@ public class SquareFeet extends NumericValue implements Area{
 		return new SquareFeet(value() / scalar);
 	}
 	
+	public double scalarRatio(SquareFeet other) {
+		return value() / other.value();
+	}
+	
 	public boolean equals(SquareFeet other) {
 		if (other == null)
 			return false;

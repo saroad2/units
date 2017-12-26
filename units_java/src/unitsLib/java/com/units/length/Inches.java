@@ -52,6 +52,10 @@ public class Inches extends NumericValue implements Length{
 		return new Inches(value() / scalar);
 	}
 	
+	public double scalarRatio(Inches other) {
+		return value() / other.value();
+	}
+	
 	public boolean equals(Inches other) {
 		if (other == null)
 			return false;

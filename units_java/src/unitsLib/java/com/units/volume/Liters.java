@@ -54,6 +54,10 @@ public class Liters extends NumericValue implements Volume{
 		return new Liters(value() / scalar);
 	}
 	
+	public double scalarRatio(Liters other) {
+		return value() / other.value();
+	}
+	
 	public boolean equals(Liters other) {
 		if (other == null)
 			return false;

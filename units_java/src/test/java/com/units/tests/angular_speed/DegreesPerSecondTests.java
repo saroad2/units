@@ -142,6 +142,18 @@ public class DegreesPerSecondTests {
 	}
 
 	@Test
+	public void testScalarRatio() {
+		double value1 = 3.1;
+		double value2 = 0.62;
+		double scalar = 5;
+
+		DegreesPerSecond unit1 = new DegreesPerSecond(value1);
+		DegreesPerSecond unit2 = new DegreesPerSecond(value2);
+
+		assertSameValue(unit1.scalarRatio(unit2), scalar);
+	}
+
+	@Test
 	public void testToString() {
 		double value = 3.1;
 		String stringValue = "3.1 degrees/second";

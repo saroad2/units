@@ -54,6 +54,10 @@ public class Megajoules extends NumericValue implements Energy{
 		return new Megajoules(value() / scalar);
 	}
 	
+	public double scalarRatio(Megajoules other) {
+		return value() / other.value();
+	}
+	
 	public boolean equals(Megajoules other) {
 		if (other == null)
 			return false;

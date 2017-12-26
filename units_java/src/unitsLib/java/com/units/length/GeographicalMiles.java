@@ -52,6 +52,10 @@ public class GeographicalMiles extends NumericValue implements Length{
 		return new GeographicalMiles(value() / scalar);
 	}
 	
+	public double scalarRatio(GeographicalMiles other) {
+		return value() / other.value();
+	}
+	
 	public boolean equals(GeographicalMiles other) {
 		if (other == null)
 			return false;

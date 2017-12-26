@@ -52,6 +52,10 @@ public class Years extends NumericValue implements Duration{
 		return new Years(value() / scalar);
 	}
 	
+	public double scalarRatio(Years other) {
+		return value() / other.value();
+	}
+	
 	public boolean equals(Years other) {
 		if (other == null)
 			return false;

@@ -52,6 +52,10 @@ public class Pounds extends NumericValue implements Mass{
 		return new Pounds(value() / scalar);
 	}
 	
+	public double scalarRatio(Pounds other) {
+		return value() / other.value();
+	}
+	
 	public boolean equals(Pounds other) {
 		if (other == null)
 			return false;

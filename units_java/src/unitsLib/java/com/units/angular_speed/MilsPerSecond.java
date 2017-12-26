@@ -55,6 +55,10 @@ public class MilsPerSecond extends NumericValue implements AngularSpeed{
 		return new MilsPerSecond(value() / scalar);
 	}
 	
+	public double scalarRatio(MilsPerSecond other) {
+		return value() / other.value();
+	}
+	
 	public boolean equals(MilsPerSecond other) {
 		if (other == null)
 			return false;

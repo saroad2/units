@@ -54,6 +54,10 @@ public class CubicMeters extends NumericValue implements Volume{
 		return new CubicMeters(value() / scalar);
 	}
 	
+	public double scalarRatio(CubicMeters other) {
+		return value() / other.value();
+	}
+	
 	public boolean equals(CubicMeters other) {
 		if (other == null)
 			return false;

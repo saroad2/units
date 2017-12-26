@@ -52,6 +52,10 @@ public class Dynes extends NumericValue implements Force{
 		return new Dynes(value() / scalar);
 	}
 	
+	public double scalarRatio(Dynes other) {
+		return value() / other.value();
+	}
+	
 	public boolean equals(Dynes other) {
 		if (other == null)
 			return false;

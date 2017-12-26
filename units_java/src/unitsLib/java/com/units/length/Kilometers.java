@@ -54,6 +54,10 @@ public class Kilometers extends NumericValue implements Length{
 		return new Kilometers(value() / scalar);
 	}
 	
+	public double scalarRatio(Kilometers other) {
+		return value() / other.value();
+	}
+	
 	public boolean equals(Kilometers other) {
 		if (other == null)
 			return false;

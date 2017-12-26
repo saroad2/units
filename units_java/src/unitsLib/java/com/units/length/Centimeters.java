@@ -54,6 +54,10 @@ public class Centimeters extends NumericValue implements Length{
 		return new Centimeters(value() / scalar);
 	}
 	
+	public double scalarRatio(Centimeters other) {
+		return value() / other.value();
+	}
+	
 	public boolean equals(Centimeters other) {
 		if (other == null)
 			return false;

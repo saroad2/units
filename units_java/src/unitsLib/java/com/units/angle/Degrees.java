@@ -52,6 +52,10 @@ public class Degrees extends NumericValue implements Angle{
 		return new Degrees(value() / scalar);
 	}
 	
+	public double scalarRatio(Degrees other) {
+		return value() / other.value();
+	}
+	
 	public boolean equals(Degrees other) {
 		if (other == null)
 			return false;

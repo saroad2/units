@@ -52,6 +52,10 @@ public class Calories extends NumericValue implements Energy{
 		return new Calories(value() / scalar);
 	}
 	
+	public double scalarRatio(Calories other) {
+		return value() / other.value();
+	}
+	
 	public boolean equals(Calories other) {
 		if (other == null)
 			return false;

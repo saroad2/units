@@ -54,6 +54,10 @@ public class Milligrams extends NumericValue implements Mass{
 		return new Milligrams(value() / scalar);
 	}
 	
+	public double scalarRatio(Milligrams other) {
+		return value() / other.value();
+	}
+	
 	public boolean equals(Milligrams other) {
 		if (other == null)
 			return false;

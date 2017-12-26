@@ -55,6 +55,10 @@ public class KilometersPerHour extends NumericValue implements Speed{
 		return new KilometersPerHour(value() / scalar);
 	}
 	
+	public double scalarRatio(KilometersPerHour other) {
+		return value() / other.value();
+	}
+	
 	public boolean equals(KilometersPerHour other) {
 		if (other == null)
 			return false;

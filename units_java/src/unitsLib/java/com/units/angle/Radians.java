@@ -52,6 +52,10 @@ public class Radians extends NumericValue implements Angle{
 		return new Radians(value() / scalar);
 	}
 	
+	public double scalarRatio(Radians other) {
+		return value() / other.value();
+	}
+	
 	public boolean equals(Radians other) {
 		if (other == null)
 			return false;

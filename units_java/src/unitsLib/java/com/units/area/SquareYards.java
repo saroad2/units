@@ -54,6 +54,10 @@ public class SquareYards extends NumericValue implements Area{
 		return new SquareYards(value() / scalar);
 	}
 	
+	public double scalarRatio(SquareYards other) {
+		return value() / other.value();
+	}
+	
 	public boolean equals(SquareYards other) {
 		if (other == null)
 			return false;

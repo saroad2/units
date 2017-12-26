@@ -55,6 +55,10 @@ public class KilogramsPerLiter extends NumericValue implements Density{
 		return new KilogramsPerLiter(value() / scalar);
 	}
 	
+	public double scalarRatio(KilogramsPerLiter other) {
+		return value() / other.value();
+	}
+	
 	public boolean equals(KilogramsPerLiter other) {
 		if (other == null)
 			return false;

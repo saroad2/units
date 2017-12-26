@@ -54,6 +54,10 @@ public class CubicYards extends NumericValue implements Volume{
 		return new CubicYards(value() / scalar);
 	}
 	
+	public double scalarRatio(CubicYards other) {
+		return value() / other.value();
+	}
+	
 	public boolean equals(CubicYards other) {
 		if (other == null)
 			return false;

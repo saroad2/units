@@ -52,6 +52,10 @@ public class Rankines extends NumericValue implements Temperature{
 		return new Rankines(value() / scalar);
 	}
 	
+	public double scalarRatio(Rankines other) {
+		return value() / other.value();
+	}
+	
 	public boolean equals(Rankines other) {
 		if (other == null)
 			return false;

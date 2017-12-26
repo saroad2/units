@@ -54,6 +54,10 @@ public class Dunams extends NumericValue implements Area{
 		return new Dunams(value() / scalar);
 	}
 	
+	public double scalarRatio(Dunams other) {
+		return value() / other.value();
+	}
+	
 	public boolean equals(Dunams other) {
 		if (other == null)
 			return false;

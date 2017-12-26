@@ -54,6 +54,10 @@ public class Tonnes extends NumericValue implements Mass{
 		return new Tonnes(value() / scalar);
 	}
 	
+	public double scalarRatio(Tonnes other) {
+		return value() / other.value();
+	}
+	
 	public boolean equals(Tonnes other) {
 		if (other == null)
 			return false;

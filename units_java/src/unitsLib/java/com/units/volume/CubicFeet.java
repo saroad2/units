@@ -54,6 +54,10 @@ public class CubicFeet extends NumericValue implements Volume{
 		return new CubicFeet(value() / scalar);
 	}
 	
+	public double scalarRatio(CubicFeet other) {
+		return value() / other.value();
+	}
+	
 	public boolean equals(CubicFeet other) {
 		if (other == null)
 			return false;

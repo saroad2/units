@@ -54,6 +54,10 @@ public class Millimeters extends NumericValue implements Length{
 		return new Millimeters(value() / scalar);
 	}
 	
+	public double scalarRatio(Millimeters other) {
+		return value() / other.value();
+	}
+	
 	public boolean equals(Millimeters other) {
 		if (other == null)
 			return false;

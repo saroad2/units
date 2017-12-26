@@ -142,6 +142,18 @@ public class MicrosecondsTests {
 	}
 
 	@Test
+	public void testScalarRatio() {
+		double value1 = 3.1;
+		double value2 = 0.62;
+		double scalar = 5;
+
+		Microseconds unit1 = new Microseconds(value1);
+		Microseconds unit2 = new Microseconds(value2);
+
+		assertSameValue(unit1.scalarRatio(unit2), scalar);
+	}
+
+	@Test
 	public void testToString() {
 		double value = 3.1;
 		String stringValue = "3.1 microseconds";

@@ -57,6 +57,10 @@ public class Newtons extends NumericValue implements Force{
 		return new Newtons(value() / scalar);
 	}
 	
+	public double scalarRatio(Newtons other) {
+		return value() / other.value();
+	}
+	
 	public boolean equals(Newtons other) {
 		if (other == null)
 			return false;

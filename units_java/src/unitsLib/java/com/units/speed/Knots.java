@@ -52,6 +52,10 @@ public class Knots extends NumericValue implements Speed{
 		return new Knots(value() / scalar);
 	}
 	
+	public double scalarRatio(Knots other) {
+		return value() / other.value();
+	}
+	
 	public boolean equals(Knots other) {
 		if (other == null)
 			return false;

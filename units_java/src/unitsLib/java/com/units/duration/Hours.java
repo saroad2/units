@@ -52,6 +52,10 @@ public class Hours extends NumericValue implements Duration{
 		return new Hours(value() / scalar);
 	}
 	
+	public double scalarRatio(Hours other) {
+		return value() / other.value();
+	}
+	
 	public boolean equals(Hours other) {
 		if (other == null)
 			return false;

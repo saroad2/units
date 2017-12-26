@@ -52,6 +52,10 @@ public class Yards extends NumericValue implements Length{
 		return new Yards(value() / scalar);
 	}
 	
+	public double scalarRatio(Yards other) {
+		return value() / other.value();
+	}
+	
 	public boolean equals(Yards other) {
 		if (other == null)
 			return false;

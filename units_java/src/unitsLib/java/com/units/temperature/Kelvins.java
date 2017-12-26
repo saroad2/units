@@ -52,6 +52,10 @@ public class Kelvins extends NumericValue implements Temperature{
 		return new Kelvins(value() / scalar);
 	}
 	
+	public double scalarRatio(Kelvins other) {
+		return value() / other.value();
+	}
+	
 	public boolean equals(Kelvins other) {
 		if (other == null)
 			return false;

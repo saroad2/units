@@ -52,6 +52,10 @@ public class Minutes extends NumericValue implements Duration{
 		return new Minutes(value() / scalar);
 	}
 	
+	public double scalarRatio(Minutes other) {
+		return value() / other.value();
+	}
+	
 	public boolean equals(Minutes other) {
 		if (other == null)
 			return false;

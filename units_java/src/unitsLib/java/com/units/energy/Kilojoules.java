@@ -54,6 +54,10 @@ public class Kilojoules extends NumericValue implements Energy{
 		return new Kilojoules(value() / scalar);
 	}
 	
+	public double scalarRatio(Kilojoules other) {
+		return value() / other.value();
+	}
+	
 	public boolean equals(Kilojoules other) {
 		if (other == null)
 			return false;

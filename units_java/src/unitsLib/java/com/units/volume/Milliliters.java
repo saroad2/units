@@ -54,6 +54,10 @@ public class Milliliters extends NumericValue implements Volume{
 		return new Milliliters(value() / scalar);
 	}
 	
+	public double scalarRatio(Milliliters other) {
+		return value() / other.value();
+	}
+	
 	public boolean equals(Milliliters other) {
 		if (other == null)
 			return false;

@@ -55,6 +55,10 @@ public class RadiansPerSecond extends NumericValue implements AngularSpeed{
 		return new RadiansPerSecond(value() / scalar);
 	}
 	
+	public double scalarRatio(RadiansPerSecond other) {
+		return value() / other.value();
+	}
+	
 	public boolean equals(RadiansPerSecond other) {
 		if (other == null)
 			return false;

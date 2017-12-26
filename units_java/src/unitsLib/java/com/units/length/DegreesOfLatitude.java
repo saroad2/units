@@ -52,6 +52,10 @@ public class DegreesOfLatitude extends NumericValue implements Length{
 		return new DegreesOfLatitude(value() / scalar);
 	}
 	
+	public double scalarRatio(DegreesOfLatitude other) {
+		return value() / other.value();
+	}
+	
 	public boolean equals(DegreesOfLatitude other) {
 		if (other == null)
 			return false;

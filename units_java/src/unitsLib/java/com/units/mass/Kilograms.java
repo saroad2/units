@@ -54,6 +54,10 @@ public class Kilograms extends NumericValue implements Mass{
 		return new Kilograms(value() / scalar);
 	}
 	
+	public double scalarRatio(Kilograms other) {
+		return value() / other.value();
+	}
+	
 	public boolean equals(Kilograms other) {
 		if (other == null)
 			return false;

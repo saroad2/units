@@ -57,6 +57,10 @@ public class Joules extends NumericValue implements Energy{
 		return new Joules(value() / scalar);
 	}
 	
+	public double scalarRatio(Joules other) {
+		return value() / other.value();
+	}
+	
 	public boolean equals(Joules other) {
 		if (other == null)
 			return false;

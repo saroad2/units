@@ -54,6 +54,10 @@ public class Kilocalories extends NumericValue implements Energy{
 		return new Kilocalories(value() / scalar);
 	}
 	
+	public double scalarRatio(Kilocalories other) {
+		return value() / other.value();
+	}
+	
 	public boolean equals(Kilocalories other) {
 		if (other == null)
 			return false;

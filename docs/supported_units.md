@@ -342,7 +342,7 @@ Those are the supported units in the *units* library:
 		<td rowspan=1 style="text-align:center; vertical-align:middle;font-weight:bold">
 			acceleration
 		</td>
-		<td>meters per square seconds</td>
+		<td>meters per square second</td>
 		<td>meters / (seconds * seconds)</td>
 		<td>V</td>
 		<td>V</td>

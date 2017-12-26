@@ -15,16 +15,16 @@ namespace units {
 namespace acceleration
 {
 
-using MetersPerSquareSeconds = NumericValue<tags::meters_per_square_seconds_tag>;
+using MetersPerSquareSecond = NumericValue<tags::meters_per_square_second_tag>;
 
 
-constexpr auto operator"" _meters_per_square_seconds(unsigned long long int value)
+constexpr auto operator"" _meters_per_square_second(unsigned long long int value)
 {
-	return MetersPerSquareSeconds{(double)value};
+	return MetersPerSquareSecond{(double)value};
 }
-constexpr auto operator"" _meters_per_square_seconds(long double value)
+constexpr auto operator"" _meters_per_square_second(long double value)
 {
-	return MetersPerSquareSeconds{(double)value};
+	return MetersPerSquareSecond{(double)value};
 }
 
 

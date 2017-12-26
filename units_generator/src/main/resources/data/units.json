@@ -523,8 +523,9 @@
 			},
 			"unit_scales" : [
 				{
-					"singular_name" : "meter per square seconds",
-					"plural_name" : "meters per square seconds",
+					"name" : "meters per square second",
+					"singular_name" : "meter/second^2",
+					"plural_name" : "meters/second^2",
 					"ratio" : {
 						"numerators" : ["meters"],
 						"denominators" : ["seconds", "seconds"]

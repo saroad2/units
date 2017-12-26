@@ -311,9 +311,9 @@ class TestAccelerationUnitsPrintings : public TestUnitsPrintings
 {
 };
 
-TEST_F(TestAccelerationUnitsPrintings, print_meters_per_square_seconds)
+TEST_F(TestAccelerationUnitsPrintings, print_meters_per_square_second)
 {
-	check_print<MetersPerSquareSeconds>("meters per square seconds");
+	check_print<MetersPerSquareSecond>("meters/second^2");
 }
 
 
@@ -322,4 +322,4 @@ TEST_F(TestAccelerationUnitsPrintings, print_meters_per_square_seconds)
 #define TEST_ACCELERATION_USER_DEFINE_LITERALS(Name, name) \
 		TEST_USER_DEFINES_LITERALS(Acceleration, Name, name);
 
-TEST_ACCELERATION_USER_DEFINE_LITERALS(MetersPerSquareSeconds, meters_per_square_seconds);
+TEST_ACCELERATION_USER_DEFINE_LITERALS(MetersPerSquareSecond, meters_per_square_second);

@@ -22,7 +22,7 @@ using acceleration_code  = typename ratio_type_code<
 	length::tags::length_code, 
 	multiply_type_code<duration::tags::duration_code, duration::tags::duration_code>::code>::code;
 
-struct meters_per_square_seconds_tag
+struct meters_per_square_second_tag
 {
 	using typeCode = acceleration_code;
 	static constexpr double scale = ratio_scale_tag<

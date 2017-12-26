@@ -114,7 +114,7 @@
 	units::frequency::Megahertz
 
 #define ACCELERATION_UNITS() \
-	units::acceleration::MetersPerSquareSeconds
+	units::acceleration::MetersPerSquareSecond
 
 #define DENSITY_UNITS() \
 	units::density::KilogramsPerCubicMeter, \

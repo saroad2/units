@@ -5,12 +5,12 @@ package com.units.tests.acceleration;
 
 import org.junit.Test;
 
-import com.units.acceleration.MetersPerSquareSeconds;
+import com.units.acceleration.MetersPerSquareSecond;
 
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
 
-public class MetersPerSquareSecondsTests {
+public class MetersPerSquareSecondTests {
 
 	public void assertSameValue(double value1, double value2) {
 		assertTrue("unit value is " + value1 + " instead of " + value2, value1 == value2);
@@ -19,25 +19,25 @@ public class MetersPerSquareSecondsTests {
 	@Test
 	public void testConstructor() {
 		double actualValue = 3.1;
-		assertSameValue(new MetersPerSquareSeconds(actualValue).value(), actualValue);
+		assertSameValue(new MetersPerSquareSecond(actualValue).value(), actualValue);
 	}
 
 	@Test
 	public void testZero() {
-		MetersPerSquareSeconds zero = MetersPerSquareSeconds.zero();
+		MetersPerSquareSecond zero = MetersPerSquareSecond.zero();
 		assertSameValue(zero.value(), 0);
 	}
 
 	@Test
 	public void testOne() {
-		MetersPerSquareSeconds one = MetersPerSquareSeconds.one();
+		MetersPerSquareSecond one = MetersPerSquareSecond.one();
 		assertSameValue(one.value(), 1);
 	}
 
 	@Test
 	public void testComparisonToSmallerValue() {
-		MetersPerSquareSeconds unit = new MetersPerSquareSeconds(3.1);
-		MetersPerSquareSeconds comparedUnit = new MetersPerSquareSeconds(3.0);
+		MetersPerSquareSecond unit = new MetersPerSquareSecond(3.1);
+		MetersPerSquareSecond comparedUnit = new MetersPerSquareSecond(3.0);
 		assertFalse(unit.lessThan(comparedUnit));
 		assertFalse(unit.lessThanOrEquals(comparedUnit));
 		assertFalse(unit.equals(comparedUnit));
@@ -47,8 +47,8 @@ public class MetersPerSquareSecondsTests {
 	
 	@Test
 	public void testComparisonToEqualValue() {
-		MetersPerSquareSeconds unit = new MetersPerSquareSeconds(3.1);
-		MetersPerSquareSeconds comparedUnit = new MetersPerSquareSeconds(3.1);
+		MetersPerSquareSecond unit = new MetersPerSquareSecond(3.1);
+		MetersPerSquareSecond comparedUnit = new MetersPerSquareSecond(3.1);
 		assertFalse(unit.lessThan(comparedUnit));
 		assertTrue(unit.lessThanOrEquals(comparedUnit));
 		assertTrue(unit.equals(comparedUnit));
@@ -58,8 +58,8 @@ public class MetersPerSquareSecondsTests {
 	
 	@Test
 	public void testComparisonToBiggerValue() {
-		MetersPerSquareSeconds unit = new MetersPerSquareSeconds(3.1);
-		MetersPerSquareSeconds comparedUnit = new MetersPerSquareSeconds(3.2);
+		MetersPerSquareSecond unit = new MetersPerSquareSecond(3.1);
+		MetersPerSquareSecond comparedUnit = new MetersPerSquareSecond(3.2);
 		assertTrue(unit.lessThan(comparedUnit));
 		assertTrue(unit.lessThanOrEquals(comparedUnit));
 		assertFalse(unit.equals(comparedUnit));
@@ -71,7 +71,7 @@ public class MetersPerSquareSecondsTests {
 	public void testEqualsNullFails() {
 		double actualValue = 3.1;
 		assertFalse("two units are equal, even though one of the is null",
-					new MetersPerSquareSeconds(actualValue).equals(null));
+					new MetersPerSquareSecond(actualValue).equals(null));
 	}
 
 	@Test
@@ -80,9 +80,9 @@ public class MetersPerSquareSecondsTests {
 		double value2 = 2.6;
 		double resultValue = 5.7;
 
-		MetersPerSquareSeconds unit1 = new MetersPerSquareSeconds(value1);
-		MetersPerSquareSeconds unit2 = new MetersPerSquareSeconds(value2);
-		MetersPerSquareSeconds result = unit1.plus(unit2);
+		MetersPerSquareSecond unit1 = new MetersPerSquareSecond(value1);
+		MetersPerSquareSecond unit2 = new MetersPerSquareSecond(value2);
+		MetersPerSquareSecond result = unit1.plus(unit2);
 
 		assertSameValue(unit1.value(), value1);
 		assertSameValue(unit2.value(), value2);
@@ -95,9 +95,9 @@ public class MetersPerSquareSecondsTests {
 		double value2 = 2.6;
 		double resultValue = 0.5;
 
-		MetersPerSquareSeconds unit1 = new MetersPerSquareSeconds(value1);
-		MetersPerSquareSeconds unit2 = new MetersPerSquareSeconds(value2);
-		MetersPerSquareSeconds result = unit1.minus(unit2);
+		MetersPerSquareSecond unit1 = new MetersPerSquareSecond(value1);
+		MetersPerSquareSecond unit2 = new MetersPerSquareSecond(value2);
+		MetersPerSquareSecond result = unit1.minus(unit2);
 
 		assertSameValue(unit1.value(), value1);
 		assertSameValue(unit2.value(), value2);
@@ -108,8 +108,8 @@ public class MetersPerSquareSecondsTests {
 	public void testOpposite() {
 		double value = 3.1;
 
-		MetersPerSquareSeconds unit = new MetersPerSquareSeconds(value);
-		MetersPerSquareSeconds result = unit.opposite();
+		MetersPerSquareSecond unit = new MetersPerSquareSecond(value);
+		MetersPerSquareSecond result = unit.opposite();
 
 		assertSameValue(unit.value(), value);
 		assertSameValue(result.value(), -value);
@@ -121,8 +121,8 @@ public class MetersPerSquareSecondsTests {
 		double scalar = 5;
 		double resultValue = 15.5;
 
-		MetersPerSquareSeconds unit = new MetersPerSquareSeconds(value);
-		MetersPerSquareSeconds result = unit.multiplyByScalar(scalar);
+		MetersPerSquareSecond unit = new MetersPerSquareSecond(value);
+		MetersPerSquareSecond result = unit.multiplyByScalar(scalar);
 
 		assertSameValue(unit.value(), value);
 		assertSameValue(result.value(), resultValue);
@@ -134,8 +134,8 @@ public class MetersPerSquareSecondsTests {
 		double scalar = 5;
 		double resultValue = 0.62;
 
-		MetersPerSquareSeconds unit = new MetersPerSquareSeconds(value);
-		MetersPerSquareSeconds result = unit.divideByScalar(scalar);
+		MetersPerSquareSecond unit = new MetersPerSquareSecond(value);
+		MetersPerSquareSecond result = unit.divideByScalar(scalar);
 
 		assertSameValue(unit.value(), value);
 		assertSameValue(result.value(), resultValue);
@@ -144,9 +144,9 @@ public class MetersPerSquareSecondsTests {
 	@Test
 	public void testToString() {
 		double value = 3.1;
-		String stringValue = "3.1 meters per square seconds";
+		String stringValue = "3.1 meters/second^2";
 
-		MetersPerSquareSeconds unit = new MetersPerSquareSeconds(value);
+		MetersPerSquareSecond unit = new MetersPerSquareSecond(value);
 		assertTrue("string value is \"" + unit.toString() + "\" instead of \"" + stringValue + "\"",
 				unit.toString().equals(stringValue));
 	}

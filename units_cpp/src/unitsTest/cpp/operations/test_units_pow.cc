@@ -6,57 +6,59 @@
  */
 
 #include <units/units_pow.h>
+#include <units/units_cast.h>
 #include <units/length_units.h>
 #include <units/area_units.h>
 #include <units/volume_units.h>
 
 #include <gtest/gtest.h>
+#include <cmath>
 
 using units::units_pow;
+using units::auto_units_sqr;
 using units::units_sqr;
+using units::auto_units_cube;
 using units::units_cube;
+using units::units_cast;
 using namespace units::length;
 using namespace units::area;
 using namespace units::volume;
 
 using namespace testing;
 
+static constexpr double maxPercentageError{1e-10};
+
 class TestUnitsPow : public Test
 {
 protected:
-	void SetUp()
+
+	template<class Unit>
+	void checkValue(const Unit& expected, const Unit& actual)
 	{
-		maxError = 1e-10;
+		auto errorPercentage = std::fabs(expected.scalarRatio(actual) - 1) * 100;
+		EXPECT_LT(errorPercentage, maxPercentageError)
+				<< expected << " != " << actual;
 	}
 
 	template<int power, class ResultUnit, class Unit>
 	void checkPow(const ResultUnit& expectedResult, const Unit& unit)
 	{
-		auto actualResult = units_pow<power>(unit);
-		auto error = actualResult - expectedResult;
-		EXPECT_NEAR(0, error.value(), maxError)
-				<< expectedResult.value() << " != " << actualResult.value();
+		checkValue(expectedResult, units_cast<ResultUnit>(units_pow<power>(unit)));
 	}
 
 	template<class ResultUnit, class Unit>
-	void checkSqr(const ResultUnit& expectedResult, const Unit& unit)
+	void checkSqr(const ResultUnit& squareUnit, const Unit& unit)
 	{
-		auto actualResult = units_sqr<ResultUnit>(unit);
-		auto error = actualResult - expectedResult;
-		EXPECT_NEAR(0, error.value(), maxError)
-				<< expectedResult << " != " << actualResult;
+		checkValue(squareUnit, units_cast<ResultUnit>(auto_units_sqr(unit)));
+		checkValue(squareUnit, units_sqr<ResultUnit>(unit));
 	}
 
 	template<class ResultUnit, class Unit>
 	void checkCube(const ResultUnit& expectedResult, const Unit& unit)
 	{
-		auto actualResult = units_cube<ResultUnit>(unit);
-		auto error = actualResult - expectedResult;
-		EXPECT_NEAR(0, error.value(), maxError)
-				<< expectedResult << " != " << actualResult;
+		checkValue(expectedResult, units_cast<ResultUnit>(auto_units_cube(unit)));
+		checkValue(expectedResult, units_cube<ResultUnit>(unit));
 	}
-
-	double maxError;
 };
 
 TEST_F(TestUnitsPow, pow_meters_by_2_when_result_type_is_square_meters)

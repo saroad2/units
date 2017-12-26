@@ -11,7 +11,7 @@
 #include "internal/units_pow_type.h"
 #include "units_cast.h"
 
-#include <math.h>
+#include <cmath>
 
 namespace units
 {
@@ -19,19 +19,31 @@ namespace units
 template<int power, class Unit>
 constexpr auto units_pow(const Unit& unit)
 {
-	return Pow<Unit, power>{pow(unit.value(), power)};
+	return Pow<Unit, power>{std::pow(unit.value(), power)};
+}
+
+template<class Unit>
+constexpr auto auto_units_sqr(const Unit& unit)
+{
+	return units_pow<2>(unit);
 }
 
 template<class ResultUnit, class Unit>
 constexpr auto units_sqr(const Unit& unit)
 {
-	return units_cast<ResultUnit>(units_pow<2>(unit));
+	return units_cast<ResultUnit>(auto_units_sqr(unit));
+}
+
+template<class Unit>
+constexpr auto auto_units_cube(const Unit& unit)
+{
+	return units_pow<3>(unit);
 }
 
 template<class ResultUnit, class Unit>
 constexpr auto units_cube(const Unit& unit)
 {
-	return units_cast<ResultUnit>(units_pow<3>(unit));
+	return units_cast<ResultUnit>(auto_units_cube(unit));
 }
 
 }

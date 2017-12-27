@@ -406,14 +406,6 @@
             ]
         },
         {
-            "unit_type": "electric current",
-            "test_cases": []
-        },
-		{
-            "unit_type": "electric charge",
-            "test_cases": []
-        },
-        {
             "unit_type": "energy",
             "test_cases": [
                 {
@@ -1649,10 +1641,6 @@
             ]
         },
         {
-            "unit_type": "acceleration",
-            "test_cases": []
-        },
-        {
             "unit_type": "density",
             "test_cases": [
                 {
@@ -1666,10 +1654,6 @@
                     "value": 0.001
                 }
             ]
-        },
-        {
-            "unit_type": "pressure",
-            "test_cases": []
         }
     ]
 }

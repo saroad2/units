@@ -114,16 +114,6 @@ DO NOT EDIT IT MANUALLY!
 		
 </table>
 
-## electric current
-<table>
-	<tr><td>From\To</td></tr>
-</table>
-
-## electric charge
-<table>
-	<tr><td>From\To</td></tr>
-</table>
-
 ## energy
 <table>
 	<tr><td>From\To</td><th>kilojoules</th><th>megajoules</th><th>kilocalories</th><th>calories</th><th>joules</th></tr>
@@ -322,11 +312,6 @@ DO NOT EDIT IT MANUALLY!
 		
 </table>
 
-## acceleration
-<table>
-	<tr><td>From\To</td></tr>
-</table>
-
 ## density
 <table>
 	<tr><td>From\To</td><th>kilograms per cubic meter</th><th>kilograms per liter</th></tr>
@@ -339,10 +324,5 @@ DO NOT EDIT IT MANUALLY!
 			<td>1000.0</td><td>1</td>
 		</tr>
 		
-</table>
-
-## pressure
-<table>
-	<tr><td>From\To</td></tr>
 </table>
 

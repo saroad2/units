@@ -7,7 +7,6 @@ import units_schema.UnitType;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import units_generator.cpp_generator.CppUnitType;
 import units_generator.internal.ConstantsGroupInterface;
@@ -49,8 +48,10 @@ public class CppSchema extends AbstractUnitsSchema {
 			unitTypes.add(cppUnitType);
 			TestSuite testSuite = schema.getTests().getTestSuites().stream()
 					.filter((someTestSuite) -> someTestSuite.getUnitType().equals(unitType.getTypeName()))
-					.collect(Collectors.toList()).get(0);			
-			testSuites.add(new CppUnitsTestSuite(testSuite));
+					.findFirst()
+					.orElse(null);
+			if (testSuite != null)
+				testSuites.add(new CppUnitsTestSuite(testSuite));
 		}
 		for (ConstantsGroup group : schema.getConstants().getConstantsGroups()) {
 			constantsGroups.add(new CppConstantsGroup(this, group));

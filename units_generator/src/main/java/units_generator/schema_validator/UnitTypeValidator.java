@@ -46,6 +46,8 @@ public class UnitTypeValidator {
 	private static void validateUnitTypeTestSuite(
 			Schema schema,
 			UnitType unitType) throws InvalidSchema {
+		if (unitType.getUnitScales().size() <= 1)
+			return;
 		String context = getContext(unitType);
 		String typeName = NamesManipulator.getName(unitType);
 		TestSuite testSuite = getTestSuite(schema, typeName, context);

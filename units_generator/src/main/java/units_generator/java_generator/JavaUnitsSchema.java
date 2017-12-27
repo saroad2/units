@@ -32,8 +32,10 @@ public class JavaUnitsSchema extends AbstractUnitsSchema {
 			String unitTypeName = NamesManipulator.getName(unitType);
 			TestSuite testSuite = schema.getTests().getTestSuites().stream()
 					.filter((someTestSuite) -> someTestSuite.getUnitType().equals(unitTypeName))
-					.collect(Collectors.toList()).get(0);
-			testSuites.add(new JavaTestSuite(testSuite));
+					.findFirst()
+					.orElse(null);
+			if (testSuite != null)
+				testSuites.add(new JavaTestSuite(testSuite));
 		}
 		constantsGroups = new ArrayList<>();
 		for (ConstantsGroup group : schema.getConstants().getConstantsGroups())

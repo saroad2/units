@@ -337,11 +337,53 @@ TEST_F(TestSpeedUnitsPrintings, print_knots)
 
 // ============================================================
 
-#define TEST_SPEED_USER_DEFINE_LITERALS(Name, name) \
-		TEST_USER_DEFINES_LITERALS(Speed, Name, name);
+TEST(TestSpeedUserDefinedLiterals, test_feet_per_second_int_user_defined_literal)
+{
+	EXPECT_EQ(FeetPerSecond{5}, 5_feet_per_second);
+}
 
-TEST_SPEED_USER_DEFINE_LITERALS(FeetPerSecond, feet_per_second);
-TEST_SPEED_USER_DEFINE_LITERALS(YardsPerSecond, yards_per_second);
-TEST_SPEED_USER_DEFINE_LITERALS(MetersPerSecond, meters_per_second);
-TEST_SPEED_USER_DEFINE_LITERALS(KilometersPerHour, kilometers_per_hour);
-TEST_SPEED_USER_DEFINE_LITERALS(Knots, knots);
+TEST(TestSpeedUserDefinedLiterals, test_feet_per_second_double_user_defined_literal)
+{
+	EXPECT_EQ(FeetPerSecond{5.123}, 5.123_feet_per_second);
+}
+
+TEST(TestSpeedUserDefinedLiterals, test_yards_per_second_int_user_defined_literal)
+{
+	EXPECT_EQ(YardsPerSecond{5}, 5_yards_per_second);
+}
+
+TEST(TestSpeedUserDefinedLiterals, test_yards_per_second_double_user_defined_literal)
+{
+	EXPECT_EQ(YardsPerSecond{5.123}, 5.123_yards_per_second);
+}
+
+TEST(TestSpeedUserDefinedLiterals, test_meters_per_second_int_user_defined_literal)
+{
+	EXPECT_EQ(MetersPerSecond{5}, 5_meters_per_second);
+}
+
+TEST(TestSpeedUserDefinedLiterals, test_meters_per_second_double_user_defined_literal)
+{
+	EXPECT_EQ(MetersPerSecond{5.123}, 5.123_meters_per_second);
+}
+
+TEST(TestSpeedUserDefinedLiterals, test_kilometers_per_hour_int_user_defined_literal)
+{
+	EXPECT_EQ(KilometersPerHour{5}, 5_kilometers_per_hour);
+}
+
+TEST(TestSpeedUserDefinedLiterals, test_kilometers_per_hour_double_user_defined_literal)
+{
+	EXPECT_EQ(KilometersPerHour{5.123}, 5.123_kilometers_per_hour);
+}
+
+TEST(TestSpeedUserDefinedLiterals, test_knots_int_user_defined_literal)
+{
+	EXPECT_EQ(Knots{5}, 5_knots);
+}
+
+TEST(TestSpeedUserDefinedLiterals, test_knots_double_user_defined_literal)
+{
+	EXPECT_EQ(Knots{5.123}, 5.123_knots);
+}
+

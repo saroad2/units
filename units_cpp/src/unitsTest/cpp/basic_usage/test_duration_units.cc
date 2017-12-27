@@ -345,13 +345,73 @@ TEST_F(TestDurationUnitsPrintings, print_milliseconds)
 
 // ============================================================
 
-#define TEST_DURATION_USER_DEFINE_LITERALS(Name, name) \
-		TEST_USER_DEFINES_LITERALS(Duration, Name, name);
+TEST(TestDurationUserDefinedLiterals, test_seconds_int_user_defined_literal)
+{
+	EXPECT_EQ(Seconds{5}, 5_seconds);
+}
 
-TEST_DURATION_USER_DEFINE_LITERALS(Seconds, seconds);
-TEST_DURATION_USER_DEFINE_LITERALS(Minutes, minutes);
-TEST_DURATION_USER_DEFINE_LITERALS(Hours, hours);
-TEST_DURATION_USER_DEFINE_LITERALS(Days, days);
-TEST_DURATION_USER_DEFINE_LITERALS(Years, years);
-TEST_DURATION_USER_DEFINE_LITERALS(Microseconds, microseconds);
-TEST_DURATION_USER_DEFINE_LITERALS(Milliseconds, milliseconds);
+TEST(TestDurationUserDefinedLiterals, test_seconds_double_user_defined_literal)
+{
+	EXPECT_EQ(Seconds{5.123}, 5.123_seconds);
+}
+
+TEST(TestDurationUserDefinedLiterals, test_minutes_int_user_defined_literal)
+{
+	EXPECT_EQ(Minutes{5}, 5_minutes);
+}
+
+TEST(TestDurationUserDefinedLiterals, test_minutes_double_user_defined_literal)
+{
+	EXPECT_EQ(Minutes{5.123}, 5.123_minutes);
+}
+
+TEST(TestDurationUserDefinedLiterals, test_hours_int_user_defined_literal)
+{
+	EXPECT_EQ(Hours{5}, 5_hours);
+}
+
+TEST(TestDurationUserDefinedLiterals, test_hours_double_user_defined_literal)
+{
+	EXPECT_EQ(Hours{5.123}, 5.123_hours);
+}
+
+TEST(TestDurationUserDefinedLiterals, test_days_int_user_defined_literal)
+{
+	EXPECT_EQ(Days{5}, 5_days);
+}
+
+TEST(TestDurationUserDefinedLiterals, test_days_double_user_defined_literal)
+{
+	EXPECT_EQ(Days{5.123}, 5.123_days);
+}
+
+TEST(TestDurationUserDefinedLiterals, test_years_int_user_defined_literal)
+{
+	EXPECT_EQ(Years{5}, 5_years);
+}
+
+TEST(TestDurationUserDefinedLiterals, test_years_double_user_defined_literal)
+{
+	EXPECT_EQ(Years{5.123}, 5.123_years);
+}
+
+TEST(TestDurationUserDefinedLiterals, test_microseconds_int_user_defined_literal)
+{
+	EXPECT_EQ(Microseconds{5}, 5_microseconds);
+}
+
+TEST(TestDurationUserDefinedLiterals, test_microseconds_double_user_defined_literal)
+{
+	EXPECT_EQ(Microseconds{5.123}, 5.123_microseconds);
+}
+
+TEST(TestDurationUserDefinedLiterals, test_milliseconds_int_user_defined_literal)
+{
+	EXPECT_EQ(Milliseconds{5}, 5_milliseconds);
+}
+
+TEST(TestDurationUserDefinedLiterals, test_milliseconds_double_user_defined_literal)
+{
+	EXPECT_EQ(Milliseconds{5.123}, 5.123_milliseconds);
+}
+

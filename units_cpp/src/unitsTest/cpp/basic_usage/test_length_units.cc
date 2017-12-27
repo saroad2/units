@@ -365,18 +365,123 @@ TEST_F(TestLengthUnitsPrintings, print_kilometers)
 
 // ============================================================
 
-#define TEST_LENGTH_USER_DEFINE_LITERALS(Name, name) \
-		TEST_USER_DEFINES_LITERALS(Length, Name, name);
+TEST(TestLengthUserDefinedLiterals, test_meters_int_user_defined_literal)
+{
+	EXPECT_EQ(Meters{5}, 5_meters);
+}
 
-TEST_LENGTH_USER_DEFINE_LITERALS(Meters, meters);
-TEST_LENGTH_USER_DEFINE_LITERALS(Inches, inches);
-TEST_LENGTH_USER_DEFINE_LITERALS(Feet, feet);
-TEST_LENGTH_USER_DEFINE_LITERALS(Yards, yards);
-TEST_LENGTH_USER_DEFINE_LITERALS(StatuteMiles, statute_miles);
-TEST_LENGTH_USER_DEFINE_LITERALS(NauticalMiles, nautical_miles);
-TEST_LENGTH_USER_DEFINE_LITERALS(GeographicalMiles, geographical_miles);
-TEST_LENGTH_USER_DEFINE_LITERALS(DegreesOfLatitude, degrees_of_latitude);
-TEST_LENGTH_USER_DEFINE_LITERALS(Micrometers, micrometers);
-TEST_LENGTH_USER_DEFINE_LITERALS(Millimeters, millimeters);
-TEST_LENGTH_USER_DEFINE_LITERALS(Centimeters, centimeters);
-TEST_LENGTH_USER_DEFINE_LITERALS(Kilometers, kilometers);
+TEST(TestLengthUserDefinedLiterals, test_meters_double_user_defined_literal)
+{
+	EXPECT_EQ(Meters{5.123}, 5.123_meters);
+}
+
+TEST(TestLengthUserDefinedLiterals, test_inches_int_user_defined_literal)
+{
+	EXPECT_EQ(Inches{5}, 5_inches);
+}
+
+TEST(TestLengthUserDefinedLiterals, test_inches_double_user_defined_literal)
+{
+	EXPECT_EQ(Inches{5.123}, 5.123_inches);
+}
+
+TEST(TestLengthUserDefinedLiterals, test_feet_int_user_defined_literal)
+{
+	EXPECT_EQ(Feet{5}, 5_feet);
+}
+
+TEST(TestLengthUserDefinedLiterals, test_feet_double_user_defined_literal)
+{
+	EXPECT_EQ(Feet{5.123}, 5.123_feet);
+}
+
+TEST(TestLengthUserDefinedLiterals, test_yards_int_user_defined_literal)
+{
+	EXPECT_EQ(Yards{5}, 5_yards);
+}
+
+TEST(TestLengthUserDefinedLiterals, test_yards_double_user_defined_literal)
+{
+	EXPECT_EQ(Yards{5.123}, 5.123_yards);
+}
+
+TEST(TestLengthUserDefinedLiterals, test_statute_miles_int_user_defined_literal)
+{
+	EXPECT_EQ(StatuteMiles{5}, 5_statute_miles);
+}
+
+TEST(TestLengthUserDefinedLiterals, test_statute_miles_double_user_defined_literal)
+{
+	EXPECT_EQ(StatuteMiles{5.123}, 5.123_statute_miles);
+}
+
+TEST(TestLengthUserDefinedLiterals, test_nautical_miles_int_user_defined_literal)
+{
+	EXPECT_EQ(NauticalMiles{5}, 5_nautical_miles);
+}
+
+TEST(TestLengthUserDefinedLiterals, test_nautical_miles_double_user_defined_literal)
+{
+	EXPECT_EQ(NauticalMiles{5.123}, 5.123_nautical_miles);
+}
+
+TEST(TestLengthUserDefinedLiterals, test_geographical_miles_int_user_defined_literal)
+{
+	EXPECT_EQ(GeographicalMiles{5}, 5_geographical_miles);
+}
+
+TEST(TestLengthUserDefinedLiterals, test_geographical_miles_double_user_defined_literal)
+{
+	EXPECT_EQ(GeographicalMiles{5.123}, 5.123_geographical_miles);
+}
+
+TEST(TestLengthUserDefinedLiterals, test_degrees_of_latitude_int_user_defined_literal)
+{
+	EXPECT_EQ(DegreesOfLatitude{5}, 5_degrees_of_latitude);
+}
+
+TEST(TestLengthUserDefinedLiterals, test_degrees_of_latitude_double_user_defined_literal)
+{
+	EXPECT_EQ(DegreesOfLatitude{5.123}, 5.123_degrees_of_latitude);
+}
+
+TEST(TestLengthUserDefinedLiterals, test_micrometers_int_user_defined_literal)
+{
+	EXPECT_EQ(Micrometers{5}, 5_micrometers);
+}
+
+TEST(TestLengthUserDefinedLiterals, test_micrometers_double_user_defined_literal)
+{
+	EXPECT_EQ(Micrometers{5.123}, 5.123_micrometers);
+}
+
+TEST(TestLengthUserDefinedLiterals, test_millimeters_int_user_defined_literal)
+{
+	EXPECT_EQ(Millimeters{5}, 5_millimeters);
+}
+
+TEST(TestLengthUserDefinedLiterals, test_millimeters_double_user_defined_literal)
+{
+	EXPECT_EQ(Millimeters{5.123}, 5.123_millimeters);
+}
+
+TEST(TestLengthUserDefinedLiterals, test_centimeters_int_user_defined_literal)
+{
+	EXPECT_EQ(Centimeters{5}, 5_centimeters);
+}
+
+TEST(TestLengthUserDefinedLiterals, test_centimeters_double_user_defined_literal)
+{
+	EXPECT_EQ(Centimeters{5.123}, 5.123_centimeters);
+}
+
+TEST(TestLengthUserDefinedLiterals, test_kilometers_int_user_defined_literal)
+{
+	EXPECT_EQ(Kilometers{5}, 5_kilometers);
+}
+
+TEST(TestLengthUserDefinedLiterals, test_kilometers_double_user_defined_literal)
+{
+	EXPECT_EQ(Kilometers{5.123}, 5.123_kilometers);
+}
+

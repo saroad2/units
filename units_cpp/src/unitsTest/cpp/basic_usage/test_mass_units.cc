@@ -341,12 +341,63 @@ TEST_F(TestMassUnitsPrintings, print_solar_masses)
 
 // ============================================================
 
-#define TEST_MASS_USER_DEFINE_LITERALS(Name, name) \
-		TEST_USER_DEFINES_LITERALS(Mass, Name, name);
+TEST(TestMassUserDefinedLiterals, test_grams_int_user_defined_literal)
+{
+	EXPECT_EQ(Grams{5}, 5_grams);
+}
 
-TEST_MASS_USER_DEFINE_LITERALS(Grams, grams);
-TEST_MASS_USER_DEFINE_LITERALS(Pounds, pounds);
-TEST_MASS_USER_DEFINE_LITERALS(Milligrams, milligrams);
-TEST_MASS_USER_DEFINE_LITERALS(Kilograms, kilograms);
-TEST_MASS_USER_DEFINE_LITERALS(Tonnes, tonnes);
-TEST_MASS_USER_DEFINE_LITERALS(SolarMasses, solar_masses);
+TEST(TestMassUserDefinedLiterals, test_grams_double_user_defined_literal)
+{
+	EXPECT_EQ(Grams{5.123}, 5.123_grams);
+}
+
+TEST(TestMassUserDefinedLiterals, test_pounds_int_user_defined_literal)
+{
+	EXPECT_EQ(Pounds{5}, 5_pounds);
+}
+
+TEST(TestMassUserDefinedLiterals, test_pounds_double_user_defined_literal)
+{
+	EXPECT_EQ(Pounds{5.123}, 5.123_pounds);
+}
+
+TEST(TestMassUserDefinedLiterals, test_milligrams_int_user_defined_literal)
+{
+	EXPECT_EQ(Milligrams{5}, 5_milligrams);
+}
+
+TEST(TestMassUserDefinedLiterals, test_milligrams_double_user_defined_literal)
+{
+	EXPECT_EQ(Milligrams{5.123}, 5.123_milligrams);
+}
+
+TEST(TestMassUserDefinedLiterals, test_kilograms_int_user_defined_literal)
+{
+	EXPECT_EQ(Kilograms{5}, 5_kilograms);
+}
+
+TEST(TestMassUserDefinedLiterals, test_kilograms_double_user_defined_literal)
+{
+	EXPECT_EQ(Kilograms{5.123}, 5.123_kilograms);
+}
+
+TEST(TestMassUserDefinedLiterals, test_tonnes_int_user_defined_literal)
+{
+	EXPECT_EQ(Tonnes{5}, 5_tonnes);
+}
+
+TEST(TestMassUserDefinedLiterals, test_tonnes_double_user_defined_literal)
+{
+	EXPECT_EQ(Tonnes{5.123}, 5.123_tonnes);
+}
+
+TEST(TestMassUserDefinedLiterals, test_solar_masses_int_user_defined_literal)
+{
+	EXPECT_EQ(SolarMasses{5}, 5_solar_masses);
+}
+
+TEST(TestMassUserDefinedLiterals, test_solar_masses_double_user_defined_literal)
+{
+	EXPECT_EQ(SolarMasses{5.123}, 5.123_solar_masses);
+}
+

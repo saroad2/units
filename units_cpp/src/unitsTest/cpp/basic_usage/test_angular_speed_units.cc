@@ -329,9 +329,33 @@ TEST_F(TestAngularSpeedUnitsPrintings, print_mils_per_second)
 
 // ============================================================
 
-#define TEST_ANGULAR_SPEED_USER_DEFINE_LITERALS(Name, name) \
-		TEST_USER_DEFINES_LITERALS(AngularSpeed, Name, name);
+TEST(TestAngularSpeedUserDefinedLiterals, test_degrees_per_second_int_user_defined_literal)
+{
+	EXPECT_EQ(DegreesPerSecond{5}, 5_degrees_per_second);
+}
 
-TEST_ANGULAR_SPEED_USER_DEFINE_LITERALS(DegreesPerSecond, degrees_per_second);
-TEST_ANGULAR_SPEED_USER_DEFINE_LITERALS(RadiansPerSecond, radians_per_second);
-TEST_ANGULAR_SPEED_USER_DEFINE_LITERALS(MilsPerSecond, mils_per_second);
+TEST(TestAngularSpeedUserDefinedLiterals, test_degrees_per_second_double_user_defined_literal)
+{
+	EXPECT_EQ(DegreesPerSecond{5.123}, 5.123_degrees_per_second);
+}
+
+TEST(TestAngularSpeedUserDefinedLiterals, test_radians_per_second_int_user_defined_literal)
+{
+	EXPECT_EQ(RadiansPerSecond{5}, 5_radians_per_second);
+}
+
+TEST(TestAngularSpeedUserDefinedLiterals, test_radians_per_second_double_user_defined_literal)
+{
+	EXPECT_EQ(RadiansPerSecond{5.123}, 5.123_radians_per_second);
+}
+
+TEST(TestAngularSpeedUserDefinedLiterals, test_mils_per_second_int_user_defined_literal)
+{
+	EXPECT_EQ(MilsPerSecond{5}, 5_mils_per_second);
+}
+
+TEST(TestAngularSpeedUserDefinedLiterals, test_mils_per_second_double_user_defined_literal)
+{
+	EXPECT_EQ(MilsPerSecond{5.123}, 5.123_mils_per_second);
+}
+

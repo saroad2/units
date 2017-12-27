@@ -341,12 +341,63 @@ TEST_F(TestVolumeUnitsPrintings, print_milliliters)
 
 // ============================================================
 
-#define TEST_VOLUME_USER_DEFINE_LITERALS(Name, name) \
-		TEST_USER_DEFINES_LITERALS(Volume, Name, name);
+TEST(TestVolumeUserDefinedLiterals, test_cubic_feet_int_user_defined_literal)
+{
+	EXPECT_EQ(CubicFeet{5}, 5_cubic_feet);
+}
 
-TEST_VOLUME_USER_DEFINE_LITERALS(CubicFeet, cubic_feet);
-TEST_VOLUME_USER_DEFINE_LITERALS(CubicYards, cubic_yards);
-TEST_VOLUME_USER_DEFINE_LITERALS(CubicMeters, cubic_meters);
-TEST_VOLUME_USER_DEFINE_LITERALS(CubicKilometers, cubic_kilometers);
-TEST_VOLUME_USER_DEFINE_LITERALS(Liters, liters);
-TEST_VOLUME_USER_DEFINE_LITERALS(Milliliters, milliliters);
+TEST(TestVolumeUserDefinedLiterals, test_cubic_feet_double_user_defined_literal)
+{
+	EXPECT_EQ(CubicFeet{5.123}, 5.123_cubic_feet);
+}
+
+TEST(TestVolumeUserDefinedLiterals, test_cubic_yards_int_user_defined_literal)
+{
+	EXPECT_EQ(CubicYards{5}, 5_cubic_yards);
+}
+
+TEST(TestVolumeUserDefinedLiterals, test_cubic_yards_double_user_defined_literal)
+{
+	EXPECT_EQ(CubicYards{5.123}, 5.123_cubic_yards);
+}
+
+TEST(TestVolumeUserDefinedLiterals, test_cubic_meters_int_user_defined_literal)
+{
+	EXPECT_EQ(CubicMeters{5}, 5_cubic_meters);
+}
+
+TEST(TestVolumeUserDefinedLiterals, test_cubic_meters_double_user_defined_literal)
+{
+	EXPECT_EQ(CubicMeters{5.123}, 5.123_cubic_meters);
+}
+
+TEST(TestVolumeUserDefinedLiterals, test_cubic_kilometers_int_user_defined_literal)
+{
+	EXPECT_EQ(CubicKilometers{5}, 5_cubic_kilometers);
+}
+
+TEST(TestVolumeUserDefinedLiterals, test_cubic_kilometers_double_user_defined_literal)
+{
+	EXPECT_EQ(CubicKilometers{5.123}, 5.123_cubic_kilometers);
+}
+
+TEST(TestVolumeUserDefinedLiterals, test_liters_int_user_defined_literal)
+{
+	EXPECT_EQ(Liters{5}, 5_liters);
+}
+
+TEST(TestVolumeUserDefinedLiterals, test_liters_double_user_defined_literal)
+{
+	EXPECT_EQ(Liters{5.123}, 5.123_liters);
+}
+
+TEST(TestVolumeUserDefinedLiterals, test_milliliters_int_user_defined_literal)
+{
+	EXPECT_EQ(Milliliters{5}, 5_milliliters);
+}
+
+TEST(TestVolumeUserDefinedLiterals, test_milliliters_double_user_defined_literal)
+{
+	EXPECT_EQ(Milliliters{5.123}, 5.123_milliliters);
+}
+

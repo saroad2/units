@@ -329,9 +329,33 @@ TEST_F(TestFrequencyUnitsPrintings, print_megahertz)
 
 // ============================================================
 
-#define TEST_FREQUENCY_USER_DEFINE_LITERALS(Name, name) \
-		TEST_USER_DEFINES_LITERALS(Frequency, Name, name);
+TEST(TestFrequencyUserDefinedLiterals, test_hertz_int_user_defined_literal)
+{
+	EXPECT_EQ(Hertz{5}, 5_hertz);
+}
 
-TEST_FREQUENCY_USER_DEFINE_LITERALS(Hertz, hertz);
-TEST_FREQUENCY_USER_DEFINE_LITERALS(Kilohertz, kilohertz);
-TEST_FREQUENCY_USER_DEFINE_LITERALS(Megahertz, megahertz);
+TEST(TestFrequencyUserDefinedLiterals, test_hertz_double_user_defined_literal)
+{
+	EXPECT_EQ(Hertz{5.123}, 5.123_hertz);
+}
+
+TEST(TestFrequencyUserDefinedLiterals, test_kilohertz_int_user_defined_literal)
+{
+	EXPECT_EQ(Kilohertz{5}, 5_kilohertz);
+}
+
+TEST(TestFrequencyUserDefinedLiterals, test_kilohertz_double_user_defined_literal)
+{
+	EXPECT_EQ(Kilohertz{5.123}, 5.123_kilohertz);
+}
+
+TEST(TestFrequencyUserDefinedLiterals, test_megahertz_int_user_defined_literal)
+{
+	EXPECT_EQ(Megahertz{5}, 5_megahertz);
+}
+
+TEST(TestFrequencyUserDefinedLiterals, test_megahertz_double_user_defined_literal)
+{
+	EXPECT_EQ(Megahertz{5.123}, 5.123_megahertz);
+}
+

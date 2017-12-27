@@ -325,8 +325,23 @@ TEST_F(TestDensityUnitsPrintings, print_kilograms_per_liter)
 
 // ============================================================
 
-#define TEST_DENSITY_USER_DEFINE_LITERALS(Name, name) \
-		TEST_USER_DEFINES_LITERALS(Density, Name, name);
+TEST(TestDensityUserDefinedLiterals, test_kilograms_per_cubic_meter_int_user_defined_literal)
+{
+	EXPECT_EQ(KilogramsPerCubicMeter{5}, 5_kilograms_per_cubic_meter);
+}
 
-TEST_DENSITY_USER_DEFINE_LITERALS(KilogramsPerCubicMeter, kilograms_per_cubic_meter);
-TEST_DENSITY_USER_DEFINE_LITERALS(KilogramsPerLiter, kilograms_per_liter);
+TEST(TestDensityUserDefinedLiterals, test_kilograms_per_cubic_meter_double_user_defined_literal)
+{
+	EXPECT_EQ(KilogramsPerCubicMeter{5.123}, 5.123_kilograms_per_cubic_meter);
+}
+
+TEST(TestDensityUserDefinedLiterals, test_kilograms_per_liter_int_user_defined_literal)
+{
+	EXPECT_EQ(KilogramsPerLiter{5}, 5_kilograms_per_liter);
+}
+
+TEST(TestDensityUserDefinedLiterals, test_kilograms_per_liter_double_user_defined_literal)
+{
+	EXPECT_EQ(KilogramsPerLiter{5.123}, 5.123_kilograms_per_liter);
+}
+

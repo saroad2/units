@@ -321,7 +321,13 @@ TEST_F(TestElectricChargeUnitsPrintings, print_coulombs)
 
 // ============================================================
 
-#define TEST_ELECTRIC_CHARGE_USER_DEFINE_LITERALS(Name, name) \
-		TEST_USER_DEFINES_LITERALS(ElectricCharge, Name, name);
+TEST(TestElectricChargeUserDefinedLiterals, test_coulombs_int_user_defined_literal)
+{
+	EXPECT_EQ(Coulombs{5}, 5_coulombs);
+}
 
-TEST_ELECTRIC_CHARGE_USER_DEFINE_LITERALS(Coulombs, coulombs);
+TEST(TestElectricChargeUserDefinedLiterals, test_coulombs_double_user_defined_literal)
+{
+	EXPECT_EQ(Coulombs{5.123}, 5.123_coulombs);
+}
+

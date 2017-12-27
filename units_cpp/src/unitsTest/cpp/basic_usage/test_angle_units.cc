@@ -329,9 +329,33 @@ TEST_F(TestAngleUnitsPrintings, print_radians)
 
 // ============================================================
 
-#define TEST_ANGLE_USER_DEFINE_LITERALS(Name, name) \
-		TEST_USER_DEFINES_LITERALS(Angle, Name, name);
+TEST(TestAngleUserDefinedLiterals, test_degrees_int_user_defined_literal)
+{
+	EXPECT_EQ(Degrees{5}, 5_degrees);
+}
 
-TEST_ANGLE_USER_DEFINE_LITERALS(Degrees, degrees);
-TEST_ANGLE_USER_DEFINE_LITERALS(Mils, mils);
-TEST_ANGLE_USER_DEFINE_LITERALS(Radians, radians);
+TEST(TestAngleUserDefinedLiterals, test_degrees_double_user_defined_literal)
+{
+	EXPECT_EQ(Degrees{5.123}, 5.123_degrees);
+}
+
+TEST(TestAngleUserDefinedLiterals, test_mils_int_user_defined_literal)
+{
+	EXPECT_EQ(Mils{5}, 5_mils);
+}
+
+TEST(TestAngleUserDefinedLiterals, test_mils_double_user_defined_literal)
+{
+	EXPECT_EQ(Mils{5.123}, 5.123_mils);
+}
+
+TEST(TestAngleUserDefinedLiterals, test_radians_int_user_defined_literal)
+{
+	EXPECT_EQ(Radians{5}, 5_radians);
+}
+
+TEST(TestAngleUserDefinedLiterals, test_radians_double_user_defined_literal)
+{
+	EXPECT_EQ(Radians{5.123}, 5.123_radians);
+}
+

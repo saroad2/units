@@ -325,8 +325,23 @@ TEST_F(TestForceUnitsPrintings, print_dynes)
 
 // ============================================================
 
-#define TEST_FORCE_USER_DEFINE_LITERALS(Name, name) \
-		TEST_USER_DEFINES_LITERALS(Force, Name, name);
+TEST(TestForceUserDefinedLiterals, test_newtons_int_user_defined_literal)
+{
+	EXPECT_EQ(Newtons{5}, 5_newtons);
+}
 
-TEST_FORCE_USER_DEFINE_LITERALS(Newtons, newtons);
-TEST_FORCE_USER_DEFINE_LITERALS(Dynes, dynes);
+TEST(TestForceUserDefinedLiterals, test_newtons_double_user_defined_literal)
+{
+	EXPECT_EQ(Newtons{5.123}, 5.123_newtons);
+}
+
+TEST(TestForceUserDefinedLiterals, test_dynes_int_user_defined_literal)
+{
+	EXPECT_EQ(Dynes{5}, 5_dynes);
+}
+
+TEST(TestForceUserDefinedLiterals, test_dynes_double_user_defined_literal)
+{
+	EXPECT_EQ(Dynes{5.123}, 5.123_dynes);
+}
+

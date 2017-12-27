@@ -321,7 +321,13 @@ TEST_F(TestAccelerationUnitsPrintings, print_meters_per_square_second)
 
 // ============================================================
 
-#define TEST_ACCELERATION_USER_DEFINE_LITERALS(Name, name) \
-		TEST_USER_DEFINES_LITERALS(Acceleration, Name, name);
+TEST(TestAccelerationUserDefinedLiterals, test_meters_per_square_second_int_user_defined_literal)
+{
+	EXPECT_EQ(MetersPerSquareSecond{5}, 5_meters_per_square_second);
+}
 
-TEST_ACCELERATION_USER_DEFINE_LITERALS(MetersPerSquareSecond, meters_per_square_second);
+TEST(TestAccelerationUserDefinedLiterals, test_meters_per_square_second_double_user_defined_literal)
+{
+	EXPECT_EQ(MetersPerSquareSecond{5.123}, 5.123_meters_per_square_second);
+}
+

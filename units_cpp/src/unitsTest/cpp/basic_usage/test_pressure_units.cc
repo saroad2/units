@@ -321,7 +321,13 @@ TEST_F(TestPressureUnitsPrintings, print_pascals)
 
 // ============================================================
 
-#define TEST_PRESSURE_USER_DEFINE_LITERALS(Name, name) \
-		TEST_USER_DEFINES_LITERALS(Pressure, Name, name);
+TEST(TestPressureUserDefinedLiterals, test_pascals_int_user_defined_literal)
+{
+	EXPECT_EQ(Pascals{5}, 5_pascals);
+}
 
-TEST_PRESSURE_USER_DEFINE_LITERALS(Pascals, pascals);
+TEST(TestPressureUserDefinedLiterals, test_pascals_double_user_defined_literal)
+{
+	EXPECT_EQ(Pascals{5.123}, 5.123_pascals);
+}
+

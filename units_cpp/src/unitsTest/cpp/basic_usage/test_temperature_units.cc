@@ -325,8 +325,23 @@ TEST_F(TestTemperatureUnitsPrintings, print_rankines)
 
 // ============================================================
 
-#define TEST_TEMPERATURE_USER_DEFINE_LITERALS(Name, name) \
-		TEST_USER_DEFINES_LITERALS(Temperature, Name, name);
+TEST(TestTemperatureUserDefinedLiterals, test_kelvins_int_user_defined_literal)
+{
+	EXPECT_EQ(Kelvins{5}, 5_kelvins);
+}
 
-TEST_TEMPERATURE_USER_DEFINE_LITERALS(Kelvins, kelvins);
-TEST_TEMPERATURE_USER_DEFINE_LITERALS(Rankines, rankines);
+TEST(TestTemperatureUserDefinedLiterals, test_kelvins_double_user_defined_literal)
+{
+	EXPECT_EQ(Kelvins{5.123}, 5.123_kelvins);
+}
+
+TEST(TestTemperatureUserDefinedLiterals, test_rankines_int_user_defined_literal)
+{
+	EXPECT_EQ(Rankines{5}, 5_rankines);
+}
+
+TEST(TestTemperatureUserDefinedLiterals, test_rankines_double_user_defined_literal)
+{
+	EXPECT_EQ(Rankines{5.123}, 5.123_rankines);
+}
+

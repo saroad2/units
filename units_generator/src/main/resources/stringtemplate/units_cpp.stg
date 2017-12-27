@@ -419,11 +419,16 @@ TEST_F(Test<unitType.camelCaseName>UnitsPrintings, print_<scale.lowerUnderscoreN
 
 // ============================================================
 
-#define TEST_<unitType.upperCaseName>_USER_DEFINE_LITERALS(Name, name) \
-		TEST_USER_DEFINES_LITERALS(<unitType.camelCaseName>, Name, name);
+<unitType.unitScales:{scale |TEST(Test<unitType.camelCaseName>UserDefinedLiterals, test_<scale.userDefinedLiteral>_int_user_defined_literal)
+\{
+	EXPECT_EQ(<scale.className>{5}, 5_<scale.userDefinedLiteral>);
+\}
 
-<unitType.unitScales:{scale|
-TEST_<unitType.upperCaseName>_USER_DEFINE_LITERALS(<scale.className>, <scale.userDefinedLiteral>);
+TEST(Test<unitType.camelCaseName>UserDefinedLiterals, test_<scale.userDefinedLiteral>_double_user_defined_literal)
+\{
+	EXPECT_EQ(<scale.className>{5.123}, 5.123_<scale.userDefinedLiteral>);
+\}
+
 }>
 >>
 

@@ -337,11 +337,53 @@ TEST_F(TestEnergyUnitsPrintings, print_megajoules)
 
 // ============================================================
 
-#define TEST_ENERGY_USER_DEFINE_LITERALS(Name, name) \
-		TEST_USER_DEFINES_LITERALS(Energy, Name, name);
+TEST(TestEnergyUserDefinedLiterals, test_joules_int_user_defined_literal)
+{
+	EXPECT_EQ(Joules{5}, 5_joules);
+}
 
-TEST_ENERGY_USER_DEFINE_LITERALS(Joules, joules);
-TEST_ENERGY_USER_DEFINE_LITERALS(Calories, calories);
-TEST_ENERGY_USER_DEFINE_LITERALS(Kilocalories, kilocalories);
-TEST_ENERGY_USER_DEFINE_LITERALS(Kilojoules, kilojoules);
-TEST_ENERGY_USER_DEFINE_LITERALS(Megajoules, megajoules);
+TEST(TestEnergyUserDefinedLiterals, test_joules_double_user_defined_literal)
+{
+	EXPECT_EQ(Joules{5.123}, 5.123_joules);
+}
+
+TEST(TestEnergyUserDefinedLiterals, test_calories_int_user_defined_literal)
+{
+	EXPECT_EQ(Calories{5}, 5_calories);
+}
+
+TEST(TestEnergyUserDefinedLiterals, test_calories_double_user_defined_literal)
+{
+	EXPECT_EQ(Calories{5.123}, 5.123_calories);
+}
+
+TEST(TestEnergyUserDefinedLiterals, test_kilocalories_int_user_defined_literal)
+{
+	EXPECT_EQ(Kilocalories{5}, 5_kilocalories);
+}
+
+TEST(TestEnergyUserDefinedLiterals, test_kilocalories_double_user_defined_literal)
+{
+	EXPECT_EQ(Kilocalories{5.123}, 5.123_kilocalories);
+}
+
+TEST(TestEnergyUserDefinedLiterals, test_kilojoules_int_user_defined_literal)
+{
+	EXPECT_EQ(Kilojoules{5}, 5_kilojoules);
+}
+
+TEST(TestEnergyUserDefinedLiterals, test_kilojoules_double_user_defined_literal)
+{
+	EXPECT_EQ(Kilojoules{5.123}, 5.123_kilojoules);
+}
+
+TEST(TestEnergyUserDefinedLiterals, test_megajoules_int_user_defined_literal)
+{
+	EXPECT_EQ(Megajoules{5}, 5_megajoules);
+}
+
+TEST(TestEnergyUserDefinedLiterals, test_megajoules_double_user_defined_literal)
+{
+	EXPECT_EQ(Megajoules{5.123}, 5.123_megajoules);
+}
+

@@ -321,7 +321,13 @@ TEST_F(TestElectricCurrentUnitsPrintings, print_amperes)
 
 // ============================================================
 
-#define TEST_ELECTRIC_CURRENT_USER_DEFINE_LITERALS(Name, name) \
-		TEST_USER_DEFINES_LITERALS(ElectricCurrent, Name, name);
+TEST(TestElectricCurrentUserDefinedLiterals, test_amperes_int_user_defined_literal)
+{
+	EXPECT_EQ(Amperes{5}, 5_amperes);
+}
 
-TEST_ELECTRIC_CURRENT_USER_DEFINE_LITERALS(Amperes, amperes);
+TEST(TestElectricCurrentUserDefinedLiterals, test_amperes_double_user_defined_literal)
+{
+	EXPECT_EQ(Amperes{5.123}, 5.123_amperes);
+}
+

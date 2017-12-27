@@ -30,7 +30,7 @@ protected:
 	{
 		auto expected = Unit2{unit1InUnit2};
 		auto actual= units::units_cast<Unit2>(Unit1{1});
-		auto error = (actual.value() / expected.value() - 1) * 100;
+		auto error = (actual.scalarRatio(expected) - 1) * 100;
 		EXPECT_NEAR(error, 0, maxErrorPercent)
 			<< std::setprecision(30)
 			<< expected << " != " << actual.value()
@@ -55,13 +55,5 @@ protected:
 		EXPECT_EQ(printedValue + " " + expectedUnitName, stream.str());
 	}
 };
-
-#define TEST_USER_DEFINES_LITERALS(type, Name, name) \
-		TEST(Test##type##UserDefinedLiterals, name) \
-		{ \
-			EXPECT_EQ(Name{5}, 5_##name); \
-			EXPECT_EQ(Name{5.123}, 5.123_##name); \
-		}
-
 
 #endif /* UNIT_TESTS_CASES_H_ */

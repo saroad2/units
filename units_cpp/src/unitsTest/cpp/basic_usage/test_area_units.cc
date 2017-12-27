@@ -337,11 +337,53 @@ TEST_F(TestAreaUnitsPrintings, print_dunams)
 
 // ============================================================
 
-#define TEST_AREA_USER_DEFINE_LITERALS(Name, name) \
-		TEST_USER_DEFINES_LITERALS(Area, Name, name);
+TEST(TestAreaUserDefinedLiterals, test_square_feet_int_user_defined_literal)
+{
+	EXPECT_EQ(SquareFeet{5}, 5_square_feet);
+}
 
-TEST_AREA_USER_DEFINE_LITERALS(SquareFeet, square_feet);
-TEST_AREA_USER_DEFINE_LITERALS(SquareYards, square_yards);
-TEST_AREA_USER_DEFINE_LITERALS(SquareMeters, square_meters);
-TEST_AREA_USER_DEFINE_LITERALS(SquareKilometers, square_kilometers);
-TEST_AREA_USER_DEFINE_LITERALS(Dunams, dunams);
+TEST(TestAreaUserDefinedLiterals, test_square_feet_double_user_defined_literal)
+{
+	EXPECT_EQ(SquareFeet{5.123}, 5.123_square_feet);
+}
+
+TEST(TestAreaUserDefinedLiterals, test_square_yards_int_user_defined_literal)
+{
+	EXPECT_EQ(SquareYards{5}, 5_square_yards);
+}
+
+TEST(TestAreaUserDefinedLiterals, test_square_yards_double_user_defined_literal)
+{
+	EXPECT_EQ(SquareYards{5.123}, 5.123_square_yards);
+}
+
+TEST(TestAreaUserDefinedLiterals, test_square_meters_int_user_defined_literal)
+{
+	EXPECT_EQ(SquareMeters{5}, 5_square_meters);
+}
+
+TEST(TestAreaUserDefinedLiterals, test_square_meters_double_user_defined_literal)
+{
+	EXPECT_EQ(SquareMeters{5.123}, 5.123_square_meters);
+}
+
+TEST(TestAreaUserDefinedLiterals, test_square_kilometers_int_user_defined_literal)
+{
+	EXPECT_EQ(SquareKilometers{5}, 5_square_kilometers);
+}
+
+TEST(TestAreaUserDefinedLiterals, test_square_kilometers_double_user_defined_literal)
+{
+	EXPECT_EQ(SquareKilometers{5.123}, 5.123_square_kilometers);
+}
+
+TEST(TestAreaUserDefinedLiterals, test_dunams_int_user_defined_literal)
+{
+	EXPECT_EQ(Dunams{5}, 5_dunams);
+}
+
+TEST(TestAreaUserDefinedLiterals, test_dunams_double_user_defined_literal)
+{
+	EXPECT_EQ(Dunams{5.123}, 5.123_dunams);
+}
+

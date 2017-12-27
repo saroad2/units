@@ -1,6 +1,26 @@
 {
 	"definitions" : {
-	
+		"multiplyer" : {
+		  "type": "string",
+		  "enum": [
+		  	"atto",
+		  	"femto",
+		  	"pico",
+		  	"nano",
+		  	"micro",
+		  	"milli",
+		  	"centi",
+		  	"deci",
+		  	"deca",
+		  	"hecto",
+		  	"kilo",
+		  	"mega",
+		  	"giga",
+		  	"tera",
+		  	"peta",
+		  	"exa"]
+		}, 
+
 		"unit_scale" : {
 			"type" : "object",
 			"properties" : {
@@ -9,7 +29,7 @@
 					"default" : "false"
 				},
 				"multiplier_number" : { "type" : "number" },
-				"multiplier_string" : { "type" : "string" },
+				"multiplier_string" : { "$ref" : "#/definitions/multiplyer" },
 				"relative_to" : { "type" : "string" },
 				"ratio" : { "$ref" : "ratio.json" },
 				"name" : { "type" : "string" },

@@ -31,7 +31,7 @@ public class UnitScaleValidator {
 		boolean isRatio = unitScale.getRatio() != null;
 		boolean isStringMultiplier = 
 				NamesValidator.isValidName(unitScale.getRelativeTo()) &&
-				NamesValidator.isValidName(unitScale.getMultiplierString());
+				unitScale.getMultiplierString() != null;
 		boolean isNumberMultiplier = 
 				NamesValidator.isValidName(unitScale.getRelativeTo()) &&
 				unitScale.getMultiplierNumber() != null;

@@ -6,11 +6,10 @@
  * user guide available at https://docs.gradle.org/4.0.1/userguide/java_library_plugin.html
  */
 
-plugins {
-    id 'jvm-component'
-    id 'java-lang'
-    id 'junit-test-suite'
-}
+apply plugin: 'jvm-component'
+apply plugin: 'java-lang'
+apply plugin: 'junit-test-suite'
+apply plugin: 'eclipse'
 
 model {
     components {

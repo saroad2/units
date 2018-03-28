@@ -17,27 +17,27 @@ namespace duration
 
 constexpr Microseconds cast_from_chrono(const std::chrono::microseconds& microseconds)
 {
-	return Microseconds{microseconds.count()};
+	return Microseconds{(double)microseconds.count()};
 }
 
 constexpr Milliseconds cast_from_chrono(const std::chrono::milliseconds& milliseconds)
 {
-	return Milliseconds{milliseconds.count()};
+	return Milliseconds{(double)milliseconds.count()};
 }
 
 constexpr Seconds cast_from_chrono(const std::chrono::seconds& seconds)
 {
-	return Seconds{seconds.count()};
+	return Seconds{(double)seconds.count()};
 }
 
 constexpr Minutes cast_from_chrono(const std::chrono::minutes& minutes)
 {
-	return Minutes{minutes.count()};
+	return Minutes{(double)minutes.count()};
 }
 
 constexpr Hours cast_from_chrono(const std::chrono::hours& hours)
 {
-	return Hours{hours.count()};
+	return Hours{(double)hours.count()};
 }
 
 }
